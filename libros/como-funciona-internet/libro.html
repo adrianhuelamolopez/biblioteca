@@ -1,0 +1,1149 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>¿Cómo funciona internet?</title>
+<script type="application/json" id="metadatos">
+{
+  "id": "como-funciona-internet",
+  "titulo": "¿Cómo funciona internet?",
+  "subtitulo": "El viaje de un mensaje por la red de redes",
+  "tema": "Tecnología",
+  "etiquetas": [
+    "internet",
+    "ARPANET",
+    "TCP/IP",
+    "web",
+    "correo electrónico",
+    "DNS",
+    "fibra óptica",
+    "cables submarinos",
+    "criptografía",
+    "buscadores",
+    "RedIRIS",
+    "Tim Berners-Lee",
+    "Guerra Fría"
+  ],
+  "nivel": "Intermedio",
+  "minutos_lectura": 60,
+  "portada": "portada.svg",
+  "resumen": "Qué pasa de verdad cuando envías un mensaje o abres una página: de la Guerra Fría y el primer «LO» de 1969 a los paquetes, los routers, el DNS, la luz que viaja por cables en el fondo del mar y los candados que protegen tus secretos. La historia de la web, cómo ordena un buscador millones de páginas y cómo llegó internet a España. Con decenas de figuras, anécdotas y muchas curiosidades.",
+  "fecha": "2026-09-28"
+}
+</script>
+<style>
+  :root {
+    --papel: #fbf8f1; --tinta: #2a2622; --suave: #6b6259; --acento: #2e7d4f; --rojo: #b3261e; --oro: #9a7412; --caja: #edf5ef; --caja2: #f6efdc; --linea: #e3dccf;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --papel: #1c1b1a; --tinta: #ece6dc; --suave: #b3a998; --acento: #7fd1a0; --rojo: #ff8a80; --oro: #e2c46a; --caja: #1f2b24; --caja2: #2c2819; --linea: #3a3632; color-scheme: dark; }
+  }
+  :root[data-theme="dark"] { --papel: #1c1b1a; --tinta: #ece6dc; --suave: #b3a998; --acento: #7fd1a0; --rojo: #ff8a80; --oro: #e2c46a; --caja: #1f2b24; --caja2: #2c2819; --linea: #3a3632; color-scheme: dark; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--papel); color: var(--tinta); font: 19px/1.7 Georgia, "Times New Roman", serif; }
+  main { max-width: 680px; margin: 0 auto; padding: 32px 16px 80px; }
+  .portada { display: block; width: min(320px, 80%); margin: 8px auto 32px; border-radius: 6px; box-shadow: 0 10px 30px rgba(0,0,0,.25); }
+  h1 { font-size: 2.1em; line-height: 1.15; margin: 0 0 4px; text-align: center; text-wrap: balance; }
+  .sub { text-align: center; color: var(--suave); font-style: italic; margin: 0 0 40px; }
+  h2 { font-size: 1.4em; margin: 56px 0 8px; padding-top: 16px; border-top: 1px solid var(--linea); text-wrap: balance; }
+  h2 small { display: block; font-size: .6em; color: var(--acento); letter-spacing: .15em; text-transform: uppercase; font-weight: normal; }
+  h3 { font-size: 1.1em; margin: 32px 0 4px; }
+  figure { margin: 28px 0; text-align: center; }
+  figure svg { width: 100%; height: auto; max-width: 600px; }
+  figcaption { font-size: .8em; color: var(--suave); margin-top: 6px; }
+  .idea { background: var(--caja); border-left: 4px solid var(--acento); padding: 14px 18px; border-radius: 4px; margin: 24px 0; }
+  .idea b { color: var(--acento); }
+  .sabias { background: var(--caja2); padding: 12px 18px; border-radius: 6px; margin: 24px 0; font-size: .92em; }
+  .sabias > b:first-child { display: block; color: var(--oro); letter-spacing: .1em; text-transform: uppercase; font-size: .8em; }
+  .fondo { border: 1px solid var(--linea); padding: 12px 18px; border-radius: 6px; margin: 24px 0; font-size: .92em; }
+  .fondo > b:first-child { display: block; color: var(--rojo); letter-spacing: .1em; text-transform: uppercase; font-size: .8em; }
+  blockquote { margin: 20px 0; padding: 0 20px; font-style: italic; border-left: 3px solid var(--linea); color: var(--suave); }
+  ul, ol { padding-left: 1.2em; }
+  .indice { background: var(--caja); padding: 12px 20px; border-radius: 6px; font-size: .9em; }
+  .indice ol { margin: 6px 0; }
+  a { color: var(--acento); }
+  .fechas { font-size: .9em; }
+  .fechas dt { font-weight: bold; color: var(--acento); margin-top: 8px; }
+  .fechas dd { margin: 0 0 0 1em; }
+  .volver { display: inline-block; margin: 0 0 16px; font: 15px/1.4 system-ui, sans-serif; color: var(--acento); text-decoration: none; }
+  .volver:hover { text-decoration: underline; }
+</style>
+<meta name="description" content="Qué pasa de verdad cuando envías un mensaje o abres una página: de la Guerra Fría y el primer «LO» de 1969 a los paquetes, los routers, el DNS, la luz que viaja por cables en el fondo del mar y los candados que protegen tus secretos. La historia de la web, cómo ordena un buscador millones de páginas y cómo llegó internet a España. Con decenas de figuras, anécdotas y muchas curiosidades.">
+<meta name="theme-color" content="#fbf8f1" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1c1b1a" media="(prefers-color-scheme: dark)">
+<link rel="manifest" href="../../manifest.webmanifest">
+<link rel="icon" href="../../icono.svg" type="image/svg+xml">
+<link rel="icon" href="../../icono-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<meta name="apple-mobile-web-app-title" content="Biblioteca">
+</head>
+<body>
+<main>
+<a class="volver" href="../../index.html">← Biblioteca</a>
+
+<img class="portada" src="portada.svg" alt="Portada: ¿Cómo funciona internet?">
+<h1>¿Cómo funciona internet?</h1>
+<p class="sub">El viaje de un mensaje por la red de redes</p>
+
+<nav class="indice">
+  <b>En este libro</b>
+  <ol>
+    <li><a href="#c1">Internet no es la web</a></li>
+    <li><a href="#c2">Un pitido desde el espacio</a></li>
+    <li><a href="#c3">Cortar los mensajes en trocitos</a></li>
+    <li><a href="#c4">«LO»: nace la ARPANET</a></li>
+    <li><a href="#c5">Un idioma común: TCP/IP</a></li>
+    <li><a href="#c6">Direcciones y nombres</a></li>
+    <li><a href="#c7">El viaje de un paquete</a></li>
+    <li><a href="#c8">Cristal bajo el mar y ondas en el aire</a></li>
+    <li><a href="#c9">La web: «vago, pero emocionante»</a></li>
+    <li><a href="#c10">Qué pasa cuando pulsas Intro</a></li>
+    <li><a href="#c11">Candados, llaves y contraseñas</a></li>
+    <li><a href="#c12">Cómo encuentra un buscador lo que buscas</a></li>
+    <li><a href="#c13">España se conecta</a></li>
+    <li><a href="#c14">Internet hoy, lo que viene y resumen</a></li>
+  </ol>
+</nav>
+<h2 id="c1"><small>Capítulo 1</small>Internet no es la web</h2>
+<p>Coges el móvil, tocas un icono y en un segundo estás viendo un vídeo grabado en Japón, leyendo un periódico argentino o hablando con alguien que está en Canarias. Lo hacemos tantas veces al día que ya no nos parece asombroso. Pero piensa en lo que acaba de pasar: tu mensaje se ha convertido en pulsos de luz y ondas de radio, ha cruzado quizá un océano por un cable tendido en el fondo del mar, ha pasado por una docena de máquinas que no conoces y ha llegado a su destino, entero y en orden, en menos tiempo del que tardas en parpadear. Y lo mismo están haciendo, a la vez, miles de millones de personas.</p>
+<p>Este libro cuenta cómo es posible. Veremos de dónde salió la idea, quiénes la hicieron realidad, por dónde viajan de verdad tus mensajes, cómo se encuentra una página entre cientos de miles de millones y cómo se guarda un secreto cuando cualquiera puede escuchar. Pero antes hay que aclarar una confusión muy común.</p>
+<h3>Las carreteras y los vehículos</h3>
+<p>Mucha gente usa «internet» y «la web» como si fueran lo mismo. No lo son. <b>Internet</b> es la red física y las reglas que permiten que cualquier ordenador del mundo envíe datos a cualquier otro. Es una <b>red de redes</b>: la red de tu casa, la de tu compañía telefónica, la de tu instituto o universidad, la de una empresa, la de un país… Decenas de miles de redes independientes, cada una con su dueño, que han acordado conectarse entre sí y hablar el mismo idioma. Nadie es «el dueño de internet», y no existe un edificio central que lo controle todo.</p>
+<p>La <b>web</b>, en cambio, es solo uno de los servicios que funcionan <i>sobre</i> internet: el de las páginas con enlaces que se abren en un navegador. Se inventó en 1989, veinte años después de que naciera la red. El correo electrónico, las videollamadas, los mensajes del móvil, los juegos en línea o las plataformas de series también usan internet, y no todos son «la web».</p>
+<p>Una comparación ayuda. Internet sería la red de carreteras, con sus cruces, sus señales y sus normas de circulación. La web, el correo o el vídeo serían los distintos tipos de vehículos que circulan por ella: autobuses, camiones, motos. Todos usan las mismas carreteras y respetan las mismas normas básicas, pero cada uno lleva cosas distintas.</p>
+<figure>
+<svg viewBox="0 0 600 318" role="img" aria-label="Arriba, cinco servicios: la web, el correo, la mensajería, el vídeo y los juegos. Abajo, internet: varias redes independientes, como la de tu casa, las operadoras, una universidad, una red móvil y un centro de datos, unidas entre sí">
+  <text x="20" y="22" font-size="14" font-weight="bold" fill="currentColor">Servicios que usan internet (los vehículos)</text>
+  <g font-size="13" font-weight="bold" text-anchor="middle" fill="#ffffff">
+    <rect x="20" y="34" width="104" height="34" rx="17" fill="#b8860b" fill-opacity=".9"/><text x="72" y="56">La web</text>
+    <rect x="132" y="34" width="104" height="34" rx="17" fill="#3570c4" fill-opacity=".85"/><text x="184" y="56">Correo</text>
+    <rect x="244" y="34" width="104" height="34" rx="17" fill="#3570c4" fill-opacity=".85"/><text x="296" y="56">Mensajería</text>
+    <rect x="356" y="34" width="104" height="34" rx="17" fill="#3570c4" fill-opacity=".85"/><text x="408" y="56">Vídeo</text>
+    <rect x="468" y="34" width="104" height="34" rx="17" fill="#3570c4" fill-opacity=".85"/><text x="520" y="56">Juegos</text>
+  </g>
+  <g stroke="currentColor" stroke-opacity=".35" stroke-dasharray="3 4">
+    <line x1="72" y1="70" x2="72" y2="96"/><line x1="184" y1="70" x2="184" y2="96"/><line x1="296" y1="70" x2="296" y2="96"/><line x1="408" y1="70" x2="408" y2="96"/><line x1="520" y1="70" x2="520" y2="96"/>
+  </g>
+  <rect x="10" y="98" width="580" height="190" rx="14" fill="#1a8a80" fill-opacity=".07" stroke="#1a8a80" stroke-opacity=".5"/>
+  <g stroke="#1a8a80" stroke-opacity=".7" stroke-width="3">
+    <line x1="85" y1="205" x2="200" y2="160"/><line x1="200" y1="160" x2="330" y2="210"/><line x1="200" y1="160" x2="200" y2="245"/><line x1="200" y1="245" x2="330" y2="210"/><line x1="330" y1="210" x2="460" y2="150"/><line x1="330" y1="210" x2="515" y2="235"/><line x1="460" y1="150" x2="515" y2="235"/><line x1="200" y1="160" x2="460" y2="150"/>
+  </g>
+  <g style="fill:var(--papel,#fbf8f1)">
+    <circle cx="85" cy="205" r="38"/><circle cx="200" cy="160" r="42"/><circle cx="200" cy="245" r="34"/><circle cx="330" cy="210" r="42"/><circle cx="460" cy="150" r="42"/><circle cx="515" cy="235" r="40"/>
+  </g>
+  <g fill="#1a8a80" fill-opacity=".22" stroke="#1a8a80" stroke-width="1.5">
+    <circle cx="85" cy="205" r="38"/><circle cx="200" cy="160" r="42"/><circle cx="200" cy="245" r="34"/><circle cx="330" cy="210" r="42"/><circle cx="460" cy="150" r="42"/><circle cx="515" cy="235" r="40"/>
+  </g>
+  <g font-size="13" fill="currentColor" text-anchor="middle">
+    <text x="85" y="202">red de</text><text x="85" y="217">tu casa</text>
+    <text x="200" y="164">operadora</text>
+    <text x="200" y="242">centro</text><text x="200" y="257">de datos</text>
+    <text x="330" y="207">otra</text><text x="330" y="222">operadora</text>
+    <text x="460" y="154">universidad</text>
+    <text x="515" y="232">red</text><text x="515" y="247">móvil</text>
+  </g>
+  <text x="300" y="308" font-size="14" font-weight="bold" fill="currentColor" text-anchor="middle">Internet: miles de redes unidas entre sí (las carreteras)</text>
+</svg>
+<figcaption>Internet es la infraestructura; la web es solo uno de los servicios que viajan por ella, igual que el correo o las videollamadas.</figcaption>
+</figure>
+<h3>¿Cuánta gente está conectada?</h3>
+<p>Según la Unión Internacional de Telecomunicaciones (UIT), el organismo de la ONU que se ocupa de las comunicaciones, en 2025 usaban internet unos <b>6.000 millones de personas</b>, alrededor de tres de cada cuatro habitantes del planeta. En España, según el Instituto Nacional de Estadística, en 2025 lo había usado en los tres meses anteriores el 96,3 % de las personas de entre 16 y 74 años. Todavía quedan unos 2.200 millones de personas sin conexión, sobre todo en las zonas rurales de los países más pobres.</p>
+<div class="sabias"><b>¿Sabías que...?</b> La palabra <i>internet</i> viene de <i>internetworking</i>, «interconexión de redes», y se usó ya en 1974 en un documento técnico de Vint Cerf y sus compañeros. La Real Academia Española admite escribirla con minúscula, igual que la radio o la televisión, porque es un medio de comunicación y no un nombre propio. En este libro la escribiremos así.</div>
+<p>Para entender cómo funciona todo esto iremos paso a paso. Primero, la historia: una carrera espacial, un despacho con tres terminales y una idea que parecía disparatada, trocear los mensajes. Después, la máquina por dentro: direcciones, nombres, paquetes, cables y ondas. Y al final, lo que usamos cada día: la web, los buscadores y los candados que protegen nuestros secretos.</p>
+<div class="idea"><b>Idea clave:</b> internet es una red de redes, la infraestructura que conecta ordenadores de todo el mundo. La web es solo uno de los servicios que funcionan sobre ella, como el correo o las videollamadas.</div>
+
+<h2 id="c2"><small>Capítulo 2</small>Un pitido desde el espacio</h2>
+<p>La historia de internet empieza con un sonido: bip, bip, bip. El <b>4 de octubre de 1957</b>, la Unión Soviética lanzó el <b>Sputnik 1</b>, el primer satélite artificial. Era una esfera de metal de 58 centímetros con cuatro antenas, y lo único que hacía era emitir un pitido de radio que cualquier aficionado podía captar. Pero en Estados Unidos aquel pitido sonó como una alarma. Estaban en plena <b>Guerra Fría</b>, el largo enfrentamiento sin guerra abierta entre las dos superpotencias, y los soviéticos acababan de demostrar que iban por delante en tecnología. Un cohete capaz de poner un satélite en órbita también podía lanzar una bomba atómica al otro lado del mundo.</p>
+<p>La respuesta del presidente Dwight Eisenhower fue crear, en febrero de 1958, una agencia dedicada a financiar investigación puntera para que aquello no se repitiera: la <b>ARPA</b> (Agencia de Proyectos de Investigación Avanzados, del Departamento de Defensa). Unos meses después nació también la NASA, que se quedó con los cohetes. A la ARPA le quedaron otros campos, y uno de ellos iba a ser la informática.</p>
+<figure>
+<svg viewBox="0 0 600 594" role="img" aria-label="Línea del tiempo a escala de 1957 a 1969: el Sputnik, la creación de la ARPA, Licklider, Baran, Davies, Taylor, el congreso de Gatlinburg y el primer mensaje de la ARPANET">
+<line x1="70" y1="44" x2="70" y2="564" stroke="currentColor" stroke-opacity=".45" stroke-width="2"/>
+<line x1="64" y1="44" x2="70" y2="44" stroke="currentColor" stroke-opacity=".45"/>
+<text x="58" y="48.5" font-size="13" fill="currentColor" fill-opacity=".75" text-anchor="end">1957</text>
+<line x1="64" y1="84" x2="70" y2="84" stroke="currentColor" stroke-opacity=".45"/>
+<text x="58" y="88.5" font-size="13" fill="currentColor" fill-opacity=".75" text-anchor="end">1958</text>
+<line x1="64" y1="124" x2="70" y2="124" stroke="currentColor" stroke-opacity=".45"/>
+<text x="58" y="128.5" font-size="13" fill="currentColor" fill-opacity=".75" text-anchor="end">1959</text>
+<line x1="64" y1="164" x2="70" y2="164" stroke="currentColor" stroke-opacity=".45"/>
+<text x="58" y="168.5" font-size="13" fill="currentColor" fill-opacity=".75" text-anchor="end">1960</text>
+<line x1="64" y1="204" x2="70" y2="204" stroke="currentColor" stroke-opacity=".45"/>
+<text x="58" y="208.5" font-size="13" fill="currentColor" fill-opacity=".75" text-anchor="end">1961</text>
+<line x1="64" y1="244" x2="70" y2="244" stroke="currentColor" stroke-opacity=".45"/>
+<text x="58" y="248.5" font-size="13" fill="currentColor" fill-opacity=".75" text-anchor="end">1962</text>
+<line x1="64" y1="284" x2="70" y2="284" stroke="currentColor" stroke-opacity=".45"/>
+<text x="58" y="288.5" font-size="13" fill="currentColor" fill-opacity=".75" text-anchor="end">1963</text>
+<line x1="64" y1="324" x2="70" y2="324" stroke="currentColor" stroke-opacity=".45"/>
+<text x="58" y="328.5" font-size="13" fill="currentColor" fill-opacity=".75" text-anchor="end">1964</text>
+<line x1="64" y1="364" x2="70" y2="364" stroke="currentColor" stroke-opacity=".45"/>
+<text x="58" y="368.5" font-size="13" fill="currentColor" fill-opacity=".75" text-anchor="end">1965</text>
+<line x1="64" y1="404" x2="70" y2="404" stroke="currentColor" stroke-opacity=".45"/>
+<text x="58" y="408.5" font-size="13" fill="currentColor" fill-opacity=".75" text-anchor="end">1966</text>
+<line x1="64" y1="444" x2="70" y2="444" stroke="currentColor" stroke-opacity=".45"/>
+<text x="58" y="448.5" font-size="13" fill="currentColor" fill-opacity=".75" text-anchor="end">1967</text>
+<line x1="64" y1="484" x2="70" y2="484" stroke="currentColor" stroke-opacity=".45"/>
+<text x="58" y="488.5" font-size="13" fill="currentColor" fill-opacity=".75" text-anchor="end">1968</text>
+<line x1="64" y1="524" x2="70" y2="524" stroke="currentColor" stroke-opacity=".45"/>
+<text x="58" y="528.5" font-size="13" fill="currentColor" fill-opacity=".75" text-anchor="end">1969</text>
+<line x1="64" y1="564" x2="70" y2="564" stroke="currentColor" stroke-opacity=".45"/>
+<text x="58" y="568.5" font-size="13" fill="currentColor" fill-opacity=".75" text-anchor="end">1970</text>
+<path d="M70,74.4 L96,74.4 L114,57.2 L122,57.2" fill="none" stroke="#b3261e" stroke-opacity=".7" stroke-width="1.5"/>
+<circle cx="70" cy="74.4" r="6" fill="#d0402f"/>
+<text x="128" y="53.2" font-size="16" font-weight="bold" fill="currentColor">Octubre de 1957</text>
+<text x="128" y="73.2" font-size="16" fill="currentColor">La URSS lanza el Sputnik 1</text>
+<path d="M70,88.0 L96,88.0 L114,105.2 L122,105.2" fill="none" stroke="#3570c4" stroke-opacity=".7" stroke-width="1.5"/>
+<circle cx="70" cy="88.0" r="6" fill="#3570c4"/>
+<text x="128" y="101.2" font-size="16" font-weight="bold" fill="currentColor">Febrero de 1958</text>
+<text x="128" y="121.2" font-size="16" fill="currentColor">Estados Unidos crea la ARPA</text>
+<path d="M70,276.0 L96,276.0 L114,276.0 L122,276.0" fill="none" stroke="#3570c4" stroke-opacity=".7" stroke-width="1.5"/>
+<circle cx="70" cy="276.0" r="6" fill="#3570c4"/>
+<text x="128" y="272.0" font-size="16" font-weight="bold" fill="currentColor">1962</text>
+<text x="128" y="292.0" font-size="16" fill="currentColor">Licklider llega a la ARPA</text>
+<path d="M70,348.0 L96,348.0 L114,336.0 L122,336.0" fill="none" stroke="#b8860b" stroke-opacity=".7" stroke-width="1.5"/>
+<circle cx="70" cy="348.0" r="6" fill="#b8860b"/>
+<text x="128" y="332.0" font-size="16" font-weight="bold" fill="currentColor">1964</text>
+<text x="128" y="352.0" font-size="16" fill="currentColor">Baran: red distribuida y bloques</text>
+<path d="M70,398.0 L96,398.0 L114,384.0 L122,384.0" fill="none" stroke="#b8860b" stroke-opacity=".7" stroke-width="1.5"/>
+<circle cx="70" cy="398.0" r="6" fill="#b8860b"/>
+<text x="128" y="380.0" font-size="16" font-weight="bold" fill="currentColor">1965</text>
+<text x="128" y="400.0" font-size="16" fill="currentColor">Davies inventa el «paquete»</text>
+<path d="M70,410.0 L96,410.0 L114,432.0 L122,432.0" fill="none" stroke="#3570c4" stroke-opacity=".7" stroke-width="1.5"/>
+<circle cx="70" cy="410.0" r="6" fill="#3570c4"/>
+<text x="128" y="428.0" font-size="16" font-weight="bold" fill="currentColor">1966</text>
+<text x="128" y="448.0" font-size="16" fill="currentColor">Taylor consigue un millón de dólares</text>
+<path d="M70,476.0 L96,476.0 L114,480.0 L122,480.0" fill="none" stroke="#b8860b" stroke-opacity=".7" stroke-width="1.5"/>
+<circle cx="70" cy="476.0" r="6" fill="#b8860b"/>
+<text x="128" y="476.0" font-size="16" font-weight="bold" fill="currentColor">Octubre de 1967</text>
+<text x="128" y="496.0" font-size="16" fill="currentColor">Gatlinburg: la red usará paquetes</text>
+<path d="M70,557.2 L96,557.2 L114,557.2 L122,557.2" fill="none" stroke="#b3261e" stroke-opacity=".7" stroke-width="1.5"/>
+<circle cx="70" cy="557.2" r="6" fill="#d0402f"/>
+<text x="128" y="553.2" font-size="16" font-weight="bold" fill="currentColor">29 de octubre de 1969</text>
+<text x="128" y="573.2" font-size="16" fill="currentColor">Primer mensaje de la ARPANET: «LO»</text>
+</svg>
+<figcaption>De un pitido en el espacio a la primera red de paquetes: doce años en una línea del tiempo dibujada a escala.</figcaption>
+</figure>
+<h3>Ordenadores como catedrales</h3>
+<p>Los ordenadores de entonces no se parecían en nada a los de hoy. Ocupaban habitaciones enteras, costaban millones de dólares y había muy pocos. Cada universidad o centro de investigación tenía el suyo, con su propio sistema y su propio lenguaje, y no podían hablar entre sí. Un investigador que quisiera usar un programa que estaba en otro ordenador tenía que viajar hasta allí o volver a escribirlo todo.</p>
+<p>En 1962 llegó a la ARPA un psicólogo con alma de informático, <b>J. C. R. Licklider</b>, al que todos llamaban «Lick». Licklider soñaba con ordenadores que ayudaran a pensar a las personas, conectados entre sí para compartir datos y programas. En unas notas de 1963 dirigidas a sus colaboradores llamó a ese sueño, medio en broma, la «Red Informática Intergaláctica». No llegó a construirla, pero contagió la idea a quienes le sucedieron.</p>
+<h3>Tres terminales en un despacho</h3>
+<p>Uno de ellos fue <b>Bob Taylor</b>, que en 1966 dirigía la oficina de informática de la ARPA. En su despacho del Pentágono tenía tres <b>terminales</b> (un teclado con una pantalla o una impresora, conectado por línea telefónica a un ordenador lejano). Cada uno le comunicaba con un ordenador distinto, en Santa Mónica, en Berkeley y en el MIT, y cada uno exigía sus propias órdenes para hacer lo mismo. Según contó él mismo muchos años después, aquello le pareció absurdo: debería bastar un solo terminal para llegar a todos.</p>
+<p>Taylor fue a ver a su jefe, Charles Herzfeld, y le explicó la idea de una red que uniera los ordenadores que la ARPA financiaba en distintas universidades. Según el relato de ambos, en unos veinte minutos consiguió un millón de dólares para empezar. Para dirigir el proyecto contrató a un joven ingeniero del MIT, <b>Larry Roberts</b>. Faltaba decidir lo más importante: cómo iban a viajar los datos.</p>
+<div class="fondo"><b>Para entenderlo mejor: ¿se creó internet para sobrevivir a una guerra nuclear?</b> Es una de las historias más repetidas, y solo es verdad a medias. Como veremos en el capítulo siguiente, un ingeniero llamado Paul Baran sí diseñó redes capaces de aguantar un ataque nuclear, y sus ideas influyeron en la ARPANET. Pero Taylor, Roberts y otros protagonistas insistieron siempre en que su red no se construyó por motivos militares, sino para que los científicos compartieran ordenadores caros y trabajaran juntos a distancia. Eso sí, el dinero salía del Departamento de Defensa.</div>
+<div class="sabias"><b>¿Sabías que...?</b> El Sputnik 1 dejó de emitir a las tres semanas, cuando se agotaron sus baterías, y cayó a la Tierra, quemándose en la atmósfera, a principios de 1958. Duró muy poco, pero cambió la historia: además de la ARPA y la NASA, provocó en Estados Unidos una enorme inversión en la enseñanza de las ciencias y las matemáticas. Si te interesa cómo se mantiene un satélite en órbita, lo explicamos en <a href="../la-gravedad/libro.html">La gravedad</a>.</div>
+<div class="idea"><b>Idea clave:</b> el miedo que despertó el Sputnik en 1957 llevó a crear la ARPA. Allí, Licklider soñó con una red de ordenadores y Bob Taylor consiguió el dinero para construirla, sobre todo para compartir máquinas escasas y caras.</div>
+
+<h2 id="c3"><small>Capítulo 3</small>Cortar los mensajes en trocitos</h2>
+<p>En los años sesenta ya existía una red que llegaba a todas partes: la del teléfono. ¿Por qué no usarla sin más para conectar ordenadores? Para entender por qué hacía falta algo distinto, hay que ver cómo funcionaba una llamada.</p>
+<h3>El teléfono reserva un camino</h3>
+<p>Cuando llamabas a alguien, las centrales telefónicas (al principio, operadoras que enchufaban cables a mano; después, máquinas) iban uniendo tramos de línea hasta formar un camino continuo entre tu teléfono y el otro. Ese camino, llamado <b>circuito</b>, quedaba reservado solo para vosotros dos mientras durase la llamada, hablarais o estuvierais callados. Por eso se llama <b>conmutación de circuitos</b>. Para la voz funciona bien. Para los ordenadores, fatal: los ordenadores «hablan» a ráfagas, un montón de datos de golpe y luego largos silencios. Reservar una línea entera para eso es como alquilar una autopista para que pase un coche cada diez minutos.</p>
+<h3>La idea de Paul Baran</h3>
+<p>A principios de los años sesenta, <b>Paul Baran</b>, un ingeniero de la RAND Corporation (un centro de estudios que trabajaba para las fuerzas armadas estadounidenses), se hacía una pregunta inquietante: ¿cómo podría el ejército seguir comunicándose después de un ataque nuclear? La red telefónica tenía grandes centrales por las que pasaba todo; si se destruían unas pocas, el país quedaba incomunicado.</p>
+<p>Baran propuso dos ideas. La primera, una red <b>distribuida</b>: muchos nudos modestos, cada uno unido a varios vecinos, como una malla de pescador, sin ningún centro imprescindible. La segunda, más atrevida: partir cada mensaje en <b>bloques</b> pequeños que viajaran por separado, cada uno buscando su propio camino por la malla y saltando de nudo en nudo. Si una parte de la red desaparecía, los bloques simplemente la rodearían. Lo publicó en una serie de informes titulada <i>On Distributed Communications</i> («Sobre las comunicaciones distribuidas»), terminada en 1964.</p>
+<figure>
+<svg viewBox="0 0 600 262" role="img" aria-label="Los tres tipos de red que dibujó Paul Baran: centralizada, con un único centro; descentralizada, con varios centros; y distribuida, una malla sin ningún centro imprescindible">
+<line x1="100.0" y1="115.0" x2="178.0" y2="115.0" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<line x1="100.0" y1="115.0" x2="173.3" y2="141.7" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<line x1="100.0" y1="115.0" x2="159.8" y2="165.1" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<line x1="100.0" y1="115.0" x2="139.0" y2="182.5" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<line x1="100.0" y1="115.0" x2="113.5" y2="191.8" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<line x1="100.0" y1="115.0" x2="86.5" y2="191.8" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<line x1="100.0" y1="115.0" x2="61.0" y2="182.5" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<line x1="100.0" y1="115.0" x2="40.2" y2="165.1" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<line x1="100.0" y1="115.0" x2="26.7" y2="141.7" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<line x1="100.0" y1="115.0" x2="22.0" y2="115.0" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<line x1="100.0" y1="115.0" x2="26.7" y2="88.3" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<line x1="100.0" y1="115.0" x2="40.2" y2="64.9" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<line x1="100.0" y1="115.0" x2="61.0" y2="47.5" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<line x1="100.0" y1="115.0" x2="86.5" y2="38.2" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<line x1="100.0" y1="115.0" x2="113.5" y2="38.2" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<line x1="100.0" y1="115.0" x2="139.0" y2="47.5" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<line x1="100.0" y1="115.0" x2="159.8" y2="64.9" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<line x1="100.0" y1="115.0" x2="173.3" y2="88.3" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<circle cx="178.0" cy="115.0" r="4.5" fill="currentColor" fill-opacity=".75"/>
+<circle cx="173.3" cy="141.7" r="4.5" fill="currentColor" fill-opacity=".75"/>
+<circle cx="159.8" cy="165.1" r="4.5" fill="currentColor" fill-opacity=".75"/>
+<circle cx="139.0" cy="182.5" r="4.5" fill="currentColor" fill-opacity=".75"/>
+<circle cx="113.5" cy="191.8" r="4.5" fill="currentColor" fill-opacity=".75"/>
+<circle cx="86.5" cy="191.8" r="4.5" fill="currentColor" fill-opacity=".75"/>
+<circle cx="61.0" cy="182.5" r="4.5" fill="currentColor" fill-opacity=".75"/>
+<circle cx="40.2" cy="165.1" r="4.5" fill="currentColor" fill-opacity=".75"/>
+<circle cx="26.7" cy="141.7" r="4.5" fill="currentColor" fill-opacity=".75"/>
+<circle cx="22.0" cy="115.0" r="4.5" fill="currentColor" fill-opacity=".75"/>
+<circle cx="26.7" cy="88.3" r="4.5" fill="currentColor" fill-opacity=".75"/>
+<circle cx="40.2" cy="64.9" r="4.5" fill="currentColor" fill-opacity=".75"/>
+<circle cx="61.0" cy="47.5" r="4.5" fill="currentColor" fill-opacity=".75"/>
+<circle cx="86.5" cy="38.2" r="4.5" fill="currentColor" fill-opacity=".75"/>
+<circle cx="113.5" cy="38.2" r="4.5" fill="currentColor" fill-opacity=".75"/>
+<circle cx="139.0" cy="47.5" r="4.5" fill="currentColor" fill-opacity=".75"/>
+<circle cx="159.8" cy="64.9" r="4.5" fill="currentColor" fill-opacity=".75"/>
+<circle cx="173.3" cy="88.3" r="4.5" fill="currentColor" fill-opacity=".75"/>
+<circle cx="100.0" cy="115.0" r="9" fill="#d0402f" fill-opacity="1"/>
+<line x1="315.2" y1="75.9" x2="341.9" y2="117.4" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<line x1="315.2" y1="75.9" x2="306.0" y2="41.1" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<circle cx="306.0" cy="41.1" r="4.5" fill="currentColor" fill-opacity=".75"/>
+<line x1="315.2" y1="75.9" x2="321.0" y2="40.3" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<circle cx="321.0" cy="40.3" r="4.5" fill="currentColor" fill-opacity=".75"/>
+<line x1="315.2" y1="75.9" x2="335.0" y2="45.8" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<circle cx="335.0" cy="45.8" r="4.5" fill="currentColor" fill-opacity=".75"/>
+<line x1="315.2" y1="75.9" x2="345.5" y2="56.4" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<circle cx="345.5" cy="56.4" r="4.5" fill="currentColor" fill-opacity=".75"/>
+<line x1="341.9" y1="117.4" x2="310.7" y2="155.6" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<line x1="341.9" y1="117.4" x2="372.2" y2="97.8" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<circle cx="372.2" cy="97.8" r="4.5" fill="currentColor" fill-opacity=".75"/>
+<line x1="341.9" y1="117.4" x2="377.5" y2="111.9" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<circle cx="377.5" cy="111.9" r="4.5" fill="currentColor" fill-opacity=".75"/>
+<line x1="341.9" y1="117.4" x2="376.7" y2="126.9" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<circle cx="376.7" cy="126.9" r="4.5" fill="currentColor" fill-opacity=".75"/>
+<line x1="341.9" y1="117.4" x2="369.8" y2="140.2" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<circle cx="369.8" cy="140.2" r="4.5" fill="currentColor" fill-opacity=".75"/>
+<line x1="310.7" y1="155.6" x2="264.7" y2="137.7" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<line x1="310.7" y1="155.6" x2="338.6" y2="178.3" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<circle cx="338.6" cy="178.3" r="4.5" fill="currentColor" fill-opacity=".75"/>
+<line x1="310.7" y1="155.6" x2="326.9" y2="187.8" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<circle cx="326.9" cy="187.8" r="4.5" fill="currentColor" fill-opacity=".75"/>
+<line x1="310.7" y1="155.6" x2="312.4" y2="191.6" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<circle cx="312.4" cy="191.6" r="4.5" fill="currentColor" fill-opacity=".75"/>
+<line x1="310.7" y1="155.6" x2="297.6" y2="189.1" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<circle cx="297.6" cy="189.1" r="4.5" fill="currentColor" fill-opacity=".75"/>
+<line x1="264.7" y1="137.7" x2="267.5" y2="88.4" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<line x1="264.7" y1="137.7" x2="251.7" y2="171.3" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<circle cx="251.7" cy="171.3" r="4.5" fill="currentColor" fill-opacity=".75"/>
+<line x1="264.7" y1="137.7" x2="239.1" y2="163.1" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<circle cx="239.1" cy="163.1" r="4.5" fill="currentColor" fill-opacity=".75"/>
+<line x1="264.7" y1="137.7" x2="231.0" y2="150.5" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<circle cx="231.0" cy="150.5" r="4.5" fill="currentColor" fill-opacity=".75"/>
+<line x1="264.7" y1="137.7" x2="228.7" y2="135.6" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<circle cx="228.7" cy="135.6" r="4.5" fill="currentColor" fill-opacity=".75"/>
+<line x1="267.5" y1="88.4" x2="315.2" y2="75.9" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<line x1="267.5" y1="88.4" x2="231.5" y2="86.5" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<circle cx="231.5" cy="86.5" r="4.5" fill="currentColor" fill-opacity=".75"/>
+<line x1="267.5" y1="88.4" x2="235.5" y2="72.0" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<circle cx="235.5" cy="72.0" r="4.5" fill="currentColor" fill-opacity=".75"/>
+<line x1="267.5" y1="88.4" x2="245.0" y2="60.3" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<circle cx="245.0" cy="60.3" r="4.5" fill="currentColor" fill-opacity=".75"/>
+<line x1="267.5" y1="88.4" x2="258.4" y2="53.6" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<circle cx="258.4" cy="53.6" r="4.5" fill="currentColor" fill-opacity=".75"/>
+<circle cx="315.2" cy="75.9" r="7" fill="#d0402f" fill-opacity="1"/>
+<circle cx="341.9" cy="117.4" r="7" fill="#d0402f" fill-opacity="1"/>
+<circle cx="310.7" cy="155.6" r="7" fill="#d0402f" fill-opacity="1"/>
+<circle cx="264.7" cy="137.7" r="7" fill="#d0402f" fill-opacity="1"/>
+<circle cx="267.5" cy="88.4" r="7" fill="#d0402f" fill-opacity="1"/>
+<line x1="435.2" y1="76.2" x2="469.4" y2="75.8" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<line x1="435.2" y1="76.2" x2="424.5" y2="114.2" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<line x1="435.2" y1="76.2" x2="461.7" y2="118.4" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<line x1="424.5" y1="114.2" x2="461.7" y2="118.4" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<line x1="424.5" y1="114.2" x2="439.3" y2="153.4" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<line x1="439.3" y1="153.4" x2="474.6" y2="153.5" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<line x1="439.3" y1="153.4" x2="466.4" y2="184.5" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<line x1="464.3" y1="41.2" x2="498.5" y2="44.0" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<line x1="464.3" y1="41.2" x2="469.4" y2="75.8" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<line x1="464.3" y1="41.2" x2="435.2" y2="76.2" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<line x1="469.4" y1="75.8" x2="509.9" y2="81.8" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<line x1="469.4" y1="75.8" x2="461.7" y2="118.4" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<line x1="469.4" y1="75.8" x2="503.0" y2="111.7" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<line x1="461.7" y1="118.4" x2="503.0" y2="111.7" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<line x1="461.7" y1="118.4" x2="474.6" y2="153.5" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<line x1="461.7" y1="118.4" x2="439.3" y2="153.4" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<line x1="474.6" y1="153.5" x2="508.8" y2="152.4" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<line x1="474.6" y1="153.5" x2="466.4" y2="184.5" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<line x1="474.6" y1="153.5" x2="500.0" y2="184.4" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<line x1="466.4" y1="184.5" x2="500.0" y2="184.4" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<line x1="498.5" y1="44.0" x2="535.8" y2="39.7" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<line x1="498.5" y1="44.0" x2="509.9" y2="81.8" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<line x1="498.5" y1="44.0" x2="469.4" y2="75.8" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<line x1="509.9" y1="81.8" x2="547.5" y2="81.9" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<line x1="509.9" y1="81.8" x2="503.0" y2="111.7" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<line x1="509.9" y1="81.8" x2="536.4" y2="113.4" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<line x1="503.0" y1="111.7" x2="536.4" y2="113.4" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<line x1="503.0" y1="111.7" x2="508.8" y2="152.4" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<line x1="503.0" y1="111.7" x2="474.6" y2="153.5" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<line x1="508.8" y1="152.4" x2="547.3" y2="151.6" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<line x1="508.8" y1="152.4" x2="500.0" y2="184.4" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<line x1="508.8" y1="152.4" x2="539.1" y2="189.8" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<line x1="500.0" y1="184.4" x2="539.1" y2="189.8" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<line x1="535.8" y1="39.7" x2="547.5" y2="81.9" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<line x1="535.8" y1="39.7" x2="509.9" y2="81.8" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<line x1="547.5" y1="81.9" x2="536.4" y2="113.4" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<line x1="547.5" y1="81.9" x2="569.3" y2="113.4" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<line x1="536.4" y1="113.4" x2="569.3" y2="113.4" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<line x1="536.4" y1="113.4" x2="547.3" y2="151.6" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<line x1="536.4" y1="113.4" x2="508.8" y2="152.4" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<line x1="547.3" y1="151.6" x2="539.1" y2="189.8" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<line x1="569.3" y1="113.4" x2="547.3" y2="151.6" stroke="currentColor" stroke-opacity=".45" stroke-width="1.4"/>
+<circle cx="435.2" cy="76.2" r="5.5" fill="#3570c4" fill-opacity=".9"/>
+<circle cx="424.5" cy="114.2" r="5.5" fill="#3570c4" fill-opacity=".9"/>
+<circle cx="439.3" cy="153.4" r="5.5" fill="#3570c4" fill-opacity=".9"/>
+<circle cx="464.3" cy="41.2" r="5.5" fill="#3570c4" fill-opacity=".9"/>
+<circle cx="469.4" cy="75.8" r="5.5" fill="#3570c4" fill-opacity=".9"/>
+<circle cx="461.7" cy="118.4" r="5.5" fill="#3570c4" fill-opacity=".9"/>
+<circle cx="474.6" cy="153.5" r="5.5" fill="#3570c4" fill-opacity=".9"/>
+<circle cx="466.4" cy="184.5" r="5.5" fill="#3570c4" fill-opacity=".9"/>
+<circle cx="498.5" cy="44.0" r="5.5" fill="#3570c4" fill-opacity=".9"/>
+<circle cx="509.9" cy="81.8" r="5.5" fill="#3570c4" fill-opacity=".9"/>
+<circle cx="503.0" cy="111.7" r="5.5" fill="#3570c4" fill-opacity=".9"/>
+<circle cx="508.8" cy="152.4" r="5.5" fill="#3570c4" fill-opacity=".9"/>
+<circle cx="500.0" cy="184.4" r="5.5" fill="#3570c4" fill-opacity=".9"/>
+<circle cx="535.8" cy="39.7" r="5.5" fill="#3570c4" fill-opacity=".9"/>
+<circle cx="547.5" cy="81.9" r="5.5" fill="#3570c4" fill-opacity=".9"/>
+<circle cx="536.4" cy="113.4" r="5.5" fill="#3570c4" fill-opacity=".9"/>
+<circle cx="547.3" cy="151.6" r="5.5" fill="#3570c4" fill-opacity=".9"/>
+<circle cx="539.1" cy="189.8" r="5.5" fill="#3570c4" fill-opacity=".9"/>
+<circle cx="569.3" cy="113.4" r="5.5" fill="#3570c4" fill-opacity=".9"/>
+<text x="100" y="226" font-size="16" font-weight="bold" fill="currentColor" text-anchor="middle">Centralizada</text>
+<text x="100" y="248" font-size="14" fill="currentColor" text-anchor="middle">un centro: si cae, cae todo</text>
+<text x="300" y="226" font-size="16" font-weight="bold" fill="currentColor" text-anchor="middle">Descentralizada</text>
+<text x="300" y="248" font-size="14" fill="currentColor" text-anchor="middle">varios centros vulnerables</text>
+<text x="500" y="226" font-size="16" font-weight="bold" fill="currentColor" text-anchor="middle">Distribuida</text>
+<text x="500" y="248" font-size="14" fill="currentColor" text-anchor="middle">una malla sin centro</text>
+</svg>
+<figcaption>Los tres tipos de red que comparó Paul Baran. En la distribuida, si se destruyen unos cuantos nudos, siempre queda otro camino.</figcaption>
+</figure>
+<p>Los expertos de la compañía telefónica AT&amp;T, que tenía el monopolio en Estados Unidos, le dijeron que aquello no funcionaría, y la idea quedó guardada en un cajón.</p>
+<h3>Donald Davies y la palabra «paquete»</h3>
+<p>Mientras tanto, en el Laboratorio Nacional de Física de Inglaterra, en Teddington, cerca de Londres, el informático galés <b>Donald Davies</b> llegó en 1965 a la misma idea por su cuenta, aunque por otro motivo: no pensaba en bombas, sino en cómo aprovechar mejor las líneas entre ordenadores. Davies le dio el nombre que usamos hoy: <b>paquete</b>. Eligió esa palabra, contaba, porque era corriente y se podía traducir sin problemas a otros idiomas. Sus paquetes tendrían unos 1.024 bits (el <b>bit</b> es la unidad mínima de información: un sí o un no, un 1 o un 0). Así nació la <b>conmutación de paquetes</b>.</p>
+<figure>
+<svg viewBox="0 0 600 360" role="img" aria-label="Comparación: en la conmutación de circuitos se reserva un camino fijo entre A y B durante toda la comunicación; en la conmutación de paquetes el mensaje se divide en paquetes numerados que van por caminos distintos y comparten las líneas">
+  <text x="20" y="20" font-size="14" font-weight="bold" fill="currentColor">Conmutación de circuitos (el teléfono clásico)</text>
+  <g stroke="currentColor" stroke-opacity=".3" stroke-width="2">
+    <line x1="50" y1="95" x2="170" y2="55"/><line x1="50" y1="95" x2="170" y2="135"/><line x1="170" y1="55" x2="300" y2="55"/><line x1="300" y1="55" x2="430" y2="55"/><line x1="430" y1="55" x2="550" y2="95"/><line x1="170" y1="135" x2="300" y2="135"/><line x1="300" y1="135" x2="430" y2="135"/><line x1="430" y1="135" x2="550" y2="95"/><line x1="170" y1="55" x2="300" y2="135"/><line x1="300" y1="55" x2="430" y2="135"/>
+  </g>
+  <polyline points="50,95 170,55 300,55 430,55 550,95" fill="none" stroke="#b3261e" stroke-width="6" stroke-opacity=".8" stroke-linejoin="round"/>
+  <g fill="#8a8a8a" fill-opacity=".5" stroke="currentColor" stroke-opacity=".5"><circle cx="170" cy="55" r="9"/><circle cx="300" cy="55" r="9"/><circle cx="430" cy="55" r="9"/><circle cx="170" cy="135" r="9"/><circle cx="300" cy="135" r="9"/><circle cx="430" cy="135" r="9"/></g>
+  <g fill="#3570c4"><circle cx="50" cy="95" r="18"/><circle cx="550" cy="95" r="18"/></g>
+  <g font-size="14" font-weight="bold" fill="#ffffff" text-anchor="middle"><text x="50" y="100">A</text><text x="550" y="100">B</text></g>
+  <text x="300" y="40" font-size="12.5" fill="currentColor" text-anchor="middle">línea reservada solo para A y B, aunque callen</text>
+  <text x="300" y="166" font-size="12.5" fill="currentColor" text-anchor="middle" fill-opacity=".85">Las demás líneas no pueden usar ese camino mientras dure la llamada.</text>
+  <line x1="20" y1="182" x2="580" y2="182" stroke="currentColor" stroke-opacity=".2"/>
+  <text x="20" y="206" font-size="14" font-weight="bold" fill="currentColor">Conmutación de paquetes (internet)</text>
+  <g stroke="currentColor" stroke-opacity=".3" stroke-width="2">
+    <line x1="50" y1="275" x2="170" y2="235"/><line x1="50" y1="275" x2="170" y2="315"/><line x1="170" y1="235" x2="300" y2="235"/><line x1="300" y1="235" x2="430" y2="235"/><line x1="430" y1="235" x2="550" y2="275"/><line x1="170" y1="315" x2="300" y2="315"/><line x1="300" y1="315" x2="430" y2="315"/><line x1="430" y1="315" x2="550" y2="275"/><line x1="170" y1="235" x2="300" y2="315"/><line x1="300" y1="235" x2="430" y2="315"/>
+  </g>
+  <g fill="#8a8a8a" fill-opacity=".5" stroke="currentColor" stroke-opacity=".5"><circle cx="170" cy="235" r="9"/><circle cx="300" cy="235" r="9"/><circle cx="430" cy="235" r="9"/><circle cx="170" cy="315" r="9"/><circle cx="300" cy="315" r="9"/><circle cx="430" cy="315" r="9"/></g>
+  <g fill="#3570c4"><circle cx="50" cy="275" r="18"/><circle cx="550" cy="275" r="18"/></g>
+  <g font-size="14" font-weight="bold" fill="#ffffff" text-anchor="middle"><text x="50" y="280">A</text><text x="550" y="280">B</text></g>
+  <g stroke="currentColor" stroke-opacity=".6">
+    <rect x="224" y="226" width="22" height="18" rx="3" fill="#b8860b"/>
+    <rect x="354" y="306" width="22" height="18" rx="3" fill="#b8860b"/>
+    <rect x="224" y="306" width="22" height="18" rx="3" fill="#b8860b"/>
+    <rect x="99" y="245" width="22" height="18" rx="3" fill="#b8860b"/>
+    <rect x="475" y="244" width="22" height="18" rx="3" fill="#8a8a8a"/>
+    <rect x="345" y="226" width="22" height="18" rx="3" fill="#8a8a8a"/>
+  </g>
+  <g font-size="12.5" font-weight="bold" fill="#ffffff" text-anchor="middle"><text x="235" y="240">1</text><text x="365" y="320">2</text><text x="235" y="320">3</text><text x="110" y="259">4</text></g>
+  <text x="300" y="350" font-size="12.5" fill="currentColor" text-anchor="middle" fill-opacity=".85">Los paquetes dorados (1 a 4) son de A; los grises, de otras conversaciones que comparten las mismas líneas.</text>
+</svg>
+<figcaption>Dos maneras de mover información. El teléfono reservaba un camino entero; internet trocea los mensajes y deja que cada paquete comparta las líneas con los de todo el mundo.</figcaption>
+</figure>
+<p>La ventaja de los paquetes es enorme. Las líneas nunca se quedan ociosas, porque por ellas pasan, uno detrás de otro, paquetes de muchas conversaciones distintas, igual que por una carretera circulan coches que van a sitios diferentes. Si una línea se avería o se atasca, los paquetes se desvían por otra. Y si uno se pierde, basta con volver a enviar ese trocito, no el mensaje entero.</p>
+<div class="fondo"><b>Para entenderlo mejor: una mudanza por correo</b> Imagina que tienes que mandar una biblioteca entera de Sevilla a Bilbao y solo puedes usar paquetes postales. Repartes los libros en cajas, escribes en cada una la dirección y un número («caja 7 de 40») y las llevas a correos. Unas cajas irán por Madrid, otras por Zaragoza; alguna llegará antes que otra que salió primero. En Bilbao, gracias a los números, alguien las ordena y reconstruye la biblioteca. Si falta la caja 23, se pide que la vuelvan a enviar. Así funciona internet: tus fotos, tus mensajes y tus vídeos viajan troceados en paquetes numerados.</div>
+<p>En octubre de 1967, en un congreso celebrado en Gatlinburg (Tennessee), Larry Roberts presentó sus primeros planes para la red de la ARPA. Allí también estaba Roger Scantlebury, compañero de Davies, que explicó la conmutación de paquetes y le habló a Roberts de los informes de Baran, que él no conocía. Roberts quedó convencido: la nueva red usaría paquetes.</p>
+<div class="sabias"><b>¿Sabías que...?</b> El equipo de Davies construyó su propia red de paquetes en el laboratorio de Teddington, la <b>red NPL</b>, que empezó a funcionar en 1969 y dio servicio de forma regular desde 1970. Así que la ARPANET no fue la única pionera: Reino Unido y, poco después, Francia, con la red Cyclades, experimentaban con ideas muy parecidas.</div>
+<div class="idea"><b>Idea clave:</b> en lugar de reservar una línea para cada conversación, como el teléfono, internet parte los mensajes en paquetes que viajan por separado y comparten las líneas. La idea la tuvieron por su cuenta Paul Baran en Estados Unidos y Donald Davies en Inglaterra.</div>
+
+<h2 id="c4"><small>Capítulo 4</small>«LO»: nace la ARPANET</h2>
+<p>Para construir la red, la ARPA encargó a una pequeña empresa de Cambridge (Massachusetts), <b>BBN</b>, unas máquinas especiales llamadas <b>IMP</b> (procesadores de mensajes de interfaz). Eran miniordenadores del tamaño de un frigorífico, blindados como si fueran a ir a la guerra, que se colocaban junto al gran ordenador de cada universidad. Su trabajo era el que hoy hace un <b>router</b> (en español, «encaminador»): recibir paquetes, mirar a dónde van y mandarlos por la línea adecuada. Así los grandes ordenadores no tenían que preocuparse de la red; solo hablaban con su IMP.</p>
+<p>El primer IMP llegó a la <b>Universidad de California en Los Ángeles (UCLA)</b> a finales de agosto de 1969. Allí trabajaba <b>Leonard Kleinrock</b>, un ingeniero que había estudiado matemáticamente cómo se forman las colas de datos en una red. El segundo se instaló en octubre en el <b>Instituto de Investigación de Stanford (SRI)</b>, a unos 500 kilómetros al norte. En noviembre llegó el tercero a la Universidad de California en Santa Bárbara, y en diciembre, el cuarto a la Universidad de Utah. Las líneas que los unían, alquiladas a la compañía telefónica, transmitían 50.000 bits por segundo: veinte mil veces menos que la fibra de un gigabit por segundo que hoy tienen muchas casas españolas.</p>
+<figure>
+<svg viewBox="0 0 600 440" role="img" aria-label="Mapa esquemático de la ARPANET en diciembre de 1969: cuatro nudos, UCLA en Los Ángeles, el SRI junto a San Francisco, la Universidad de California en Santa Bárbara y la Universidad de Utah, unidos por cuatro líneas">
+<polygon points="42.7,28.0 45.9,68.0 36.3,92.0 55.4,124.0 58.6,152.0 83.9,188.0 96.6,196.0 99.8,220.0 115.7,244.0 131.5,276.0 147.4,296.0 156.9,324.0 160.1,330.0 185.5,332.0 214.1,348.0 226.8,352.0 239.4,360.0 261.7,384.0 268.0,406.0 344.2,400.0 347.3,364.0 363.2,336.0 347.3,308.0 176.0,148.0 176.0,28.0" fill="currentColor" fill-opacity=".07" stroke="currentColor" stroke-opacity=".35"/>
+<polygon points="364.8,28.0 460.0,28.0 460.0,68.0 523.5,68.0 523.5,228.0 364.8,228.0" fill="currentColor" fill-opacity=".07" stroke="currentColor" stroke-opacity=".35"/>
+<text x="138" y="84" font-size="14" fill="currentColor" fill-opacity=".6" font-style="italic">California</text>
+<text x="443" y="180" font-size="14" fill="currentColor" fill-opacity=".6" font-style="italic" text-anchor="middle">Utah</text>
+<text x="40" y="260" font-size="14" fill="currentColor" fill-opacity=".6" font-style="italic">océano</text><text x="40" y="277" font-size="14" fill="currentColor" fill-opacity=".6" font-style="italic">Pacífico</text>
+<line x1="225.5" y1="345.2" x2="180.7" y2="331.6" stroke="#3570c4" stroke-width="3" stroke-opacity=".8"/>
+<line x1="180.7" y1="331.6" x2="106.8" y2="210.0" stroke="#3570c4" stroke-width="3" stroke-opacity=".8"/>
+<line x1="106.8" y1="210.0" x2="434.6" y2="77.6" stroke="#3570c4" stroke-width="3" stroke-opacity=".8"/>
+<line x1="225.5" y1="345.2" x2="106.8" y2="210.0" stroke="#b3261e" stroke-width="4" stroke-opacity=".85"/>
+<text x="182" y="282" font-size="16" font-weight="bold" fill="#d0402f">«LO»</text>
+<circle cx="225.5" cy="345.2" r="9" fill="#b8860b" stroke="currentColor" stroke-opacity=".6"/>
+<text x="241" y="351" font-size="15" font-weight="bold" fill="currentColor" text-anchor="start">1 · UCLA (Los Ángeles)</text>
+<text x="241" y="368" font-size="14" fill="currentColor" text-anchor="start">agosto de 1969</text>
+<circle cx="106.8" cy="210.0" r="9" fill="#b8860b" stroke="currentColor" stroke-opacity=".6"/>
+<text x="137" y="218" font-size="15" font-weight="bold" fill="currentColor" text-anchor="start">2 · SRI (Menlo Park)</text>
+<text x="137" y="235" font-size="14" fill="currentColor" text-anchor="start">octubre de 1969</text>
+<circle cx="180.7" cy="331.6" r="9" fill="#b8860b" stroke="currentColor" stroke-opacity=".6"/>
+<text x="167" y="364" font-size="15" font-weight="bold" fill="currentColor" text-anchor="end">3 · UC Santa Bárbara</text>
+<text x="167" y="381" font-size="14" fill="currentColor" text-anchor="end">noviembre de 1969</text>
+<circle cx="434.6" cy="77.6" r="9" fill="#b8860b" stroke="currentColor" stroke-opacity=".6"/>
+<text x="435" y="42" font-size="15" font-weight="bold" fill="currentColor" text-anchor="middle">4 · Universidad de Utah</text>
+<text x="435" y="59" font-size="14" fill="currentColor" text-anchor="middle">diciembre de 1969</text>
+</svg>
+<figcaption>La ARPANET a finales de 1969: cuatro nudos en el oeste de Estados Unidos. En rojo, la línea por la que viajó «LO» el 29 de octubre.</figcaption>
+</figure>
+<h3>El primer mensaje</h3>
+<p>El <b>29 de octubre de 1969</b>, a las diez y media de la noche, un estudiante de UCLA llamado <b>Charley Kline</b> se sentó ante el terminal para intentar algo nunca visto: conectarse al ordenador del SRI y entrar en él a distancia. Al otro lado, en el SRI, le esperaba el programador <b>Bill Duvall</b>, y los dos hablaban por teléfono para ir comprobando. Había que escribir la orden <i>LOGIN</i> («entrar»).</p>
+<p>Según el relato que Kleinrock ha repetido muchas veces, Kline tecleó la L. «¿Te ha llegado la L?», preguntó. «Sí, la L», respondió Duvall. Tecleó la O. «¿Ha llegado la O?». «Sí». Tecleó la G… y el ordenador del SRI se colgó. El primer mensaje de la historia de internet fue, sin querer, <b>«LO»</b>. Kleinrock suele decir que no se podía haber elegido mejor: en inglés, <i>lo</i> se usa en la expresión <i>lo and behold</i>, algo así como «he aquí» o «¡mirad!». Aproximadamente una hora después arreglaron el fallo y la conexión completa funcionó.</p>
+<div class="sabias"><b>¿Sabías que...?</b> Aquella noche nadie hizo fotos ni avisó a la prensa. La única prueba es una línea escrita a mano en el cuaderno de registro del IMP de UCLA: «22:30. Hablado con SRI de ordenador a ordenador», con las iniciales de Kline. Ese cuaderno se conserva y hoy es una de las reliquias más fotografiadas de la historia de la informática.</div>
+<h3>Documentos que piden comentarios</h3>
+<p>¿Cómo se ponían de acuerdo los investigadores sobre las normas de la red? En abril de 1969, antes incluso del primer mensaje, un estudiante de UCLA, <b>Steve Crocker</b>, escribió unas notas con propuestas técnicas. Para no parecer mandón, las tituló con humildad: <i>Request for Comments</i>, «petición de comentarios», o <b>RFC</b>. Según ha contado él mismo, las escribió de noche en el cuarto de baño de la casa que compartía, para no despertar a nadie. Aquel RFC 1 inauguró una costumbre que dura hasta hoy: las normas de internet se proponen en público, se discuten y se adoptan cuando funcionan. Ya hay más de 9.000 RFC.</p>
+<p>La ARPANET creció deprisa. En 1971 tenía unos quince nudos; en 1973 cruzó el océano y se conectó con Noruega y con Londres. Pero su gran sorpresa no fue compartir ordenadores, como se había pensado, sino algo que nadie había planeado.</p>
+<h3>La arroba</h3>
+<p>A finales de 1971, <b>Ray Tomlinson</b>, un ingeniero de BBN, estaba jugando con dos programas: uno que dejaba mensajes a otros usuarios del <i>mismo</i> ordenador y otro que copiaba archivos entre ordenadores de la red. Se le ocurrió combinarlos para mandar un mensaje de una máquina a otra. Hizo la prueba entre dos ordenadores que estaban uno al lado del otro en la misma sala, pero conectados solo a través de la ARPANET. Había nacido el <b>correo electrónico</b> entre ordenadores distintos.</p>
+<p>Necesitaba un símbolo para separar el nombre de la persona del nombre de su ordenador. Miró el teclado y eligió la <b>@</b>, porque no aparecía en ningún nombre y, en inglés, se lee <i>at</i>, «en»: <i>tomlinson@bbn</i> significa «Tomlinson en la máquina bbn». ¿Y qué decía el primer correo? Él mismo reconoció que no lo recordaba: probablemente algo sin sentido, como la primera fila de letras del teclado, QWERTYUIOP. Se cuenta que, al enseñárselo a un compañero, le dijo: «No se lo cuentes a nadie, esto no es en lo que se supone que estamos trabajando».</p>
+<div class="sabias"><b>¿Sabías que...?</b> En España la arroba tenía un significado mucho más antiguo: era una medida de peso (en Castilla, unos 11,5 kilos) y también de capacidad para el vino o el aceite. La palabra viene del árabe <i>ar-rub'</i>, «la cuarta parte», porque era la cuarta parte de un quintal. El símbolo @ se usaba para abreviarla: el periodista Jorge Romance lo encontró en la <i>Taula de Ariza</i>, un registro aragonés de 1448 sobre un envío de trigo, uno de los usos más antiguos que se conocen. Y en 1536 un mercader florentino, Francesco Lapi, lo empleó en una carta escrita en Sevilla para contar ánforas de vino.</div>
+<p>El correo triunfó de inmediato. Se calcula que en 1973 ya suponía unas tres cuartas partes de todo el tráfico de la red. Con él llegaron también otras costumbres que nos siguen acompañando. El 3 de mayo de 1978, un vendedor de la empresa DEC, Gary Thuerk, envió un anuncio a unos 400 usuarios de la ARPANET a la vez: fue el primer correo basura, aunque el nombre de <b>spam</b> llegaría más tarde, tomado de un número cómico de los Monty Python en el que se repite sin parar la marca de una carne en lata. Y el 19 de septiembre de 1982, el profesor Scott Fahlman propuso en un foro de su universidad usar <b>:-)</b> para marcar los mensajes en broma. Gira la cabeza a la izquierda y verás la cara.</p>
+<div class="idea"><b>Idea clave:</b> la ARPANET conectó sus cuatro primeros nudos en 1969 y transmitió su primer mensaje, «LO», el 29 de octubre de ese año. Su gran éxito inesperado fue el correo electrónico, que desde 1971 usa la @ para separar la persona de su máquina.</div>
+
+<h2 id="c5"><small>Capítulo 5</small>Un idioma común: TCP/IP</h2>
+<p>A principios de los años setenta, la ARPANET ya no estaba sola. La propia ARPA probaba una red de paquetes por radio, para vehículos y soldados en movimiento, y otra por satélite, para cruzar el Atlántico. En Europa, en Hawái y en otros lugares surgían redes con sus propias reglas. El problema era que no se entendían entre ellas: cada una tenía su tamaño de paquete, su velocidad, su forma de numerar las máquinas. Era como tener carreteras en las que en unas se circula por la derecha y en otras por la izquierda.</p>
+<p>En 1973, dos ingenieros se propusieron resolverlo: <b>Bob Kahn</b>, que trabajaba en la ARPA, y <b>Vint Cerf</b>, profesor en la Universidad de Stanford. Su idea, publicada en mayo de 1974, fue sencilla y genial a la vez. No intentaron que todas las redes fueran iguales. Dejaron que cada una siguiera funcionando a su manera y propusieron un «idioma común» que todas pudieran transportar, más unas máquinas en las fronteras, las <b>pasarelas</b> (hoy las llamamos routers), que pasaran los paquetes de una red a otra. Ese idioma acabó dividido en dos partes con nombres que siguen en uso: <b>TCP</b> e <b>IP</b>.</p>
+<h3>Dos protocolos que se reparten el trabajo</h3>
+<p>Un <b>protocolo</b> es un conjunto de reglas para comunicarse, como el que siguen dos personas cuando se llaman por teléfono: una dice «¿diga?», la otra se presenta, hablan por turnos y se despiden. En internet hay muchos protocolos, pero dos son la columna vertebral.</p>
+<p><b>IP</b> (Protocolo de Internet) se encarga de las direcciones y de llevar cada paquete, salto a salto, hacia su destino. Pero no promete nada: si un paquete se pierde, se duplica o llega tarde, IP no se entera. Es como un servicio de correos muy rápido que no da acuse de recibo.</p>
+<p><b>TCP</b> (Protocolo de Control de Transmisión) funciona en los dos extremos, en tu ordenador y en el de destino, y se ocupa de que la conversación sea fiable. Numera los paquetes, comprueba que llegan todos, pide de nuevo los que faltan, los ordena y frena el ritmo de envío si nota que la red se atasca. Cuando necesitamos velocidad más que perfección, como en una videollamada o un juego en línea, se usa otro protocolo más ligero, <b>UDP</b>, que no espera a los rezagados: si se pierde un trocito de imagen, mejor seguir adelante que congelar la llamada.</p>
+<div class="fondo"><b>Para entenderlo mejor: una red «tonta» con extremos listos</b> La decisión más importante de Cerf y Kahn fue que la red no tuviera que ser inteligente. Los routers solo miran la dirección y pasan el paquete; todo lo complicado (comprobar, ordenar, repetir) lo hacen los ordenadores de los extremos. Gracias a eso, cualquiera puede inventar un servicio nuevo, como la web, el vídeo en directo o la mensajería, sin pedir permiso a nadie ni cambiar la red. Por eso internet ha podido crecer tanto y tan deprisa.</div>
+<h3>Capas, como sobres dentro de sobres</h3>
+<p>Para que tanto trabajo no se convierta en un lío, internet se organiza en <b>capas</b>. Cada capa hace una sola tarea y se apoya en la de abajo, sin preocuparse de cómo funciona por dentro. Una forma de imaginarlo es una carta metida en varios sobres, uno dentro de otro. Cada sobre lo abre y lo lee una persona distinta del camino, y solo le importa lo que está escrito en <i>su</i> sobre.</p>
+<figure>
+<svg viewBox="0 0 600 330" role="img" aria-label="Las capas de internet como sobres uno dentro de otro: por fuera, el sobre del enlace, Wi-Fi o fibra, que se cambia en cada salto; dentro, el sobre IP con las direcciones de origen y destino; dentro, el sobre TCP con el número de paquete; y en el centro, los datos de la aplicación, por ejemplo una petición de página web">
+  <rect x="10" y="10" width="360" height="300" rx="10" fill="#d0402f" fill-opacity=".14" stroke="#b3261e" stroke-width="2"/>
+  <rect x="34" y="62" width="312" height="232" rx="9" fill="#3570c4" fill-opacity=".16" stroke="#3570c4" stroke-width="2"/>
+  <rect x="58" y="114" width="264" height="164" rx="8" fill="#2f8a57" fill-opacity=".18" stroke="#2f8a57" stroke-width="2"/>
+  <rect x="82" y="166" width="216" height="96" rx="7" fill="#b8860b" fill-opacity=".22" stroke="#b8860b" stroke-width="2"/>
+  <g font-size="13" fill="currentColor">
+    <text x="24" y="32" font-weight="bold">4. Enlace (Wi-Fi, fibra, 4G…)</text>
+    <text x="24" y="50">de: tu móvil · a: tu router</text>
+    <text x="48" y="84" font-weight="bold">3. IP (internet)</text>
+    <text x="48" y="102">de: 81.35.x.x · a: 203.0.113.25</text>
+    <text x="72" y="136" font-weight="bold">2. TCP (transporte)</text>
+    <text x="72" y="154">paquete 3 de 20 · puerta 443</text>
+    <text x="96" y="188" font-weight="bold">1. Aplicación (HTTP)</text>
+    <text x="96" y="210">«Dame la página</text>
+    <text x="96" y="228">/libros/internet.html»</text>
+    <text x="96" y="250" fill-opacity=".8">(los datos de verdad)</text>
+  </g>
+  <g font-size="13" fill="currentColor">
+    <text x="390" y="32" font-weight="bold" fill="#d0402f">Se cambia en cada salto</text>
+    <text x="390" y="50">como el camión que lleva</text>
+    <text x="390" y="66">la carta de una oficina a otra</text>
+    <text x="390" y="98" font-weight="bold" fill="#3570c4">No cambia en todo el viaje</text>
+    <text x="390" y="116">los routers solo leen</text>
+    <text x="390" y="132">este sobre</text>
+    <text x="390" y="164" font-weight="bold" fill="#2f8a57">Solo lo leen los extremos</text>
+    <text x="390" y="182">para ordenar y pedir</text>
+    <text x="390" y="198">lo que falte</text>
+    <text x="390" y="230" font-weight="bold" fill="#b8860b">Lo que tú querías enviar</text>
+    <text x="390" y="248">la web, un correo, un</text>
+    <text x="390" y="264">mensaje, un trozo de vídeo</text>
+  </g>
+</svg>
+<figcaption>Cada capa añade su propio «sobre» con la información que necesita. Al llegar, el ordenador de destino los va abriendo en orden inverso hasta encontrar los datos.</figcaption>
+</figure>
+<p>Por eso da igual que estés conectado por Wi-Fi, por cable o por el móvil, o que el paquete cruce el Atlántico por fibra: la capa de abajo cambia, pero los sobres de dentro llegan intactos. Y por eso las aplicaciones no necesitan saber nada de cables ni de antenas. Un informático diría que cada capa «esconde» a la de abajo.</p>
+<h3>El gran apagón del 1 de enero de 1983</h3>
+<p>El 22 de noviembre de 1977 se hizo una prueba espectacular: una furgoneta que circulaba por una autopista de California envió paquetes por radio a la ARPANET, de allí saltaron por satélite a Noruega y Londres y volvieron a California. Tres redes distintas, un solo idioma. Funcionaba.</p>
+<p>Faltaba convencer a todos de cambiarse. La ARPA fijó una fecha: el <b>1 de enero de 1983</b>, todos los ordenadores de la ARPANET tendrían que dejar el protocolo antiguo y hablar TCP/IP. Quien no estuviera preparado se quedaría fuera. Hubo meses de trabajo frenético y algunos centros tardaron semanas en volver a conectarse, pero salió bien. Muchos consideran esa fecha el verdadero nacimiento de internet. Se cuenta que, para celebrarlo, se repartieron chapas con el lema «He sobrevivido a la transición a TCP/IP».</p>
+<div class="sabias"><b>¿Sabías que...?</b> A Vint Cerf se le llama a menudo «padre de internet», título que comparte con Bob Kahn. Los dos recibieron en 2004 el premio Turing, el equivalente al Nobel en informática. Cerf, que es duro de oído desde niño y lleva audífonos, ha contado que el correo electrónico le interesó desde el principio también por eso: le permitía comunicarse sin depender del teléfono.</div>
+<p>Después todo se aceleró. En 1986, la Fundación Nacional de Ciencia de Estados Unidos creó la <b>NSFNET</b>, una red mucho más rápida para unir universidades, que se convirtió en la columna vertebral de internet. La vieja ARPANET se apagó en 1990, cuando ya nadie la necesitaba. Y en 1995 la NSFNET dejó el transporte de datos en manos de empresas privadas: internet dejó de ser un club de científicos y se abrió a todo el mundo.</p>
+<div class="idea"><b>Idea clave:</b> TCP/IP es el idioma común que permite unir redes muy distintas. IP lleva los paquetes salto a salto; TCP, en los extremos, se asegura de que lleguen todos y en orden. Todo se organiza en capas, como sobres dentro de sobres.</div>
+
+<h2 id="c6"><small>Capítulo 6</small>Direcciones y nombres</h2>
+<p>Para que un paquete llegue a su destino, necesita una dirección, igual que una carta. En internet, cada aparato conectado tiene una <b>dirección IP</b>. En su versión clásica, llamada IPv4, es un número de 32 bits que se escribe como cuatro números entre 0 y 255 separados por puntos, por ejemplo 203.0.113.25 (esta es inventada). Los routers leen esa dirección igual que un cartero lee el código postal: primero la parte que indica la red, luego la que indica la máquina concreta.</p>
+<h3>¿Cuántas direcciones hay?</h3>
+<p>Con 32 bits se pueden formar 2<sup>32</sup> combinaciones: exactamente <b>4.294.967.296</b> direcciones. En 1981, cuando se definió IPv4, parecían infinitas: había unos pocos cientos de ordenadores en la red. Pero llegaron los ordenadores personales, los móviles, las televisiones, los relojes y hasta las bombillas conectadas. El 3 de febrero de 2011, el organismo que reparte las direcciones en todo el mundo, la IANA, entregó sus últimos bloques libres a los cinco registros regionales. El de Europa, el RIPE NCC, con sede en Ámsterdam, se quedó sin reservas en noviembre de 2019.</p>
+<p>¿Cómo seguimos conectándonos, entonces? Con dos trucos. El primero está en tu casa: tu router tiene una sola dirección «pública» para todo el mundo, y reparte direcciones «privadas» (del tipo 192.168.1.x) entre tu móvil, tu ordenador y tu tele. Cuando llega una respuesta, el router sabe a cuál de ellos entregarla. Es como un edificio con un solo buzón en el portal y un conserje que reparte las cartas por pisos. Este truco se llama <b>NAT</b> (traducción de direcciones de red).</p>
+<p>El segundo es la solución de verdad: <b>IPv6</b>, una nueva versión con direcciones de 128 bits. Eso da 2<sup>128</sup> direcciones, unos 340 sextillones (un 34 seguido de 37 ceros). Hay tantas que se podría dar más de un trillón de direcciones a cada grano de arena de todas las playas y desiertos de la Tierra. El cambio va despacio, porque obliga a actualizar muchísimos aparatos, pero en abril de 2026 las mediciones de Google mostraron que, por primera vez y durante un día, la mitad de sus usuarios se conectaban ya por IPv6.</p>
+<div class="sabias"><b>¿Sabías que...?</b> Una dirección IP no es como un DNI. Tu operadora puede cambiarte la tuya cada cierto tiempo, y cuando usas el móvil por la calle cambias de dirección al pasar de una red a otra. Tampoco revela tu dirección postal: como mucho, indica a qué operadora perteneces y, más o menos, en qué zona estás.</div>
+<h3>La agenda de internet</h3>
+<p>A las personas se nos dan fatal los números largos. Por eso, además de direcciones, en internet usamos <b>nombres de dominio</b>, como <i>rae.es</i> o <i>wikipedia.org</i>. Hace falta entonces algo que traduzca nombres a números, igual que la agenda del móvil traduce «Mamá» en un número de teléfono.</p>
+<p>En los primeros años, esa agenda era literalmente un archivo de texto, llamado HOSTS.TXT, que mantenía el Centro de Información de la Red, en el SRI, bajo la dirección de <b>Elizabeth Feinler</b>. Cada ordenador se descargaba una copia de vez en cuando. Con unos cientos de máquinas funcionaba; con miles, se volvió imposible. En 1983, <b>Paul Mockapetris</b> diseñó el sistema que usamos hoy, el <b>DNS</b> (Sistema de Nombres de Dominio). Su gran idea fue repartir la agenda entre millones de servidores, organizados en un árbol.</p>
+<figure>
+<svg viewBox="0 0 600 434" role="img" aria-label="Diagrama de una consulta DNS: tu móvil pregunta al resolutor de su operadora por www.ejemplo.es; el resolutor pregunta al servidor raíz, que le remite a los servidores de .es; estos le remiten a los de ejemplo.es, que dan la dirección IP; el resolutor se la devuelve al móvil">
+<defs><marker id="net-dns-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3570c4"/></marker><marker id="net-dns-b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b8860b"/></marker></defs>
+<line x1="56" y1="56" x2="56" y2="418" stroke="currentColor" stroke-opacity=".3" stroke-dasharray="4 4"/>
+<rect x="2" y="6" width="108" height="48" rx="8" fill="currentColor" fill-opacity=".08" stroke="currentColor" stroke-opacity=".45"/>
+<text x="56" y="35" font-size="14" font-weight="bold" fill="currentColor" text-anchor="middle">Tu móvil</text>
+<line x1="183" y1="56" x2="183" y2="418" stroke="currentColor" stroke-opacity=".3" stroke-dasharray="4 4"/>
+<rect x="129" y="6" width="108" height="48" rx="8" fill="currentColor" fill-opacity=".08" stroke="currentColor" stroke-opacity=".45"/>
+<text x="183" y="26" font-size="14" font-weight="bold" fill="currentColor" text-anchor="middle">Resolutor</text>
+<text x="183" y="44" font-size="13" fill="currentColor" text-anchor="middle">(tu operadora)</text>
+<line x1="310" y1="56" x2="310" y2="418" stroke="currentColor" stroke-opacity=".3" stroke-dasharray="4 4"/>
+<rect x="256" y="6" width="108" height="48" rx="8" fill="currentColor" fill-opacity=".08" stroke="currentColor" stroke-opacity=".45"/>
+<text x="310" y="26" font-size="14" font-weight="bold" fill="currentColor" text-anchor="middle">Servidor</text>
+<text x="310" y="44" font-size="13" fill="currentColor" text-anchor="middle">raíz</text>
+<line x1="428" y1="56" x2="428" y2="418" stroke="currentColor" stroke-opacity=".3" stroke-dasharray="4 4"/>
+<rect x="374" y="6" width="108" height="48" rx="8" fill="currentColor" fill-opacity=".08" stroke="currentColor" stroke-opacity=".45"/>
+<text x="428" y="26" font-size="14" font-weight="bold" fill="currentColor" text-anchor="middle">Servidor</text>
+<text x="428" y="44" font-size="13" fill="currentColor" text-anchor="middle">de .es</text>
+<line x1="546" y1="56" x2="546" y2="418" stroke="currentColor" stroke-opacity=".3" stroke-dasharray="4 4"/>
+<rect x="492" y="6" width="108" height="48" rx="8" fill="currentColor" fill-opacity=".08" stroke="currentColor" stroke-opacity=".45"/>
+<text x="546" y="26" font-size="14" font-weight="bold" fill="currentColor" text-anchor="middle">Servidor de</text>
+<text x="546" y="44" font-size="13" fill="currentColor" text-anchor="middle">ejemplo.es</text>
+<line x1="60" y1="78" x2="179" y2="78" stroke="#3570c4" stroke-width="2.2" marker-end="url(#net-dns-a)"/>
+<text x="120" y="71" font-size="13.5" fill="currentColor" text-anchor="middle" style="paint-order:stroke;stroke:var(--papel,#fbf8f1);stroke-width:5px;stroke-linejoin:round">¿www.ejemplo.es?</text>
+<line x1="187" y1="118" x2="306" y2="118" stroke="#3570c4" stroke-width="2.2" marker-end="url(#net-dns-a)"/>
+<text x="246" y="111" font-size="13.5" fill="currentColor" text-anchor="middle" style="paint-order:stroke;stroke:var(--papel,#fbf8f1);stroke-width:5px;stroke-linejoin:round">¿www.ejemplo.es?</text>
+<line x1="306" y1="158" x2="187" y2="158" stroke="#b8860b" stroke-width="2.2" marker-end="url(#net-dns-b)"/>
+<text x="246" y="151" font-size="13.5" fill="currentColor" text-anchor="middle" style="paint-order:stroke;stroke:var(--papel,#fbf8f1);stroke-width:5px;stroke-linejoin:round">Ni idea; .es lo lleva este</text>
+<line x1="187" y1="198" x2="424" y2="198" stroke="#3570c4" stroke-width="2.2" marker-end="url(#net-dns-a)"/>
+<text x="306" y="191" font-size="13.5" fill="currentColor" text-anchor="middle" style="paint-order:stroke;stroke:var(--papel,#fbf8f1);stroke-width:5px;stroke-linejoin:round">¿www.ejemplo.es?</text>
+<line x1="424" y1="238" x2="187" y2="238" stroke="#b8860b" stroke-width="2.2" marker-end="url(#net-dns-b)"/>
+<text x="306" y="231" font-size="13.5" fill="currentColor" text-anchor="middle" style="paint-order:stroke;stroke:var(--papel,#fbf8f1);stroke-width:5px;stroke-linejoin:round">ejemplo.es lo lleva este</text>
+<line x1="187" y1="278" x2="542" y2="278" stroke="#3570c4" stroke-width="2.2" marker-end="url(#net-dns-a)"/>
+<text x="364" y="271" font-size="13.5" fill="currentColor" text-anchor="middle" style="paint-order:stroke;stroke:var(--papel,#fbf8f1);stroke-width:5px;stroke-linejoin:round">¿www.ejemplo.es?</text>
+<line x1="542" y1="318" x2="187" y2="318" stroke="#b8860b" stroke-width="2.2" marker-end="url(#net-dns-b)"/>
+<text x="364" y="311" font-size="13.5" fill="currentColor" text-anchor="middle" style="paint-order:stroke;stroke:var(--papel,#fbf8f1);stroke-width:5px;stroke-linejoin:round">Es la 203.0.113.25</text>
+<line x1="179" y1="358" x2="60" y2="358" stroke="#b8860b" stroke-width="2.2" marker-end="url(#net-dns-b)"/>
+<text x="120" y="351" font-size="13.5" fill="currentColor" text-anchor="middle" style="paint-order:stroke;stroke:var(--papel,#fbf8f1);stroke-width:5px;stroke-linejoin:round">203.0.113.25</text>
+<text x="300" y="398" font-size="13.5" fill="currentColor" text-anchor="middle">En azul, preguntas; en dorado, respuestas. Todo en milésimas de segundo.</text>
+</svg>
+<figcaption>Una consulta al DNS, como una cadena de llamadas: nadie conoce la respuesta completa, pero cada uno sabe a quién preguntar después.</figcaption>
+</figure>
+<p>El árbol se lee de derecha a izquierda. Arriba del todo está la <b>raíz</b>. Debajo, los <b>dominios de primer nivel</b>: genéricos, como .com, .org o .edu, y de países, como .es, .fr o .mx. Debajo de .es están todos los dominios españoles, y cada dueño de un dominio decide los nombres que cuelgan del suyo. Nadie tiene que conocer el árbol entero: cada servidor solo sabe a quién preguntar para el siguiente paso.</p>
+<p>Cuando escribes un nombre, tu aparato se lo pregunta a un <b>resolutor</b>, normalmente de tu operadora. Si no lo tiene apuntado de una consulta anterior, el resolutor pregunta a un servidor raíz: «¿Quién lleva .es?». La raíz le da la dirección de los servidores de .es. Estos le dicen quién lleva el dominio concreto, y ese último le da, por fin, la dirección IP. Todo en unas pocas milésimas de segundo. Y el resolutor guarda la respuesta un rato, de modo que la siguiente persona que pregunte lo mismo recibe la respuesta al instante.</p>
+<div class="fondo"><b>Para entenderlo mejor: los trece servidores raíz</b> Se suele decir que internet depende de trece servidores raíz. En realidad son trece <i>nombres</i>, con las letras de la A a la M, que gestionan doce organizaciones distintas. Cada nombre corresponde a cientos de copias idénticas repartidas por el mundo, que responden desde la misma dirección gracias a un truco llamado <i>anycast</i>: tu pregunta llega a la copia más cercana. En septiembre de 2026 había 2.045 copias en funcionamiento. ¿Por qué trece nombres y no más? Porque en los años ochenta la lista completa tenía que caber en un único paquete pequeño de 512 bytes.</div>
+<p>El dominio <b>.es</b> se creó el 14 de abril de 1988 y hoy lo gestiona la entidad pública Red.es. En julio de 2025 había registrados más de 2,1 millones de dominios .es. Desde el 2 de octubre de 2007 pueden llevar eñes y tildes, y también letras propias del catalán, el gallego y el euskera, como la ç o la l·l. El primer dominio .com de la historia, <i>symbolics.com</i>, lo registró una empresa de ordenadores el 15 de marzo de 1985.</p>
+<div class="sabias"><b>¿Sabías que...?</b> Algunos dominios de países se han convertido en un negocio. El de Tuvalu, un pequeño país del Pacífico, es .tv, muy codiciado por las cadenas de televisión, y su alquiler le ha dado al país una parte importante de sus ingresos. Algo parecido le ha pasado a Anguila, una isla del Caribe cuyo dominio es .ai, las siglas en inglés de la inteligencia artificial.</div>
+<div class="idea"><b>Idea clave:</b> cada aparato conectado tiene una dirección IP, un número. Como las de IPv4 se han agotado, se usan trucos como el NAT y una versión nueva, IPv6. El DNS es la agenda que traduce nombres fáciles de recordar en esas direcciones.</div>
+
+<h2 id="c7"><small>Capítulo 7</small>El viaje de un paquete</h2>
+<p>Ya sabemos que los mensajes se trocean en paquetes y que cada paquete lleva una dirección. Ahora vamos a acompañar a uno en su viaje. Supongamos que envías una foto de 3 megabytes (un <b>byte</b> son 8 bits; un megabyte, un millón de bytes). Un paquete de internet suele llevar como máximo unos 1.500 bytes, así que tu foto sale de tu móvil convertida en unos <b>dos mil paquetes</b>. Cada uno lleva una pequeña cabecera con, entre otras cosas, la dirección de origen, la de destino y su número de orden.</p>
+<h3>De cruce en cruce</h3>
+<p>El primer salto es de tu móvil a tu router. El router no sabe dónde está el destino final ni cuál es el mejor camino completo, y no le hace falta. Solo tiene una <b>tabla de rutas</b>, algo así como los carteles de una rotonda: «hacia tal grupo de direcciones, salga por aquí». Manda el paquete al router siguiente, que hace lo mismo, y así una y otra vez. Cada router decide solo el siguiente paso, en millonésimas de segundo, y se olvida del paquete.</p>
+<p>¿Y quién escribe esos carteles? Los propios routers, que se pasan información constantemente: «por mí se llega a estas direcciones». Entre las grandes redes, esa información se intercambia con un protocolo llamado <b>BGP</b>, que es algo así como el sistema de mapas de internet. Si un cable se corta, en pocos segundos o minutos los mapas se actualizan y los paquetes empiezan a rodear la avería.</p>
+<figure>
+<svg viewBox="0 0 600 400" role="img" aria-label="Una foto troceada en tres paquetes numerados sale de tu móvil; cada paquete viaja por un camino distinto entre siete routers, uno de los enlaces está averiado y los paquetes lo rodean; llegan en el orden 3, 1, 2 y el destino los ordena como 1, 2, 3">
+<line x1="48" y1="170" x2="160" y2="88" stroke="currentColor" stroke-opacity=".25" stroke-width="2"/>
+<line x1="48" y1="170" x2="160" y2="256" stroke="currentColor" stroke-opacity=".25" stroke-width="2"/>
+<line x1="160" y1="88" x2="300" y2="64" stroke="currentColor" stroke-opacity=".25" stroke-width="2"/>
+<line x1="160" y1="88" x2="300" y2="170" stroke="currentColor" stroke-opacity=".25" stroke-width="2"/>
+<line x1="160" y1="256" x2="300" y2="170" stroke="currentColor" stroke-opacity=".25" stroke-width="2"/>
+<line x1="160" y1="256" x2="300" y2="276" stroke="currentColor" stroke-opacity=".25" stroke-width="2"/>
+<line x1="300" y1="64" x2="440" y2="96" stroke="currentColor" stroke-opacity=".25" stroke-width="2"/>
+<line x1="300" y1="170" x2="440" y2="96" stroke="currentColor" stroke-opacity=".25" stroke-width="2"/>
+<line x1="300" y1="170" x2="440" y2="244" stroke="currentColor" stroke-opacity=".25" stroke-width="2"/>
+<line x1="300" y1="276" x2="440" y2="244" stroke="currentColor" stroke-opacity=".25" stroke-width="2"/>
+<line x1="440" y1="96" x2="552" y2="170" stroke="currentColor" stroke-opacity=".25" stroke-width="2"/>
+<line x1="440" y1="244" x2="552" y2="170" stroke="currentColor" stroke-opacity=".25" stroke-width="2"/>
+<line x1="300" y1="64" x2="300" y2="170" stroke="currentColor" stroke-opacity=".25" stroke-width="2"/>
+<line x1="300" y1="170" x2="300" y2="276" stroke="currentColor" stroke-opacity=".25" stroke-width="2"/>
+<line x1="440" y1="96" x2="440" y2="244" stroke="currentColor" stroke-opacity=".25" stroke-width="2"/>
+<polyline points="48,165 160,83 300,59 440,91 552,165" fill="none" stroke="#3570c4" stroke-width="3.5" stroke-opacity=".8" stroke-linejoin="round"/>
+<rect x="218" y="60" width="24" height="22" rx="4" fill="#3570c4" stroke="currentColor" stroke-opacity=".5"/>
+<g fill="#ffffff"><text x="230" y="76" font-size="14" font-weight="bold" text-anchor="middle">1</text></g>
+<polyline points="48,170 160,88 300,170 440,244 552,170" fill="none" stroke="#2f8a57" stroke-width="3.5" stroke-opacity=".8" stroke-linejoin="round"/>
+<rect x="218" y="118" width="24" height="22" rx="4" fill="#2f8a57" stroke="currentColor" stroke-opacity=".5"/>
+<g fill="#ffffff"><text x="230" y="134" font-size="14" font-weight="bold" text-anchor="middle">2</text></g>
+<polyline points="48,175 160,261 300,281 440,249 552,175" fill="none" stroke="#b8860b" stroke-width="3.5" stroke-opacity=".8" stroke-linejoin="round"/>
+<rect x="218" y="260" width="24" height="22" rx="4" fill="#b8860b" stroke="currentColor" stroke-opacity=".5"/>
+<g fill="#ffffff"><text x="230" y="276" font-size="14" font-weight="bold" text-anchor="middle">3</text></g>
+<g stroke="#b3261e" stroke-width="4" stroke-linecap="round"><line x1="361.0" y1="124.0" x2="379.0" y2="142.0"/><line x1="379.0" y1="124.0" x2="361.0" y2="142.0"/></g>
+<text x="384.0" y="137.0" font-size="13.5" font-weight="bold" fill="#d0402f">avería</text>
+<circle cx="48" cy="170" r="22" fill="#1a8a80" fill-opacity=".85"/>
+<circle cx="160" cy="88" r="11" fill="#8a8a8a" fill-opacity=".55" stroke="currentColor" stroke-opacity=".6"/>
+<circle cx="160" cy="256" r="11" fill="#8a8a8a" fill-opacity=".55" stroke="currentColor" stroke-opacity=".6"/>
+<circle cx="300" cy="64" r="11" fill="#8a8a8a" fill-opacity=".55" stroke="currentColor" stroke-opacity=".6"/>
+<circle cx="300" cy="170" r="11" fill="#8a8a8a" fill-opacity=".55" stroke="currentColor" stroke-opacity=".6"/>
+<circle cx="300" cy="276" r="11" fill="#8a8a8a" fill-opacity=".55" stroke="currentColor" stroke-opacity=".6"/>
+<circle cx="440" cy="96" r="11" fill="#8a8a8a" fill-opacity=".55" stroke="currentColor" stroke-opacity=".6"/>
+<circle cx="440" cy="244" r="11" fill="#8a8a8a" fill-opacity=".55" stroke="currentColor" stroke-opacity=".6"/>
+<circle cx="552" cy="170" r="22" fill="#1a8a80" fill-opacity=".85"/>
+<text x="48" y="212" font-size="14" font-weight="bold" fill="currentColor" text-anchor="middle">Tu móvil</text>
+<text x="552" y="212" font-size="14" font-weight="bold" fill="currentColor" text-anchor="middle">Destino</text>
+<text x="300" y="44" font-size="13.5" fill="currentColor" text-anchor="middle">routers</text>
+<line x1="10" y1="312" x2="590" y2="312" stroke="currentColor" stroke-opacity=".2"/>
+<text x="16" y="346" font-size="14" fill="currentColor">Salen:</text>
+<rect x="16" y="356" width="24" height="22" rx="4" fill="#3570c4" stroke="currentColor" stroke-opacity=".5"/>
+<g fill="#ffffff"><text x="28" y="372" font-size="14" font-weight="bold" text-anchor="middle">1</text></g>
+<rect x="46" y="356" width="24" height="22" rx="4" fill="#2f8a57" stroke="currentColor" stroke-opacity=".5"/>
+<g fill="#ffffff"><text x="58" y="372" font-size="14" font-weight="bold" text-anchor="middle">2</text></g>
+<rect x="76" y="356" width="24" height="22" rx="4" fill="#b8860b" stroke="currentColor" stroke-opacity=".5"/>
+<g fill="#ffffff"><text x="88" y="372" font-size="14" font-weight="bold" text-anchor="middle">3</text></g>
+<text x="214" y="346" font-size="14" fill="currentColor">Llegan:</text>
+<rect x="214" y="356" width="24" height="22" rx="4" fill="#b8860b" stroke="currentColor" stroke-opacity=".5"/>
+<g fill="#ffffff"><text x="226" y="372" font-size="14" font-weight="bold" text-anchor="middle">3</text></g>
+<rect x="244" y="356" width="24" height="22" rx="4" fill="#3570c4" stroke="currentColor" stroke-opacity=".5"/>
+<g fill="#ffffff"><text x="256" y="372" font-size="14" font-weight="bold" text-anchor="middle">1</text></g>
+<rect x="274" y="356" width="24" height="22" rx="4" fill="#2f8a57" stroke="currentColor" stroke-opacity=".5"/>
+<g fill="#ffffff"><text x="286" y="372" font-size="14" font-weight="bold" text-anchor="middle">2</text></g>
+<text x="412" y="346" font-size="14" fill="currentColor">TCP los ordena:</text>
+<rect x="412" y="356" width="24" height="22" rx="4" fill="#3570c4" stroke="currentColor" stroke-opacity=".5"/>
+<g fill="#ffffff"><text x="424" y="372" font-size="14" font-weight="bold" text-anchor="middle">1</text></g>
+<rect x="442" y="356" width="24" height="22" rx="4" fill="#2f8a57" stroke="currentColor" stroke-opacity=".5"/>
+<g fill="#ffffff"><text x="454" y="372" font-size="14" font-weight="bold" text-anchor="middle">2</text></g>
+<rect x="472" y="356" width="24" height="22" rx="4" fill="#b8860b" stroke="currentColor" stroke-opacity=".5"/>
+<g fill="#ffffff"><text x="484" y="372" font-size="14" font-weight="bold" text-anchor="middle">3</text></g>
+<text x="170" y="372" font-size="20" fill="currentColor" text-anchor="middle">→</text><text x="368" y="372" font-size="20" fill="currentColor" text-anchor="middle">→</text>
+</svg>
+<figcaption>Los paquetes de un mismo mensaje pueden ir por caminos distintos y llegar desordenados; al final, TCP los pone en orden.</figcaption>
+</figure>
+<div class="fondo"><b>Para entenderlo mejor: el contador de saltos</b> ¿Qué pasa si, por un error, dos routers se mandan un paquete el uno al otro sin parar? Para evitar que dé vueltas eternamente, cada paquete lleva un número llamado <b>TTL</b> («tiempo de vida»), que empieza, por ejemplo, en 64. Cada router que lo toca le resta uno, y si llega a cero, el paquete se tira. Un programa llamado <i>traceroute</i> usa este truco para averiguar el camino: manda paquetes con TTL 1, 2, 3… y cada router que tira uno avisa de que lo ha hecho, delatando así su posición. Un viaje típico de España a un servidor de Estados Unidos pasa por entre diez y veinte routers.</div>
+<h3>Reconstruir el mensaje</h3>
+<p>En el destino, TCP recibe los paquetes, que pueden llegar desordenados, y los coloca en su sitio gracias a los números. Por cada tanda que recibe bien, devuelve un aviso de recibo. Si el remitente no recibe ese aviso a tiempo, supone que el paquete se ha perdido y lo vuelve a enviar. Perder paquetes es normal: cuando un router está saturado, simplemente tira los que no le caben, como un autobús lleno que deja gente en la parada.</p>
+<p>TCP tiene además un comportamiento muy educado: cuando nota que se pierden paquetes, entiende que la red está atascada y reduce la velocidad a la que envía; luego vuelve a acelerar poco a poco. Si todos los ordenadores del mundo no hicieran esto, internet se colapsaría. De hecho, estuvo a punto de pasar.</p>
+<div class="sabias"><b>¿Sabías que...?</b> En octubre de 1986, la conexión entre el Laboratorio Lawrence de Berkeley y la Universidad de California en Berkeley, separados por menos de 400 metros, pasó de golpe de 32.000 bits por segundo a solo 40: casi mil veces más lenta. Internet sufría un «colapso por congestión»: todos reenviaban sus paquetes perdidos a la vez y atascaban aún más la red. El investigador Van Jacobson inventó las reglas de frenar y acelerar que TCP usa desde entonces.</div>
+<h3>La velocidad de la luz no es suficiente</h3>
+<p>Hay algo que ninguna tecnología puede acelerar: la luz. En la fibra óptica viaja a unos 200.000 kilómetros por segundo, dos tercios de su velocidad en el vacío. Entre Madrid y Nueva York hay unos 5.800 kilómetros en línea recta, así que un paquete tarda como mínimo 29 milésimas de segundo en llegar, y otras tantas en volver la respuesta. En la práctica, con cables que no van en línea recta y routers por el camino, una ida y vuelta suele rondar las 80 milésimas. A ese retraso se le llama <b>latencia</b>, y por eso los servicios más usados copian sus datos en centros repartidos por todo el mundo: para estar cerca de ti.</p>
+<div class="idea"><b>Idea clave:</b> cada paquete viaja de router en router, y cada router solo decide el siguiente salto. En el destino, TCP ordena los paquetes, pide los que faltan y ajusta la velocidad para no atascar la red. Ni siquiera la luz es instantánea: la distancia se nota.</div>
+
+<h2 id="c8"><small>Capítulo 8</small>Cristal bajo el mar y ondas en el aire</h2>
+<p>Solemos imaginar internet como algo inmaterial, una «nube». Nada más lejos de la realidad. Internet es una de las máquinas más grandes que ha construido la humanidad: millones de kilómetros de cable, edificios enteros llenos de ordenadores, antenas en los tejados y satélites en el cielo. Y la mayor parte de lo que viaja por ella lo hace convertido en luz dentro de hilos de cristal.</p>
+<h3>Luz atrapada en un hilo</h3>
+<p>Una <b>fibra óptica</b> es un hilo de vidrio purísimo, más o menos del grosor de un pelo. Tiene dos partes: un <b>núcleo</b> central y un <b>revestimiento</b> que lo rodea, hecho de un vidrio ligeramente distinto. Cuando la luz que viaja por el núcleo llega al borde con un ángulo muy tumbado, no se escapa: rebota hacia dentro como en un espejo perfecto. Es la <b>reflexión total interna</b>, el mismo fenómeno que hace brillar un diamante o que ves cuando miras la superficie del agua desde dentro de una piscina. Rebote a rebote, la luz sigue el hilo aunque este se curve. (Si te interesa cómo se comporta la luz, lo contamos en <a href="../por-que-el-cielo-es-azul/libro.html">¿Por qué el cielo es azul?</a>).</p>
+<figure>
+<svg viewBox="0 0 600 310" role="img" aria-label="A la izquierda, corte a lo largo de una fibra óptica: la luz avanza por el núcleo rebotando en el revestimiento por reflexión total interna, mientras que un rayo demasiado inclinado se escapa. A la derecha, a escala, el corte de una fibra de 0,125 milímetros con su núcleo de 0,009 milímetros y un pelo humano de unos 0,07 milímetros">
+<defs><marker id="net-fib-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d0402f"/></marker></defs>
+<rect x="10" y="70" width="380" height="150" rx="6" fill="currentColor" fill-opacity=".10" stroke="currentColor" stroke-opacity=".35"/>
+<rect x="10" y="90" width="380" height="110" fill="#3570c4" fill-opacity=".10"/>
+<rect x="10" y="118" width="380" height="54" fill="#1a8a80" fill-opacity=".28"/>
+<line x1="10" y1="118" x2="390" y2="118" stroke="#1a8a80" stroke-width="1.5"/><line x1="10" y1="172" x2="390" y2="172" stroke="#1a8a80" stroke-width="1.5"/>
+<path d="M14,150 L70,118 L150,172 L230,118 L310,172 L372,136" fill="none" stroke="#b3261e" stroke-width="3" marker-end="url(#net-fib-a)"/>
+<path d="M40,168 L78,118 L108,78" fill="none" stroke="#b3261e" stroke-width="2" stroke-dasharray="5 4" stroke-opacity=".75"/>
+<text x="116" y="62" font-size="13.5" fill="currentColor">un rayo muy inclinado se escapa</text>
+<line x1="114" y1="58" x2="104" y2="74" stroke="currentColor" stroke-opacity=".4"/>
+<text x="16" y="244" font-size="14" fill="currentColor"><tspan font-weight="bold">Núcleo</tspan> (verde): por donde viaja la luz</text>
+<text x="16" y="266" font-size="14" fill="currentColor"><tspan font-weight="bold">Revestimiento</tspan> (azul): la devuelve hacia dentro</text>
+<text x="16" y="288" font-size="14" fill="currentColor"><tspan font-weight="bold">Funda</tspan> (gris): protege el cristal</text>
+<text x="200" y="20" font-size="14" font-weight="bold" fill="currentColor" text-anchor="middle">Reflexión total interna</text>
+<text x="200" y="38" font-size="13" fill="currentColor" text-anchor="middle">(la luz rebota como en un espejo perfecto)</text>
+<text x="505" y="26" font-size="14" font-weight="bold" fill="currentColor" text-anchor="middle">A escala</text>
+<circle cx="505" cy="112" r="70.0" fill="#3570c4" fill-opacity=".14" stroke="#3570c4" stroke-width="1.5"/>
+<circle cx="505" cy="112" r="5.0" fill="#1a8a80" stroke="#1a8a80"/>
+<text x="505" y="134" font-size="13" fill="currentColor" text-anchor="middle">núcleo 0,009 mm</text>
+<text x="505" y="200" font-size="13.5" fill="currentColor" text-anchor="middle">fibra: 0,125 mm</text>
+<circle cx="475" cy="252" r="39.2" fill="#b8860b" fill-opacity=".45" stroke="#b8860b" stroke-width="1.5"/>
+<text x="525" y="250" font-size="13.5" fill="currentColor">pelo</text><text x="525" y="267" font-size="13.5" fill="currentColor">humano,</text><text x="525" y="284" font-size="13.5" fill="currentColor">~0,07 mm</text>
+</svg>
+<figcaption>La luz avanza por el núcleo rebotando en el revestimiento. A la derecha, el corte de una fibra típica y un pelo humano, a la misma escala.</figcaption>
+</figure>
+<p>La información viaja como destellos: luz encendida, un 1; apagada, un 0. Pero no es luz visible, sino <b>infrarroja</b>, con una longitud de onda de unos 1.550 nanómetros, que es la que menos se debilita en el vidrio. Y por una misma fibra viajan a la vez decenas de «colores» distintos de infrarrojo, cada uno con su propia conversación, sin mezclarse. Así, un solo hilo puede transportar decenas de billones de bits por segundo.</p>
+<p>El secreto está en la pureza del vidrio. En 1966, el ingeniero <b>Charles Kao</b>, nacido en Shanghái y que trabajaba en Inglaterra, calculó que, si se eliminaban las impurezas, la luz podría recorrer kilómetros dentro de una fibra; el vidrio de las ventanas la apaga en pocos metros. Muchos no le creyeron. En 1970, la empresa Corning fabricó la primera fibra lo bastante limpia, y Kao recibió el premio Nobel de Física en 2009. Hoy la luz pierde la mitad de su potencia cada unos 15 kilómetros de fibra, y en los cables largos se colocan amplificadores cada 50 a 100 kilómetros aproximadamente para reforzarla.</p>
+<div class="sabias"><b>¿Sabías que...?</b> La idea de guiar la luz es mucho más antigua que la fibra. Hacia 1842, el físico suizo Daniel Colladon demostró en Ginebra que un chorro de agua iluminado «atrapa» la luz y la hace curvarse con él. Las fuentes luminosas de las exposiciones del siglo XIX usaban ese efecto para que el agua pareciera brillar desde dentro.</div>
+<h3>Cables en el fondo del mar</h3>
+<p>Casi todo el tráfico entre continentes viaja por <b>cables submarinos</b>, no por satélite. A principios de 2026 había más de 600 cables en servicio o en construcción, con más de 1,5 millones de kilómetros en total: casi cuatro veces la distancia de la Tierra a la Luna. En alta mar, un cable es poco más grueso que una manguera de jardín: en el centro, unas pocas parejas de fibras; alrededor, capas de acero, cobre (que lleva la electricidad para los amplificadores) y plástico. Cerca de la costa se blinda mucho más y se entierra bajo el fondo para protegerlo.</p>
+<figure>
+<svg viewBox="0 0 600 419" role="img" aria-label="Mapa esquemático del mundo con algunos de los grandes cables submarinos: entre Europa y América del Norte, entre Portugal y Brasil, a lo largo de la costa de África, de Europa a Asia por el mar Rojo, en el Pacífico y hacia Australia. En rojo, cables que llegan a España, como MAREA y Grace Hopper desde Bilbao y los que unen Canarias con la península">
+<defs><clipPath id="net-clip-mapa"><rect x="0" y="0" width="600" height="356" rx="8"/></clipPath></defs>
+<rect x="0" y="0" width="600" height="356" rx="8" fill="#3570c4" fill-opacity=".07"/>
+<g clip-path="url(#net-clip-mapa)">
+<polygon points="-237.2,-7.0 -216.3,-20.9 -139.5,-20.9 -87.2,-20.9 17.4,-27.9 69.8,-31.4 122.1,7.0 139.5,31.4 153.5,45.3 118.6,66.3 104.7,76.7 87.2,90.7 83.7,101.2 66.3,115.1 69.8,129.1 66.3,136.0 59.3,122.1 34.9,118.6 10.5,125.6 10.5,146.5 20.9,160.5 41.9,150.0 45.3,167.4 59.3,188.4 80.2,195.3 69.8,195.3 52.3,184.9 27.9,170.9 -17.4,153.5 -34.9,139.5 -41.9,122.1 -59.3,111.6 -69.8,104.7 -83.7,83.7 -83.7,55.8 -104.7,31.4 -139.5,14.0 -174.4,10.5 -202.3,24.4 -226.7,14.0" fill="currentColor" fill-opacity=".16" stroke="currentColor" stroke-opacity=".3" stroke-linejoin="round"/>
+<polygon points="191.9,14.0 279.1,-20.9 279.1,-55.8 139.5,-62.8 97.7,-48.8 157.0,-14.0" fill="currentColor" fill-opacity=".16" stroke="currentColor" stroke-opacity=".3" stroke-linejoin="round"/>
+<polygon points="80.2,195.3 97.7,181.4 132.6,188.4 174.4,216.3 226.7,240.7 212.8,272.1 205.8,300.0 181.4,314.0 164.0,341.9 146.5,355.8 122.1,369.8 111.6,404.7 97.7,408.1 87.2,380.2 97.7,327.9 101.2,286.0 83.7,272.1 66.3,240.7 69.8,219.8" fill="currentColor" fill-opacity=".16" stroke="currentColor" stroke-opacity=".3" stroke-linejoin="round"/>
+<polygon points="317.4,73.3 317.4,94.2 327.9,97.7 341.9,94.2 348.8,87.2 359.3,76.7 366.3,73.3 380.2,69.8 390.7,69.8 404.7,90.7 411.6,83.7 394.2,66.3 415.1,76.7 432.6,90.7 439.5,83.7 450.0,80.2 474.4,97.7 470.9,108.1 467.4,125.6 484.9,150.0 498.8,177.9 530.2,167.4 547.7,157.0 554.7,143.0 544.2,132.6 523.3,118.6 547.7,136.0 565.1,136.0 582.6,139.5 600.0,150.0 603.5,167.4 617.4,195.3 627.9,177.9 627.9,167.4 652.3,150.0 669.8,146.5 676.7,164.0 690.7,167.4 690.7,195.3 708.1,219.8 711.6,216.3 701.2,202.3 697.7,177.9 715.1,191.9 729.1,181.4 725.6,150.0 746.5,146.5 767.4,129.1 774.4,115.1 770.9,94.2 788.4,90.7 798.8,101.2 798.8,83.7 819.8,73.3 840.7,59.3 840.7,38.4 826.7,31.4 847.7,17.4 889.5,17.4 914.0,7.0 941.9,-3.5 976.7,-14.0 976.7,-27.9 837.2,-31.4 732.6,-45.3 697.7,-48.8 627.9,-31.4 593.0,-31.4 558.1,-20.9 505.8,-14.0 488.4,-10.5 464.0,-20.9 436.0,-24.4 401.2,-14.0 383.7,3.5 366.3,7.0 366.3,20.9 383.7,17.4 390.7,27.9 376.7,24.4 380.2,34.9 362.8,41.9 355.8,45.3 341.9,55.8 334.9,55.8 345.3,62.8 341.9,69.8" fill="currentColor" fill-opacity=".16" stroke="currentColor" stroke-opacity=".3" stroke-linejoin="round"/>
+<polygon points="331.4,48.8 352.3,45.3 355.8,38.4 348.8,34.9 341.9,24.4 338.4,17.4 327.9,20.9 331.4,31.4 338.4,34.9 331.4,41.9" fill="currentColor" fill-opacity=".16" stroke="currentColor" stroke-opacity=".3" stroke-linejoin="round"/>
+<polygon points="314.0,41.9 327.9,41.9 327.9,31.4 320.9,31.4 314.0,34.9" fill="currentColor" fill-opacity=".16" stroke="currentColor" stroke-opacity=".3" stroke-linejoin="round"/>
+<polygon points="289.5,150.0 289.5,170.9 296.5,184.9 307.0,198.8 320.9,209.3 341.9,205.8 362.8,202.3 380.2,209.3 380.2,226.7 390.7,244.2 394.2,265.1 390.7,286.0 401.2,317.4 411.6,341.9 418.6,345.3 439.5,341.9 464.0,320.9 470.9,300.0 488.4,275.6 488.4,258.1 484.9,240.7 495.3,223.3 509.3,212.8 526.7,184.9 502.3,184.9 498.8,177.9 481.4,160.5 470.9,143.0 464.0,125.6 460.5,115.1 450.0,115.1 418.6,111.6 401.2,111.6 387.2,104.7 383.7,94.2 359.3,94.2 341.9,101.2 327.9,97.7 314.0,115.1 303.5,125.6" fill="currentColor" fill-opacity=".16" stroke="currentColor" stroke-opacity=".3" stroke-linejoin="round"/>
+<polygon points="502.3,310.5 512.8,310.5 523.3,275.6 519.8,265.1 502.3,279.1" fill="currentColor" fill-opacity=".16" stroke="currentColor" stroke-opacity=".3" stroke-linejoin="round"/>
+<polygon points="746.5,300.0 746.5,341.9 760.5,345.3 781.4,341.9 805.8,331.4 830.2,345.3 840.7,355.8 861.6,355.8 872.1,352.3 882.6,327.9 882.6,310.5 858.1,289.5 844.2,261.6 840.7,282.6 823.3,265.1 805.8,265.1 788.4,272.1 774.4,286.0" fill="currentColor" fill-opacity=".16" stroke="currentColor" stroke-opacity=".3" stroke-linejoin="round"/>
+<polygon points="802.3,115.1 809.3,104.7 819.8,104.7 837.2,101.2 840.7,90.7 844.2,80.2 854.7,73.3 840.7,66.3 837.2,80.2 833.7,90.7 823.3,97.7 812.8,101.2 802.3,108.1" fill="currentColor" fill-opacity=".16" stroke="currentColor" stroke-opacity=".3" stroke-linejoin="round"/>
+<polygon points="680.2,205.8 690.7,209.3 718.6,244.2 704.7,237.2" fill="currentColor" fill-opacity=".16" stroke="currentColor" stroke-opacity=".3" stroke-linejoin="round"/>
+<polygon points="729.1,219.8 757.0,198.8 764.0,219.8 753.5,237.2 732.6,233.7" fill="currentColor" fill-opacity=".16" stroke="currentColor" stroke-opacity=".3" stroke-linejoin="round"/>
+<path d="M338.4,71.9 Q212.5,98.6 83.8,94.7" fill="none" stroke="#d0402f" stroke-width="3.5" stroke-opacity=".9" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M338.4,71.9 Q213.7,52.0 91.0,81.6" fill="none" stroke="#d0402f" stroke-width="3.5" stroke-opacity=".9" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M317.9,90.9 Q254.6,155.2 214.5,236.2" fill="none" stroke="#b8860b" stroke-width="2.5" stroke-opacity=".9" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M69.4,130.8 Q131.4,198.0 214.5,236.2" fill="none" stroke="#3570c4" stroke-width="2" stroke-opacity=".9" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M316.7,88.6 Q301.4,121.0 286.0,153.5 Q293.0,172.7 300.0,191.9 Q317.4,200.6 334.9,209.3 Q355.8,214.5 376.7,219.8 Q385.5,239.0 394.2,258.1 Q403.6,299.8 413.0,341.5" fill="none" stroke="#3570c4" stroke-width="2" stroke-opacity=".9" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M367.7,72.2 Q414.6,93.1 461.5,114.1 Q464.5,121.6 467.4,129.1 Q481.4,151.7 495.3,174.4 Q523.3,167.4 551.2,160.5 Q577.0,158.7 602.8,157.0 Q615.3,179.7 627.9,202.3 Q669.4,210.5 710.9,218.7" fill="none" stroke="#3570c4" stroke-width="2" stroke-opacity=".9" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M710.9,218.7 Q727.0,238.4 743.0,258.1 Q747.9,296.3 752.8,334.5" fill="none" stroke="#3570c4" stroke-width="2" stroke-opacity=".9" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M710.9,218.7 Q729.1,182.1 747.2,145.5 Q791.9,123.3 836.5,101.2" fill="none" stroke="#3570c4" stroke-width="2" stroke-opacity=".9" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M836.5,101.2 Q905.8,85.4 976.7,83.7" fill="none" stroke="#3570c4" stroke-width="2" stroke-opacity=".9" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M-279.1,83.7 Q-170.6,83.4 -64.2,104.7" fill="none" stroke="#3570c4" stroke-width="2" stroke-opacity=".9" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M295.1,125.2 Q314.9,115.0 327.9,97.0" fill="none" stroke="#d0402f" stroke-width="2.5" stroke-opacity=".9" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<circle cx="338.4" cy="71.9" r="4.5" fill="#d0402f"/>
+<circle cx="83.8" cy="94.7" r="4.5" fill="#d0402f"/>
+<circle cx="91.0" cy="81.6" r="4.5" fill="#d0402f"/>
+<circle cx="295.1" cy="125.2" r="4.5" fill="#d0402f"/>
+<text x="216" y="61" font-size="14" font-weight="bold" fill="#d0402f" text-anchor="middle" style="paint-order:stroke;stroke:var(--papel,#fbf8f1);stroke-width:4px;stroke-linejoin:round">Grace Hopper</text>
+<text x="209" y="112" font-size="14" font-weight="bold" fill="#d0402f" text-anchor="middle" style="paint-order:stroke;stroke:var(--papel,#fbf8f1);stroke-width:4px;stroke-linejoin:round">MAREA</text>
+<text x="255" y="171" font-size="14" font-weight="bold" fill="#b8860b" text-anchor="middle" style="paint-order:stroke;stroke:var(--papel,#fbf8f1);stroke-width:4px;stroke-linejoin:round">EllaLink</text>
+<text x="255" y="187" font-size="14" font-weight="bold" fill="#b8860b" text-anchor="middle" style="paint-order:stroke;stroke:var(--papel,#fbf8f1);stroke-width:4px;stroke-linejoin:round">(Portugal-Brasil)</text>
+<text x="345" y="58" font-size="14" font-weight="bold" fill="currentColor" text-anchor="start" style="paint-order:stroke;stroke:var(--papel,#fbf8f1);stroke-width:4px;stroke-linejoin:round">Bilbao</text>
+<text x="290" y="122" font-size="14" font-weight="bold" fill="currentColor" text-anchor="end" style="paint-order:stroke;stroke:var(--papel,#fbf8f1);stroke-width:4px;stroke-linejoin:round">Canarias</text>
+<text x="541" y="119" font-size="14" font-weight="bold" fill="currentColor" text-anchor="middle" style="paint-order:stroke;stroke:var(--papel,#fbf8f1);stroke-width:4px;stroke-linejoin:round">hacia Asia</text>
+<text x="541" y="135" font-size="14" font-weight="bold" fill="currentColor" text-anchor="middle" style="paint-order:stroke;stroke:var(--papel,#fbf8f1);stroke-width:4px;stroke-linejoin:round">por el mar Rojo</text>
+<text x="80" y="108" font-size="14" font-weight="bold" fill="currentColor" text-anchor="end" style="paint-order:stroke;stroke:var(--papel,#fbf8f1);stroke-width:4px;stroke-linejoin:round">Virginia</text>
+<text x="87" y="72" font-size="14" font-weight="bold" fill="currentColor" text-anchor="end" style="paint-order:stroke;stroke:var(--papel,#fbf8f1);stroke-width:4px;stroke-linejoin:round">Nueva York</text>
+<text x="380" y="300" font-size="14" font-weight="bold" fill="#3570c4" text-anchor="end" style="paint-order:stroke;stroke:var(--papel,#fbf8f1);stroke-width:4px;stroke-linejoin:round">costa de África</text>
+<line x1="20" y1="376" x2="48" y2="376" stroke="#d0402f" stroke-width="3"/><text x="56" y="381" font-size="13.5" fill="currentColor">cables que llegan a España</text>
+<line x1="300" y1="376" x2="328" y2="376" stroke="#3570c4" stroke-width="2.5"/><text x="336" y="381" font-size="13.5" fill="currentColor">otras rutas (solo algunas)</text>
+<text x="300" y="406" font-size="13" fill="currentColor" fill-opacity=".85" text-anchor="middle">Esquema sin escala precisa: en 2026 había más de 600 cables.</text>
+</svg>
+<figcaption>Mapa esquemático con algunos de los grandes cables submarinos. Hay más de 600, y varios de los más importantes llegan a las costas españolas.</figcaption>
+</figure>
+<p>Tenderlos es una hazaña. Unos barcos especiales cargan miles de kilómetros de cable enrollado y lo van soltando despacio mientras avanzan, siguiendo una ruta estudiada para evitar volcanes submarinos, fosas y zonas de pesca. En los tramos más profundos, el cable descansa a varios kilómetros bajo la superficie. Cada año se producen unas 200 averías, y dos tercios las causan las redes de pesca y las anclas de los barcos. Los tiburones han mordido cables alguna vez, pero es una causa rarísima.</p>
+<p>España es un punto importante de este mapa. En Sopelana, junto a Bilbao, llega desde 2018 el cable <b>MAREA</b>, de 6.605 kilómetros, que la une con Virginia Beach, en Estados Unidos. Lo impulsaron Microsoft y Facebook junto con la española Telxius, y cuando se terminó era el cable de mayor capacidad que cruzaba el Atlántico. Hoy puede transportar unos 200 billones de bits por segundo. En 2022 llegó también a Bilbao el cable Grace Hopper, de Google, que viene de Nueva York. Y Canarias, Baleares y las costas mediterráneas y andaluzas están enlazadas con África, Europa y América por muchos otros.</p>
+<div class="fondo"><b>Para entenderlo mejor: la reina Victoria y las 16 horas</b> Los cables submarinos no son nuevos. En 1858 se tendió el primer cable de telégrafo entre Irlanda y Terranova. La reina Victoria envió un mensaje de felicitación de 98 palabras al presidente de Estados Unidos que tardó unas 16 horas en transmitirse, letra a letra. El cable dejó de funcionar a las pocas semanas. El primero duradero llegó en 1866. Hoy, el mismo mensaje cruzaría el océano en unas pocas milésimas de segundo.</div>
+<h3>Donde viven los datos</h3>
+<p>Cuando ves una serie, subes una foto o usas un buscador, los datos salen de un <b>centro de datos</b>: naves enormes llenas de filas de armarios con miles de <b>servidores</b> (ordenadores que no tienen pantalla ni teclado y que están siempre encendidos para responder peticiones). Necesitan muchísima electricidad y sistemas de refrigeración para que las máquinas no se sobrecalienten, y se construyen con dobles líneas de corriente y generadores de emergencia. Las redes de las distintas compañías se unen entre sí en <b>puntos neutros</b> de intercambio, edificios donde cada una lleva sus cables y los conecta con los de las demás. En Madrid funciona desde los años noventa Espanix, uno de los más importantes del sur de Europa.</p>
+<h3>Los últimos metros: por el aire</h3>
+<p>Casi siempre, la parte inalámbrica de tu conexión es la más corta. El <b>Wi-Fi</b> de tu casa lleva los datos por ondas de radio desde el router hasta tu móvil, apenas unos metros; a partir de ahí, todo va por cable. Usa ondas de 2,4 y 5 gigahercios (y, en los aparatos más nuevos, 6). La primera es casi la misma frecuencia a la que funciona el microondas de la cocina, y por eso algunos Wi-Fi antiguos fallan cuando alguien calienta la leche.</p>
+<p>Con el móvil pasa algo parecido. El territorio se divide en <b>celdas</b>, cada una atendida por una antena. Tu móvil habla por radio con la antena más cercana, y esta se conecta por fibra al resto de la red. Cuando te mueves, la conversación pasa de una celda a otra sin cortarse. Cada nueva «generación» ha multiplicado la velocidad: el 2G de los años noventa trajo los SMS; el 3G, la primera internet en el móvil; el 4G, el vídeo; y el 5G, que en junio de 2024 ya llegaba a más del 95 % de la población española, promete menos retraso y muchos más aparatos conectados.</p>
+<div class="fondo"><b>Para entenderlo mejor: dos mitos del Wi-Fi</b> Se repite que <i>Wi-Fi</i> significa <i>wireless fidelity</i>, «fidelidad inalámbrica». No es así: fue un nombre comercial inventado en 1999 por una agencia de marcas porque sonaba bien, como <i>hi-fi</i>. También se dice que la actriz <b>Hedy Lamarr</b> inventó el Wi-Fi. En 1942, ella y el compositor George Antheil patentaron un sistema de «saltos de frecuencia» para guiar torpedos sin que el enemigo pudiera interferirlos. Fue una idea brillante y pionera, emparentada con técnicas que usan hoy el Bluetooth y algunas versiones del Wi-Fi, pero el Wi-Fi moderno se basa sobre todo en otros métodos desarrollados décadas después.</div>
+<p>¿Y los satélites? Los clásicos están a unos 36.000 kilómetros de altura, en órbita geoestacionaria, y cada viaje de ida y vuelta de la señal añade medio segundo de retraso, algo que se nota mucho en una videollamada. Por eso las nuevas constelaciones usan miles de satélites mucho más bajos, a unos 550 kilómetros, que dan conexión a barcos, aviones y zonas remotas. Son muy útiles donde no llega el cable, pero para el grueso del tráfico mundial la fibra sigue siendo insustituible.</p>
+<div class="idea"><b>Idea clave:</b> internet es muy material. Casi todo viaja como luz infrarroja por fibras de vidrio, incluidos más de 600 cables submarinos. Los datos viven en centros de datos, y el Wi-Fi, las antenas móviles y los satélites solo cubren los últimos tramos.</div>
+
+<h2 id="c9"><small>Capítulo 9</small>La web: «vago, pero emocionante»</h2>
+<p>A finales de los años ochenta, internet ya unía universidades de medio mundo, pero usarla era cosa de expertos. Había que saber órdenes crípticas, conocer el nombre exacto de cada ordenador y moverse entre programas distintos para leer el correo, copiar archivos o consultar un catálogo. Faltaba algo que la hiciera fácil. Llegó desde un laboratorio de física.</p>
+<h3>Un informático en el CERN</h3>
+<p>El <b>CERN</b>, el gran laboratorio europeo de física de partículas, está junto a Ginebra, a caballo entre Suiza y Francia. Allí trabajaban miles de científicos de decenas de países, cada uno con su ordenador, sus documentos y sus programas, y la información se perdía constantemente. Un informático británico, <b>Tim Berners-Lee</b>, nacido en Londres en 1955 e hijo de dos matemáticos que habían trabajado en uno de los primeros ordenadores comerciales, el Ferranti Mark 1, se empeñó en resolverlo.</p>
+<p>En <b>marzo de 1989</b> entregó a su jefe, Mike Sendall, un documento titulado «Gestión de la información: una propuesta». Proponía unir todos los documentos del CERN mediante <b>hipertexto</b>: textos con palabras «enlazadas» en las que bastara pulsar para saltar a otro documento, estuviera en el ordenador que estuviera. La idea del hipertexto venía de antes (el ingeniero Vannevar Bush la había soñado en 1945 y el pensador Ted Nelson le había puesto nombre en los años sesenta), pero nadie la había unido a una red mundial. Sendall escribió a mano en la portada: «Vago, pero emocionante». No lo aprobó oficialmente, pero le dejó seguir.</p>
+<div class="sabias"><b>¿Sabías que...?</b> Berners-Lee escribió el primer servidor web en un ordenador NeXT, una máquina negra y cara fabricada por la empresa que fundó Steve Jobs cuando lo echaron de Apple. Como cualquiera podía apagarlo sin darse cuenta de que de él dependía toda la web, le pegó una etiqueta que decía en inglés: «Esta máquina es un servidor. ¡¡NO LA APAGUES!!». El ordenador se conserva en el CERN.</div>
+<h3>Tres inventos que siguen con nosotros</h3>
+<p>En los últimos meses de 1990, con la ayuda del ingeniero belga <b>Robert Cailliau</b>, Berners-Lee puso en marcha todo lo necesario. Se resume en tres inventos que usas cada día sin saberlo:</p>
+<ul>
+  <li><b>HTML</b>, el lenguaje en el que se escriben las páginas. Con unas etiquetas sencillas se marca qué es un título, qué es un párrafo y qué palabras son un enlace.</li>
+  <li><b>URL</b>, la dirección única de cada página, como <i>https://www.ejemplo.es/libros/internet.html</i>.</li>
+  <li><b>HTTP</b>, el protocolo con el que un navegador pide una página a un servidor y el servidor se la entrega.</li>
+</ul>
+<figure>
+<svg viewBox="0 0 600 210" role="img" aria-label="Las partes de una dirección web: el protocolo https, el nombre del servidor www.ejemplo.es, que incluye el dominio ejemplo y el dominio de primer nivel es, y la ruta de la página dentro del servidor">
+  <text x="300" y="58" font-size="21" font-family="Menlo, Consolas, monospace" fill="currentColor" text-anchor="middle"><tspan fill="#d0402f" font-weight="bold">https://</tspan><tspan fill="#3570c4" font-weight="bold">www.ejemplo.es</tspan><tspan fill="#2f8a57" font-weight="bold">/libros/internet.html</tspan></text>
+  <g fill="none" stroke-width="2">
+    <path d="M28,72 v10 h96 v-10" stroke="#b3261e"/>
+    <path d="M132,72 v10 h184 v-10" stroke="#3570c4"/>
+    <path d="M322,72 v10 h250 v-10" stroke="#2f8a57"/>
+  </g>
+  <g font-size="13.5" fill="currentColor" text-anchor="middle">
+    <text x="76" y="104" font-weight="bold">protocolo</text><text x="76" y="122">cómo se habla</text><text x="76" y="140">(la «s», cifrado)</text>
+    <text x="224" y="104" font-weight="bold">servidor</text><text x="224" y="122">el nombre que el DNS</text><text x="224" y="140">convierte en número</text>
+    <text x="447" y="104" font-weight="bold">ruta</text><text x="447" y="122">qué archivo quieres</text><text x="447" y="140">dentro de ese servidor</text>
+  </g>
+  <g font-size="12.5" fill="currentColor" fill-opacity=".8" text-anchor="middle">
+    <path d="M183,30 v-8 h84 v8 M283,30 v-8 h24 v8" fill="none" stroke="currentColor" stroke-opacity=".4"/>
+    <text x="222" y="16">dominio</text><text x="310" y="16">primer nivel</text>
+  </g>
+  <text x="300" y="186" font-size="13" fill="currentColor" text-anchor="middle">Las direcciones se leen de izquierda a derecha, pero el nombre del servidor</text>
+  <text x="300" y="203" font-size="13" fill="currentColor" text-anchor="middle">se entiende de derecha a izquierda: .es, luego ejemplo, luego www.</text>
+</svg>
+<figcaption>Anatomía de una dirección web. Berners-Lee ha reconocido que las dos barras después de «https:» en realidad sobran; si pudiera volver atrás, las quitaría.</figcaption>
+</figure>
+<p>Hacia finales de 1990 funcionaba ya la primera página web de la historia, que hoy se puede visitar restaurada en la dirección <i>info.cern.ch</i>. Explicaba qué era la web y cómo crear páginas propias. El <b>6 de agosto de 1991</b>, Berners-Lee anunció el proyecto en un foro público de internet e invitó a todo el mundo a probarlo. En diciembre de ese año se instaló el primer servidor fuera de Europa, en el acelerador de Stanford, en California.</p>
+<h3>El regalo del CERN</h3>
+<p>La decisión que lo cambió todo llegó el <b>30 de abril de 1993</b>: el CERN renunció a cualquier derecho sobre la web y la puso gratis a disposición de todo el mundo. Cualquiera podía crear un navegador, un servidor o una página sin pagar ni pedir permiso. Berners-Lee ha explicado muchas veces que, si la web hubiera tenido dueño, probablemente no habría despegado. Él mismo nunca la patentó.</p>
+<p>Ese mismo año apareció <b>Mosaic</b>, un navegador creado en la Universidad de Illinois por el estudiante Marc Andreessen y el programador Eric Bina. Su gran novedad fue mostrar las imágenes dentro del texto, en la misma página, y ser fácil de instalar en ordenadores corrientes. La web se volvió atractiva para cualquiera. Según un recuento de la época, en junio de 1993 había unos 130 sitios web; en junio de 1995, unos 23.500. Llegaron Netscape en 1994, Internet Explorer en 1995 y la «guerra de los navegadores». Hoy hay más de mil millones de sitios web registrados, aunque solo una parte está activa.</p>
+<div class="fondo"><b>Para entenderlo mejor: el famoso error 404</b> Cuando pides una página que no existe, el servidor contesta con un código: «404, no encontrado». Circula la leyenda de que el número viene de un despacho 404 del CERN donde estaba el primer servidor. No hay pruebas de eso. Los códigos de HTTP se ordenan por familias: los que empiezan por 2 significan «todo bien» (el 200 es el más habitual), los que empiezan por 3 son redirecciones, los del 4 son errores de quien pide y los del 5, errores del servidor. El 404 es simplemente el cuarto de la familia de errores de quien pide.</div>
+<div class="idea"><b>Idea clave:</b> Tim Berners-Lee inventó la web en el CERN entre 1989 y 1990 con tres piezas: HTML, las URL y HTTP. En 1993 el CERN la regaló al mundo y el navegador Mosaic la hizo fácil y visual.</div>
+
+<h2 id="c10"><small>Capítulo 10</small>Qué pasa cuando pulsas Intro</h2>
+<p>Ya tenemos todas las piezas. Ahora vamos a juntarlas en una sola escena, la más corriente del mundo: escribes <i>www.ejemplo.es</i> en el navegador y pulsas Intro. Lo que ocurre en el siguiente segundo es una pequeña coreografía entre máquinas de varios países.</p>
+<figure>
+<svg viewBox="0 0 600 532" role="img" aria-label="Diagrama de lo que pasa al pulsar Intro: el navegador pide al DNS la dirección IP, abre una conexión TCP con el servidor web, acuerda un cifrado TLS, pide la página por HTTP, recibe el HTML, pide imágenes, estilos y programas y finalmente dibuja la página">
+<defs><marker id="net-intro-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3570c4"/></marker><marker id="net-intro-b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b8860b"/></marker></defs>
+<line x1="70" y1="56" x2="70" y2="516" stroke="currentColor" stroke-opacity=".3" stroke-dasharray="4 4"/>
+<rect x="16" y="6" width="108" height="48" rx="8" fill="currentColor" fill-opacity=".08" stroke="currentColor" stroke-opacity=".45"/>
+<text x="70" y="35" font-size="14" font-weight="bold" fill="currentColor" text-anchor="middle">Tu navegador</text>
+<line x1="300" y1="56" x2="300" y2="516" stroke="currentColor" stroke-opacity=".3" stroke-dasharray="4 4"/>
+<rect x="246" y="6" width="108" height="48" rx="8" fill="currentColor" fill-opacity=".08" stroke="currentColor" stroke-opacity=".45"/>
+<text x="300" y="35" font-size="14" font-weight="bold" fill="currentColor" text-anchor="middle">Servidor DNS</text>
+<line x1="530" y1="56" x2="530" y2="516" stroke="currentColor" stroke-opacity=".3" stroke-dasharray="4 4"/>
+<rect x="476" y="6" width="108" height="48" rx="8" fill="currentColor" fill-opacity=".08" stroke="currentColor" stroke-opacity=".45"/>
+<text x="530" y="26" font-size="14" font-weight="bold" fill="currentColor" text-anchor="middle">Servidor web</text>
+<text x="530" y="44" font-size="13" fill="currentColor" text-anchor="middle">ejemplo.es</text>
+<line x1="74" y1="78" x2="296" y2="78" stroke="#3570c4" stroke-width="2.2" marker-end="url(#net-intro-a)"/>
+<text x="185" y="71" font-size="13.5" fill="currentColor" text-anchor="middle" style="paint-order:stroke;stroke:var(--papel,#fbf8f1);stroke-width:5px;stroke-linejoin:round">1. ¿Dirección IP de www.ejemplo.es?</text>
+<line x1="296" y1="116" x2="74" y2="116" stroke="#b8860b" stroke-width="2.2" marker-end="url(#net-intro-b)"/>
+<text x="185" y="109" font-size="13.5" fill="currentColor" text-anchor="middle" style="paint-order:stroke;stroke:var(--papel,#fbf8f1);stroke-width:5px;stroke-linejoin:round">203.0.113.25</text>
+<line x1="74" y1="154" x2="526" y2="154" stroke="#3570c4" stroke-width="2.2" marker-end="url(#net-intro-a)"/>
+<text x="300" y="147" font-size="13.5" fill="currentColor" text-anchor="middle" style="paint-order:stroke;stroke:var(--papel,#fbf8f1);stroke-width:5px;stroke-linejoin:round">2. ¿Hablamos? (TCP)</text>
+<line x1="526" y1="192" x2="74" y2="192" stroke="#b8860b" stroke-width="2.2" marker-end="url(#net-intro-b)"/>
+<text x="300" y="185" font-size="13.5" fill="currentColor" text-anchor="middle" style="paint-order:stroke;stroke:var(--papel,#fbf8f1);stroke-width:5px;stroke-linejoin:round">Vale, hablamos</text>
+<line x1="74" y1="230" x2="526" y2="230" stroke="#3570c4" stroke-width="2.2" marker-end="url(#net-intro-a)"/>
+<text x="300" y="223" font-size="13.5" fill="currentColor" text-anchor="middle" style="paint-order:stroke;stroke:var(--papel,#fbf8f1);stroke-width:5px;stroke-linejoin:round">Perfecto. 3. Cifremos (TLS)</text>
+<line x1="526" y1="268" x2="74" y2="268" stroke="#b8860b" stroke-width="2.2" marker-end="url(#net-intro-b)"/>
+<text x="300" y="261" font-size="13.5" fill="currentColor" text-anchor="middle" style="paint-order:stroke;stroke:var(--papel,#fbf8f1);stroke-width:5px;stroke-linejoin:round">Mi certificado; acordemos una clave</text>
+<line x1="74" y1="306" x2="526" y2="306" stroke="#3570c4" stroke-width="2.2" marker-end="url(#net-intro-a)"/>
+<text x="300" y="299" font-size="13.5" fill="currentColor" text-anchor="middle" style="paint-order:stroke;stroke:var(--papel,#fbf8f1);stroke-width:5px;stroke-linejoin:round">4. Dame la página (HTTP)</text>
+<line x1="526" y1="344" x2="74" y2="344" stroke="#b8860b" stroke-width="2.2" marker-end="url(#net-intro-b)"/>
+<text x="300" y="337" font-size="13.5" fill="currentColor" text-anchor="middle" style="paint-order:stroke;stroke:var(--papel,#fbf8f1);stroke-width:5px;stroke-linejoin:round">200: aquí tienes el HTML</text>
+<line x1="74" y1="382" x2="526" y2="382" stroke="#3570c4" stroke-width="2.2" marker-end="url(#net-intro-a)"/>
+<text x="300" y="375" font-size="13.5" fill="currentColor" text-anchor="middle" style="paint-order:stroke;stroke:var(--papel,#fbf8f1);stroke-width:5px;stroke-linejoin:round">5. Y las imágenes, estilos, programas…</text>
+<line x1="526" y1="420" x2="74" y2="420" stroke="#b8860b" stroke-width="2.2" marker-end="url(#net-intro-b)"/>
+<text x="300" y="413" font-size="13.5" fill="currentColor" text-anchor="middle" style="paint-order:stroke;stroke:var(--papel,#fbf8f1);stroke-width:5px;stroke-linejoin:round">Aquí van</text>
+<rect x="16" y="438" width="108" height="30" rx="6" fill="#2f8a57" fill-opacity=".2" stroke="#2f8a57"/>
+<text x="70" y="458" font-size="13.5" font-weight="bold" fill="currentColor" text-anchor="middle">6. Dibuja</text>
+<text x="300" y="496" font-size="13.5" fill="currentColor" text-anchor="middle">Tiempo total: normalmente, menos de un segundo.</text>
+</svg>
+<figcaption>Lo que pasa en menos de un segundo al pulsar Intro: cada flecha es un mensaje que viaja por la red, ida o vuelta.</figcaption>
+</figure>
+<h3>Paso a paso</h3>
+<p><b>1. ¿Qué me has escrito?</b> El navegador comprueba si es una dirección o una búsqueda. Si fuera una búsqueda, se la mandaría a un buscador. Como es una dirección, sigue adelante. Antes mira si tiene guardada una copia reciente de esa página, porque si es así se ahorra casi todo el trabajo.</p>
+<p><b>2. Buscar el número.</b> Para conectarse necesita la dirección IP del servidor, así que pregunta al DNS, como vimos en el capítulo 6. En unas milésimas de segundo recibe la respuesta.</p>
+<p><b>3. Darse la mano.</b> Tu ordenador y el servidor abren una conexión TCP con un saludo de tres pasos: «¿hablamos?», «vale, hablamos», «perfecto». Así los dos se ponen de acuerdo en cómo numerarán los paquetes.</p>
+<p><b>4. Cerrar la puerta.</b> Como la dirección empieza por <i>https</i>, antes de decir nada importante negocian un cifrado. El servidor enseña su <b>certificado</b>, una especie de carné firmado por una entidad de confianza que demuestra que de verdad es <i>ejemplo.es</i>, y entre los dos acuerdan una clave secreta. Lo veremos en el capítulo siguiente.</p>
+<p><b>5. Pedir la página.</b> Por fin, el navegador envía su petición HTTP: «dame la página principal». El servidor la busca o la genera en ese momento y responde: «200, aquí la tienes», seguido del código HTML.</p>
+<p><b>6. Pedir todo lo demás.</b> Al leer el HTML, el navegador descubre que la página necesita más cosas: imágenes, tipos de letra, hojas de estilo (que dicen cómo se ve cada cosa) y programas en JavaScript (que la hacen interactiva). Las pide todas, muchas a la vez y a menudo a servidores distintos. Una página actual puede necesitar decenas de archivos.</p>
+<p><b>7. Dibujar.</b> Con todo eso, el navegador calcula dónde va cada elemento, pinta la página en tu pantalla y pone en marcha sus programas. Si algo tarda, empieza mostrando lo que ya tiene.</p>
+<p>Todo esto suele durar menos de un segundo. Y en ese tiempo, tu petición ha podido viajar cientos o miles de kilómetros, pasar por una docena de routers y volver.</p>
+<div class="sabias"><b>¿Sabías que...?</b> Para ganar velocidad, muchas páginas no se sirven desde un único ordenador, sino desde <b>redes de distribución de contenidos</b>: empresas que guardan copias de las imágenes y los vídeos de sus clientes en miles de servidores repartidos por todo el mundo, incluidas varias ciudades españolas. Cuando ves un vídeo muy popular, lo más probable es que no venga de Estados Unidos, sino de un servidor situado a pocos kilómetros de tu casa.</div>
+<div class="fondo"><b>Para entenderlo mejor: ¿por qué a veces va lento?</b> La velocidad que anuncia tu operadora (por ejemplo, 600 megabits por segundo) es el ancho del «tubo», cuánta información cabe por segundo. Pero una página también sufre la <b>latencia</b>: cada paso de la coreografía anterior es una ida y vuelta, y si el servidor está lejos, cada ida y vuelta tarda. Por eso una conexión muy ancha puede sentirse lenta con un servidor al otro lado del mundo, y por eso las versiones nuevas de HTTP intentan ahorrar idas y vueltas agrupando pasos.</div>
+<div class="idea"><b>Idea clave:</b> al pulsar Intro, el navegador busca la dirección IP en el DNS, abre una conexión TCP, la cifra, pide la página por HTTP, descarga todo lo que necesita y la dibuja. Casi siempre, en menos de un segundo.</div>
+
+<h2 id="c11"><small>Capítulo 11</small>Candados, llaves y contraseñas</h2>
+<p>Hay un problema en todo lo que hemos contado. Tus paquetes pasan por el router de una cafetería, por los equipos de varias compañías y por cables de medio mundo. Cualquiera que controle uno de esos puntos podría, en principio, leerlos. Internet no se diseñó pensando en la seguridad: sus pioneros eran científicos que se conocían y se fiaban unos de otros. Cuando la red se llenó de compras, bancos y conversaciones privadas, hubo que añadir candados.</p>
+<h3>Cifrar: escribir para que solo lo entienda uno</h3>
+<p><b>Cifrar</b> es transformar un mensaje para que solo pueda leerlo quien tenga la <b>clave</b>. Es una idea muy antigua. Según el historiador romano Suetonio, Julio César escribía a sus generales cambiando cada letra por la que está tres puestos más adelante en el alfabeto: la A se convertía en D, la B en E… Así, «ATACAD» se escribía «DWDFDG». Hoy los ordenadores usan métodos muchísimo más complicados, imposibles de romper a base de probar, pero la idea es la misma: quien tiene la clave descifra; quien no, solo ve un galimatías.</p>
+<p>Esto tiene un problema que durante siglos pareció no tener solución. Para que tu banco y tú os escribáis en secreto, los dos necesitáis la misma clave. ¿Y cómo os la pasáis, si todo lo que enviáis por internet puede ser espiado? Mandar la clave por la misma red sería como enviar la llave de casa dentro de un sobre transparente.</p>
+<h3>El truco de los candados abiertos</h3>
+<p>En 1976, dos investigadores de Stanford, <b>Whitfield Diffie</b> y <b>Martin Hellman</b>, publicaron una solución que parecía magia: la <b>criptografía de clave pública</b>. Al año siguiente, tres investigadores del MIT, Ron Rivest, Adi Shamir y Leonard Adleman, crearon el método más famoso para hacerlo realidad, llamado <b>RSA</b> por sus iniciales. La idea se entiende muy bien con candados.</p>
+<figure>
+<svg viewBox="0 0 600 372" role="img" aria-label="La criptografía de clave pública con candados: Bea reparte candados abiertos y guarda la única llave; Adri mete su mensaje en una caja y la cierra con un candado de Bea; la caja viaja cerrada y nadie puede abrirla por el camino; Bea la abre con su llave">
+  <g stroke="currentColor" stroke-opacity=".2"><line x1="300" y1="10" x2="300" y2="362"/><line x1="10" y1="186" x2="590" y2="186"/></g>
+  <g font-size="14" font-weight="bold" fill="currentColor">
+    <text x="16" y="28">1. Bea reparte candados abiertos</text>
+    <text x="316" y="28">2. Adri cierra la caja con uno</text>
+    <text x="16" y="208">3. La caja viaja cerrada</text>
+    <text x="316" y="208">4. Solo Bea puede abrirla</text>
+  </g>
+  <g fill="none" stroke="#b8860b" stroke-width="5">
+    <path d="M60,92 v-18 a14,14 0 0 1 28,0 v4"/><path d="M120,92 v-18 a14,14 0 0 1 28,0 v4"/><path d="M180,92 v-18 a14,14 0 0 1 28,0 v4"/>
+  </g>
+  <g fill="#b8860b" fill-opacity=".9"><rect x="54" y="90" width="40" height="32" rx="5"/><rect x="114" y="90" width="40" height="32" rx="5"/><rect x="174" y="90" width="40" height="32" rx="5"/></g>
+  <g fill="#3570c4"><circle cx="248" cy="96" r="9"/><rect x="241" y="96" width="4" height="26"/><rect x="241" y="110" width="12" height="4"/><rect x="241" y="118" width="10" height="4"/></g>
+  <g font-size="13" fill="currentColor">
+    <text x="16" y="148">Cualquiera puede coger uno</text>
+    <text x="16" y="165">(la clave pública). La única llave</text>
+    <text x="230" y="75" fill-opacity=".9">llave</text>
+  </g>
+  <text x="16" y="182" font-size="13" fill="currentColor">la guarda Bea (la clave privada).</text>
+  <rect x="360" y="84" width="110" height="64" rx="4" fill="#8a8a8a" fill-opacity=".35" stroke="currentColor" stroke-opacity=".6"/>
+  <line x1="360" y1="100" x2="470" y2="100" stroke="currentColor" stroke-opacity=".5"/>
+  <rect x="378" y="108" width="40" height="26" rx="2" fill="#ffffff" fill-opacity=".9" stroke="currentColor" stroke-opacity=".5"/>
+  <g stroke="#555" stroke-opacity=".7"><line x1="384" y1="116" x2="412" y2="116"/><line x1="384" y1="122" x2="412" y2="122"/><line x1="384" y1="128" x2="404" y2="128"/></g>
+  <path d="M486,112 v-14 a12,12 0 0 1 24,0 v14" fill="none" stroke="#b8860b" stroke-width="5"/>
+  <rect x="480" y="110" width="36" height="28" rx="5" fill="#b8860b" fill-opacity=".9"/>
+  <g font-size="13" fill="currentColor"><text x="316" y="168">Mete el mensaje y cierra el candado.</text><text x="316" y="182">Para cerrarlo no hace falta llave.</text></g>
+  <g stroke="currentColor" stroke-opacity=".45" stroke-dasharray="5 5" fill="none"><path d="M20,272 C80,240 120,300 180,268"/></g>
+  <rect x="190" y="248" width="70" height="44" rx="4" fill="#8a8a8a" fill-opacity=".35" stroke="currentColor" stroke-opacity=".6"/>
+  <path d="M215,252 v-10 a10,10 0 0 1 20,0 v10" fill="none" stroke="#b8860b" stroke-width="4"/>
+  <rect x="210" y="250" width="30" height="22" rx="4" fill="#b8860b" fill-opacity=".9"/>
+  <g font-size="30" fill="#d0402f" font-weight="bold" text-anchor="middle"><text x="60" y="258">?</text><text x="140" y="300">?</text></g>
+  <g font-size="13" fill="currentColor"><text x="16" y="330">Los espías del camino ven la caja,</text><text x="16" y="347">pero no pueden abrirla. Ni siquiera</text><text x="16" y="364">Adri podría: ya no tiene llave.</text></g>
+  <rect x="360" y="252" width="110" height="64" rx="4" fill="#8a8a8a" fill-opacity=".35" stroke="currentColor" stroke-opacity=".6"/>
+  <path d="M360,252 l-8,-26 h110 l8,26" fill="#8a8a8a" fill-opacity=".2" stroke="currentColor" stroke-opacity=".6"/>
+  <rect x="378" y="272" width="40" height="26" rx="2" fill="#ffffff" fill-opacity=".9" stroke="currentColor" stroke-opacity=".5"/>
+  <g stroke="#555" stroke-opacity=".7"><line x1="384" y1="280" x2="412" y2="280"/><line x1="384" y1="286" x2="412" y2="286"/><line x1="384" y1="292" x2="404" y2="292"/></g>
+  <path d="M490,262 v-18 a12,12 0 0 1 24,0 v4" fill="none" stroke="#b8860b" stroke-width="5"/>
+  <rect x="484" y="260" width="36" height="28" rx="5" fill="#b8860b" fill-opacity=".9"/>
+  <g fill="#3570c4"><circle cx="548" cy="270" r="9"/><rect x="541" y="270" width="4" height="26"/><rect x="541" y="284" width="12" height="4"/><rect x="541" y="292" width="10" height="4"/></g>
+  <g font-size="13" fill="currentColor"><text x="316" y="340">Con su llave privada, Bea abre</text><text x="316" y="357">el candado y lee el mensaje.</text></g>
+</svg>
+<figcaption>La clave pública funciona como un candado abierto que cualquiera puede cerrar; la clave privada, como la única llave que lo abre. Así dos desconocidos pueden hablar en secreto sin haberse pasado antes ninguna llave.</figcaption>
+</figure>
+<p>En la versión matemática, el «candado» es una operación fácil de hacer y dificilísima de deshacer. En RSA se basa en los números primos, los que solo se pueden dividir entre sí mismos y entre 1. Multiplicar dos primos es fácil: 61 × 53 = 3.233. Pero hacer el camino inverso, averiguar de qué dos primos sale 3.233, cuesta mucho más. Con números de más de 600 cifras, como los que se usan de verdad, no bastarían todos los ordenadores del mundo trabajando durante miles de millones de años. Quien conoce los dos primos (la llave privada) puede abrir; quien solo conoce el producto (el candado) puede cerrar, pero no abrir.</p>
+<div class="sabias"><b>¿Sabías que...?</b> Diffie, Hellman y los creadores de RSA no fueron los primeros. En el servicio británico de inteligencia de comunicaciones, el GCHQ, James Ellis tuvo la idea en 1970 y el matemático Clifford Cocks inventó en 1973 un método casi idéntico al RSA. Pero era secreto de Estado, y el mundo no lo supo hasta 1997.</div>
+<h3>La «s» de https</h3>
+<p>Cuando visitas una página con <i>https</i>, tu navegador y el servidor usan exactamente este truco al principio de la conversación, con un protocolo llamado <b>TLS</b>. Como la clave pública es lenta, solo la usan para ponerse de acuerdo en una clave secreta compartida, y a partir de ahí cifran todo con ella, que es muchísimo más rápido. El certificado que el servidor enseña está firmado por una autoridad de confianza, igual que un DNI lo expide la policía, para que nadie pueda hacerse pasar por tu banco. Según Google, desde hace unos años más del 90 % de las páginas que se abren con su navegador Chrome usan https.</p>
+<div class="fondo"><b>Para entenderlo mejor: el candado no significa «de fiar»</b> El candado que aparecía junto a la dirección indicaba que la conexión estaba cifrada: que nadie en el camino podía leer ni cambiar lo que enviabas. Pero no decía nada de quién estaba al otro lado. Una página falsa que imita a tu banco puede tener su candado perfectamente en regla. Tanta gente lo malinterpretaba que Chrome lo sustituyó en 2023 por un icono neutro. La regla de oro sigue siendo mirar bien la dirección y desconfiar de los enlaces que llegan por mensajes o correos inesperados: esa trampa se llama <b>phishing</b>, del inglés <i>fishing</i>, «pescar».</div>
+<h3>Contraseñas: la longitud manda</h3>
+<p>El eslabón más débil suele ser la contraseña. Los atacantes que roban una base de datos pueden probar miles de millones de contraseñas por segundo con ordenadores potentes. Veamos por qué importa tanto la longitud. Con 8 letras minúsculas hay 26<sup>8</sup> combinaciones, unos 209.000 millones: a mil millones de intentos por segundo, se prueban todas en menos de cuatro minutos. En cambio, cinco palabras elegidas al azar de una lista de 7.776 (como «nube tijera mango faro lento») dan 7.776<sup>5</sup> combinaciones, unos 28 trillones: al mismo ritmo harían falta unos 900 años. Y son más fáciles de recordar.</p>
+<p>Los expertos recomiendan tres cosas: contraseñas largas, una distinta para cada servicio (si roban una, no abren todas las puertas) y activar la <b>verificación en dos pasos</b>, que pide además un código del móvil o una llave física. Un gestor de contraseñas, un programa que las crea y las guarda cifradas, ayuda a cumplir las dos primeras sin volverse loco.</p>
+<div class="idea"><b>Idea clave:</b> cifrar es hacer ilegible un mensaje para quien no tiene la clave. La criptografía de clave pública, como un candado abierto que cualquiera puede cerrar pero solo su dueño abrir, permite que dos desconocidos hablen en secreto. Es lo que protege las páginas https.</div>
+
+<h2 id="c12"><small>Capítulo 12</small>Cómo encuentra un buscador lo que buscas</h2>
+<p>En los primeros años de la web, encontrar algo era como buscar un libro en una biblioteca sin catálogo. Había listas hechas a mano, como la que empezaron en 1994 dos estudiantes de Stanford, Jerry Yang y David Filo, y que acabó llamándose Yahoo!. Pero la web crecía demasiado deprisa para ordenarla a mano. Hacía falta que las máquinas la leyeran.</p>
+<h3>Arañas, índices y respuestas</h3>
+<p>Un buscador hace tres trabajos. El primero es <b>rastrear</b>: unos programas llamados <b>arañas</b> recorren la web sin descanso, descargan una página, apuntan todos sus enlaces, los siguen, descargan las páginas nuevas, apuntan sus enlaces… Así van tejiendo un mapa de la web entera.</p>
+<p>El segundo es <b>indexar</b>. El buscador construye algo parecido al índice alfabético que hay al final de muchos libros: para cada palabra, la lista de páginas donde aparece. Cuando buscas «volcanes de Canarias», no recorre la web en ese momento (tardaría años), sino que mira en su índice qué páginas contienen esas palabras. Según Google, su índice contiene cientos de miles de millones de páginas y ocupa más de cien millones de gigabytes.</p>
+<p>El tercero, y el más difícil, es <b>ordenar</b>. Para casi cualquier búsqueda hay millones de páginas que contienen las palabras. ¿Cuáles pones primero? Los buscadores de mediados de los noventa, como AltaVista, se fijaban sobre todo en cuántas veces aparecían las palabras, y eso era facilísimo de engañar: bastaba con repetir «viajes baratos» mil veces en letra blanca sobre fondo blanco.</p>
+<h3>La idea de Page y Brin</h3>
+<p>En 1996, dos estudiantes de doctorado de Stanford, <b>Larry Page</b> y <b>Sergey Brin</b>, se inspiraron en cómo se valora un artículo científico: es importante si lo citan muchos otros, sobre todo si lo citan artículos que también son importantes. En la web, las «citas» son los enlaces. Su método, que llamaron <b>PageRank</b> (en parte por el apellido de Page, en parte porque ordena páginas), da a cada página una puntuación que depende de cuántas páginas enlazan a ella y de lo importantes que son esas páginas.</p>
+<figure>
+<svg viewBox="0 0 600 420" role="img" aria-label="Seis páginas unidas por enlaces. El tamaño de cada círculo es proporcional a su PageRank: la página C, a la que enlazan cuatro páginas, es la más importante; A recibe un solo enlace, pero como viene de C queda segunda, muy por delante de D, que recibe tres enlaces de páginas poco importantes">
+<defs><marker id="net-flecha" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor" fill-opacity=".6"/></marker></defs>
+<path d="M163.2,110.0 Q197.6,128.0 232.0,110.0" fill="none" stroke="currentColor" stroke-opacity=".5" stroke-width="1.8" marker-end="url(#net-flecha)"/>
+<path d="M123.7,286.3 Q200.6,234.9 251.9,158.1" fill="none" stroke="currentColor" stroke-opacity=".5" stroke-width="1.8" marker-end="url(#net-flecha)"/>
+<path d="M128.7,294.8 Q288.2,269.2 438.0,208.9" fill="none" stroke="currentColor" stroke-opacity=".5" stroke-width="1.8" marker-end="url(#net-flecha)"/>
+<path d="M234.0,110.0 Q199.6,92.0 165.2,110.0" fill="none" stroke="currentColor" stroke-opacity=".5" stroke-width="1.8" marker-end="url(#net-flecha)"/>
+<path d="M442.4,185.4 Q409.7,147.7 360.1,141.8" fill="none" stroke="currentColor" stroke-opacity=".5" stroke-width="1.8" marker-end="url(#net-flecha)"/>
+<path d="M446.3,220.3 Q389.1,245.7 355.3,298.4" fill="none" stroke="currentColor" stroke-opacity=".5" stroke-width="1.8" marker-end="url(#net-flecha)"/>
+<path d="M325.6,289.1 Q335.4,230.6 309.6,177.3" fill="none" stroke="currentColor" stroke-opacity=".5" stroke-width="1.8" marker-end="url(#net-flecha)"/>
+<path d="M353.7,299.7 Q411.0,274.3 444.8,221.6" fill="none" stroke="currentColor" stroke-opacity=".5" stroke-width="1.8" marker-end="url(#net-flecha)"/>
+<path d="M361.2,321.6 Q426.1,343.1 492.9,328.6" fill="none" stroke="currentColor" stroke-opacity=".5" stroke-width="1.8" marker-end="url(#net-flecha)"/>
+<path d="M494.9,328.7 Q430.0,307.2 363.2,321.7" fill="none" stroke="currentColor" stroke-opacity=".5" stroke-width="1.8" marker-end="url(#net-flecha)"/>
+<path d="M511.0,306.5 Q513.2,262.3 481.9,231.0" fill="none" stroke="currentColor" stroke-opacity=".5" stroke-width="1.8" marker-end="url(#net-flecha)"/>
+<circle cx="100" cy="110" r="59.2" fill="#3570c4" fill-opacity=".22" stroke="#3570c4" stroke-width="2"/>
+<text x="100" y="109" font-size="17" font-weight="bold" fill="currentColor" text-anchor="middle">A</text>
+<text x="100" y="126" font-size="14" fill="currentColor" text-anchor="middle">37 %</text>
+<circle cx="110" cy="300" r="15.4" fill="#3570c4" fill-opacity=".22" stroke="#3570c4" stroke-width="2"/>
+<text x="110" y="306" font-size="17" font-weight="bold" fill="currentColor" text-anchor="middle">B</text>
+<text x="110" y="332" font-size="14" fill="currentColor" text-anchor="middle">3 %</text>
+<circle cx="300" cy="110" r="62.0" fill="#d0402f" fill-opacity=".22" stroke="#b3261e" stroke-width="2"/>
+<text x="300" y="109" font-size="17" font-weight="bold" fill="currentColor" text-anchor="middle">C</text>
+<text x="300" y="126" font-size="14" fill="currentColor" text-anchor="middle">40 %</text>
+<circle cx="470" cy="200" r="27.2" fill="#3570c4" fill-opacity=".22" stroke="#3570c4" stroke-width="2"/>
+<text x="470" y="206" font-size="17" font-weight="bold" fill="currentColor" text-anchor="middle">D</text>
+<text x="470" y="244" font-size="14" fill="currentColor" text-anchor="middle">8 %</text>
+<circle cx="330" cy="320" r="27.3" fill="#3570c4" fill-opacity=".22" stroke="#3570c4" stroke-width="2"/>
+<text x="330" y="326" font-size="17" font-weight="bold" fill="currentColor" text-anchor="middle">E</text>
+<text x="330" y="364" font-size="14" fill="currentColor" text-anchor="middle">8 %</text>
+<circle cx="520" cy="330" r="21.2" fill="#3570c4" fill-opacity=".22" stroke="#3570c4" stroke-width="2"/>
+<text x="520" y="336" font-size="17" font-weight="bold" fill="currentColor" text-anchor="middle">F</text>
+<text x="520" y="368" font-size="14" fill="currentColor" text-anchor="middle">5 %</text>
+<text x="300" y="400" font-size="13" fill="currentColor" text-anchor="middle">Área de cada círculo proporcional a su PageRank (con el 15 % de saltos al azar).</text>
+</svg>
+<figcaption>Un ejemplo pequeño de PageRank calculado de verdad. No gana quien más enlaces recibe, sino quien los recibe de páginas importantes.</figcaption>
+</figure>
+<div class="fondo"><b>Para entenderlo mejor: el navegante aburrido</b> PageRank se puede imaginar así. Pon a una persona a navegar al azar: en cada página pulsa un enlace cualquiera, y de vez en cuando (en el modelo original, un 15 % de las veces) se aburre y salta a una página al azar. Si la dejas navegar muchísimo tiempo, ¿en qué proporción del tiempo estará en cada página? Esa proporción es el PageRank. Las páginas a las que llegan muchos caminos, o caminos que vienen de sitios muy visitados, acumulan más tiempo. Por eso un solo enlace desde una página muy importante puede valer más que muchos desde páginas que nadie visita.</div>
+<p>Su buscador empezó llamándose BackRub y funcionaba en los ordenadores de la universidad. Luego lo rebautizaron <b>Google</b>, a partir de <i>gúgol</i>, el nombre que se da al número formado por un 1 seguido de cien ceros, para sugerir la enorme cantidad de información que querían ordenar. La empresa se fundó en septiembre de 1998 en un garaje de Menlo Park, en California. Sus resultados eran tan superiores que en pocos años barrió a la competencia.</p>
+<p>Hoy PageRank es solo uno de cientos de ingredientes. Los buscadores tienen en cuenta el idioma, el lugar desde el que buscas, lo reciente que es la página, si se ve bien en el móvil, si otros usuarios encuentran útil el resultado y, cada vez más, programas de inteligencia artificial que intentan entender lo que quieres decir y no solo las palabras que escribes. Es una carrera sin fin: hay empresas enteras dedicadas a subir páginas en los resultados, y los buscadores cambian sus reglas para que no les hagan trampas.</p>
+<div class="sabias"><b>¿Sabías que...?</b> En 2025, Google anunció que recibía más de 5 billones de búsquedas al año. Eso son unas 160.000 búsquedas cada segundo, de día y de noche. El primer buscador de internet, Archie, creado en 1990 en la Universidad McGill de Montreal, solo buscaba nombres de archivos, no el contenido de las páginas, porque la web todavía no existía.</div>
+<div class="idea"><b>Idea clave:</b> un buscador rastrea la web con sus arañas, la guarda en un índice y ordena los resultados. PageRank, la idea que lanzó a Google, puntúa cada página según los enlaces que recibe y la importancia de quien la enlaza.</div>
+
+<h2 id="c13"><small>Capítulo 13</small>España se conecta</h2>
+<p>Internet llegó a España como había nacido en Estados Unidos: de la mano de universidades y centros de investigación, mucho antes de que el público supiera que existía. Y, como tantas veces, entró por varias puertas a la vez.</p>
+<h3>Correo por teléfono y físicos impacientes</h3>
+<p>A mediados de los años ochenta, los físicos de altas energías, que colaboraban con laboratorios como el CERN, fueron de los primeros en necesitar comunicarse por ordenador. A finales de 1985 empezó a funcionar la red FAENET, que unía varias universidades y centros de física. Por las mismas fechas, un grupo de profesores del Departamento de Ingeniería de Sistemas Telemáticos de la Universidad Politécnica de Madrid conectó sus ordenadores a <b>EUnet</b>, una red europea de aficionados al sistema operativo Unix. Lo hacían por línea telefónica: los ordenadores se llamaban unos a otros de vez en cuando y se pasaban el correo acumulado. Su máquina central se llamaba, muy castizamente, <b>goya</b>.</p>
+<p>En 1988, el Plan Nacional de Investigación Científica creó el <b>programa IRIS</b> para poner orden en todas esas iniciativas y dar servicio de red a la comunidad científica. Así nació <b>RedIRIS</b>, la red académica española, que al principio gestionó Fundesco, una fundación de Telefónica, y hoy depende de la entidad pública Red.es. Ese mismo año, el 14 de abril, se creó el dominio .es.</p>
+<figure>
+<svg viewBox="0 0 600 521" role="img" aria-label="Línea del tiempo a escala de internet en España, de 1985 a 2024: FAENET y EUnet, RedIRIS y el dominio .es, la primera conexión en 1990, Goya, la primera web, Infovía, las eñes en los dominios, el cable MAREA y la fibra">
+<line x1="62" y1="40" x2="62" y2="491" stroke="currentColor" stroke-opacity=".45" stroke-width="2"/>
+<line x1="56" y1="40" x2="62" y2="40" stroke="currentColor" stroke-opacity=".45"/>
+<text x="50" y="44.5" font-size="13" fill="currentColor" fill-opacity=".75" text-anchor="end">1985</text>
+<line x1="56" y1="95" x2="62" y2="95" stroke="currentColor" stroke-opacity=".45"/>
+<text x="50" y="99.5" font-size="13" fill="currentColor" fill-opacity=".75" text-anchor="end">1990</text>
+<line x1="56" y1="150" x2="62" y2="150" stroke="currentColor" stroke-opacity=".45"/>
+<text x="50" y="154.5" font-size="13" fill="currentColor" fill-opacity=".75" text-anchor="end">1995</text>
+<line x1="56" y1="205" x2="62" y2="205" stroke="currentColor" stroke-opacity=".45"/>
+<text x="50" y="209.5" font-size="13" fill="currentColor" fill-opacity=".75" text-anchor="end">2000</text>
+<line x1="56" y1="260" x2="62" y2="260" stroke="currentColor" stroke-opacity=".45"/>
+<text x="50" y="264.5" font-size="13" fill="currentColor" fill-opacity=".75" text-anchor="end">2005</text>
+<line x1="56" y1="315" x2="62" y2="315" stroke="currentColor" stroke-opacity=".45"/>
+<text x="50" y="319.5" font-size="13" fill="currentColor" fill-opacity=".75" text-anchor="end">2010</text>
+<line x1="56" y1="370" x2="62" y2="370" stroke="currentColor" stroke-opacity=".45"/>
+<text x="50" y="374.5" font-size="13" fill="currentColor" fill-opacity=".75" text-anchor="end">2015</text>
+<line x1="56" y1="425" x2="62" y2="425" stroke="currentColor" stroke-opacity=".45"/>
+<text x="50" y="429.5" font-size="13" fill="currentColor" fill-opacity=".75" text-anchor="end">2020</text>
+<line x1="56" y1="480" x2="62" y2="480" stroke="currentColor" stroke-opacity=".45"/>
+<text x="50" y="484.5" font-size="13" fill="currentColor" fill-opacity=".75" text-anchor="end">2025</text>
+<path d="M62,49.9 L84,49.9 L106,49.9 L114,49.9" fill="none" stroke="#b8860b" stroke-opacity=".7" stroke-width="1.5"/>
+<circle cx="62" cy="49.9" r="5.5" fill="#b8860b"/>
+<text x="120" y="54.9" font-size="15.5" fill="currentColor"><tspan font-weight="bold">1985</tspan>  FAENET y EUnet: primer correo por red</text>
+<path d="M62,76.3 L84,76.3 L106,85.9 L114,85.9" fill="none" stroke="#b8860b" stroke-opacity=".7" stroke-width="1.5"/>
+<circle cx="62" cy="76.3" r="5.5" fill="#b8860b"/>
+<text x="120" y="90.9" font-size="15.5" fill="currentColor"><tspan font-weight="bold">1988</tspan>  Programa IRIS y dominio .es</text>
+<path d="M62,101.0 L84,101.0 L106,121.9 L114,121.9" fill="none" stroke="#b3261e" stroke-opacity=".7" stroke-width="1.5"/>
+<circle cx="62" cy="101.0" r="5.5" fill="#d0402f"/>
+<text x="120" y="126.9" font-size="15.5" fill="currentColor"><tspan font-weight="bold">1990</tspan>  Primera conexión plena (julio)</text>
+<path d="M62,114.8 L84,114.8 L106,157.9 L114,157.9" fill="none" stroke="#b8860b" stroke-opacity=".7" stroke-width="1.5"/>
+<circle cx="62" cy="114.8" r="5.5" fill="#b8860b"/>
+<text x="120" y="162.9" font-size="15.5" fill="currentColor"><tspan font-weight="bold">1991</tspan>  Más de 1.000 ordenadores en .es</text>
+<path d="M62,117.5 L84,117.5 L106,193.9 L114,193.9" fill="none" stroke="#b8860b" stroke-opacity=".7" stroke-width="1.5"/>
+<circle cx="62" cy="117.5" r="5.5" fill="#b8860b"/>
+<text x="120" y="198.9" font-size="15.5" fill="currentColor"><tspan font-weight="bold">1992</tspan>  Goya, primer proveedor comercial</text>
+<path d="M62,137.9 L84,137.9 L106,229.9 L114,229.9" fill="none" stroke="#b8860b" stroke-opacity=".7" stroke-width="1.5"/>
+<circle cx="62" cy="137.9" r="5.5" fill="#b8860b"/>
+<text x="120" y="234.9" font-size="15.5" fill="currentColor"><tspan font-weight="bold">1993</tspan>  UJI, en la lista de webs del CERN</text>
+<path d="M62,159.9 L84,159.9 L106,265.9 L114,265.9" fill="none" stroke="#b8860b" stroke-opacity=".7" stroke-width="1.5"/>
+<circle cx="62" cy="159.9" r="5.5" fill="#b8860b"/>
+<text x="120" y="270.9" font-size="15.5" fill="currentColor"><tspan font-weight="bold">1995</tspan>  Llega Infovía</text>
+<path d="M62,191.8 L84,191.8 L106,301.9 L114,301.9" fill="none" stroke="#b8860b" stroke-opacity=".7" stroke-width="1.5"/>
+<circle cx="62" cy="191.8" r="5.5" fill="#b8860b"/>
+<text x="120" y="306.9" font-size="15.5" fill="currentColor"><tspan font-weight="bold">1998</tspan>  270.000 ordenadores y 2 millones de usuarios</text>
+<path d="M62,290.2 L84,290.2 L106,337.9 L114,337.9" fill="none" stroke="#b8860b" stroke-opacity=".7" stroke-width="1.5"/>
+<circle cx="62" cy="290.2" r="5.5" fill="#b8860b"/>
+<text x="120" y="342.9" font-size="15.5" fill="currentColor"><tspan font-weight="bold">2007</tspan>  Eñes y tildes en los dominios .es</text>
+<path d="M62,404.1 L84,404.1 L106,404.1 L114,404.1" fill="none" stroke="#b3261e" stroke-opacity=".7" stroke-width="1.5"/>
+<circle cx="62" cy="404.1" r="5.5" fill="#d0402f"/>
+<text x="120" y="409.1" font-size="15.5" fill="currentColor"><tspan font-weight="bold">2018</tspan>  El cable MAREA llega a Bilbao</text>
+<path d="M62,474.5 L84,474.5 L106,474.5 L114,474.5" fill="none" stroke="#b8860b" stroke-opacity=".7" stroke-width="1.5"/>
+<circle cx="62" cy="474.5" r="5.5" fill="#b8860b"/>
+<text x="120" y="479.5" font-size="15.5" fill="currentColor"><tspan font-weight="bold">2024</tspan>  Fibra en el 94,8 % de los hogares</text>
+</svg>
+<figcaption>Algunos hitos de internet en España, dibujados a escala en el tiempo.</figcaption>
+</figure>
+<h3>1990: la primera conexión plena</h3>
+<p>La primera conexión completa de España a internet, hablando ya TCP/IP, llegó en <b>julio de 1990</b>, como servicio experimental de RedIRIS, por una línea de 64.000 bits por segundo. A finales de ese año solo había cuatro centros conectados: Fundesco, el departamento de la Politécnica de Madrid, el Centro Informático Científico de Andalucía, en Sevilla, y el CIEMAT, el centro público de investigación energética. En marzo de 1991, el servicio pasó a ser oficial, y en octubre de ese año ya había más de mil ordenadores registrados bajo el dominio .es.</p>
+<p>En 1992, el nudo <i>goya</i> se convirtió en <b>Goya Servicios Telemáticos</b>, el primer proveedor comercial de acceso a internet en España: por primera vez, una empresa o un particular podía contratar la conexión sin pertenecer a una universidad.</p>
+<h3>¿Cuál fue la primera web española?</h3>
+<p>Es una pregunta sin respuesta segura. En 1992, el físico e ingeniero <b>Ángel Camacho</b>, que había trabajado en el CERN, montó un servidor web en el Instituto de Física de Cantabria, en Santander, para el grupo de física de altas energías. Para demostrar que la web servía para mucho más que para la física, colgó también una página sobre razas de perros españolas, que se convirtió en una de las más visitadas del país. Por su parte, la Universitat Jaume I de Castellón, con el profesor <b>Jordi Adell</b>, fue a finales de 1993 el primer servidor español que apareció en la lista oficial del CERN. Pero el propio encargado de aquella lista reconoció que solo apuntaba los sitios cuyos responsables le escribían, así que la lista no demuestra quién fue el primero.</p>
+<div class="sabias"><b>¿Sabías que...?</b> En 1995, Telefónica lanzó <b>Infovía</b>, una red que permitía conectarse desde cualquier punto de España marcando un número especial al precio de una llamada local. Antes, quien vivía lejos de un nudo de conexión tenía que pagar llamadas interprovinciales carísimas mientras navegaba. Infovía fue el empujón que sacó internet de las universidades. Se conectaba con módems que hacían unos pitidos inolvidables y, mientras tanto, nadie en casa podía usar el teléfono.</div>
+<h3>Del módem a la fibra</h3>
+<p>Según RedIRIS, en octubre de 1998 había ya más de 270.000 ordenadores conectados bajo el dominio .es y unos dos millones de usuarios. Luego llegaron el ADSL, que aprovechaba el cable de cobre del teléfono para navegar y hablar a la vez, y, desde la década de 2010, la fibra hasta el hogar. Hoy España es uno de los países más avanzados del mundo en este terreno: en junio de 2024, la fibra óptica llegaba al 94,8 % de los hogares, muy por encima de países como Alemania.</p>
+<p>España también ha dejado su huella en la historia de la red. En 2005, la Asociación de Usuarios de Internet celebró el primer <b>Día de Internet</b>, el 25 de octubre, con cientos de actos por todo el país. Aquel mismo año, la Cumbre Mundial sobre la Sociedad de la Información, reunida en Túnez, recogió la propuesta de dedicar un día a internet en todo el mundo, y en 2006 la ONU fijó el <b>17 de mayo</b> como Día Mundial de las Telecomunicaciones y de la Sociedad de la Información, que muchos conocen simplemente como Día de Internet. Y desde 2007 la ñ tiene su sitio en los dominios .es.</p>
+<div class="fondo"><b>Para entenderlo mejor: ¿por qué llegan tantos cables a España?</b> La península ibérica está en una esquina privilegiada: es el punto de Europa más cercano a América por el sur, está a un paso de África y se asoma al Mediterráneo, por donde pasan las rutas hacia Asia. Por eso empresas como Microsoft, Meta, Google o Telxius han elegido sus costas para llegar a Europa, y por eso en los alrededores de Madrid se han multiplicado los centros de datos. España no es solo usuaria de internet: es uno de sus cruces de caminos.</div>
+<div class="idea"><b>Idea clave:</b> internet llegó a España por las universidades y los centros de investigación: correo desde 1985, RedIRIS desde 1988 y conexión plena en 1990. Luego vinieron los proveedores comerciales, Infovía y la fibra, y hoy España es un cruce de cables submarinos y una de las líderes en fibra hasta el hogar.</div>
+
+<h2 id="c14"><small>Capítulo 14</small>Internet hoy, lo que viene y resumen</h2>
+<p>Cerramos con una foto del presente, algunas pistas sobre el futuro y un repaso de lo más importante.</p>
+<h3>Internet en cifras</h3>
+<p>Según la UIT, en 2025 usaban internet unos <b>6.000 millones de personas</b>, alrededor del 74 % de la humanidad. En 2005 eran unos 1.000 millones, y en 1995, menos de 50 millones. Pero la cifra esconde desigualdades enormes: en las ciudades de todo el mundo está conectado el 85 % de la gente; en el campo, el 58 %. Y en los países pobres muchos se conectan solo con el móvil, con poca velocidad y datos caros: un usuario de un país rico consume casi ocho veces más datos móviles que uno de un país pobre.</p>
+<figure>
+<svg viewBox="0 0 600 430" role="img" aria-label="Gráfico de barras a escala con los usuarios de internet en el mundo: unos 40 millones en 1995, 400 millones en 2000, 1.000 millones en 2005, 2.000 millones en 2010, 3.200 millones en 2015, 4.700 millones en 2020 y 6.000 millones en 2025">
+<line x1="70" y1="380" x2="585" y2="380" stroke="currentColor" stroke-opacity="0.35"/>
+<text x="62" y="384.5" font-size="13" fill="currentColor" fill-opacity=".75" text-anchor="end">0</text>
+<line x1="70" y1="340" x2="585" y2="340" stroke="currentColor" stroke-opacity="0.12"/>
+<text x="62" y="344.5" font-size="13" fill="currentColor" fill-opacity=".75" text-anchor="end">1</text>
+<line x1="70" y1="300" x2="585" y2="300" stroke="currentColor" stroke-opacity="0.12"/>
+<text x="62" y="304.5" font-size="13" fill="currentColor" fill-opacity=".75" text-anchor="end">2</text>
+<line x1="70" y1="260" x2="585" y2="260" stroke="currentColor" stroke-opacity="0.12"/>
+<text x="62" y="264.5" font-size="13" fill="currentColor" fill-opacity=".75" text-anchor="end">3</text>
+<line x1="70" y1="220" x2="585" y2="220" stroke="currentColor" stroke-opacity="0.12"/>
+<text x="62" y="224.5" font-size="13" fill="currentColor" fill-opacity=".75" text-anchor="end">4</text>
+<line x1="70" y1="180" x2="585" y2="180" stroke="currentColor" stroke-opacity="0.12"/>
+<text x="62" y="184.5" font-size="13" fill="currentColor" fill-opacity=".75" text-anchor="end">5</text>
+<line x1="70" y1="140" x2="585" y2="140" stroke="currentColor" stroke-opacity="0.12"/>
+<text x="62" y="144.5" font-size="13" fill="currentColor" fill-opacity=".75" text-anchor="end">6</text>
+<line x1="70" y1="100" x2="585" y2="100" stroke="currentColor" stroke-opacity="0.12"/>
+<text x="62" y="104.5" font-size="13" fill="currentColor" fill-opacity=".75" text-anchor="end">7</text>
+<line x1="70" y1="60" x2="585" y2="60" stroke="currentColor" stroke-opacity="0.12"/>
+<text x="62" y="64.5" font-size="13" fill="currentColor" fill-opacity=".75" text-anchor="end">8</text>
+<text x="18" y="20" font-size="14" fill="currentColor" font-weight="bold">Miles de millones de personas</text>
+<line x1="70" y1="52" x2="585" y2="52" stroke="#b3261e" stroke-dasharray="6 5" stroke-opacity=".8"/>
+<text x="585" y="46" font-size="13" fill="#d0402f" text-anchor="end">población mundial en 2025: unos 8.200 millones</text>
+<rect x="92" y="378.4" width="46" height="1.6" fill="#1a8a80" fill-opacity=".75"/>
+<text x="115" y="371.4" font-size="13.5" font-weight="bold" fill="currentColor" text-anchor="middle">0,04</text>
+<text x="115" y="399" font-size="13.5" fill="currentColor" text-anchor="middle">1995</text>
+<rect x="162" y="364.0" width="46" height="16.0" fill="#1a8a80" fill-opacity=".75"/>
+<text x="185" y="357.0" font-size="13.5" font-weight="bold" fill="currentColor" text-anchor="middle">0,4</text>
+<text x="185" y="399" font-size="13.5" fill="currentColor" text-anchor="middle">2000</text>
+<rect x="232" y="340.0" width="46" height="40.0" fill="#1a8a80" fill-opacity=".75"/>
+<text x="255" y="333.0" font-size="13.5" font-weight="bold" fill="currentColor" text-anchor="middle">1,0</text>
+<text x="255" y="399" font-size="13.5" fill="currentColor" text-anchor="middle">2005</text>
+<rect x="302" y="300.0" width="46" height="80.0" fill="#1a8a80" fill-opacity=".75"/>
+<text x="325" y="293.0" font-size="13.5" font-weight="bold" fill="currentColor" text-anchor="middle">2,0</text>
+<text x="325" y="399" font-size="13.5" fill="currentColor" text-anchor="middle">2010</text>
+<rect x="372" y="252.0" width="46" height="128.0" fill="#1a8a80" fill-opacity=".75"/>
+<text x="395" y="245.0" font-size="13.5" font-weight="bold" fill="currentColor" text-anchor="middle">3,2</text>
+<text x="395" y="399" font-size="13.5" fill="currentColor" text-anchor="middle">2015</text>
+<rect x="442" y="192.0" width="46" height="188.0" fill="#1a8a80" fill-opacity=".75"/>
+<text x="465" y="185.0" font-size="13.5" font-weight="bold" fill="currentColor" text-anchor="middle">4,7</text>
+<text x="465" y="399" font-size="13.5" fill="currentColor" text-anchor="middle">2020</text>
+<rect x="512" y="140.0" width="46" height="240.0" fill="#1a8a80" fill-opacity=".75"/>
+<text x="535" y="133.0" font-size="13.5" font-weight="bold" fill="currentColor" text-anchor="middle">6,0</text>
+<text x="535" y="399" font-size="13.5" fill="currentColor" text-anchor="middle">2025</text>
+<text x="300" y="422" font-size="13" fill="currentColor" fill-opacity=".85" text-anchor="middle">Cifras aproximadas, según la UIT y otras estimaciones.</text>
+</svg>
+<figcaption>Usuarios de internet en el mundo, en miles de millones, con las barras a escala. En treinta años se ha pasado de menos del 1 % de la humanidad a tres de cada cuatro personas.</figcaption>
+</figure>
+<p>Toda esa actividad consume energía. Según la Agencia Internacional de la Energía, en 2024 los centros de datos del mundo gastaron unos <b>415 teravatios hora</b> de electricidad, alrededor del 1,5 % de toda la que se consumió en el planeta. Es más de lo que gasta España entera en un año, que ronda los 250. Y la misma agencia calcula que, sobre todo por la inteligencia artificial, esa cifra podría más que duplicarse hasta unos 945 teravatios hora en 2030. Por eso las empresas buscan refrigerar sus centros con aire del exterior, instalarlos cerca de fuentes de energía renovable y aprovechar su calor para calentar edificios.</p>
+<div class="sabias"><b>¿Sabías que...?</b> Internet ya ha salido de la Tierra. Vint Cerf, uno de los padres del TCP/IP, lleva años trabajando con la NASA en una «internet interplanetaria», con protocolos que aguantan los enormes retrasos del espacio: una señal tarda entre unos 3 y 22 minutos en llegar a Marte, según dónde estén los dos planetas. Con las reglas normales de TCP, que esperan respuesta en fracciones de segundo, la conexión se rendiría antes de empezar.</div>
+<h3>Lo que viene</h3>
+<p>Nadie sabe cómo será internet dentro de veinte años; en 1995 casi nadie imaginaba los teléfonos inteligentes. Pero hay tendencias claras. La primera, más conexiones y más rápidas: más fibra, más cables submarinos, redes móviles más potentes y constelaciones de satélites para llegar a los lugares remotos, con el reto de conectar a los 2.200 millones de personas que aún no lo están. La segunda, más cosas conectadas: coches, contadores de la luz, sensores en el campo, aparatos médicos. Para todos ellos hará falta IPv6.</p>
+<p>La tercera, un cambio en cómo buscamos y usamos la información: cada vez más, programas de inteligencia artificial responden directamente a las preguntas en lugar de ofrecer una lista de enlaces, lo que plantea preguntas nuevas sobre de dónde sale la información y quién paga a quien la crea. Y la cuarta, la seguridad. Los ordenadores cuánticos, si llegan a ser lo bastante grandes, podrían romper candados como el RSA. Por eso en agosto de 2024 el Instituto Nacional de Estándares de Estados Unidos publicó los primeros métodos de cifrado «poscuánticos», pensados para resistirlos, y la red ha empezado a adoptarlos poco a poco.</p>
+<p>Detrás de todo eso sigue habiendo una idea de hace más de cincuenta años: una red sencilla, sin dueño, en la que cualquiera puede conectar algo nuevo sin pedir permiso. Protegerla depende también de sus usuarios.</p>
+<div class="idea"><b>Idea clave:</b> en 2025 tres de cada cuatro personas del mundo usaban internet, y sus centros de datos gastaban ya en torno al 1,5 % de la electricidad del planeta. El futuro traerá más conexiones, más aparatos, más inteligencia artificial y nuevos candados capaces de resistir a los ordenadores cuánticos.</div>
+<h3>Fechas clave</h3>
+<dl class="fechas">
+  <dt>4 de octubre de 1957</dt><dd>La Unión Soviética lanza el Sputnik 1. Al año siguiente, Estados Unidos crea la ARPA.</dd>
+  <dt>1964–1965</dt><dd>Paul Baran publica su red distribuida; Donald Davies inventa, por su cuenta, la conmutación de paquetes.</dd>
+  <dt>1966</dt><dd>Bob Taylor consigue el dinero para una red de ordenadores de la ARPA.</dd>
+  <dt>29 de octubre de 1969</dt><dd>Primer mensaje de la ARPANET, de UCLA al SRI: «LO».</dd>
+  <dt>1971</dt><dd>Ray Tomlinson envía el primer correo entre ordenadores distintos y elige la @.</dd>
+  <dt>1974</dt><dd>Vint Cerf y Bob Kahn publican el diseño de lo que será TCP/IP.</dd>
+  <dt>1 de enero de 1983</dt><dd>La ARPANET adopta TCP/IP. Ese año nace también el DNS.</dd>
+  <dt>1985–1988</dt><dd>Primeras conexiones de correo en España; nacen RedIRIS y el dominio .es.</dd>
+  <dt>Marzo de 1989</dt><dd>Tim Berners-Lee propone en el CERN lo que será la web.</dd>
+  <dt>Julio de 1990</dt><dd>Primera conexión plena de España a internet, a través de RedIRIS.</dd>
+  <dt>1992</dt><dd>Goya, primer proveedor comercial español; uno de los primeros servidores web del país, en Cantabria.</dd>
+  <dt>30 de abril de 1993</dt><dd>El CERN pone la web gratis a disposición de todos. Aparece el navegador Mosaic.</dd>
+  <dt>1998</dt><dd>Larry Page y Sergey Brin fundan Google, basado en PageRank.</dd>
+  <dt>3 de febrero de 2011</dt><dd>Se reparten los últimos bloques libres de direcciones IPv4.</dd>
+  <dt>2018</dt><dd>Entra en servicio el cable submarino MAREA, entre Bilbao y Virginia.</dd>
+  <dt>2025</dt><dd>Unos 6.000 millones de personas usan internet.</dd>
+</dl>
+<p><b>Resumen en seis frases</b></p>
+<ol>
+  <li>Internet es una red de redes sin dueño que conecta ordenadores de todo el mundo; la web, el correo o el vídeo son servicios que funcionan sobre ella.</li>
+  <li>Nació en plena Guerra Fría con la ARPANET, cuyo primer mensaje, «LO», se envió en 1969, y con la idea de trocear los mensajes en paquetes que viajan por separado.</li>
+  <li>TCP/IP es el idioma común: IP lleva los paquetes de router en router y TCP, en los extremos, los ordena y pide los que faltan; todo se organiza en capas, como sobres dentro de sobres.</li>
+  <li>Cada aparato tiene una dirección IP, y el DNS traduce los nombres que recordamos en esos números.</li>
+  <li>Casi todo viaja como luz por fibras de vidrio, también por más de 600 cables submarinos, y solo los últimos metros van por el aire.</li>
+  <li>Sobre esa base funcionan la web de Berners-Lee, los buscadores que ordenan millones de páginas y el cifrado de clave pública que protege nuestros secretos.</li>
+</ol>
+<p><i>Para pensar:</i> internet se diseñó para que nadie la controlara y cualquiera pudiera inventar algo nuevo sobre ella. Hoy, unas pocas empresas gestionan buena parte de lo que hacemos en la red. ¿Crees que sigue siendo tan abierta como la imaginaron sus pioneros? ¿Qué harías tú para que lo siguiera siendo?</p>
+
+</main>
+<script>if ('serviceWorker' in navigator) navigator.serviceWorker.register('../../sw.js').catch(() => {});</script>
+</body>
+</html>
