@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Libros ilustrados y fáciles de leer sobre historia, ciencia y mucho más.">
+<meta name="theme-color" content="#edf0f2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#14181d" media="(prefers-color-scheme: dark)">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icono.svg" type="image/svg+xml">
+<link rel="icon" href="icono-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-title" content="Biblioteca">
+<title>Biblioteca</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Literata:opsz,wght@7..72,500;7..72,700&display=swap">
+<style>
+  :root {
+    --fondo: #edf0f2; --tinta: #1b2330; --suave: #5b6675; --linea: #d3d9df; --campo: #ffffff;
+    --madera: #8a5a35; --madera-osc: #6b4226; --veta: rgba(255, 255, 255, .10);
+    --laton: #b0802a; --laton-claro: #e6c371; --laton-tinta: #3a2a0b; --laton-texto: #8a6212;
+    --foco: #23408e; --sombra: rgba(27, 35, 48, .28);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --fondo: #14181d; --tinta: #e7eaee; --suave: #a2acb8; --linea: #2d353e; --campo: #1c2229;
+      --madera: #5a3b24; --madera-osc: #3e2716; --veta: rgba(255, 255, 255, .06);
+      --laton: #a8812f; --laton-claro: #d9b45e; --laton-tinta: #2b1f08; --laton-texto: #d9b45e;
+      --foco: #9db6ff; --sombra: rgba(0, 0, 0, .6); color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --fondo: #14181d; --tinta: #e7eaee; --suave: #a2acb8; --linea: #2d353e; --campo: #1c2229;
+    --madera: #5a3b24; --madera-osc: #3e2716; --veta: rgba(255, 255, 255, .06);
+    --laton: #a8812f; --laton-claro: #d9b45e; --laton-tinta: #2b1f08; --laton-texto: #d9b45e;
+    --foco: #9db6ff; --sombra: rgba(0, 0, 0, .6); color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--fondo); color: var(--tinta);
+    font: 16px/1.5 "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif; }
+  .sala { max-width: 1080px; margin: 0 auto; padding-inline: 20px; padding-block: 36px 72px; }
+  header { display: grid; gap: 6px; margin-bottom: 28px; }
+  h1 { font: 700 clamp(2.2rem, 6vw, 3.2rem)/1.05 Literata, Georgia, serif; margin: 0; letter-spacing: -.01em; }
+  .datos { margin: 0; color: var(--suave); font-variant-numeric: tabular-nums; }
+  .buscador { position: relative; max-width: 560px; }
+  .buscador svg { position: absolute; left: 14px; top: 50%; translate: 0 -50%; width: 20px; height: 20px; color: var(--suave); pointer-events: none; }
+  .buscador input { width: 100%; font: inherit; font-size: 1.05rem; color: var(--tinta); background: var(--campo);
+    border: 1.5px solid var(--linea); border-radius: 10px; padding: 12px 14px 12px 44px; }
+  .buscador input::placeholder { color: var(--suave); }
+  .buscador input:focus { outline: 3px solid var(--foco); outline-offset: 1px; border-color: transparent; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 6px; }
+  .chip { font: inherit; font-size: .95rem; color: var(--tinta); background: transparent; border: 1.5px solid var(--linea);
+    border-radius: 999px; padding: 6px 14px; cursor: pointer; }
+  .chip span { color: var(--suave); font-variant-numeric: tabular-nums; margin-left: 2px; }
+  .chip[aria-pressed="true"] { background: var(--tinta); border-color: var(--tinta); color: var(--fondo); }
+  .chip[aria-pressed="true"] span { color: inherit; opacity: .75; }
+  .chip:focus-visible { outline: 3px solid var(--foco); outline-offset: 2px; }
+  .estado { min-height: 1.5em; margin: 4px 0 0; color: var(--suave); font-size: .95rem; }
+  .estante { margin-top: 40px; }
+  .cabecera { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; margin-bottom: 18px;
+    padding-bottom: 8px; border-bottom: 1px solid var(--linea); }
+  h2 { font: 700 1.6rem/1.2 Literata, Georgia, serif; margin: 0; }
+  .nota { color: var(--suave); font-style: italic; }
+  .cuenta { margin-left: auto; color: var(--suave); font-size: .9rem; font-variant-numeric: tabular-nums; }
+  .baldas { display: grid; grid-template-columns: repeat(auto-fill, minmax(176px, 1fr)); column-gap: 0; row-gap: 40px; overflow-x: clip; }
+  .libro { display: flex; flex-direction: column; color: inherit; text-decoration: none; border-radius: 4px; }
+  .libro:focus-visible { outline: none; }
+  .libro:focus-visible .lomo { outline: 3px solid var(--foco); outline-offset: 4px; }
+  .hueco { display: block; padding: 0 16px; }
+  .lomo { position: relative; display: block; border-radius: 2px 5px 5px 2px; transition: translate .2s ease;
+    box-shadow: 0 10px 14px -8px var(--sombra), 0 2px 3px rgba(0, 0, 0, .18); }
+  .lomo img { display: block; width: 100%; height: auto; aspect-ratio: 2 / 3; border-radius: inherit; }
+  .lomo::after { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+    background: linear-gradient(90deg, rgba(0, 0, 0, .28), rgba(255, 255, 255, .16) 3%, rgba(0, 0, 0, .06) 6%, transparent 9%); }
+  .libro:hover .lomo { translate: 0 -6px; }
+  .balda { position: relative; display: block; height: 28px;
+    background: linear-gradient(var(--veta), transparent 30%) 0 0 / 100% 18px no-repeat,
+      linear-gradient(var(--madera) 0 72%, var(--madera-osc) 72%) 0 0 / 100% 18px no-repeat,
+      linear-gradient(var(--sombra), transparent) 0 18px / 100% 10px no-repeat; }
+  .libro.ultimo .balda::after { content: ""; position: absolute; left: 100%; top: 0; width: 3000px; height: 100%;
+    background: inherit; }
+  .placa { position: absolute; left: 50%; top: 3px; translate: -50% 0; padding: 0 7px; border-radius: 2px;
+    font-size: 11px; line-height: 12px; font-weight: 700; letter-spacing: .06em; white-space: nowrap;
+    font-variant-numeric: tabular-nums; color: var(--laton-tinta);
+    background: linear-gradient(var(--laton-claro), var(--laton)); box-shadow: 0 1px 1px rgba(0, 0, 0, .35); }
+  .ficha { display: grid; gap: 2px; padding: 2px 16px 0; }
+  .titulo { font: 700 1.08rem/1.25 Literata, Georgia, serif; text-wrap: balance; }
+  .subt { color: var(--suave); font-size: .9rem; line-height: 1.35; }
+  .serie { color: var(--laton-texto); font-size: .8rem; font-weight: 700; margin-top: 4px; }
+  .meta { color: var(--suave); font-size: .8rem; font-variant-numeric: tabular-nums; }
+  .subt + .meta { margin-top: 4px; }
+  .libro:hover .titulo { text-decoration: underline; text-underline-offset: 3px; }
+  .vacio { margin: 40px 0; padding: 24px; border: 1.5px dashed var(--linea); border-radius: 10px; color: var(--suave); text-align: center; }
+  footer { margin-top: 64px; color: var(--suave); font-size: .85rem; }
+  @media (max-width: 480px) {
+    .sala { padding-inline: 16px; }
+    .baldas { grid-template-columns: repeat(2, 1fr); }
+    .hueco, .ficha { padding-inline: 12px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .lomo { transition: none; } }
+</style>
+</head>
+<body>
+
+<div class="sala">
+<header>
+  <h1>Biblioteca</h1>
+  <p class="datos">9 libros · 4 temas · 5 h 5 min de lectura</p>
+</header>
+
+<div class="buscador" role="search">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg>
+  <input id="buscar" type="search" autocomplete="off" placeholder="Busca un tema, época o personaje" aria-label="Buscar en la biblioteca">
+</div>
+<div class="chips" role="group" aria-label="Filtrar por tema">
+  <button type="button" class="chip" data-tema="" aria-pressed="true">Todos <span>9</span></button><button type="button" class="chip" data-tema="Historia" aria-pressed="false">Historia <span>5</span></button><button type="button" class="chip" data-tema="Física" aria-pressed="false">Física <span>2</span></button><button type="button" class="chip" data-tema="Biología" aria-pressed="false">Biología <span>1</span></button><button type="button" class="chip" data-tema="Matemáticas" aria-pressed="false">Matemáticas <span>1</span></button>
+</div>
+<p class="estado" id="estado" aria-live="polite"></p>
+
+<section class="estante" id="historia" data-tema="Historia" aria-labelledby="t-historia">
+<div class="cabecera"><h2 id="t-historia">Historia</h2><span class="nota">en orden cronológico</span><span class="cuenta">5 libros</span></div>
+<div class="baldas">
+<a class="libro" href="libros/1492/libro.html" data-texto="1492 el ano que cambio el mundo historia edad moderna  en un solo ano, los reyes catolicos conquistaron granada, expulsaron a los judios y enviaron a colon hacia el oeste en busca de asia. lo que encontro cambio para siempre la comida, las lenguas y la historia de todo el planeta. con tres mapas, esquemas y muchas curiosidades. reyes catolicos isabel la catolica granada boabdil sefardies expulsion de los judios cristobal colon descubrimiento de america tainos intercambio colombino"><span class="hueco"><span class="lomo"><img src="libros/1492/portada.svg" alt="" width="600" height="900"></span></span><span class="balda"><span class="placa">1492</span></span><span class="ficha"><span class="titulo">1492</span><span class="subt">El año que cambió el mundo</span><span class="meta">35 min · Intermedio</span></span></a>
+<a class="libro" href="libros/la-revolucion-francesa/libro.html" data-texto="la revolucion francesa diez anos que cambiaron el mundo (1789–1799) historia edad contemporanea europa en revolucion como un reino endeudado y hambriento derribo a su rey, proclamo los derechos del ciudadano, cayo en el terror y termino en manos de napoleon. contado paso a paso, con mapas y lineas del tiempo. francia luis xvi bastilla derechos humanos robespierre napoleon revolucion"><span class="hueco"><span class="lomo"><img src="libros/la-revolucion-francesa/portada.svg" alt="" width="600" height="900"></span></span><span class="balda"><span class="placa">1789–1799</span></span><span class="ficha"><span class="titulo">La Revolución francesa</span><span class="subt">Diez años que cambiaron el mundo (1789–1799)</span><span class="serie">Europa en revolución · 1</span><span class="meta">20 min · Básico</span></span></a>
+<a class="libro" href="libros/napoleon/libro.html" data-texto="napoleon del cuartel al trono de europa (1769–1821) historia edad contemporanea europa en revolucion como un joven corso pobre llego a emperador y domino europa, por que ganaba las batallas, que cambio para siempre y como lo perdio todo en espana, rusia y waterloo. con mapas, esquemas de batallas y curiosidades. napoleon bonaparte francia imperio austerlitz guerra de la independencia rusia waterloo codigo civil"><span class="hueco"><span class="lomo"><img src="libros/napoleon/portada.svg" alt="" width="600" height="900"></span></span><span class="balda"><span class="placa">1799–1815</span></span><span class="ficha"><span class="titulo">Napoleón</span><span class="subt">Del cuartel al trono de Europa (1769–1821)</span><span class="serie">Europa en revolución · 2</span><span class="meta">35 min · Intermedio</span></span></a>
+<a class="libro" href="libros/restauracion-y-revoluciones/libro.html" data-texto="restauracion y revoluciones de waterloo a la primavera de los pueblos (1815–1848) historia edad contemporanea europa en revolucion tras napoleon, los reyes de europa intentaron volver al pasado. pero las ideas de libertad y nacion ya no se podian encerrar: tres oleadas de revoluciones, en 1820, 1830 y 1848, sacudieron el continente de cadiz a budapest. con mapas, esquemas y muchas curiosidades. congreso de viena metternich liberalismo nacionalismo fernando vii trienio liberal revolucion de 1830 revolucion de 1848 primavera de los pueblos marx"><span class="hueco"><span class="lomo"><img src="libros/restauracion-y-revoluciones/portada.svg" alt="" width="600" height="900"></span></span><span class="balda"><span class="placa">1815–1848</span></span><span class="ficha"><span class="titulo">Restauración y revoluciones</span><span class="subt">De Waterloo a la Primavera de los Pueblos (1815–1848)</span><span class="serie">Europa en revolución · 3</span><span class="meta">35 min · Intermedio</span></span></a>
+<a class="libro ultimo" href="libros/hierro-y-sangre/libro.html" data-texto="hierro y sangre las unificaciones de italia y alemania (1848–1871) historia edad contemporanea europa en revolucion en 1850, italia y alemania eran un mosaico de estados. veinte anos despues eran dos grandes paises. cavour, garibaldi y bismarck lo consiguieron con astucia, diplomacia y guerras: los mil, sadowa, un telegrama trucado y sedan. con mapas de fronteras reales, esquemas y muchas curiosidades. risorgimento cavour garibaldi mazzini victor manuel ii bismarck prusia napoleon iii sadowa telegrama de ems guerra franco-prusiana imperio aleman nacionalismo"><span class="hueco"><span class="lomo"><img src="libros/hierro-y-sangre/portada.svg" alt="" width="600" height="900"></span></span><span class="balda"><span class="placa">1848–1871</span></span><span class="ficha"><span class="titulo">Hierro y sangre</span><span class="subt">Las unificaciones de Italia y Alemania (1848–1871)</span><span class="serie">Europa en revolución · 4</span><span class="meta">55 min · Intermedio</span></span></a>
+</div>
+</section>
+<section class="estante" id="fisica" data-tema="Física" aria-labelledby="t-fisica">
+<div class="cabecera"><h2 id="t-fisica">Física</h2><span class="cuenta">2 libros</span></div>
+<div class="baldas">
+<a class="libro" href="libros/la-gravedad/libro.html" data-texto="la gravedad de la manzana de newton a los agujeros negros fisica   por que caen las cosas, por que la luna no se cae, como se peso la tierra, por que tu gps necesita a einstein y que son los agujeros negros y las ondas gravitacionales. la historia de la fuerza que mueve el universo, de galileo a hoy. gravedad galileo newton einstein relatividad mareas orbitas gps agujeros negros ondas gravitacionales materia oscura"><span class="hueco"><span class="lomo"><img src="libros/la-gravedad/portada.svg" alt="" width="600" height="900"></span></span><span class="balda"></span><span class="ficha"><span class="titulo">La gravedad</span><span class="subt">De la manzana de Newton a los agujeros negros</span><span class="meta">30 min · Intermedio</span></span></a>
+<a class="libro ultimo" href="libros/por-que-el-cielo-es-azul/libro.html" data-texto="¿por que el cielo es azul? la luz, el aire y los colores del dia fisica   por que vemos el cielo azul de dia, rojo al atardecer y negro en el espacio, explicado con dibujos y sin formulas dificiles. luz color atmosfera dispersion de rayleigh atardecer"><span class="hueco"><span class="lomo"><img src="libros/por-que-el-cielo-es-azul/portada.svg" alt="" width="600" height="900"></span></span><span class="balda"></span><span class="ficha"><span class="titulo">¿Por qué el cielo es azul?</span><span class="subt">La luz, el aire y los colores del día</span><span class="meta">10 min · Básico</span></span></a>
+</div>
+</section>
+<section class="estante" id="biologia" data-tema="Biología" aria-labelledby="t-biologia">
+<div class="cabecera"><h2 id="t-biologia">Biología</h2><span class="cuenta">1 libro</span></div>
+<div class="baldas">
+<a class="libro ultimo" href="libros/la-evolucion/libro.html" data-texto="la evolucion como darwin explico la diversidad de la vida biologia   por que hay tantos seres vivos y tan bien adaptados. el viaje de darwin en el beagle, los pinzones de las galapagos, la carrera con wallace, la polemica, mendel y el adn, las pruebas de la evolucion y el lugar del ser humano en el arbol de la vida, de lucy a atapuerca. evolucion darwin wallace seleccion natural galapagos beagle lamarck mendel adn fosiles atapuerca neandertales origen del ser humano"><span class="hueco"><span class="lomo"><img src="libros/la-evolucion/portada.svg" alt="" width="600" height="900"></span></span><span class="balda"></span><span class="ficha"><span class="titulo">La evolución</span><span class="subt">Cómo Darwin explicó la diversidad de la vida</span><span class="meta">60 min · Intermedio</span></span></a>
+</div>
+</section>
+<section class="estante" id="matematicas" data-tema="Matemáticas" aria-labelledby="t-matematicas">
+<div class="cabecera"><h2 id="t-matematicas">Matemáticas</h2><span class="cuenta">1 libro</span></div>
+<div class="baldas">
+<a class="libro ultimo" href="libros/el-numero-pi/libro.html" data-texto="el numero π la historia de 4.000 anos de un numero que nunca termina matematicas   que es π, por que aparece en todos los circulos, como lo calcularon babilonios, egipcios, arquimedes y los matematicos chinos e indios, por que no se acaba nunca y para que sirve hoy. con dibujos, calculos paso a paso y muchas curiosidades. pi circulo arquimedes geometria numeros irracionales historia de las matematicas"><span class="hueco"><span class="lomo"><img src="libros/el-numero-pi/portada.svg" alt="" width="600" height="900"></span></span><span class="balda"></span><span class="ficha"><span class="titulo">El número π</span><span class="subt">La historia de 4.000 años de un número que nunca termina</span><span class="meta">25 min · Intermedio</span></span></a>
+</div>
+</section>
+
+<p class="vacio" id="vacio" hidden></p>
+
+<footer>Catálogo actualizado el 28 de septiembre de 2026.</footer>
+</div>
+
+<script>
+(() => {
+  const norma = s => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
+  const campo = document.getElementById('buscar');
+  const chips = [...document.querySelectorAll('.chip')];
+  const estantes = [...document.querySelectorAll('.estante')];
+  const estado = document.getElementById('estado');
+  const vacio = document.getElementById('vacio');
+  let tema = '';
+
+  function filtra() {
+    const q = norma(campo.value);
+    const palabras = q ? q.split(/\s+/) : [];
+    let total = 0;
+    for (const est of estantes) {
+      const libros = [...est.querySelectorAll('.libro')];
+      let visibles = [];
+      for (const li of libros) {
+        const ok = (!tema || est.dataset.tema === tema) && palabras.every(p => li.dataset.texto.includes(p));
+        li.hidden = !ok;
+        li.classList.remove('ultimo');
+        if (ok) visibles.push(li);
+      }
+      if (visibles.length) visibles[visibles.length - 1].classList.add('ultimo');
+      est.hidden = visibles.length === 0;
+      total += visibles.length;
+    }
+    const filtrando = q || tema;
+    estado.textContent = filtrando && total ? (total === 1 ? '1 libro' : total + ' libros') + (q ? ' para «' + campo.value.trim() + '»' : '') : '';
+    vacio.hidden = total > 0;
+    if (!total) vacio.textContent = 'Todavía no hay ningún libro sobre «' + campo.value.trim() + '»' + (tema ? ' en ' + tema : '') + '.';
+  }
+
+  campo.addEventListener('input', filtra);
+  for (const c of chips) c.addEventListener('click', () => {
+    tema = c.dataset.tema;
+    chips.forEach(x => x.setAttribute('aria-pressed', String(x === c)));
+    filtra();
+  });
+  document.addEventListener('keydown', ev => {
+    if (ev.key === '/' && document.activeElement !== campo) { ev.preventDefault(); campo.focus(); }
+    if (ev.key === 'Escape' && document.activeElement === campo) { campo.value = ''; filtra(); }
+  });
+})();
+</script>
+<script>if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});</script>
+</body>
+</html>

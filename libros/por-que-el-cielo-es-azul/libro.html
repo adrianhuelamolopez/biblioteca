@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>¿Por qué el cielo es azul?</title>
+<script type="application/json" id="metadatos">
+{
+  "id": "por-que-el-cielo-es-azul",
+  "titulo": "¿Por qué el cielo es azul?",
+  "subtitulo": "La luz, el aire y los colores del día",
+  "tema": "Física",
+  "etiquetas": ["luz", "color", "atmósfera", "dispersión de Rayleigh", "atardecer"],
+  "nivel": "Básico",
+  "minutos_lectura": 10,
+  "portada": "portada.svg",
+  "resumen": "Por qué vemos el cielo azul de día, rojo al atardecer y negro en el espacio, explicado con dibujos y sin fórmulas difíciles.",
+  "fecha": "2026-09-27"
+}
+</script>
+<style>
+  :root {
+    --papel: #fbf8f1; --tinta: #2a2622; --suave: #6b6259; --acento: #1f5fbf; --caja: #eef3fb; --linea: #e3dccf;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --papel: #1c1b1a; --tinta: #ece6dc; --suave: #b3a998; --acento: #7fb0ff; --caja: #232a36; --linea: #3a3632; color-scheme: dark; }
+  }
+  :root[data-theme="dark"] { --papel: #1c1b1a; --tinta: #ece6dc; --suave: #b3a998; --acento: #7fb0ff; --caja: #232a36; --linea: #3a3632; color-scheme: dark; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--papel); color: var(--tinta); font: 19px/1.7 Georgia, "Times New Roman", serif; }
+  main { max-width: 680px; margin: 0 auto; padding: 32px 16px 80px; }
+  .portada { display: block; width: min(320px, 80%); margin: 8px auto 32px; border-radius: 6px; box-shadow: 0 10px 30px rgba(0,0,0,.25); }
+  h1 { font-size: 2.1em; line-height: 1.15; margin: 0 0 4px; text-align: center; }
+  .sub { text-align: center; color: var(--suave); font-style: italic; margin: 0 0 40px; }
+  h2 { font-size: 1.4em; margin: 56px 0 8px; padding-top: 16px; border-top: 1px solid var(--linea); }
+  h2 small { display: block; font-size: .6em; color: var(--acento); letter-spacing: .15em; text-transform: uppercase; font-weight: normal; }
+  figure { margin: 28px 0; text-align: center; }
+  figure svg { width: 100%; height: auto; max-width: 600px; }
+  figcaption { font-size: .8em; color: var(--suave); margin-top: 6px; }
+  .idea { background: var(--caja); border-left: 4px solid var(--acento); padding: 14px 18px; border-radius: 4px; margin: 24px 0; }
+  .idea b { color: var(--acento); }
+  ul { padding-left: 1.2em; }
+  .indice { background: var(--caja); padding: 12px 20px; border-radius: 6px; font-size: .9em; }
+  .indice ol { margin: 6px 0; }
+  a { color: var(--acento); }
+  .volver { display: inline-block; margin: 0 0 16px; font: 15px/1.4 system-ui, sans-serif; color: var(--acento); text-decoration: none; }
+  .volver:hover { text-decoration: underline; }
+</style>
+<meta name="description" content="Por qué vemos el cielo azul de día, rojo al atardecer y negro en el espacio, explicado con dibujos y sin fórmulas difíciles.">
+<meta name="theme-color" content="#fbf8f1" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1c1b1a" media="(prefers-color-scheme: dark)">
+<link rel="manifest" href="../../manifest.webmanifest">
+<link rel="icon" href="../../icono.svg" type="image/svg+xml">
+<link rel="icon" href="../../icono-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<meta name="apple-mobile-web-app-title" content="Biblioteca">
+</head>
+<body>
+<main>
+<a class="volver" href="../../index.html">← Biblioteca</a>
+
+<img class="portada" src="portada.svg" alt="Portada: ¿Por qué el cielo es azul?">
+<h1>¿Por qué el cielo es azul?</h1>
+<p class="sub">La luz, el aire y los colores del día</p>
+
+<nav class="indice">
+  <b>En este libro</b>
+  <ol>
+    <li><a href="#c1">La luz blanca esconde un arcoíris</a></li>
+    <li><a href="#c2">El aire hace rebotar la luz</a></li>
+    <li><a href="#c3">¿Y por qué no es violeta?</a></li>
+    <li><a href="#c4">Atardeceres rojos</a></li>
+    <li><a href="#c5">Nubes blancas, espacio negro y cielos de otros planetas</a></li>
+    <li><a href="#c6">Resumen en cinco frases</a></li>
+  </ol>
+</nav>
+
+<h2 id="c1"><small>Capítulo 1</small>La luz blanca esconde un arcoíris</h2>
+<p>La luz del Sol nos parece blanca, pero en realidad es una mezcla de todos los colores. Lo descubrió Isaac Newton hacia 1666: hizo pasar un rayo de sol por un prisma de cristal y, al otro lado, apareció una franja con los colores del arcoíris.</p>
+<figure>
+<svg viewBox="0 0 600 240" role="img" aria-label="Un rayo de luz blanca entra en un prisma y sale separado en colores">
+  <line x1="20" y1="140" x2="235" y2="125" stroke="#bbb" stroke-width="8"/>
+  <polygon points="300,40 200,210 400,210" fill="#9fd3ff" fill-opacity=".35" stroke="#5a8fc4" stroke-width="3"/>
+  <g stroke-width="7">
+    <line x1="340" y1="130" x2="580" y2="70"  stroke="#e53935"/>
+    <line x1="340" y1="134" x2="580" y2="98"  stroke="#fb8c00"/>
+    <line x1="340" y1="138" x2="580" y2="126" stroke="#fdd835"/>
+    <line x1="340" y1="142" x2="580" y2="154" stroke="#43a047"/>
+    <line x1="340" y1="146" x2="580" y2="182" stroke="#1e88e5"/>
+    <line x1="340" y1="150" x2="580" y2="210" stroke="#8e24aa"/>
+  </g>
+  <text x="30" y="120" font-size="16" fill="currentColor">luz blanca</text>
+</svg>
+<figcaption>Un prisma separa la luz blanca en sus colores.</figcaption>
+</figure>
+<p>La luz viaja como una onda, parecida a las ondas que se forman en un estanque. Cada color tiene un tamaño de onda distinto, que llamamos <b>longitud de onda</b>. El rojo tiene ondas largas y el azul y el violeta, ondas cortas.</p>
+<figure>
+<svg viewBox="0 0 600 200" role="img" aria-label="Onda roja larga comparada con onda azul corta">
+  <path d="M20 60 q37.5 -40 75 0 t75 0 t75 0 t75 0 t75 0 t75 0 t75 0" fill="none" stroke="#e53935" stroke-width="5"/>
+  <path d="M20 150 q24 -30 48 0 t48 0 t48 0 t48 0 t48 0 t48 0 t48 0 t48 0 t48 0 t48 0 t48 0" fill="none" stroke="#1e88e5" stroke-width="5"/>
+  <text x="560" y="45" font-size="16" fill="currentColor" text-anchor="end">rojo: onda larga (~700 nm)</text>
+  <text x="560" y="190" font-size="16" fill="currentColor" text-anchor="end">azul: onda corta (~450 nm)</text>
+</svg>
+<figcaption>Un nanómetro (nm) es una milmillonésima de metro: las ondas de luz son diminutas.</figcaption>
+</figure>
+<div class="idea"><b>Idea clave:</b> la luz blanca es una mezcla de colores, y cada color es una onda de distinto tamaño.</div>
+
+<h2 id="c2"><small>Capítulo 2</small>El aire hace rebotar la luz</h2>
+<p>El aire parece vacío, pero está lleno de moléculas diminutas, sobre todo de nitrógeno y oxígeno. Son muchísimo más pequeñas que una onda de luz. Cuando la luz del Sol las atraviesa, una parte choca con ellas y sale desviada en todas direcciones. A esto se le llama <b>dispersión</b>.</p>
+<p>Lo importante es que estas moléculas tan pequeñas no desvían todos los colores por igual: <b>desvían mucho más las ondas cortas</b>. El azul se dispersa unas cinco o seis veces más que el rojo. Este efecto lo explicó el físico británico Lord Rayleigh en 1871, y por eso se llama <b>dispersión de Rayleigh</b>.</p>
+<figure>
+<svg viewBox="0 0 600 300" role="img" aria-label="La luz del sol atraviesa el aire; el azul rebota hacia el observador, el rojo sigue recto">
+  <circle cx="60" cy="60" r="34" fill="#ffd54f"/>
+  <line x1="95" y1="75" x2="560" y2="75" stroke="#e53935" stroke-width="5"/>
+  <line x1="95" y1="85" x2="300" y2="85" stroke="#1e88e5" stroke-width="5"/>
+  <circle cx="300" cy="85" r="10" fill="#90a4ae"/>
+  <g stroke="#1e88e5" stroke-width="4" stroke-dasharray="8 6">
+    <line x1="300" y1="85" x2="360" y2="30"/>
+    <line x1="300" y1="85" x2="220" y2="40"/>
+    <line x1="300" y1="85" x2="330" y2="245"/>
+  </g>
+  <circle cx="340" cy="265" r="14" fill="none" stroke="currentColor" stroke-width="3"/>
+  <line x1="340" y1="279" x2="340" y2="298" stroke="currentColor" stroke-width="3"/>
+  <text x="365" y="275" font-size="16" fill="currentColor">tú miras hacia arriba</text>
+  <text x="315" y="115" font-size="15" fill="currentColor">molécula de aire</text>
+  <text x="560" y="65" font-size="15" fill="#e53935" text-anchor="end">el rojo sigue casi recto</text>
+</svg>
+<figcaption>El azul rebota en las moléculas de aire y llega a tus ojos desde todas partes del cielo.</figcaption>
+</figure>
+<p>Así que, mires donde mires, te llega luz azul que ha rebotado en el aire. Por eso todo el cielo brilla de azul, y no solo el punto donde está el Sol.</p>
+<div class="idea"><b>Idea clave:</b> el aire desvía mucho más el azul que el rojo, y ese azul desviado es el que vemos por todo el cielo.</div>
+
+<h2 id="c3"><small>Capítulo 3</small>¿Y por qué no es violeta?</h2>
+<p>Buena pregunta: el violeta tiene ondas aún más cortas que el azul, así que debería dispersarse todavía más. ¿Por qué el cielo no es violeta? Hay tres razones que suman:</p>
+<ul>
+  <li><b>El Sol emite menos violeta</b> que azul.</li>
+  <li><b>Parte del violeta se absorbe</b> en lo alto de la atmósfera antes de llegar a nosotros.</li>
+  <li><b>Nuestros ojos son poco sensibles al violeta</b>. Vemos el color con tres tipos de células, y la mezcla de luz que llega del cielo la interpretan como azul claro.</li>
+</ul>
+<div class="idea"><b>Idea clave:</b> el cielo sí tiene algo de violeta, pero entre el Sol, la atmósfera y nuestros ojos, el resultado que vemos es azul.</div>
+
+<h2 id="c4"><small>Capítulo 4</small>Atardeceres rojos</h2>
+<p>Al mediodía el Sol está alto y su luz atraviesa poca capa de aire. Al atardecer, el Sol está bajo en el horizonte y su luz tiene que cruzar muchísimo más aire para llegar hasta ti.</p>
+<figure>
+<svg viewBox="0 0 600 320" role="img" aria-label="Recorrido corto de la luz al mediodía y recorrido largo al atardecer">
+  <circle cx="300" cy="330" r="160" fill="#8fbf6a"/>
+  <circle cx="300" cy="330" r="235" fill="none" stroke="#64b5f6" stroke-width="3" stroke-dasharray="6 6"/>
+  <text x="440" y="120" font-size="15" fill="#1e88e5">capa de aire</text>
+  <circle cx="300" cy="170" r="7" fill="currentColor"/>
+  <circle cx="300" cy="30" r="18" fill="#ffd54f"/>
+  <line x1="300" y1="50" x2="300" y2="163" stroke="#fbc02d" stroke-width="5"/>
+  <text x="312" y="40" font-size="15" fill="currentColor">mediodía: poco aire</text>
+  <circle cx="30" cy="175" r="18" fill="#ff7043"/>
+  <line x1="50" y1="174" x2="292" y2="170" stroke="#ff7043" stroke-width="5"/>
+  <text x="40" y="215" font-size="15" fill="currentColor">atardecer: mucho aire</text>
+</svg>
+<figcaption>Al atardecer, la luz recorre un camino mucho más largo por la atmósfera.</figcaption>
+</figure>
+<p>En ese viaje tan largo, casi todo el azul se desvía por el camino y se pierde. Lo que consigue llegar a tus ojos son los colores de onda larga: el amarillo, el naranja y el rojo. Por eso el Sol y el cielo que lo rodea se tiñen de naranja y rojo al atardecer y al amanecer. Si además hay polvo o humo en el aire, los colores pueden ser aún más intensos.</p>
+<div class="idea"><b>Idea clave:</b> al atardecer la luz cruza tanto aire que el azul se queda por el camino y solo llegan los rojos y naranjas.</div>
+
+<h2 id="c5"><small>Capítulo 5</small>Nubes blancas, espacio negro y cielos de otros planetas</h2>
+<p><b>¿Por qué las nubes son blancas?</b> Las nubes están hechas de gotitas de agua que son mucho más grandes que las moléculas de aire. Las gotas grandes desvían todos los colores por igual, y todos los colores juntos se ven blancos. Cuando una nube es muy gruesa, deja pasar poca luz por debajo y se ve gris.</p>
+<p><b>¿Por qué el espacio es negro?</b> En el espacio casi no hay aire. Sin moléculas donde rebotar, la luz del Sol viaja en línea recta y no llena el cielo. Los astronautas ven el Sol brillante sobre un fondo negro, incluso de día.</p>
+<p><b>¿Y en Marte?</b> Marte tiene una atmósfera muy fina pero llena de polvo rojizo. De día su cielo es de color caramelo, y sus atardeceres, al revés que los nuestros, son azulados.</p>
+<figure>
+<svg viewBox="0 0 600 170" role="img" aria-label="Comparación del cielo de la Tierra de día, al atardecer, del espacio y de Marte">
+  <defs>
+    <linearGradient id="gT" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1565c0"/><stop offset="1" stop-color="#90caf9"/></linearGradient>
+    <linearGradient id="gA" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5c6bc0"/><stop offset="1" stop-color="#ff7043"/></linearGradient>
+    <linearGradient id="gM" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c49a6c"/><stop offset="1" stop-color="#e8c9a0"/></linearGradient>
+  </defs>
+  <rect x="10" y="10" width="130" height="120" rx="8" fill="url(#gT)"/>
+  <rect x="160" y="10" width="130" height="120" rx="8" fill="url(#gA)"/>
+  <rect x="310" y="10" width="130" height="120" rx="8" fill="#0a0a12"/>
+  <circle cx="375" cy="60" r="12" fill="#fff8e1"/>
+  <rect x="460" y="10" width="130" height="120" rx="8" fill="url(#gM)"/>
+  <g font-size="15" fill="currentColor" text-anchor="middle">
+    <text x="75" y="155">Tierra, de día</text><text x="225" y="155">Tierra, atardecer</text>
+    <text x="375" y="155">Espacio</text><text x="525" y="155">Marte, de día</text>
+  </g>
+</svg>
+<figcaption>El color del cielo depende de qué hay en el aire y de cuánto aire cruza la luz.</figcaption>
+</figure>
+
+<h2 id="c6"><small>Capítulo 6</small>Resumen en cinco frases</h2>
+<ol>
+  <li>La luz del Sol es una mezcla de todos los colores.</li>
+  <li>Cada color es una onda de distinto tamaño: el azul es corta y el rojo, larga.</li>
+  <li>Las moléculas del aire desvían mucho más las ondas cortas, así que el azul se reparte por todo el cielo.</li>
+  <li>Al atardecer la luz cruza mucho más aire, pierde el azul y nos llegan los rojos.</li>
+  <li>Las nubes son blancas porque sus gotas desvían todos los colores por igual, y el espacio es negro porque no hay aire.</li>
+</ol>
+<p><i>Para pensar:</i> si un día vas a la montaña muy alta, el cielo se ve de un azul más oscuro. ¿Sabrías explicar por qué con lo que has leído?</p>
+
+</main>
+<script>if ('serviceWorker' in navigator) navigator.serviceWorker.register('../../sw.js').catch(() => {});</script>
+</body>
+</html>

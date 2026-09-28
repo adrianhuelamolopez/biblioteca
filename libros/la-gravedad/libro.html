@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La gravedad</title>
+<script type="application/json" id="metadatos">
+{
+  "id": "la-gravedad",
+  "titulo": "La gravedad",
+  "subtitulo": "De la manzana de Newton a los agujeros negros",
+  "tema": "Física",
+  "etiquetas": ["gravedad", "Galileo", "Newton", "Einstein", "relatividad", "mareas", "órbitas", "GPS", "agujeros negros", "ondas gravitacionales", "materia oscura"],
+  "nivel": "Intermedio",
+  "minutos_lectura": 30,
+  "portada": "portada.svg",
+  "resumen": "Por qué caen las cosas, por qué la Luna no se cae, cómo se pesó la Tierra, por qué tu GPS necesita a Einstein y qué son los agujeros negros y las ondas gravitacionales. La historia de la fuerza que mueve el universo, de Galileo a hoy.",
+  "fecha": "2026-09-28"
+}
+</script>
+<style>
+  :root {
+    --papel: #fbf8f1; --tinta: #2a2622; --suave: #6b6259; --acento: #1f5fbf; --rojo: #b3261e; --oro: #9a7412; --caja: #eef3fb; --caja2: #f6efdc; --linea: #e3dccf;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --papel: #1c1b1a; --tinta: #ece6dc; --suave: #b3a998; --acento: #7fb0ff; --rojo: #ff8a80; --oro: #e2c46a; --caja: #232a36; --caja2: #2c2819; --linea: #3a3632; color-scheme: dark; }
+  }
+  :root[data-theme="dark"] { --papel: #1c1b1a; --tinta: #ece6dc; --suave: #b3a998; --acento: #7fb0ff; --rojo: #ff8a80; --oro: #e2c46a; --caja: #232a36; --caja2: #2c2819; --linea: #3a3632; color-scheme: dark; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--papel); color: var(--tinta); font: 19px/1.7 Georgia, "Times New Roman", serif; }
+  main { max-width: 680px; margin: 0 auto; padding: 32px 16px 80px; }
+  .portada { display: block; width: min(320px, 80%); margin: 8px auto 32px; border-radius: 6px; box-shadow: 0 10px 30px rgba(0,0,0,.25); }
+  h1 { font-size: 2.1em; line-height: 1.15; margin: 0 0 4px; text-align: center; text-wrap: balance; }
+  .sub { text-align: center; color: var(--suave); font-style: italic; margin: 0 0 40px; }
+  h2 { font-size: 1.4em; margin: 56px 0 8px; padding-top: 16px; border-top: 1px solid var(--linea); text-wrap: balance; }
+  h2 small { display: block; font-size: .6em; color: var(--acento); letter-spacing: .15em; text-transform: uppercase; font-weight: normal; }
+  h3 { font-size: 1.1em; margin: 32px 0 4px; }
+  figure { margin: 28px 0; text-align: center; }
+  figure svg { width: 100%; height: auto; max-width: 600px; }
+  figcaption { font-size: .8em; color: var(--suave); margin-top: 6px; }
+  .idea { background: var(--caja); border-left: 4px solid var(--acento); padding: 14px 18px; border-radius: 4px; margin: 24px 0; }
+  .idea b { color: var(--acento); }
+  .sabias { background: var(--caja2); padding: 12px 18px; border-radius: 6px; margin: 24px 0; font-size: .92em; }
+  .sabias > b:first-child { display: block; color: var(--oro); letter-spacing: .1em; text-transform: uppercase; font-size: .8em; }
+  .fondo { border: 1px solid var(--linea); padding: 12px 18px; border-radius: 6px; margin: 24px 0; font-size: .92em; }
+  .fondo > b:first-child { display: block; color: var(--rojo); letter-spacing: .1em; text-transform: uppercase; font-size: .8em; }
+  .formula { text-align: center; font-size: 1.15em; margin: 18px 0; }
+  blockquote { margin: 20px 0; padding: 0 20px; font-style: italic; border-left: 3px solid var(--linea); color: var(--suave); }
+  ul, ol { padding-left: 1.2em; }
+  .indice { background: var(--caja); padding: 12px 20px; border-radius: 6px; font-size: .9em; }
+  .indice ol { margin: 6px 0; }
+  a { color: var(--acento); }
+  .fechas { font-size: .9em; }
+  .fechas dt { font-weight: bold; color: var(--acento); margin-top: 8px; }
+  .fechas dd { margin: 0 0 0 1em; }
+  .volver { display: inline-block; margin: 0 0 16px; font: 15px/1.4 system-ui, sans-serif; color: var(--acento); text-decoration: none; }
+  .volver:hover { text-decoration: underline; }
+</style>
+<meta name="description" content="Por qué caen las cosas, por qué la Luna no se cae, cómo se pesó la Tierra, por qué tu GPS necesita a Einstein y qué son los agujeros negros y las ondas gravitacionales. La historia de la fuerza que mueve el universo, de Galileo a hoy.">
+<meta name="theme-color" content="#fbf8f1" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1c1b1a" media="(prefers-color-scheme: dark)">
+<link rel="manifest" href="../../manifest.webmanifest">
+<link rel="icon" href="../../icono.svg" type="image/svg+xml">
+<link rel="icon" href="../../icono-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<meta name="apple-mobile-web-app-title" content="Biblioteca">
+</head>
+<body>
+<main>
+<a class="volver" href="../../index.html">← Biblioteca</a>
+
+<img class="portada" src="portada.svg" alt="Portada: La gravedad">
+<h1>La gravedad</h1>
+<p class="sub">De la manzana de Newton a los agujeros negros</p>
+
+<nav class="indice">
+  <b>En este libro</b>
+  <ol>
+    <li><a href="#c1">La fuerza invisible</a></li>
+    <li><a href="#c2">Galileo y la caída de los cuerpos</a></li>
+    <li><a href="#c3">Newton y la Luna que cae</a></li>
+    <li><a href="#c4">Pesar la Tierra</a></li>
+    <li><a href="#c5">Las mareas</a></li>
+    <li><a href="#c6">Órbitas y astronautas</a></li>
+    <li><a href="#c7">Einstein: el espacio se curva</a></li>
+    <li><a href="#c8">El tiempo también cae: el GPS</a></li>
+    <li><a href="#c9">Agujeros negros</a></li>
+    <li><a href="#c10">Ondas gravitacionales</a></li>
+    <li><a href="#c11">Los misterios que quedan</a></li>
+    <li><a href="#c12">Resumen</a></li>
+  </ol>
+</nav>
+
+<h2 id="c1"><small>Capítulo 1</small>La fuerza invisible</h2>
+<p>Suelta un bolígrafo y caerá al suelo. Es tan normal que ni lo pensamos. Pero detrás de ese gesto hay una de las preguntas más profundas de la ciencia: ¿por qué caen las cosas? ¿Qué es esa fuerza invisible que nos pega al suelo, mantiene la Luna girando alrededor de la Tierra, a la Tierra alrededor del Sol y al Sol dentro de nuestra galaxia?</p>
+<p>Esa fuerza es la <b>gravedad</b>. Es la más débil de las fuerzas de la naturaleza y, a la vez, la que da forma al universo a gran escala. En este libro veremos cómo fuimos descubriendo sus secretos, desde Galileo y Newton hasta Einstein y los agujeros negros, y por qué todavía hoy guarda misterios sin resolver.</p>
+<h3>Masa y peso no son lo mismo</h3>
+<p>Antes de empezar, conviene distinguir dos palabras que en la vida diaria usamos como si fueran iguales:</p>
+<ul>
+  <li>La <b>masa</b> es la cantidad de materia que tiene un cuerpo. Se mide en kilogramos y es la misma estés donde estés.</li>
+  <li>El <b>peso</b> es la fuerza con la que un planeta atrae ese cuerpo. Depende de dónde estés. Los científicos lo miden en newtons.</li>
+</ul>
+<figure>
+<svg viewBox="0 0 600 230" role="img" aria-label="Una misma persona de 50 kilos de masa pesa seis veces menos en la Luna que en la Tierra">
+  <g font-size="15" font-weight="bold" fill="currentColor" text-anchor="middle"><text x="150" y="24">En la Tierra</text><text x="450" y="24">En la Luna</text></g>
+  <g fill="#1f5fbf" fill-opacity=".85">
+    <circle cx="150" cy="58" r="13"/><rect x="138" y="74" width="24" height="44" rx="8"/>
+    <circle cx="450" cy="58" r="13"/><rect x="438" y="74" width="24" height="44" rx="8"/>
+  </g>
+  <g stroke="#1f5fbf" stroke-opacity=".85" stroke-width="7" stroke-linecap="round"><line x1="144" y1="116" x2="142" y2="140"/><line x1="156" y1="116" x2="158" y2="140"/><line x1="444" y1="116" x2="442" y2="140"/><line x1="456" y1="116" x2="458" y2="140"/></g>
+  <g fill="#8a8a8a" fill-opacity=".35" stroke="currentColor" stroke-opacity=".4"><rect x="110" y="144" width="80" height="16" rx="4"/><rect x="410" y="144" width="80" height="16" rx="4"/></g>
+  <g font-size="13" fill="currentColor" text-anchor="middle">
+    <text x="150" y="186">Masa: 50 kg</text><text x="150" y="206">La báscula marca: <tspan font-weight="bold">50</tspan></text>
+    <text x="450" y="186">Masa: 50 kg</text><text x="450" y="206">La báscula marca: <tspan font-weight="bold">8,3</tspan></text>
+  </g>
+  <path d="M250,95 L350,95" stroke="currentColor" stroke-opacity=".3" stroke-width="2" stroke-dasharray="5 5"/>
+  <text x="300" y="86" font-size="12" fill="currentColor" fill-opacity=".75" text-anchor="middle">misma persona</text>
+</svg>
+<figcaption>Tu masa no cambia al viajar a la Luna; tu peso sí. Las básculas en realidad miden el peso, aunque muestren kilos.</figcaption>
+</figure>
+<p>Cuando decimos «peso 50 kilos», en realidad estamos hablando de nuestra masa. Las básculas miden con qué fuerza las aprietas, y la convierten en kilos suponiendo que estás en la Tierra. En la Luna, la misma báscula marcaría unos 8 kilos, aunque tu cuerpo sería exactamente el mismo.</p>
+<div class="sabias"><b>¿Sabías que...?</b> Incluso en la Tierra tu peso cambia un poco según dónde estés. En el ecuador pesas alrededor de un 0,5 % menos que en los polos, por dos motivos: allí estás más lejos del centro de la Tierra, que está algo achatada, y el giro del planeta te «lanza» ligeramente hacia fuera. Una persona de 60 kilos marcaría en el ecuador unos 300 gramos menos que en el Polo Norte.</div>
+<h3>La idea que duró dos mil años</h3>
+<p>El gran filósofo griego <b>Aristóteles</b>, en el siglo IV antes de Cristo, dio una explicación que parecía de sentido común. Cada cosa, decía, tiende a su «lugar natural»: las piedras, hechas de tierra, bajan; el humo y el fuego, suben. Y cuanto más pesado es un objeto, más deprisa cae: una piedra diez veces más pesada caería diez veces más rápido. Durante casi dos mil años, casi nadie se atrevió a comprobarlo.</p>
+<div class="idea"><b>Idea clave:</b> la gravedad es la fuerza que atrae unos cuerpos hacia otros. La masa es la cantidad de materia de un cuerpo; el peso, la fuerza con la que la gravedad lo atrae, y cambia según el lugar.</div>
+
+<h2 id="c2"><small>Capítulo 2</small>Galileo y la caída de los cuerpos</h2>
+<p>A finales del siglo XVI, un joven profesor italiano llamado <b>Galileo Galilei</b> decidió poner a prueba las ideas de Aristóteles con algo que entonces era casi revolucionario: experimentos y mediciones.</p>
+<div class="sabias"><b>¿Sabías que...?</b> Según una historia famosa, Galileo subió a la torre inclinada de Pisa y dejó caer dos bolas de distinto peso ante un grupo de profesores, y ambas llegaron al suelo a la vez. La historia la contó su discípulo Vincenzo Viviani muchos años después, y los historiadores dudan de que ocurriera. En cambio, sí sabemos que en 1586 el ingeniero flamenco Simon Stevin dejó caer dos bolas de plomo, una diez veces más pesada que la otra, desde la torre de una iglesia de Delft, en Holanda. Llegaron al suelo al mismo tiempo.</div>
+<p>Galileo propuso además un razonamiento brillante que no necesitaba torres. Imagina, decía, que Aristóteles tiene razón y que una piedra pesada cae más deprisa que una ligera. ¿Qué pasa si las atamos juntas? La ligera debería frenar a la pesada, así que el conjunto caería más despacio que la piedra pesada sola. Pero el conjunto pesa más que la piedra pesada, así que debería caer más deprisa. Las dos conclusiones se contradicen. La única salida es que todas caigan igual de rápido.</p>
+<h3>Cada segundo, más deprisa</h3>
+<p>Como las cosas caen demasiado rápido para medirlas con los relojes de la época, Galileo tuvo una idea ingeniosa: frenar la caída haciendo rodar bolas por <b>planos inclinados</b>. Medía el tiempo con el agua que salía de un recipiente, y descubrió una regla sorprendente: la distancia recorrida crece con el <b>cuadrado del tiempo</b>. En el doble de tiempo, un objeto que cae recorre cuatro veces más distancia; en el triple, nueve veces más.</p>
+<figure>
+<svg viewBox="0 0 600 380" role="img" aria-label="Posición de una bola que cae cada segundo: 4,9 metros, 19,6 metros, 44,1 metros y 78,4 metros">
+  <line x1="210" y1="20" x2="210" y2="350" stroke="currentColor" stroke-opacity=".35" stroke-width="2"/>
+  <g stroke="currentColor" stroke-opacity=".35"><line x1="200" y1="30" x2="220" y2="30"/><line x1="200" y1="48.8" x2="220" y2="48.8"/><line x1="200" y1="105.1" x2="220" y2="105.1"/><line x1="200" y1="198.9" x2="220" y2="198.9"/><line x1="200" y1="330.3" x2="220" y2="330.3"/></g>
+  <g fill="#b3261e"><circle cx="250" cy="30" r="9"/><circle cx="250" cy="48.8" r="9" fill-opacity=".85"/><circle cx="250" cy="105.1" r="9" fill-opacity=".85"/><circle cx="250" cy="198.9" r="9" fill-opacity=".85"/><circle cx="250" cy="330.3" r="9" fill-opacity=".85"/></g>
+  <g font-size="13" fill="currentColor" text-anchor="end"><text x="192" y="34">0 s</text><text x="192" y="53">1 s · 4,9 m</text><text x="192" y="109">2 s · 19,6 m</text><text x="192" y="203">3 s · 44,1 m</text><text x="192" y="334">4 s · 78,4 m</text></g>
+  <g stroke="#1f5fbf" stroke-width="2" fill="none"><path d="M280,32 q18,8 0,15"/><path d="M280,51 q30,27 0,52"/><path d="M280,108 q38,45 0,89"/><path d="M280,202 q46,64 0,127"/></g>
+  <g font-size="13" fill="#1f5fbf" font-weight="bold"><text x="306" y="44">+4,9 m</text><text x="318" y="82">+14,7 m</text><text x="326" y="157">+24,5 m</text><text x="334" y="270">+34,3 m</text></g>
+  <g font-size="12.5" fill="currentColor"><text x="420" y="130">Lo recorrido en</text><text x="420" y="147">cada segundo sigue</text><text x="420" y="164">la serie 1, 3, 5, 7...</text><text x="420" y="190">¡los números impares!</text></g>
+</svg>
+<figcaption>Una bola que cae (sin contar el rozamiento del aire), dibujada cada segundo y a escala. Cada segundo cae 9,8 metros por segundo más deprisa que el anterior.</figcaption>
+</figure>
+<p>Hoy sabemos que, cerca de la superficie de la Tierra, cualquier objeto que cae sin rozamiento gana velocidad a un ritmo de unos 9,8 metros por segundo cada segundo. A esa cifra la llamamos la <b>aceleración de la gravedad</b>, y se escribe con la letra <i>g</i>.</p>
+<p>¿Y la pluma que cae más despacio que una piedra? Galileo tenía la respuesta: la culpa es del <b>aire</b>, que frena mucho más a los objetos ligeros y con mucha superficie. Sin aire, una pluma y un martillo caerían exactamente igual.</p>
+<div class="sabias"><b>¿Sabías que...?</b> Eso se comprobó en la Luna, donde no hay aire. El 2 de agosto de 1971, el astronauta David Scott, de la misión Apolo 15, sostuvo un martillo en una mano y una pluma de halcón en la otra, y los soltó a la vez delante de la cámara. Ambos tocaron el suelo al mismo tiempo. «Lo que demuestra que el señor Galileo tenía razón», comentó.</div>
+<div class="idea"><b>Idea clave:</b> Galileo demostró que, si no hay aire que los frene, todos los cuerpos caen con la misma aceleración, sea cual sea su peso. Y descubrió que la distancia recorrida crece con el cuadrado del tiempo.</div>
+
+<h2 id="c3"><small>Capítulo 3</small>Newton y la Luna que cae</h2>
+<p>En 1665, una epidemia de peste obligó a cerrar la Universidad de Cambridge, en Inglaterra. Un estudiante de 22 años, <b>Isaac Newton</b>, volvió a la granja de su familia, en el pueblo de Woolsthorpe. Durante casi dos años, aislado, tuvo las ideas que cambiarían la ciencia: inventó un nuevo tipo de matemáticas, el cálculo, descubrió que la luz blanca es una mezcla de colores y empezó a pensar en la gravedad.</p>
+<div class="sabias"><b>¿Sabías que...?</b> La famosa manzana existió, pero no le cayó en la cabeza. Ya anciano, en 1726, Newton contó a un amigo que la idea de la gravitación se le ocurrió al ver caer una manzana en el jardín, mientras estaba sentado pensativo. Aquel manzano sigue vivo en Woolsthorpe, y se han plantado esquejes suyos en universidades de medio mundo.</div>
+<p>La pregunta de Newton fue genial en su sencillez: si la Tierra atrae a la manzana que está en lo alto del árbol, ¿llegará esa atracción hasta la Luna? Y si es así, ¿por qué la Luna no cae?</p>
+<p>Su respuesta: <b>la Luna sí está cayendo</b>. Todo el rato. La Luna se mueve muy deprisa de lado, y si no hubiera gravedad saldría disparada en línea recta. La gravedad de la Tierra la desvía continuamente hacia nosotros, y su camino se curva en un círculo. La Luna cae sin parar... pero como avanza tan deprisa, nunca llega al suelo.</p>
+<h3>Más lejos, más débil</h3>
+<p>Newton calculó cuánto se desvía la Luna de la línea recta en un segundo: apenas 1,4 milímetros. Una manzana, en su primer segundo de caída, recorre 4,9 metros, unas 3.600 veces más. ¿Por qué? La Luna está unas 60 veces más lejos del centro de la Tierra que la manzana, y 60 × 60 = 3.600. La conclusión era impresionante: <b>la fuerza de la gravedad disminuye con el cuadrado de la distancia</b>.</p>
+<figure>
+<svg viewBox="0 0 600 250" role="img" aria-label="La gravedad se reduce con el cuadrado de la distancia: a doble distancia, una cuarta parte; a triple, una novena parte; a la distancia de la Luna, 3.600 veces menos">
+  <circle cx="60" cy="110" r="40" fill="#1f5fbf" fill-opacity=".8"/>
+  <text x="60" y="115" font-size="12" fill="#ffffff" text-anchor="middle" font-weight="bold">Tierra</text>
+  <line x1="60" y1="110" x2="580" y2="110" stroke="currentColor" stroke-opacity=".25" stroke-dasharray="4 4"/>
+  <g fill="#b3261e"><circle cx="100" cy="110" r="9"/><circle cx="140" cy="110" r="4.5"/><circle cx="180" cy="110" r="3"/><circle cx="220" cy="110" r="2.25"/></g>
+  <g font-size="12.5" fill="currentColor" text-anchor="middle">
+    <text x="100" y="82">1</text><text x="140" y="82">2</text><text x="180" y="82">3</text><text x="220" y="82">4</text>
+    <text x="100" y="146" font-weight="bold">1</text><text x="140" y="146" font-weight="bold">1/4</text><text x="180" y="146" font-weight="bold">1/9</text><text x="220" y="146" font-weight="bold">1/16</text>
+  </g>
+  <text x="260" y="82" font-size="12" fill="currentColor" fill-opacity=".75">← distancia al centro (en radios terrestres)</text>
+  <text x="260" y="146" font-size="12" fill="currentColor" fill-opacity=".75">← fuerza de la gravedad</text>
+  <circle cx="560" cy="110" r="11" fill="#b3a998"/><text x="560" y="82" font-size="12.5" fill="currentColor" text-anchor="middle">60</text>
+  <text x="560" y="146" font-size="12.5" fill="currentColor" text-anchor="middle" font-weight="bold">1/3.600</text>
+  <text x="560" y="166" font-size="12" fill="currentColor" text-anchor="middle">Luna</text>
+  <text x="300" y="206" font-size="13" fill="currentColor" text-anchor="middle">Al doble de distancia, la gravedad es cuatro veces más débil;</text>
+  <text x="300" y="226" font-size="13" fill="currentColor" text-anchor="middle">al triple, nueve veces. En la Luna, 3.600 veces más débil que aquí.</text>
+</svg>
+<figcaption>La «ley del inverso del cuadrado». La Luna, en realidad, está mucho más lejos: el dibujo no está a escala.</figcaption>
+</figure>
+<p>Pero Newton fue todavía más lejos. Se dio cuenta de que la misma fuerza que hace caer la manzana y mantiene a la Luna en su órbita mueve también a los planetas alrededor del Sol. Y más aún: que <b>todos los cuerpos del universo se atraen entre sí</b>, desde las estrellas hasta los granos de arena. Por eso se la llama <b>gravitación universal</b>. Por primera vez, el cielo y la Tierra obedecían a las mismas leyes.</p>
+<p>Newton publicó sus descubrimientos en 1687, en un libro en latín que se considera la obra científica más importante de la historia: los <i>Principios matemáticos de la filosofía natural</i>, conocidos como los <i>Principia</i>.</p>
+<div class="sabias"><b>¿Sabías que...?</b> Los <i>Principia</i> casi no se publican. La sociedad científica que debía pagarlos, la Royal Society de Londres, se había gastado su presupuesto en un lujoso libro ilustrado sobre peces que no vendió casi nada. El astrónomo <b>Edmond Halley</b>, amigo de Newton, pagó la impresión de su bolsillo. Y la Royal Society, sin dinero, le pagó parte de su sueldo... con ejemplares del libro de peces.</div>
+<p>Con las leyes de Newton, Halley calculó que un cometa observado en 1531, 1607 y 1682 era el mismo, y predijo que volvería en 1758. Halley murió antes, pero el cometa regresó puntual. Desde entonces lleva su nombre: el <b>cometa Halley</b>.</p>
+<div class="idea"><b>Idea clave:</b> Newton descubrió que la fuerza que hace caer una manzana es la misma que mantiene a la Luna y a los planetas en sus órbitas, y que se debilita con el cuadrado de la distancia. Todos los cuerpos del universo se atraen entre sí.</div>
+
+<h2 id="c4"><small>Capítulo 4</small>Pesar la Tierra</h2>
+<p>La ley de Newton se puede escribir en una sola línea. La fuerza con la que se atraen dos cuerpos es:</p>
+<p class="formula"><i>F</i> = <i>G</i> · <i>m</i><sub>1</sub> · <i>m</i><sub>2</sub> / <i>d</i><sup>2</sup></p>
+<p>Es decir: cuanto más masa tengan los dos cuerpos (<i>m</i><sub>1</sub> y <i>m</i><sub>2</sub>), más se atraen; y cuanto más lejos estén (<i>d</i>), menos, con ese cuadrado que ya conocemos. La letra <i>G</i> es un número fijo, la <b>constante de la gravitación</b>, que indica lo fuerte que es la gravedad en todo el universo. Y resulta que es un número pequeñísimo.</p>
+<div class="fondo"><b>Para entenderlo mejor: ¿por qué no notamos la atracción entre personas?</b>
+Si todos los cuerpos se atraen, ¿por qué no nos vemos arrastrados hacia la persona que tenemos al lado? Porque la gravedad es extraordinariamente débil. Dos personas de 70 kilos, a un metro de distancia, se atraen con una fuerza equivalente al peso de una milésima parte de un grano de arroz. Solo cuando una de las masas es gigantesca, como la de un planeta entero, la gravedad se hace notar.</div>
+<p>Newton nunca pudo medir <i>G</i>. El primero en conseguirlo, aunque él lo expresó de otra manera, fue un científico inglés muy tímido y excéntrico, <b>Henry Cavendish</b>, en 1798. Usó un aparato diseñado por su amigo, el reverendo John Michell: una barra con dos bolitas de plomo colgada de un hilo muy fino, junto a dos grandes bolas de plomo de 158 kilos. La atracción de las bolas grandes hacía girar un poquito la barra. La fuerza era más débil que el peso de un grano de arena, así que Cavendish encerró el aparato en un cobertizo y lo observó desde fuera con un telescopio, para que ni el calor de su cuerpo ni las corrientes de aire lo estropearan.</p>
+<p>Conociendo <i>G</i> y la fuerza con que la Tierra atrae a cualquier objeto, Cavendish pudo calcular la masa de nuestro planeta: unos <b>6.000 trillones de toneladas</b>, un 6 seguido de 24 ceros en kilos. Por eso su experimento se conoce como «pesar la Tierra». Y descubrió algo más: la Tierra es, en conjunto, el doble de densa que las rocas de su superficie. Su interior debía de estar hecho de algo mucho más pesado. Hoy sabemos que su núcleo es sobre todo de hierro.</p>
+<figure>
+<svg viewBox="0 0 600 280" role="img" aria-label="Lo que marcaría una báscula para una persona de 50 kilos en distintos lugares: 8,3 en la Luna, 19 en Marte, 45 en Venus, 50 en la Tierra y 126 en Júpiter">
+  <text x="300" y="20" font-size="13" fill="currentColor" text-anchor="middle">Lo que marcaría la báscula de una persona de 50 kg</text>
+  <line x1="40" y1="230" x2="580" y2="230" stroke="currentColor" stroke-opacity=".5"/>
+  <g>
+    <rect x="60" y="217.5" width="70" height="12.5" fill="#b3a998"/>
+    <rect x="165" y="201.3" width="70" height="28.7" fill="#c0603a"/>
+    <rect x="270" y="162.1" width="70" height="67.9" fill="#d9a441"/>
+    <rect x="375" y="154.6" width="70" height="75.4" fill="#1f5fbf"/>
+    <rect x="480" y="40" width="70" height="190" fill="#b07a4a"/>
+  </g>
+  <g font-size="14" font-weight="bold" fill="currentColor" text-anchor="middle"><text x="95" y="209">8,3</text><text x="200" y="193">19</text><text x="305" y="154">45</text><text x="410" y="146">50</text><text x="515" y="33">126</text></g>
+  <g font-size="13" fill="currentColor" text-anchor="middle"><text x="95" y="250">Luna</text><text x="200" y="250">Marte</text><text x="305" y="250">Venus</text><text x="410" y="250">Tierra</text><text x="515" y="250">Júpiter</text></g>
+  <text x="300" y="272" font-size="11" fill="currentColor" fill-opacity=".7" text-anchor="middle">Altura de las barras a escala. En Júpiter, a la altura de sus nubes, porque no tiene suelo.</text>
+</svg>
+<figcaption>La misma persona, con la misma masa, en cinco mundos distintos. La gravedad de cada uno depende de su masa y de su tamaño.</figcaption>
+</figure>
+<div class="sabias"><b>¿Sabías que...?</b> En 1846, el matemático francés Urbain Le Verrier notó que Urano no se movía exactamente como predecían las leyes de Newton. Supuso que otro planeta desconocido tiraba de él, y calculó dónde debía estar. Envió sus cálculos al observatorio de Berlín, y esa misma noche, el astrónomo Johann Galle encontró el nuevo planeta a menos de un grado del lugar predicho. Así se descubrió <b>Neptuno</b>: con lápiz y papel antes que con el telescopio.</div>
+<div class="idea"><b>Idea clave:</b> la gravedad entre dos cuerpos depende de sus masas y de la distancia entre ellos. Es tan débil que Cavendish tuvo que medirla con un aparato delicadísimo, y gracias a él supimos cuánta masa tiene la Tierra.</div>
+
+<h2 id="c5"><small>Capítulo 5</small>Las mareas</h2>
+<p>Si vas a una playa del Cantábrico o del Atlántico, verás que el mar sube y baja dos veces al día. Son las <b>mareas</b>, y las provoca sobre todo la gravedad de la Luna.</p>
+<p>La Luna atrae a toda la Tierra, pero no con la misma fuerza en todas partes: la cara de la Tierra que mira a la Luna está unos 12.700 kilómetros más cerca de ella que la cara opuesta, y la atracción es algo mayor. Esa diferencia estira ligeramente la Tierra, y sobre todo el agua de los océanos, en la dirección de la Luna. Se forman así dos «bultos» de agua: uno en el lado que mira a la Luna y otro en el lado contrario.</p>
+<figure>
+<svg viewBox="0 0 600 260" role="img" aria-label="Esquema de las mareas: el agua forma dos abultamientos, uno hacia la Luna y otro en el lado opuesto">
+  <ellipse cx="220" cy="130" rx="150" ry="98" fill="#4a90c2" fill-opacity=".3" stroke="#4a90c2" stroke-opacity=".7"/>
+  <circle cx="220" cy="130" r="88" fill="#3f7d5a" fill-opacity=".75"/>
+  <text x="220" y="135" font-size="14" fill="#ffffff" text-anchor="middle" font-weight="bold">Tierra</text>
+  <circle cx="540" cy="130" r="24" fill="#b3a998"/>
+  <text x="540" y="172" font-size="13" fill="currentColor" text-anchor="middle">Luna</text>
+  <g font-size="12.5" fill="currentColor" text-anchor="middle">
+    <text x="385" y="112">Pleamar</text><text x="385" y="127" font-size="11" fill-opacity=".75">(marea alta)</text>
+    <text x="45" y="112">Pleamar</text><text x="45" y="127" font-size="11" fill-opacity=".75">(marea alta)</text>
+    <text x="220" y="20">Bajamar (marea baja)</text>
+    <text x="220" y="252">Bajamar (marea baja)</text>
+  </g>
+  <path d="M400,150 L500,150" stroke="#9a7412" stroke-width="2" stroke-dasharray="5 4"/>
+  <text x="450" y="168" font-size="11" fill="currentColor" fill-opacity=".75" text-anchor="middle">atracción</text>
+</svg>
+<figcaption>Los dos abultamientos de agua de las mareas, muy exagerados. Al girar la Tierra, cada costa pasa por ellos dos veces al día. No está a escala.</figcaption>
+</figure>
+<p>Como la Tierra gira sobre sí misma, cada punto de la costa pasa por los dos bultos y por las dos zonas bajas cada día: dos mareas altas y dos bajas. Pero como la Luna también avanza en su órbita, el ciclo dura algo más de un día, unas 24 horas y 50 minutos. Por eso las mareas llegan cada día unos 50 minutos más tarde que el anterior.</p>
+<p>El Sol también produce mareas, algo menos de la mitad de intensas que las de la Luna. Cuando el Sol y la Luna están alineados, en luna nueva y luna llena, sus efectos se suman y las mareas son más grandes: son las <b>mareas vivas</b>. Cuando forman un ángulo recto, en cuarto creciente y menguante, se contrarrestan en parte: son las <b>mareas muertas</b>.</p>
+<div class="sabias"><b>¿Sabías que...?</b> La forma de las costas puede multiplicar el efecto. En la bahía de Fundy, en Canadá, la diferencia entre la marea alta y la baja llega a unos 16 metros, la altura de un edificio de cinco pisos. En el Mediterráneo, en cambio, casi un mar cerrado, la marea apenas mueve el agua unas decenas de centímetros.</div>
+<h3>La Luna se aleja</h3>
+<p>Las mareas tienen un efecto lento pero imparable. El roce del agua con el fondo del mar frena poco a poco la rotación de la Tierra, y los días se alargan: unas 2 milésimas de segundo cada siglo. A cambio, la Luna gana energía y se va alejando de nosotros unos <b>3,8 centímetros cada año</b>, más o menos lo que crecen tus uñas en ese tiempo.</p>
+<div class="sabias"><b>¿Sabías que...?</b> Esa distancia se mide disparando rayos láser desde la Tierra contra unos espejos que dejaron en la Luna los astronautas de las misiones Apolo, y midiendo cuánto tarda la luz en volver. Y el frenado de la Tierra se nota en el pasado: el estudio de conchas fósiles indica que hace unos 70 millones de años, en la época de los dinosaurios, un día duraba solo unas 23 horas y media, y un año tenía unos 372 días.</div>
+<p>El mismo efecto, a lo largo de miles de millones de años, frenó el giro de la Luna hasta que quedó sincronizado con su órbita: tarda en girar sobre sí misma lo mismo que en dar una vuelta a la Tierra. Por eso desde aquí siempre vemos la misma cara de la Luna.</p>
+<div class="idea"><b>Idea clave:</b> las mareas se deben a que la Luna, y en menor medida el Sol, atraen con más fuerza la parte de la Tierra más cercana que la más lejana. Las mareas frenan la rotación de la Tierra y alejan a la Luna poco a poco.</div>
+
+<h2 id="c6"><small>Capítulo 6</small>Órbitas y astronautas</h2>
+<p>Newton explicó las órbitas con un experimento imaginario. Pensemos en un cañón en lo alto de una montaña altísima, por encima del aire. Si dispara una bala despacio, cae cerca. Si la dispara más deprisa, cae más lejos. Pero la Tierra es redonda: si la bala va lo bastante rápida, el suelo se «curva» por debajo de ella a la misma velocidad a la que ella cae. La bala caerá eternamente sin tocar nunca el suelo. Estará en <b>órbita</b>.</p>
+<figure>
+<svg viewBox="0 0 600 330" role="img" aria-label="El cañón de Newton: con poca velocidad la bala cae cerca, con más cae más lejos, con 7,9 kilómetros por segundo entra en órbita y con 11,2 escapa">
+  <g transform="translate(90 0)">
+    <circle cx="300" cy="190" r="110" fill="#3f7d5a" fill-opacity=".75"/>
+    <path d="M292,82 L300,62 L308,82 Z" fill="#6b6259"/>
+    <circle cx="300" cy="190" r="128" fill="none" stroke="#1f5fbf" stroke-width="2.5"/>
+    <path d="M300,62 Q350,62 372,104" fill="none" stroke="#b3261e" stroke-width="2.5"/>
+    <path d="M300,62 Q400,58 408,160" fill="none" stroke="#c9a227" stroke-width="2.5"/>
+    <path d="M300,62 Q480,40 590,-10" fill="none" stroke="#8a8a8a" stroke-width="2.5" stroke-dasharray="6 5"/>
+    <circle cx="372" cy="104" r="4" fill="#b3261e"/><circle cx="408" cy="160" r="4" fill="#c9a227"/>
+    <text x="300" y="195" font-size="14" fill="#ffffff" text-anchor="middle" font-weight="bold">Tierra</text>
+  </g>
+  <g font-size="12.5" fill="currentColor">
+    <line x1="20" y1="96" x2="50" y2="96" stroke="#b3261e" stroke-width="3"/>
+    <text x="60" y="100">lenta: cae cerca</text>
+    <line x1="20" y1="136" x2="50" y2="136" stroke="#c9a227" stroke-width="3"/>
+    <text x="60" y="140">más rápida: cae más lejos</text>
+    <line x1="20" y1="176" x2="50" y2="176" stroke="#1f5fbf" stroke-width="3"/>
+    <text x="60" y="180" font-weight="bold">7,9 km/s: órbita</text>
+    <text x="60" y="197" font-size="11.5" fill-opacity=".8">cae sin llegar nunca al suelo</text>
+    <line x1="20" y1="232" x2="50" y2="232" stroke="#8a8a8a" stroke-width="3" stroke-dasharray="6 5"/>
+    <text x="60" y="236">11,2 km/s: escapa</text>
+    <text x="60" y="253" font-size="11.5" fill-opacity=".8">y no vuelve</text>
+  </g>
+</svg>
+<figcaption>El cañón de Newton. Las velocidades son las necesarias junto a la superficie, sin contar el rozamiento del aire. No está a escala.</figcaption>
+</figure>
+<p>La velocidad necesaria cerca de la superficie es de unos <b>7,9 kilómetros por segundo</b>: más de 28.000 kilómetros por hora. Y si la bala superara los 11,2 kilómetros por segundo, la <b>velocidad de escape</b>, se alejaría para siempre de la Tierra. Esas son exactamente las velocidades que necesitan hoy los cohetes para poner satélites en órbita o enviar sondas a otros planetas.</p>
+<h3>¿Por qué flotan los astronautas?</h3>
+<p>Mucha gente cree que los astronautas de la Estación Espacial Internacional flotan porque allí arriba no hay gravedad. Pero la estación está a unos 400 kilómetros de altura, muy cerca en comparación con el tamaño de la Tierra, y allí la gravedad es aproximadamente un <b>90 %</b> de la que sentimos en el suelo.</p>
+<p>Flotan porque están <b>cayendo</b>, igual que la bala de Newton. La estación, los astronautas y todo lo que hay dentro caen a la vez, a unos 28.000 kilómetros por hora de lado, dando una vuelta a la Tierra cada hora y media. Como todo cae junto, nada se apoya en nada: es lo mismo que sentirías, por un instante, en un ascensor cuyo cable se rompiera.</p>
+<div class="sabias"><b>¿Sabías que...?</b> Como dan una vuelta a la Tierra cada 92 minutos, los astronautas de la Estación Espacial ven unos 16 amaneceres y 16 atardeceres cada día. Y para entrenarse en ingravidez sin salir de la Tierra, vuelan en aviones que suben y luego caen siguiendo una curva: durante unos 20 segundos, todo el mundo flota dentro. Como mucha gente se marea, a esos aviones los llaman «cometas del vómito».</div>
+<div class="sabias"><b>¿Sabías que...?</b> Sin el peso que la comprime, la columna vertebral se estira, y los astronautas llegan a crecer hasta unos 5 centímetros durante su estancia en el espacio. Al volver a la Tierra, en pocos días recuperan su altura normal. Mucho peor es que, sin tener que soportar su peso, sus huesos y músculos se debilitan, por eso tienen que hacer ejercicio unas dos horas cada día.</div>
+<div class="idea"><b>Idea clave:</b> un satélite en órbita está cayendo continuamente hacia la Tierra, pero avanza tan deprisa que nunca llega al suelo. Los astronautas flotan porque caen junto con su nave, no porque no haya gravedad.</div>
+
+<h2 id="c7"><small>Capítulo 7</small>Einstein: el espacio se curva</h2>
+<p>La teoría de Newton funcionaba de maravilla, pero tenía un punto oscuro que al propio Newton le incomodaba: ¿cómo puede el Sol atraer a la Tierra a 150 millones de kilómetros, sin tocarla, a través del espacio vacío? Newton describió <i>cómo</i> actúa la gravedad, pero reconoció que no sabía <i>qué</i> era.</p>
+<p>Además, había un pequeño detalle que no encajaba. La órbita de <b>Mercurio</b>, el planeta más cercano al Sol, va girando lentamente, y las cuentas de Newton no lograban explicar del todo ese giro: sobraba una cantidad minúscula, 43 segundos de arco por siglo, más o menos el tamaño de una moneda vista a cien metros.</p>
+<div class="sabias"><b>¿Sabías que...?</b> Le Verrier, el mismo que había descubierto Neptuno con sus cálculos, pensó que la anomalía de Mercurio se debía a otro planeta desconocido, todavía más cercano al Sol. Hasta le puso nombre: <b>Vulcano</b>. Durante décadas, muchos astrónomos lo buscaron en los eclipses y algunos incluso aseguraron haberlo visto. Vulcano nunca existió.</div>
+<h3>El pensamiento más feliz</h3>
+<p>En 1907, un joven empleado de la oficina de patentes de Berna llamado <b>Albert Einstein</b> tuvo lo que más tarde llamó «el pensamiento más feliz de mi vida»: una persona que cae desde un tejado no siente su propio peso. Si soltara unas llaves mientras cae, las vería flotar a su lado.</p>
+<p>De ahí dedujo una idea sorprendente: estar en caída libre es indistinguible de estar flotando en el espacio lejos de todo; y estar quieto en la Tierra es indistinguible de estar en un cohete que acelera. Gravedad y aceleración son, en el fondo, <b>lo mismo</b>. Tardó ocho años más en convertir esa intuición en una teoría completa.</p>
+<p>El 25 de noviembre de 1915, Einstein presentó la <b>teoría de la relatividad general</b>. Según ella, la gravedad no es una fuerza que tira de los objetos a distancia. Es la <b>curvatura del espacio y del tiempo</b>, el espacio-tiempo, provocada por la masa y la energía. Los planetas no giran alrededor del Sol porque algo tire de ellos: siguen el camino más recto posible en un espacio que el Sol ha deformado.</p>
+<figure>
+<svg viewBox="0 0 600 280" role="img" aria-label="Una malla que representa el espacio, hundida por una gran masa, y un planeta que sigue una trayectoria curva a su alrededor">
+  <g fill="none" stroke="#1f5fbf" stroke-opacity=".55" stroke-width="1.3">
+    <path d="M20,60 Q300,60 580,60"/><path d="M20,90 Q300,100 580,90"/><path d="M20,120 Q170,124 230,150 Q300,200 370,150 Q430,124 580,120"/>
+    <path d="M20,150 Q180,154 240,190 Q300,250 360,190 Q420,154 580,150"/><path d="M20,180 Q180,184 240,210 Q300,250 360,210 Q420,184 580,180"/><path d="M20,210 Q300,226 580,210"/><path d="M20,240 Q300,246 580,240"/>
+    <path d="M60,40 Q62,150 60,260"/><path d="M120,40 Q124,150 120,260"/><path d="M180,40 Q190,150 180,260"/><path d="M240,40 Q250,190 240,260"/><path d="M300,40 Q300,250 300,260"/><path d="M360,40 Q350,190 360,260"/><path d="M420,40 Q410,150 420,260"/><path d="M480,40 Q476,150 480,260"/><path d="M540,40 Q538,150 540,260"/>
+  </g>
+  <circle cx="300" cy="200" r="30" fill="#e0a030"/>
+  <text x="300" y="205" font-size="13" fill="#2a2622" text-anchor="middle" font-weight="bold">Sol</text>
+  <ellipse cx="300" cy="190" rx="170" ry="52" fill="none" stroke="#b3261e" stroke-width="2" stroke-dasharray="6 5"/>
+  <circle cx="470" cy="190" r="10" fill="#3f7d5a"/>
+  <text x="488" y="176" font-size="12.5" fill="currentColor">planeta</text>
+  <text x="300" y="24" font-size="13" fill="currentColor" text-anchor="middle">La masa del Sol «hunde» el espacio-tiempo, y el planeta sigue esa curva</text>
+</svg>
+<figcaption>La imagen habitual de la relatividad: una malla elástica hundida por una bola pesada. Es solo una comparación: el espacio-tiempo real tiene cuatro dimensiones y no se puede dibujar.</figcaption>
+</figure>
+<p>El físico John Wheeler lo resumió en una frase famosa: «El espacio-tiempo le dice a la materia cómo moverse, y la materia le dice al espacio-tiempo cómo curvarse».</p>
+<p>La nueva teoría explicó al instante los 43 segundos de arco que sobraban en la órbita de Mercurio. Y predijo algo nuevo: la luz de las estrellas, al pasar cerca del Sol, debía desviarse al atravesar el espacio curvado, el doble de lo que se podía deducir de las ideas de Newton.</p>
+<div class="sabias"><b>¿Sabías que...?</b> Para comprobarlo había que fotografiar estrellas junto al Sol, algo que solo se puede hacer durante un eclipse total. El 29 de mayo de 1919, dos expediciones británicas lo observaron desde la isla de Príncipe, en África, y desde Sobral, en Brasil. Las estrellas aparecían desplazadas, como predecía Einstein. Cuando se anunció el resultado, en noviembre, el diario londinense <i>The Times</i> tituló: «Revolución en la ciencia». Einstein se convirtió de la noche a la mañana en el científico más famoso del mundo. Cuando le preguntaron qué habría sentido si el eclipse le hubiera quitado la razón, contestó: «Lo habría sentido por Dios. La teoría es correcta».</div>
+<div class="idea"><b>Idea clave:</b> según la relatividad general de Einstein, la gravedad es la curvatura del espacio-tiempo causada por la masa. Los cuerpos se mueven siguiendo esa curvatura. La teoría explicó la órbita de Mercurio y predijo que la gravedad desvía la luz.</div>
+
+<h2 id="c8"><small>Capítulo 8</small>El tiempo también cae: el GPS</h2>
+<p>La relatividad general tiene una consecuencia todavía más extraña: la gravedad no solo curva el espacio, también afecta al <b>tiempo</b>. Cuanto más cerca estás de una gran masa, más despacio pasa el tiempo. Un reloj en el sótano va un poquito más lento que uno en el tejado.</p>
+<p>La diferencia es minúscula, pero real. En 2010, en un laboratorio de Estados Unidos, se compararon dos relojes atómicos ultraprecisos y se comprobó que el que estaba solo <b>33 centímetros</b> más alto iba más rápido. Si pasaras toda tu vida, unos 79 años, 33 centímetros por encima de otra persona, envejecerías unas 90 milmillonésimas de segundo más que ella. En 2022 se llegó a medir el efecto en una distancia de apenas un milímetro.</p>
+<h3>Einstein en tu bolsillo</h3>
+<p>Todo esto parece una curiosidad de laboratorio, pero lo usas cada día. El <b>GPS</b> de tu móvil calcula tu posición comparando las señales de varios satélites que giran a unos 20.000 kilómetros de altura, cada uno con un reloj atómico a bordo. Como la luz viaja a 300.000 kilómetros por segundo, un error de solo una millonésima de segundo en esos relojes se convierte en un error de 300 metros en tu posición.</p>
+<figure>
+<svg viewBox="0 0 600 250" role="img" aria-label="Los relojes de los satélites GPS adelantan 45 microsegundos al día por la menor gravedad y atrasan 7 por su velocidad: 38 microsegundos al día en total">
+  <text x="300" y="22" font-size="13" fill="currentColor" text-anchor="middle">Diferencia de los relojes de los satélites GPS respecto a los del suelo, cada día</text>
+  <line x1="200" y1="40" x2="200" y2="170" stroke="currentColor" stroke-opacity=".5"/>
+  <rect x="200" y="50" width="315" height="28" fill="#1f5fbf"/>
+  <rect x="151" y="96" width="49" height="28" fill="#b3261e"/>
+  <rect x="200" y="142" width="266" height="28" fill="#3f7d5a"/>
+  <g font-size="13" fill="currentColor">
+    <text x="190" y="69" text-anchor="end">Menos gravedad</text><text x="505" y="69" text-anchor="end" fill="#ffffff" font-weight="bold">+45 microsegundos</text>
+    <text x="143" y="115" text-anchor="end">Más velocidad</text><text x="210" y="115" font-weight="bold" fill="#b3261e">−7 microsegundos</text>
+    <text x="190" y="161" text-anchor="end" font-weight="bold">Total</text><text x="456" y="161" text-anchor="end" fill="#ffffff" font-weight="bold">+38 microsegundos</text>
+  </g>
+  <text x="300" y="206" font-size="13" fill="currentColor" text-anchor="middle">Sin corregirlo, el GPS se equivocaría en unos 10 kilómetros más cada día.</text>
+  <text x="300" y="228" font-size="11.5" fill="currentColor" fill-opacity=".75" text-anchor="middle">Un microsegundo es una millonésima de segundo.</text>
+</svg>
+<figcaption>Los dos efectos de la relatividad en los relojes del GPS. Barras a escala.</figcaption>
+</figure>
+<p>Allí arriba, la gravedad de la Tierra es más débil, y según la relatividad general los relojes de los satélites deberían adelantarse unos 45 microsegundos al día respecto a los del suelo. Al mismo tiempo, los satélites se mueven muy deprisa, y otra teoría de Einstein, la <b>relatividad especial</b>, dice que eso los retrasa unos 7 microsegundos. En total, adelantan unos 38 microsegundos cada día. Parece nada, pero sin corregirlo, el GPS acumularía un error de unos 10 kilómetros diarios.</p>
+<div class="sabias"><b>¿Sabías que...?</b> Para compensarlo, los relojes de los satélites GPS se fabrican a propósito para ir un poquito más despacio de lo normal. En el suelo parecen estropeados; una vez en órbita, la gravedad más débil los pone exactamente en hora. Cada vez que el móvil te dice dónde estás, está aplicando la relatividad de Einstein.</div>
+<div class="sabias"><b>¿Sabías que...?</b> En la película <i>Interstellar</i> (2014), los protagonistas bajan a un planeta que gira muy cerca de un enorme agujero negro, donde cada hora equivale a siete años en la Tierra. Es una exageración, pero no un disparate: el físico Kip Thorne, que luego ganaría el Premio Nobel, asesoró la película para que la ciencia fuera lo más realista posible.</div>
+<div class="idea"><b>Idea clave:</b> la gravedad hace que el tiempo pase más despacio. El efecto es diminuto en la Tierra, pero el GPS tiene que corregirlo cada día para no equivocarse en kilómetros.</div>
+
+<h2 id="c9"><small>Capítulo 9</small>Agujeros negros</h2>
+<p>Si lanzas una piedra hacia arriba, vuelve a caer. Si la lanzaras a más de 11,2 kilómetros por segundo, escaparía de la Tierra. Cuanto más masa tiene un astro y más pequeño es, mayor es su velocidad de escape. ¿Y si existiera un astro tan compacto que ni siquiera la luz, que viaja a 300.000 kilómetros por segundo, pudiera escapar de él?</p>
+<p>La idea es sorprendentemente antigua. En 1783, el reverendo inglés <b>John Michell</b>, el mismo que diseñó la balanza de Cavendish, imaginó que podían existir «estrellas oscuras», tan masivas que su luz no podría salir. Pero fue la relatividad de Einstein la que les dio un fundamento sólido.</p>
+<div class="sabias"><b>¿Sabías que...?</b> Solo un mes después de que Einstein publicara su teoría, el astrónomo alemán <b>Karl Schwarzschild</b> encontró la primera solución exacta de sus ecuaciones, que describía el espacio alrededor de una masa concentrada en un punto. Lo hizo en 1915, mientras servía como soldado en el frente ruso de la Primera Guerra Mundial. Murió pocos meses después por una enfermedad contraída en la guerra. En su solución aparecía una frontera de la que nada podría salir.</div>
+<p>Esa frontera se llama <b>horizonte de sucesos</b>. Lo que la cruza ya no puede volver ni enviar ninguna señal hacia fuera: ni luz, ni ondas de radio, nada. Durante medio siglo, muchos físicos, incluido el propio Einstein, pensaron que eso era un truco matemático que no podía existir en la naturaleza. En 1967, el físico John Wheeler popularizó un nombre para esos objetos: <b>agujeros negros</b>.</p>
+<figure>
+<svg viewBox="0 0 600 250" role="img" aria-label="Tamaño que tendría el horizonte de sucesos de distintos objetos: la Tierra, una canica de 1,8 centímetros; el Sol, 6 kilómetros; Sagitario A estrella, 17 veces el tamaño del Sol; M87 estrella, mayor que la órbita de Plutón">
+  <g fill="#1f5fbf" fill-opacity=".08" stroke="#1f5fbf" stroke-opacity=".45">
+    <rect x="6" y="10" width="138" height="200" rx="8"/><rect x="154" y="10" width="138" height="200" rx="8"/><rect x="302" y="10" width="138" height="200" rx="8"/><rect x="450" y="10" width="138" height="200" rx="8"/>
+  </g>
+  <g fill="#111">
+    <circle cx="75" cy="72" r="4"/><circle cx="223" cy="72" r="10"/><circle cx="371" cy="72" r="20"/><circle cx="519" cy="72" r="30"/>
+  </g>
+  <g fill="none" stroke="#e0a030" stroke-width="3" stroke-opacity=".8"><circle cx="75" cy="72" r="7"/><circle cx="223" cy="72" r="14"/><circle cx="371" cy="72" r="25"/><circle cx="519" cy="72" r="35"/></g>
+  <g font-size="14" font-weight="bold" fill="currentColor" text-anchor="middle"><text x="75" y="134">La Tierra</text><text x="223" y="134">El Sol</text><text x="371" y="134">Sagitario A*</text><text x="519" y="134">M87*</text></g>
+  <g font-size="12" fill="currentColor" text-anchor="middle">
+    <text x="75" y="156">comprimida,</text><text x="75" y="172">sería una canica</text><text x="75" y="188">de 1,8 cm</text>
+    <text x="223" y="156">comprimido,</text><text x="223" y="172">mediría unos 6 km:</text><text x="223" y="188">como un pueblo</text>
+    <text x="371" y="156">el de nuestra galaxia:</text><text x="371" y="172">4 millones de soles;</text><text x="371" y="188">17 veces el Sol</text>
+    <text x="519" y="156">6.500 millones de</text><text x="519" y="172">soles; mayor que la</text><text x="519" y="188">órbita de Plutón</text>
+  </g>
+  <text x="300" y="236" font-size="11.5" fill="currentColor" fill-opacity=".75" text-anchor="middle">Diámetro del horizonte de sucesos. Los círculos no están a escala entre sí.</text>
+</svg>
+<figcaption>Cualquier cosa se convertiría en agujero negro si se comprimiera lo suficiente. Los dos de la derecha son reales: los hemos fotografiado.</figcaption>
+</figure>
+<p>Hoy sabemos que los agujeros negros existen y que son muy comunes. Los hay de dos tipos principales. Los <b>estelares</b>, de unas pocas decenas de veces la masa del Sol, se forman cuando una estrella gigante agota su combustible y su núcleo se hunde sobre sí mismo. Los <b>supermasivos</b>, de millones o miles de millones de soles, ocupan el centro de casi todas las galaxias grandes.</p>
+<p>En el centro de nuestra galaxia, la Vía Láctea, hay uno de unos 4 millones de veces la masa del Sol, llamado <b>Sagitario A*</b>. Dos equipos de astrónomos siguieron durante décadas las estrellas que giran a su alrededor, algunas a velocidades de miles de kilómetros por segundo, y demostraron que algo invisible y enormemente masivo las atrae. Por ello recibieron el Premio Nobel de Física de 2020.</p>
+<div class="sabias"><b>¿Sabías que...?</b> Un agujero negro no se puede ver, pero sí su «sombra» recortada contra el gas brillante que gira a su alrededor. Para fotografiarla hizo falta combinar radiotelescopios repartidos por todo el planeta, uno de ellos en Sierra Nevada, en Granada, como si fueran una sola antena del tamaño de la Tierra. En 2019 se publicó la primera imagen, la del agujero negro de la galaxia M87, y en 2022 la de Sagitario A*. Las dos muestran un anillo anaranjado alrededor de un centro oscuro.</div>
+<div class="sabias"><b>¿Sabías que...?</b> Si cayeras de pie hacia un agujero negro pequeño, la gravedad tiraría de tus pies con mucha más fuerza que de tu cabeza, y te estiraría como un espagueti. Los físicos lo llaman, en serio, <b>espaguetización</b>. En cambio, en uno supermasivo podrías cruzar el horizonte sin notar nada especial... aunque ya no podrías volver.</div>
+<div class="idea"><b>Idea clave:</b> un agujero negro es una región donde la gravedad es tan intensa que nada, ni siquiera la luz, puede escapar. Predichos por la relatividad, hoy sabemos que existen: hay uno supermasivo en el centro de nuestra galaxia, y ya los hemos fotografiado.</div>
+
+<h2 id="c10"><small>Capítulo 10</small>Ondas gravitacionales</h2>
+<p>Si el espacio-tiempo puede curvarse, también puede vibrar. En 1916, Einstein predijo que las masas en movimiento violento producen ondulaciones en el espacio-tiempo que se propagan a la velocidad de la luz, como las ondas que forma una piedra al caer en un estanque. Son las <b>ondas gravitacionales</b>. Pero calculó que serían tan débiles que nadie podría detectarlas nunca.</p>
+<p>Cuando una onda gravitacional atraviesa la Tierra, estira el espacio en una dirección y lo encoge en la perpendicular, una y otra vez. Para detectarlo se construyó en Estados Unidos <b>LIGO</b>: dos observatorios separados por 3.000 kilómetros, cada uno con dos brazos en forma de L de 4 kilómetros de largo.</p>
+<figure>
+<svg viewBox="0 0 600 300" role="img" aria-label="Esquema de un detector de ondas gravitacionales en forma de L, con un láser, un divisor de luz, dos espejos a cuatro kilómetros y un detector">
+  <rect x="60" y="226" width="440" height="16" rx="8" fill="#8a8a8a" fill-opacity=".25" stroke="currentColor" stroke-opacity=".4"/>
+  <rect x="62" y="30" width="16" height="200" rx="8" fill="#8a8a8a" fill-opacity=".25" stroke="currentColor" stroke-opacity=".4"/>
+  <line x1="70" y1="234" x2="490" y2="234" stroke="#b3261e" stroke-width="2.5"/>
+  <line x1="70" y1="234" x2="70" y2="40" stroke="#b3261e" stroke-width="2.5"/>
+  <rect x="496" y="220" width="8" height="28" fill="#1f5fbf"/><rect x="56" y="26" width="28" height="8" fill="#1f5fbf"/>
+  <rect x="60" y="224" width="20" height="20" fill="#9a7412" transform="rotate(45 70 234)"/>
+  <rect x="10" y="256" width="44" height="26" rx="4" fill="#2a2622"/><text x="32" y="274" font-size="11" fill="#ffffff" text-anchor="middle">láser</text>
+  <line x1="54" y1="262" x2="66" y2="244" stroke="#b3261e" stroke-width="2.5"/>
+  <rect x="88" y="258" width="60" height="26" rx="4" fill="#3f7d5a"/><text x="118" y="276" font-size="11" fill="#ffffff" text-anchor="middle">detector</text>
+  <line x1="76" y1="244" x2="92" y2="258" stroke="#b3261e" stroke-width="2.5" stroke-dasharray="4 3"/>
+  <g font-size="12.5" fill="currentColor">
+    <text x="280" y="216" text-anchor="middle">brazo de 4 km</text>
+    <text x="92" y="130">brazo de 4 km</text>
+    <text x="490" y="208" text-anchor="end">espejo</text>
+    <text x="92" y="36">espejo</text>
+    <text x="96" y="226">divisor de luz</text>
+  </g>
+  <g font-size="12.5" fill="currentColor">
+    <text x="300" y="60">1. El láser se divide en dos haces.</text>
+    <text x="300" y="82">2. Cada haz recorre un brazo, rebota</text>
+    <text x="316" y="100">en un espejo y vuelve.</text>
+    <text x="300" y="122">3. Si una onda estira un brazo y</text>
+    <text x="316" y="140">encoge el otro, los haces ya no</text>
+    <text x="316" y="158">coinciden y el detector lo nota.</text>
+  </g>
+</svg>
+<figcaption>Un detector de ondas gravitacionales como LIGO, muy simplificado. La luz, en realidad, rebota cientos de veces en cada brazo antes de volver.</figcaption>
+</figure>
+<p>La sensibilidad de LIGO es casi inimaginable: es capaz de notar un cambio en la longitud de sus brazos de unos 4 kilómetros más pequeño que la milésima parte del tamaño de un protón. Es como medir la distancia a la estrella más cercana con un error menor que el grosor de un pelo.</p>
+<p>El <b>14 de septiembre de 2015</b>, los dos detectores registraron, con 7 milésimas de segundo de diferencia, la misma señal: una vibración que duró una fracción de segundo y subió de tono, como un pequeño gorjeo. Venía de dos agujeros negros, de unas 36 y 29 veces la masa del Sol, que habían chocado y se habían fundido en uno solo hace unos <b>1.300 millones de años</b>. En la fusión, una masa equivalente a tres soles se convirtió en ondas gravitacionales. Durante ese instante, la potencia liberada fue mayor que la de toda la luz de todas las estrellas del universo observable juntas.</p>
+<div class="sabias"><b>¿Sabías que...?</b> Cuando aquellas ondas salieron de los agujeros negros, en la Tierra solo había seres vivos muy simples. Viajaron por el espacio durante 1.300 millones de años, y llegaron cuando LIGO, recién mejorado, llevaba solo unos días funcionando en pruebas, antes incluso del comienzo oficial de sus observaciones. El descubrimiento, anunciado en febrero de 2016, les valió el Premio Nobel de Física de 2017 a tres de sus impulsores: Rainer Weiss, Kip Thorne y Barry Barish.</div>
+<p>Desde entonces, LIGO y sus compañeros, Virgo en Italia y KAGRA en Japón, han detectado cientos de choques de agujeros negros. El 17 de agosto de 2017 captaron algo distinto: la fusión de dos <b>estrellas de neutrones</b>, a unos 130 millones de años luz. Esta vez, decenas de telescopios apuntaron al lugar y vieron también el destello de luz de la explosión. En ella se fabricaron elementos pesados como el oro y el platino, en cantidades de varias veces la masa de la Tierra.</p>
+<div class="sabias"><b>¿Sabías que...?</b> Muchos científicos piensan que buena parte del oro del universo, incluido el de las joyas que conoces, se formó en choques como ese, entre estrellas de neutrones, mucho antes de que naciera el Sol.</div>
+<div class="idea"><b>Idea clave:</b> las ondas gravitacionales son vibraciones del espacio-tiempo. Predichas por Einstein en 1916, se detectaron por primera vez en 2015, y hoy son una nueva forma de observar el universo.</div>
+
+<h2 id="c11"><small>Capítulo 11</small>Los misterios que quedan</h2>
+<p>Después de todo lo que sabemos, la gravedad todavía guarda algunos de los mayores enigmas de la ciencia.</p>
+<h3>La más débil de las fuerzas</h3>
+<p>En la naturaleza hay cuatro fuerzas fundamentales: la gravedad, el electromagnetismo, y dos fuerzas que solo actúan dentro de los núcleos de los átomos. La gravedad es, con mucha diferencia, la más débil. Entre dos protones, la repulsión eléctrica es unos <b>10<sup>36</sup></b> veces más fuerte que la atracción gravitatoria: un 1 seguido de 36 ceros.</p>
+<div class="sabias"><b>¿Sabías que...?</b> Puedes comprobar lo débil que es la gravedad con un pequeño imán de nevera. Si levantas con él un clip, el imán está venciendo la atracción gravitatoria de todo el planeta Tierra, con sus seis cuatrillones de kilos. La gravedad domina el universo a gran escala solo porque siempre atrae y se va sumando, mientras que las cargas eléctricas positivas y negativas se compensan.</div>
+<h3>Materia oscura y energía oscura</h3>
+<p>En los años 30, el astrónomo suizo Fritz Zwicky observó que las galaxias de un gran cúmulo se movían demasiado deprisa para la masa que se veía en ellas. En los años 70, la astrónoma estadounidense <b>Vera Rubin</b> descubrió lo mismo dentro de las propias galaxias: sus estrellas exteriores giran tan rápido que las galaxias deberían deshacerse. Algo invisible, que no emite ni refleja luz, aporta gravedad extra. Lo llamamos <b>materia oscura</b>, y parece haber unas cinco veces más que materia normal. Nadie sabe todavía qué es.</p>
+<p>En 1998, dos equipos que estudiaban explosiones de estrellas lejanas descubrieron algo aún más desconcertante: la expansión del universo no se está frenando, como se esperaba por la gravedad, sino <b>acelerando</b>. A la causa desconocida de esa aceleración se la llama <b>energía oscura</b>. Observaciones recientes, de 2024 y 2025, sugieren incluso que podría ir cambiando con el tiempo.</p>
+<figure>
+<svg viewBox="0 0 600 260" role="img" aria-label="De qué está hecho el universo: un 5 por ciento de materia normal, un 27 por ciento de materia oscura y un 68 por ciento de energía oscura">
+  <g transform="translate(150,130)">
+    <circle r="90" fill="none" stroke="#1f5fbf" stroke-width="44" stroke-dasharray="384.5 565.5" transform="rotate(-90)"/>
+    <circle r="90" fill="none" stroke="#6b4c9a" stroke-width="44" stroke-dasharray="152.7 565.5" stroke-dashoffset="-384.5" transform="rotate(-90)"/>
+    <circle r="90" fill="none" stroke="#e0a030" stroke-width="44" stroke-dasharray="28.3 565.5" stroke-dashoffset="-537.2" transform="rotate(-90)"/>
+    <text y="-4" font-size="13" fill="currentColor" text-anchor="middle">El universo</text>
+    <text y="14" font-size="11.5" fill="currentColor" fill-opacity=".75" text-anchor="middle">hoy</text>
+  </g>
+  <g font-size="14" fill="currentColor">
+    <rect x="300" y="58" width="16" height="16" fill="#1f5fbf"/><text x="326" y="71"><tspan font-weight="bold">68 %</tspan> energía oscura</text>
+    <rect x="300" y="114" width="16" height="16" fill="#6b4c9a"/><text x="326" y="127"><tspan font-weight="bold">27 %</tspan> materia oscura</text>
+    <rect x="300" y="170" width="16" height="16" fill="#e0a030"/><text x="326" y="183"><tspan font-weight="bold">5 %</tspan> materia normal</text>
+  </g>
+  <g font-size="11.5" fill="currentColor" fill-opacity=".75">
+    <text x="326" y="89">acelera la expansión del universo</text>
+    <text x="326" y="145">invisible; solo notamos su gravedad</text>
+    <text x="326" y="201">estrellas, planetas, tú y yo</text>
+  </g>
+</svg>
+<figcaption>Todo lo que podemos ver, tocar o medir directamente es solo una vigésima parte del contenido del universo.</figcaption>
+</figure>
+<h3>La gran pieza que falta</h3>
+<p>El último gran misterio es de teoría. La relatividad general explica de maravilla lo muy grande: planetas, galaxias, el universo entero. La <b>mecánica cuántica</b> explica de maravilla lo muy pequeño: átomos, electrones, luz. Pero las dos teorías no encajan entre sí. En el centro de un agujero negro, o en el primer instante del universo, habría que usar las dos a la vez, y dan resultados absurdos. Encontrar una teoría de la <b>gravedad cuántica</b> que las una es probablemente el mayor reto de la física de nuestro tiempo.</p>
+<div class="idea"><b>Idea clave:</b> la gravedad es la fuerza más débil, pero domina el universo. Todavía no sabemos qué son la materia oscura y la energía oscura, ni cómo unir la gravedad con la mecánica cuántica.</div>
+
+<h2 id="c12"><small>Capítulo 12</small>Resumen</h2>
+<dl class="fechas">
+  <dt>Siglo IV a. C.</dt><dd>Aristóteles: los objetos pesados caen más deprisa.</dd>
+  <dt>1586</dt><dd>Stevin deja caer dos bolas de plomo desde una torre de Delft.</dd>
+  <dt>1638</dt><dd>Galileo publica sus leyes de la caída de los cuerpos.</dd>
+  <dt>1687</dt><dd>Newton publica los <i>Principia</i> y la ley de la gravitación universal.</dd>
+  <dt>1798</dt><dd>Cavendish mide la constante <i>G</i> y «pesa» la Tierra.</dd>
+  <dt>1846</dt><dd>Descubrimiento de Neptuno gracias a los cálculos de Le Verrier.</dd>
+  <dt>1915</dt><dd>Einstein presenta la relatividad general.</dd>
+  <dt>1919</dt><dd>Un eclipse confirma que la gravedad desvía la luz.</dd>
+  <dt>1971</dt><dd>Un martillo y una pluma caen a la vez en la Luna.</dd>
+  <dt>1998</dt><dd>Se descubre que la expansión del universo se acelera.</dd>
+  <dt>2015</dt><dd>LIGO detecta las primeras ondas gravitacionales.</dd>
+  <dt>2019</dt><dd>Primera imagen de un agujero negro.</dd>
+</dl>
+<p><b>Resumen en siete frases</b></p>
+<ol>
+  <li>La masa es la cantidad de materia de un cuerpo; el peso, la fuerza con que la gravedad lo atrae.</li>
+  <li>Galileo demostró que, sin aire, todos los cuerpos caen con la misma aceleración.</li>
+  <li>Newton descubrió que todos los cuerpos se atraen con una fuerza que depende de sus masas y disminuye con el cuadrado de la distancia.</li>
+  <li>Las órbitas son una caída continua, y los astronautas flotan porque caen junto con su nave.</li>
+  <li>Las mareas se deben a que la Luna atrae más la cara de la Tierra más cercana.</li>
+  <li>Para Einstein, la gravedad es la curvatura del espacio-tiempo: por eso desvía la luz, frena el tiempo y permite que existan agujeros negros y ondas gravitacionales.</li>
+  <li>La materia oscura, la energía oscura y la gravedad cuántica siguen siendo grandes misterios.</li>
+</ol>
+<p><i>Para pensar:</i> los astronautas de la Estación Espacial están sometidos a casi la misma gravedad que tú, y sin embargo flotan. Si estuvieras dentro de una caja cerrada y sin ventanas, ¿cómo podrías saber si estás flotando en el espacio o cayendo hacia un planeta?</p>
+
+</main>
+<script>if ('serviceWorker' in navigator) navigator.serviceWorker.register('../../sw.js').catch(() => {});</script>
+</body>
+</html>

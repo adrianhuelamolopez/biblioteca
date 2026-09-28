@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Napoleón</title>
+<script type="application/json" id="metadatos">
+{
+  "id": "napoleon",
+  "titulo": "Napoleón",
+  "subtitulo": "Del cuartel al trono de Europa (1769–1821)",
+  "tema": "Historia",
+  "periodo": "Edad Contemporánea",
+  "fechas": "1799–1815",
+  "año_inicio": 1799,
+  "año_fin": 1815,
+  "serie": "Europa en revolución",
+  "numero_en_serie": 2,
+  "etiquetas": ["Napoleón Bonaparte", "Francia", "Imperio", "Austerlitz", "Guerra de la Independencia", "Rusia", "Waterloo", "Código Civil"],
+  "nivel": "Intermedio",
+  "minutos_lectura": 35,
+  "portada": "portada.svg",
+  "resumen": "Cómo un joven corso pobre llegó a emperador y dominó Europa, por qué ganaba las batallas, qué cambió para siempre y cómo lo perdió todo en España, Rusia y Waterloo. Con mapas, esquemas de batallas y curiosidades.",
+  "fecha": "2026-09-27"
+}
+</script>
+<style>
+  :root {
+    --papel: #fbf8f1; --tinta: #2a2622; --suave: #6b6259; --acento: #1d3f8a; --rojo: #b3261e; --oro: #9a7412; --caja: #eef1f8; --caja2: #f6efdc; --linea: #e3dccf;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --papel: #1c1b1a; --tinta: #ece6dc; --suave: #b3a998; --acento: #8fb0ff; --rojo: #ff8a80; --oro: #e2c46a; --caja: #232834; --caja2: #2c2819; --linea: #3a3632; color-scheme: dark; }
+  }
+  :root[data-theme="dark"] { --papel: #1c1b1a; --tinta: #ece6dc; --suave: #b3a998; --acento: #8fb0ff; --rojo: #ff8a80; --oro: #e2c46a; --caja: #232834; --caja2: #2c2819; --linea: #3a3632; color-scheme: dark; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--papel); color: var(--tinta); font: 19px/1.7 Georgia, "Times New Roman", serif; }
+  main { max-width: 680px; margin: 0 auto; padding: 32px 16px 80px; }
+  .portada { display: block; width: min(320px, 80%); margin: 8px auto 32px; border-radius: 6px; box-shadow: 0 10px 30px rgba(0,0,0,.25); }
+  h1 { font-size: 2.1em; line-height: 1.15; margin: 0 0 4px; text-align: center; }
+  .sub { text-align: center; color: var(--suave); font-style: italic; margin: 0 0 40px; }
+  h2 { font-size: 1.4em; margin: 56px 0 8px; padding-top: 16px; border-top: 1px solid var(--linea); text-wrap: balance; }
+  h2 small { display: block; font-size: .6em; color: var(--acento); letter-spacing: .15em; text-transform: uppercase; font-weight: normal; }
+  h3 { font-size: 1.1em; margin: 32px 0 4px; }
+  figure { margin: 28px 0; text-align: center; }
+  figure svg { width: 100%; height: auto; max-width: 600px; }
+  figcaption { font-size: .8em; color: var(--suave); margin-top: 6px; }
+  .idea { background: var(--caja); border-left: 4px solid var(--acento); padding: 14px 18px; border-radius: 4px; margin: 24px 0; }
+  .idea b { color: var(--acento); }
+  .sabias { background: var(--caja2); padding: 12px 18px; border-radius: 6px; margin: 24px 0; font-size: .92em; }
+  .sabias > b:first-child { display: block; color: var(--oro); letter-spacing: .1em; text-transform: uppercase; font-size: .8em; }
+  .fondo { border: 1px solid var(--linea); padding: 12px 18px; border-radius: 6px; margin: 24px 0; font-size: .92em; }
+  .fondo > b:first-child { display: block; color: var(--rojo); letter-spacing: .1em; text-transform: uppercase; font-size: .8em; }
+  blockquote { margin: 20px 0; padding: 0 20px; font-style: italic; border-left: 3px solid var(--linea); color: var(--suave); }
+  ul, ol { padding-left: 1.2em; }
+  .indice { background: var(--caja); padding: 12px 20px; border-radius: 6px; font-size: .9em; }
+  .indice ol { margin: 6px 0; }
+  a { color: var(--acento); }
+  .fechas { font-size: .9em; }
+  .fechas dt { font-weight: bold; color: var(--acento); margin-top: 8px; }
+  .fechas dd { margin: 0 0 0 1em; }
+  .serie { text-align: center; font-size: .85em; color: var(--suave); margin: -24px 0 32px; }
+  .volver { display: inline-block; margin: 0 0 16px; font: 15px/1.4 system-ui, sans-serif; color: var(--acento); text-decoration: none; }
+  .volver:hover { text-decoration: underline; }
+</style>
+<meta name="description" content="Cómo un joven corso pobre llegó a emperador y dominó Europa, por qué ganaba las batallas, qué cambió para siempre y cómo lo perdió todo en España, Rusia y Waterloo. Con mapas, esquemas de batallas y curiosidades.">
+<meta name="theme-color" content="#fbf8f1" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1c1b1a" media="(prefers-color-scheme: dark)">
+<link rel="manifest" href="../../manifest.webmanifest">
+<link rel="icon" href="../../icono.svg" type="image/svg+xml">
+<link rel="icon" href="../../icono-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<meta name="apple-mobile-web-app-title" content="Biblioteca">
+</head>
+<body>
+<main>
+<a class="volver" href="../../index.html">← Biblioteca</a>
+
+<img class="portada" src="portada.svg" alt="Portada: Napoleón">
+<h1>Napoleón</h1>
+<p class="sub">Del cuartel al trono de Europa (1769–1821)</p>
+<p class="serie">Serie «Europa en revolución» · Libro 2 · Viene de <a href="../la-revolucion-francesa/libro.html"><i>La Revolución francesa</i></a> · Continúa en <a href="../restauracion-y-revoluciones/libro.html"><i>Restauración y revoluciones</i></a></p>
+
+<nav class="indice">
+  <b>En este libro</b>
+  <ol>
+    <li><a href="#c1">Un niño extranjero en Francia</a></li>
+    <li><a href="#c2">La Revolución, una escalera para subir</a></li>
+    <li><a href="#c3">Italia y Egipto: nace una leyenda</a></li>
+    <li><a href="#c4">El golpe de Brumario</a></li>
+    <li><a href="#c5">Rehacer Francia: el Código Civil</a></li>
+    <li><a href="#c6">Emperador de los franceses</a></li>
+    <li><a href="#c7">Austerlitz: la batalla perfecta</a></li>
+    <li><a href="#c8">Europa, un negocio familiar</a></li>
+    <li><a href="#c9">España: la guerra que no pudo ganar</a></li>
+    <li><a href="#c10">Rusia, 1812: la gran catástrofe</a></li>
+    <li><a href="#c11">Caída, Elba y los Cien Días</a></li>
+    <li><a href="#c12">Waterloo y Santa Elena</a></li>
+    <li><a href="#c13">Mito, leyenda y legado</a></li>
+    <li><a href="#c14">Fechas clave y resumen</a></li>
+  </ol>
+</nav>
+
+<h2 id="c1"><small>Capítulo 1</small>Un niño extranjero en Francia</h2>
+<p>Napoleón nació el <b>15 de agosto de 1769</b> en Ajaccio, en la isla de <b>Córcega</b>. Solo un año antes, la República de Génova había cedido la isla a Francia. Si hubiera nacido un poco antes, habría sido genovés. Su nombre de nacimiento era italiano: <i>Napoleone di Buonaparte</i>. Su lengua materna era el corso, parecido al italiano, y aprendió francés en la escuela. Nunca perdió del todo su acento.</p>
+<p>Su familia era de la pequeña nobleza corsa: con título, pero con poco dinero. Su padre, Carlo, consiguió becas del rey para sus hijos. Gracias a una de ellas, con solo <b>nueve años</b> Napoleón fue enviado a la escuela militar de <b>Brienne</b>, en el continente.</p>
+<p>Allí fue un niño solitario. Sus compañeros, hijos de nobles franceses ricos, se burlaban de su acento y de su pobreza. Se refugió en los libros, sobre todo de historia antigua (Alejandro Magno, Julio César) y de matemáticas, donde destacaba. Después pasó a la Escuela Militar de París y en 1785, con <b>16 años</b>, se graduó como subteniente de <b>artillería</b>. Era un arma poco elegante para los nobles, pero muy técnica: había que calcular trayectorias, distancias y ángulos. Esa formación sería una de sus grandes ventajas.</p>
+<div class="sabias"><b>¿Sabías que...?</b> En sus primeros años Napoleón odiaba a Francia, porque la veía como la potencia que había conquistado su isla. Soñaba con la independencia de Córcega. Solo tras enfrentarse con los independentistas corsos en 1793, cuando su familia tuvo que huir de la isla, se volcó por completo en Francia.</div>
+<div class="idea"><b>Idea clave:</b> Napoleón empezó como un forastero pobre en un sistema hecho para nobles ricos. Su talento para las matemáticas y la artillería le abrió camino.</div>
+
+<h2 id="c2"><small>Capítulo 2</small>La Revolución, una escalera para subir</h2>
+<p>Antes de 1789, un oficial sin grandes contactos como Napoleón habría tenido muy difícil llegar a general: los altos mandos eran para la alta nobleza. La Revolución lo cambió todo. Muchos oficiales nobles huyeron al extranjero y el ejército necesitaba desesperadamente mandos con talento, vinieran de donde vinieran.</p>
+<h3>Toulon (1793): el primer golpe de suerte</h3>
+<p>En 1793 el gran puerto de <b>Toulon</b>, en el Mediterráneo, se había rebelado contra la República y lo ocupaban barcos ingleses y españoles. El joven capitán Bonaparte, de 24 años, estudió el terreno y vio la clave: si se tomaban unas colinas que dominaban la bahía, la artillería francesa podría disparar a la flota enemiga y esta tendría que marcharse. Así fue. En diciembre de 1793 Toulon cayó y Napoleón, herido en un muslo por una bayoneta, fue ascendido a <b>general de brigada</b>. Tenía 24 años.</p>
+<h3>Vendimiario (1795): «una ráfaga de metralla»</h3>
+<p>Tras la caída de Robespierre, Napoleón pasó unos días en prisión por su amistad con el hermano de Robespierre y después se quedó sin destino. Pero en octubre de 1795 (el mes de <i>Vendimiario</i> del calendario revolucionario) miles de monárquicos armados avanzaron sobre el edificio del gobierno en París. Le encargaron defenderlo. Napoleón colocó cañones en las calles y disparó metralla a bocajarro contra la multitud. La revuelta se deshizo en minutos. Desde entonces fue «el general Vendimiario», el hombre que había salvado a la República.</p>
+<h3>Josefina</h3>
+<p>Ese mismo año conoció a <b>Rose de Beauharnais</b>, una viuda criolla nacida en la isla de Martinica, seis años mayor que él, elegante y muy bien relacionada. A su primer marido lo habían guillotinado durante el Terror. Napoleón se enamoró perdidamente, le cambió el nombre a <b>Josefina</b> y se casaron en marzo de 1796. Le escribía cartas apasionadas desde los campos de batalla. Ella, al principio, no le correspondía tanto.</p>
+<div class="idea"><b>Idea clave:</b> la Revolución abrió el ejército al talento. Napoleón aprovechó cada oportunidad: Toulon le hizo general y Vendimiario le hizo imprescindible para el gobierno.</div>
+
+<h2 id="c3"><small>Capítulo 3</small>Italia y Egipto: nace una leyenda</h2>
+<h3>La campaña de Italia (1796–1797)</h3>
+<p>Dos días después de su boda, Napoleón partió a mandar el ejército de Italia: unos 40.000 soldados mal pagados, hambrientos y con uniformes rotos. Su misión era secundaria: distraer a los austriacos mientras los ejércitos principales atacaban por Alemania. Pero en un año hizo algo asombroso: derrotó una y otra vez a ejércitos más grandes, conquistó el norte de Italia y obligó a Austria a firmar la paz.</p>
+<div class="fondo"><b>Para entenderlo mejor: ¿por qué ganaba?</b>
+<ul>
+  <li><b>Velocidad.</b> Sus tropas vivían de lo que encontraban en el terreno en lugar de esperar a lentos convoyes de comida. Así marchaban mucho más rápido que sus enemigos.</li>
+  <li><b>Dividir al enemigo.</b> Si se enfrentaba a dos ejércitos, se colocaba entre ambos, atacaba primero a uno con casi todas sus fuerzas y luego se giraba contra el otro. Aunque tuviera menos soldados en total, en cada batalla tenía más.</li>
+  <li><b>Artillería concentrada.</b> Reunía muchos cañones en un solo punto para abrir un hueco en la línea enemiga.</li>
+  <li><b>Moral.</b> Sabía hablar a sus soldados, conocía a muchos por su nombre y compartía sus riesgos.</li>
+</ul></div>
+<p>También sabía construir su propia imagen. Fundó periódicos que contaban sus victorias en Francia y encargó cuadros heroicos, como el de la batalla del puente de <b>Arcole</b>, donde aparece bandera en mano bajo el fuego enemigo. Sus soldados empezaron a llamarle cariñosamente <b>«el pequeño cabo»</b>.</p>
+<h3>Egipto (1798–1799): ciencia y desastre</h3>
+<p>El gobierno, algo asustado por la fama de Napoleón, aceptó enviarlo lejos: a conquistar <b>Egipto</b>, para amenazar el camino de los británicos hacia la India. Con el ejército viajaron más de 150 <b>científicos, ingenieros y artistas</b> para estudiar el país.</p>
+<p>En julio de 1798 venció a los mamelucos en la <b>batalla de las Pirámides</b>. Pero pocos días después, el almirante británico <b>Horatio Nelson</b> destruyó la flota francesa en la bahía de Abukir. El ejército quedó atrapado en Egipto. Napoleón, al enterarse de que en Francia las cosas iban mal, se escapó en secreto en agosto de 1799 y dejó allí a sus soldados.</p>
+<div class="sabias"><b>¿Sabías que...?</b> En 1799 unos soldados franceses que reforzaban un fuerte cerca de la ciudad de Rosetta encontraron una losa de piedra con el mismo texto escrito tres veces: en jeroglíficos egipcios, en escritura demótica y en griego antiguo. Es la <b>piedra de Rosetta</b>. Gracias a ella, el francés <b>Jean-François Champollion</b> logró descifrar los jeroglíficos en 1822. Pero la piedra no está en Francia: los británicos se la quedaron al derrotar a los franceses en Egipto, y hoy está en el Museo Británico de Londres.</div>
+<div class="idea"><b>Idea clave:</b> Italia convirtió a Napoleón en un héroe nacional. Egipto fue un fracaso militar, pero dio origen a la egiptología moderna, y él supo venderlo como una aventura gloriosa.</div>
+
+<h2 id="c4"><small>Capítulo 4</small>El golpe de Brumario</h2>
+<p>En 1799 el gobierno del <b>Directorio</b> estaba desprestigiado: corrupción, guerra otra vez con media Europa, dinero que no llegaba. Un grupo de políticos, encabezado por el abate <b>Sieyès</b>, quería un gobierno más fuerte y buscaba «una espada», un general popular que los apoyara. Eligieron a Napoleón, pensando que podrían controlarlo.</p>
+<p>El <b>9 y 10 de noviembre de 1799</b> (18 y 19 de <i>Brumario</i> del año VIII) dieron el golpe. No fue sencillo. Cuando Napoleón entró en la sala de los diputados, lo recibieron a gritos de «¡fuera el dictador!» y lo zarandearon. Salió pálido y confuso. Le salvó su hermano <b>Luciano</b>, que presidía la asamblea: salió ante los soldados, sacó una espada, la apuntó contra el pecho de Napoleón y juró que la clavaría a su propio hermano si algún día atacaba la libertad. Conmovidos, los soldados entraron y desalojaron a los diputados.</p>
+<p>Se creó un nuevo gobierno, el <b>Consulado</b>, con tres cónsules. Pero la Constitución daba casi todo el poder al <b>Primer Cónsul</b>: Napoleón. Sieyès se dio cuenta demasiado tarde de que la espada tenía voluntad propia. La nueva Constitución se sometió a <b>plebiscito</b> (una votación de sí o no) y ganó por abrumadora mayoría, aunque hoy sabemos que el hermano de Napoleón, como ministro del Interior, infló los resultados.</p>
+<div class="fondo"><b>Para entenderlo mejor: ¿traicionó Napoleón la Revolución?</b>
+Es una de las grandes preguntas de la historia. Por un lado, acabó con la libertad política: no había elecciones libres, la prensa estaba censurada (con los años, los periódicos de París pasaron de más de 70 a solo 4) y la policía vigilaba a los opositores. Por otro, conservó y consolidó muchas conquistas de 1789: la igualdad ante la ley, el fin de los privilegios feudales y el acceso a los cargos por mérito. Él mismo decía que la Revolución había terminado y que él la había «fijado». La mayoría de los franceses, cansados de diez años de caos, lo aceptaron a cambio de orden.</div>
+<div class="idea"><b>Idea clave:</b> Napoleón llegó al poder con un golpe de Estado, y quienes le ayudaron creyendo que lo manejarían acabaron apartados. Ofreció orden a cambio de libertad.</div>
+
+<h2 id="c5"><small>Capítulo 5</small>Rehacer Francia: el Código Civil</h2>
+<p>Muchos historiadores creen que lo más duradero de Napoleón no fueron sus batallas, sino lo que hizo en esos primeros años de paz relativa. Él mismo lo dijo en el exilio:</p>
+<blockquote>«Mi verdadera gloria no es haber ganado cuarenta batallas. Waterloo borrará el recuerdo de tantas victorias. Lo que nada borrará, lo que vivirá eternamente, es mi Código Civil.»</blockquote>
+<h3>El Código Civil (1804)</h3>
+<p>Antes de la Revolución, Francia tenía cientos de leyes distintas según la región: el norte seguía costumbres de origen germánico y el sur, el derecho romano. Un viajero podía cambiar de sistema legal varias veces en un solo día. Napoleón reunió a los mejores juristas y presidió él mismo muchas de las reuniones. El resultado, publicado en <b>1804</b>, fue el <b>Código Civil de los franceses</b>, más tarde llamado <i>Código Napoleón</i>: 2.281 artículos claros que regulaban la vida de todos los ciudadanos por igual.</p>
+<ul>
+  <li><b>Igualdad ante la ley</b>: no más leyes distintas para nobles y plebeyos.</li>
+  <li><b>Propiedad</b>: la propiedad privada quedaba protegida como un derecho casi sagrado.</li>
+  <li><b>Herencia</b>: los bienes se reparten a partes iguales entre los hijos, sin que el mayor se lo lleve todo.</li>
+  <li><b>Matrimonio civil y divorcio</b>: el Estado, no la Iglesia, registra nacimientos, bodas y muertes.</li>
+</ul>
+<p>Pero también tenía una cara oscura. La mujer casada quedaba bajo la autoridad de su marido: no podía trabajar, firmar contratos ni administrar sus bienes sin su permiso. El artículo 213 decía que el marido debe protección a su mujer, y la mujer, obediencia a su marido.</p>
+<div class="sabias"><b>¿Sabías que...?</b> El Código Napoleón fue copiado o imitado en medio mundo: Bélgica, Italia, los Países Bajos, gran parte de América Latina, el estado de Luisiana en EE. UU.... El Código Civil español de 1889, que sigue vigente hoy con reformas, se inspiró en gran parte en él.</div>
+<h3>Mucho más que un código</h3>
+<ul>
+  <li><b>Prefectos</b> (1800): un funcionario nombrado desde París en cada departamento. Francia se volvió un Estado muy centralizado, y sigue siéndolo.</li>
+  <li><b>Banco de Francia</b> (1800) y el <b>franco germinal</b> (1803), una moneda tan estable que mantuvo su valor más de un siglo.</li>
+  <li><b>Liceos</b> (1802): institutos públicos para formar a los futuros funcionarios y oficiales, y en 1808 el título de <b>bachillerato</b>.</li>
+  <li><b>La Legión de Honor</b> (1802): una condecoración para premiar el mérito, civil o militar. Sigue siendo la máxima distinción de Francia.</li>
+  <li><b>El Concordato</b> (1801): un acuerdo con el papa que hizo las paces con la Iglesia católica, tras años de enfrentamiento.</li>
+</ul>
+<h3>La esclavitud y Haití</h3>
+<p>En 1802 Napoleón <b>restableció la esclavitud</b> en las colonias francesas, que la Revolución había abolido en 1794. Envió un gran ejército a Saint-Domingue, la colonia más rica del mundo, para recuperar el control. Fracasó: los antiguos esclavos, dirigidos por líderes como Toussaint Louverture y Jean-Jacques Dessalines, y la fiebre amarilla destrozaron a las tropas francesas. El 1 de enero de 1804 nació <b>Haití</b>, la primera república fundada por antiguos esclavos.</p>
+<p>Ese fracaso tuvo un efecto sorprendente. Sin Saint-Domingue, a Napoleón le interesaba poco el enorme territorio de <b>Luisiana</b>, en Norteamérica. En 1803 se lo vendió a Estados Unidos por 15 millones de dólares. El país casi duplicó su tamaño de golpe.</p>
+<div class="idea"><b>Idea clave:</b> Napoleón creó instituciones que duran hasta hoy, como el Código Civil, los prefectos o la Legión de Honor. Pero también dio marcha atrás en derechos: la mujer quedó sometida al marido y volvió la esclavitud.</div>
+
+<h2 id="c6"><small>Capítulo 6</small>Emperador de los franceses</h2>
+<p>En 1802 Napoleón se hizo nombrar cónsul vitalicio. Tras descubrirse un complot monárquico para asesinarlo, sus partidarios propusieron dar un paso más: convertir su poder en hereditario, para que su muerte no hundiera el país en el caos. El 18 de mayo de 1804 el Senado lo proclamó <b>Emperador de los franceses</b>, y otro plebiscito lo aprobó.</p>
+<p>La coronación fue el <b>2 de diciembre de 1804</b> en la catedral de Notre-Dame de París. El papa <b>Pío VII</b> viajó desde Roma para asistir. Pero en el momento clave, Napoleón tomó la corona y <b>se la puso él mismo</b>. Después coronó a Josefina. El mensaje era claro: su poder no se lo debía a la Iglesia, sino a sí mismo y al pueblo.</p>
+<div class="sabias"><b>¿Sabías que...?</b> El pintor <b>Jacques-Louis David</b> retrató la escena en un cuadro gigantesco, de casi 10 metros de ancho, que está en el Louvre. Napoleón le pidió algunos «retoques»: pintó en un lugar de honor a su madre, Letizia, que en realidad no asistió a la ceremonia porque estaba enfadada con él por sus peleas con sus hermanos.</div>
+<p>Parece contradictorio: la Revolución había guillotinado a un rey y, diez años después, Francia tenía un emperador. Napoleón creó incluso una nueva nobleza, con títulos de príncipe, duque o conde. Pero había una diferencia: esos títulos se ganaban con servicios al Estado, sobre todo en el ejército, y no por nacimiento. Muchos de sus <b>mariscales</b> eran hijos de artesanos o campesinos. Por ejemplo, Joachim Murat era hijo de un posadero y llegó a rey de Nápoles.</p>
+<div class="idea"><b>Idea clave:</b> Napoleón se coronó a sí mismo para dejar claro que su poder no venía de Dios ni del papa. Su nueva nobleza premiaba el mérito, no la cuna.</div>
+
+<h2 id="c7"><small>Capítulo 7</small>Austerlitz: la batalla perfecta</h2>
+<p>Gran Bretaña, Austria y Rusia se aliaron contra el nuevo emperador. Napoleón preparaba en la costa del canal de la Mancha un gran ejército para invadir Inglaterra, pero nunca pudo cruzar. El <b>21 de octubre de 1805</b>, la flota británica de Nelson destruyó a la flota franco-española en la <b>batalla de Trafalgar</b>, frente a la costa de Cádiz. Nelson murió en el combate, pero Gran Bretaña dominaría los mares durante un siglo. Napoleón ya no podría invadirla nunca.</p>
+<p>Así que giró a su ejército, la <b>Grande Armée</b>, hacia el este, y en pocas semanas cruzó Alemania. El <b>2 de diciembre de 1805</b>, justo un año después de su coronación, se enfrentó a los ejércitos de Austria y Rusia cerca de <b>Austerlitz</b> (hoy Slavkov, en la República Checa). Estaban presentes tres emperadores: Napoleón, el zar Alejandro I de Rusia y el emperador Francisco I de Austria. Por eso se llama también la <b>batalla de los Tres Emperadores</b>.</p>
+<p>Los aliados tenían unos 85.000 soldados; Napoleón, unos 73.000. Y les tendió una trampa.</p>
+<figure>
+<svg viewBox="0 0 600 380" role="img" aria-label="Esquema de la batalla de Austerlitz: cebo en el flanco sur, los aliados bajan de la colina, y el ataque francés por el centro parte en dos al enemigo">
+  <defs>
+    <marker id="aA" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="#b3261e"/></marker>
+    <marker id="aF" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="#1d3f8a"/></marker>
+  </defs>
+  <ellipse cx="400" cy="180" rx="110" ry="60" fill="#9a7412" fill-opacity=".18" stroke="#9a7412" stroke-opacity=".6"/>
+  <text x="515" y="250" font-size="13" fill="currentColor" text-anchor="middle">Meseta de Pratzen</text><text x="515" y="266" font-size="12" fill="currentColor" text-anchor="middle">(la colina clave)</text>
+  <ellipse cx="250" cy="340" rx="80" ry="20" fill="#64b5f6" fill-opacity=".35"/>
+  <text x="250" y="345" font-size="12" fill="currentColor" text-anchor="middle">estanques helados</text>
+  <g fill="#b3261e"><rect x="470" y="70" width="80" height="16"/><rect x="420" y="140" width="80" height="16"/><rect x="360" y="175" width="80" height="16"/></g>
+  <text x="510" y="58" font-size="14" fill="#b3261e" text-anchor="middle" font-weight="bold">Aliados</text>
+  <path d="M390 195 C 340 250, 300 280, 250 300" stroke="#b3261e" stroke-width="4" fill="none" marker-end="url(#aA)"/>
+  <path d="M440 200 C 400 260, 340 290, 280 310" stroke="#b3261e" stroke-width="4" fill="none" marker-end="url(#aA)"/>
+  <circle cx="345" cy="265" r="13" fill="#b3261e"/><text x="345" y="270" font-size="14" fill="#fff" text-anchor="middle" font-weight="bold">2</text>
+  <g fill="#1d3f8a"><rect x="70" y="80" width="16" height="80"/><rect x="100" y="120" width="16" height="80"/><rect x="150" y="275" width="16" height="36"/></g>
+  <text x="78" y="68" font-size="14" fill="#1d3f8a" font-weight="bold">Franceses</text>
+  <circle cx="130" cy="293" r="13" fill="#1d3f8a"/><text x="130" y="298" font-size="14" fill="#fff" text-anchor="middle" font-weight="bold">1</text>
+  <path d="M120 160 C 200 150, 270 165, 350 175" stroke="#1d3f8a" stroke-width="8" fill="none" marker-end="url(#aF)"/>
+  <circle cx="230" cy="140" r="13" fill="#1d3f8a"/><text x="230" y="145" font-size="14" fill="#fff" text-anchor="middle" font-weight="bold">3</text>
+  <text x="20" y="372" font-size="12" fill="currentColor">Esquema simplificado. Norte arriba. Los números corresponden a los pasos de abajo.</text>
+</svg>
+<figcaption>La trampa de Austerlitz: debilitar a propósito un flanco para que el enemigo abandone la posición clave.</figcaption>
+</figure>
+<ol>
+  <li><b>El cebo.</b> Días antes, Napoleón fingió estar débil y asustado: pidió negociar y abandonó la meseta de Pratzen, la mejor posición del campo de batalla. Además dejó su flanco sur (derecho) con muy pocos soldados. Los aliados mordieron el anzuelo.</li>
+  <li><b>El ataque aliado.</b> Al amanecer, los aliados bajaron de la meseta en masa para atacar ese flanco débil y cortar la retirada francesa hacia Viena. Pero el sur resistió: el mariscal <b>Davout</b> llegó con refuerzos tras marchar unos 110 kilómetros en dos días.</li>
+  <li><b>El golpe.</b> Cuando la meseta quedó casi vacía, las tropas del mariscal Soult, ocultas por la niebla del valle, subieron por sorpresa y la tomaron. El ejército aliado quedó partido en dos, y sus partes fueron derrotadas por separado.</li>
+</ol>
+<p>Cuando la niebla se levantó y salió el sol sobre la colina, Napoleón vio que había ganado. El «sol de Austerlitz» se convirtió en leyenda. Los aliados perdieron unos 27.000 hombres entre muertos, heridos y prisioneros; los franceses, unos 9.000. Austria firmó la paz y Rusia se retiró.</p>
+<div class="sabias"><b>¿Sabías que...?</b> Se contaba que miles de rusos murieron ahogados al huir por los estanques helados, cuando la artillería francesa rompió el hielo. El propio Napoleón exageró la historia. Cuando más tarde se vaciaron los estanques, solo se encontraron dos o tres cadáveres y unos 150 caballos muertos.</div>
+<div class="idea"><b>Idea clave:</b> en Austerlitz Napoleón ganó engañando al enemigo: le hizo creer que era débil para que abandonara la posición más importante. Aún se estudia en las academias militares.</div>
+
+<h2 id="c8"><small>Capítulo 8</small>Europa, un negocio familiar</h2>
+<p>Tras Austerlitz llegaron más victorias: contra Prusia en <b>Jena</b> (1806), contra Rusia en <b>Friedland</b> (1807). En 1806 desapareció el Sacro Imperio Romano Germánico, que había durado unos mil años. En junio de 1807, Napoleón y el zar Alejandro se reunieron sobre una balsa en medio del río Niemen, y en julio firmaron la paz de <b>Tilsit</b>: se repartían Europa en dos zonas de influencia.</p>
+<p>Napoleón organizó la Europa conquistada como si fuera una empresa familiar: colocó a sus hermanos como reyes.</p>
+<figure>
+<svg viewBox="0 0 600 300" role="img" aria-label="Árbol familiar: los hermanos de Napoleón y los tronos que ocuparon">
+  <rect x="220" y="20" width="160" height="50" rx="8" fill="#1d3f8a"/>
+  <text x="300" y="42" font-size="15" fill="#fff" text-anchor="middle" font-weight="bold">NAPOLEÓN</text>
+  <text x="300" y="60" font-size="12" fill="#fff" text-anchor="middle">Emperador de los franceses</text>
+  <line x1="300" y1="70" x2="300" y2="110" stroke="currentColor" stroke-opacity=".5" stroke-width="2"/>
+  <line x1="60" y1="110" x2="540" y2="110" stroke="currentColor" stroke-opacity=".5" stroke-width="2"/>
+  <g stroke="currentColor" stroke-opacity=".5" stroke-width="2"><line x1="60" y1="110" x2="60" y2="140"/><line x1="180" y1="110" x2="180" y2="140"/><line x1="300" y1="110" x2="300" y2="140"/><line x1="420" y1="110" x2="420" y2="140"/><line x1="540" y1="110" x2="540" y2="140"/></g>
+  <g fill="#9a7412" fill-opacity=".18" stroke="#9a7412" stroke-opacity=".6">
+    <rect x="5" y="140" width="110" height="140" rx="8"/><rect x="125" y="140" width="110" height="130" rx="8"/><rect x="245" y="140" width="110" height="130" rx="8"/><rect x="365" y="140" width="110" height="130" rx="8"/><rect x="485" y="140" width="110" height="130" rx="8"/>
+  </g>
+  <g font-size="14" fill="currentColor" text-anchor="middle" font-weight="bold">
+    <text x="60" y="165">José</text><text x="180" y="165">Luis</text><text x="300" y="165">Jerónimo</text><text x="420" y="165">Carolina</text><text x="540" y="165">Elisa</text>
+  </g>
+  <g font-size="12" fill="currentColor" text-anchor="middle">
+    <text x="60" y="190">hermano mayor</text><text x="60" y="215">Rey de Nápoles</text><text x="60" y="233">(1806)</text><text x="60" y="255">Rey de España</text><text x="60" y="272">(1808)</text>
+    <text x="180" y="190">hermano</text><text x="180" y="215">Rey de</text><text x="180" y="233">Holanda</text><text x="180" y="253">(1806)</text>
+    <text x="300" y="190">hermano menor</text><text x="300" y="215">Rey de</text><text x="300" y="233">Westfalia</text><text x="300" y="253">(1807)</text>
+    <text x="420" y="190">hermana</text><text x="420" y="215">su marido Murat,</text><text x="420" y="233">Rey de Nápoles</text><text x="420" y="253">(1808)</text>
+    <text x="540" y="190">hermana</text><text x="540" y="215">Gran duquesa</text><text x="540" y="233">de Toscana</text><text x="540" y="253">(1809)</text>
+  </g>
+</svg>
+<figcaption>Los Bonaparte, de familia pobre de Córcega a reyes de media Europa en menos de veinte años.</figcaption>
+</figure>
+<p>En su momento de máximo poder, hacia 1811, el Imperio francés llegaba desde Hamburgo hasta Roma, con 130 departamentos. A su alrededor había reinos satélites gobernados por su familia o aliados obligados, como Prusia y Austria. Solo Gran Bretaña, Portugal, Suecia y Rusia escapaban a su control directo.</p>
+<div class="fondo"><b>Para entenderlo mejor: el Bloqueo Continental</b>
+Como no podía invadir Gran Bretaña, Napoleón intentó arruinarla. En 1806 prohibió a todos los países de Europa comerciar con los británicos. La idea era que, sin poder vender sus productos, la economía británica se hundiría. No funcionó: los británicos dominaban el mar y vendían a América y a otras colonias, y el contrabando era enorme. En cambio, el bloqueo hizo mucho daño a Europa, que se quedó sin azúcar, café o tejidos baratos. Y lo más grave: para hacerlo cumplir, Napoleón tuvo que intervenir en Portugal, en España y, al final, en Rusia. El bloqueo le arrastró a sus dos peores guerras.</div>
+<p>Josefina no le había dado hijos, y Napoleón quería un heredero. En 1809 se divorció de ella, aunque siguió queriéndola, y en 1810 se casó con <b>María Luisa</b>, hija del emperador de Austria. En 1811 nació su hijo, Napoleón Francisco, a quien nombró <b>rey de Roma</b>.</p>
+<div class="sabias"><b>¿Sabías que...?</b> En 1795 el gobierno francés ofreció un premio a quien inventara una forma de conservar alimentos para el ejército. El pastelero <b>Nicolas Appert</b> descubrió que, si cerraba la comida en frascos de vidrio y los hervía, se conservaba durante meses. Cobró el premio en 1810, con Napoleón en el poder. Es el origen de las <b>conservas</b>. Aún faltaban 50 años para que Pasteur explicara por qué funcionaba.</div>
+<div class="idea"><b>Idea clave:</b> hacia 1810 Napoleón dominaba casi toda Europa y la gobernaba a través de su familia. Pero no pudo vencer a Gran Bretaña, y el intento de asfixiarla con el bloqueo le llevó a nuevas guerras.</div>
+
+<h2 id="c9"><small>Capítulo 9</small>España: la guerra que no pudo ganar</h2>
+<p>España era aliada de Francia, pero estaba gobernada de forma muy débil por el rey <b>Carlos IV</b> y su valido, Manuel Godoy, y la familia real estaba enfrentada. El príncipe heredero, Fernando, conspiraba contra su propio padre. En 1807 Napoleón obtuvo permiso para que sus tropas cruzaran España para invadir Portugal, aliado de Gran Bretaña. Pero las tropas francesas se fueron quedando en ciudades españolas.</p>
+<p>En 1808, un motín en Aranjuez obligó a Carlos IV a abdicar en su hijo, <b>Fernando VII</b>. Napoleón invitó a los dos a <b>Bayona</b>, en Francia, como mediador. Allí los presionó hasta que ambos renunciaron a la corona, y se la dio a su hermano, que pasó a ser <b>José I</b>. Los españoles le pusieron motes como «Pepe Botella», aunque en realidad bebía poco.</p>
+<h3>El 2 de mayo de 1808</h3>
+<p>Cuando en Madrid se vio que los franceses se llevaban a los últimos miembros de la familia real, el pueblo se levantó. Hubo combates en las calles contra las tropas del mariscal Murat. Esa noche y la madrugada siguiente, los franceses fusilaron a cientos de madrileños. El pintor <b>Francisco de Goya</b> retrató estos días en dos cuadros famosos, <i>El 2 de mayo</i> y <i>Los fusilamientos del 3 de mayo</i>, que están en el Museo del Prado.</p>
+<p>El levantamiento se extendió por todo el país. En julio de 1808, en <b>Bailén</b> (Jaén), un ejército español mandado por el general Castaños obligó a rendirse a unos 18.000 soldados franceses. Era la primera vez que un ejército napoleónico se rendía en campo abierto. Toda Europa se enteró de que los franceses no eran invencibles.</p>
+<div class="sabias"><b>¿Sabías que...?</b> La palabra <b>guerrilla</b>, «guerra pequeña», nació en esta guerra y pasó del español a casi todos los idiomas del mundo. Grupos de campesinos y antiguos soldados, dirigidos por jefes como el Empecinado o Espoz y Mina, atacaban por sorpresa a los convoyes y a los soldados aislados, y luego desaparecían en las montañas.</div>
+<p>Napoleón vino en persona en otoño de 1808, al frente de sus mejores tropas, y reconquistó Madrid. Pero se marchó pronto a luchar contra Austria, y ya nunca volvió. España se convirtió en una trampa: los franceses controlaban las ciudades, pero no el campo. Además, un ejército británico, mandado por el futuro duque de <b>Wellington</b>, desembarcó en Portugal y luchó junto a españoles y portugueses. Napoleón llamó a esta guerra su <b>«úlcera española»</b>: una herida que no dejaba de sangrar. Llegó a tener allí más de 200.000 soldados a la vez.</p>
+<h3>Cádiz y «la Pepa»</h3>
+<p>Mientras tanto, en <b>Cádiz</b>, la única gran ciudad que los franceses nunca lograron tomar, se reunieron las <b>Cortes</b>, los representantes de la nación. El 19 de marzo de 1812, día de San José, aprobaron la primera Constitución española, llamada por eso <b>«la Pepa»</b>. Declaraba que la soberanía residía en la nación, separaba los poderes y reconocía derechos. La paradoja es que los españoles luchaban contra Francia usando ideas nacidas en la Revolución francesa.</p>
+<p>En 1813, tras la derrota de Vitoria, los franceses abandonaron España. Fernando VII volvió al trono en 1814... y lo primero que hizo fue abolir la Constitución de Cádiz y perseguir a los liberales que la habían escrito.</p>
+<div class="idea"><b>Idea clave:</b> en España Napoleón descubrió que se puede vencer a un ejército, pero no a un pueblo entero en armas. La guerra le costó cientos de miles de soldados y dio a España su primera Constitución.</div>
+
+<h2 id="c10"><small>Capítulo 10</small>Rusia, 1812: la gran catástrofe</h2>
+<p>El zar Alejandro I dejó de cumplir el Bloqueo Continental: Rusia necesitaba vender su trigo y su madera a Gran Bretaña. Napoleón decidió castigarlo. Reunió el ejército más grande que Europa había visto nunca: más de <b>600.000 soldados</b> de una veintena de naciones. Menos de la mitad eran franceses; el resto eran alemanes, polacos, italianos, holandeses e incluso españoles y portugueses obligados a luchar.</p>
+<p>El <b>24 de junio de 1812</b> cruzó el río Niemen. Esperaba una batalla rápida y decisiva, como siempre. Pero los rusos hicieron algo inesperado: <b>se retiraron</b> hacia el interior, quemando cosechas y aldeas a su paso para que los invasores no encontraran comida. Esta táctica se llama <b>tierra quemada</b>.</p>
+<p>El 7 de septiembre, cerca de Moscú, los rusos por fin plantaron cara en <b>Borodinó</b>. Fue la batalla más sangrienta de un solo día hasta entonces: unos 70.000 muertos y heridos entre los dos bandos. Napoleón ganó, pero el ejército ruso se retiró en orden. Una semana después entró en <b>Moscú</b>... y la encontró casi vacía. Esa misma noche empezaron los incendios, probablemente provocados por orden del gobernador ruso. Ardió gran parte de la ciudad.</p>
+<p>Napoleón esperó en las ruinas más de un mes a que el zar pidiera la paz. El zar nunca respondió. El 19 de octubre, ya tarde, empezó la retirada. Llegaron el frío, el hambre y los ataques constantes de los cosacos. En noviembre, al cruzar el río <b>Berézina</b> por unos puentes improvisados, miles de hombres murieron en el agua helada o fueron capturados.</p>
+<figure>
+<svg viewBox="0 0 600 290" role="img" aria-label="Gráfico inspirado en Minard: la franja del ejército es muy ancha al entrar en Rusia y casi desaparece a la vuelta">
+  <polygon points="30,50 200,58 360,66 540,72 540,92 360,100 200,118 30,134" fill="#c9a227" fill-opacity=".85"/>
+  <polygon points="540,92 540,112 360,150 200,176 30,196 30,198 200,181 360,158" fill="currentColor" fill-opacity=".8"/>
+  <g font-size="13" fill="currentColor">
+    <text x="30" y="40">Río Niemen</text>
+    <text x="36" y="98" font-weight="bold" fill="#2a2622">422.000</text>
+    <text x="540" y="62" text-anchor="end" font-weight="bold">Moscú: 100.000</text>
+    <text x="30" y="222" font-weight="bold">Regresan: 10.000</text>
+    <text x="280" y="50" text-anchor="middle">ida (junio–septiembre)</text>
+    <text x="420" y="170">vuelta (octubre–diciembre)</text>
+  </g>
+  <text x="300" y="275" font-size="12" fill="currentColor" text-anchor="middle">El grosor de cada franja es proporcional a los soldados del cuerpo principal.</text>
+</svg>
+<figcaption>Inspirado en el famoso gráfico de Charles Minard (1869), uno de los mejores gráficos estadísticos jamás hechos.</figcaption>
+</figure>
+<div class="fondo"><b>Para entenderlo mejor: ¿fue el «General Invierno»?</b>
+Se suele decir que a Napoleón lo derrotó el invierno ruso. Pero cuando llegó el gran frío, en noviembre, la mayor parte del ejército ya había desaparecido. El verdadero asesino fue el verano: calor, marchas agotadoras, agua contaminada y enfermedades como la disentería y el <b>tifus</b>, transmitido por los piojos, mataron a decenas de miles antes incluso de Borodinó. A eso se sumaron las deserciones y la falta de comida por la tierra quemada. El invierno remató a un ejército que ya estaba destrozado.</div>
+<p>De los más de 600.000 hombres que entraron en Rusia, solo volvieron unas decenas de miles en condiciones de luchar. Se perdieron también casi todos los caballos, unos 200.000, y con ellos la mayoría de los cañones. Fue el principio del fin.</p>
+<div class="idea"><b>Idea clave:</b> Rusia derrotó a Napoleón sin ganarle una gran batalla: retirándose, quemando todo y dejando que el hambre, las enfermedades y el frío destruyeran su ejército.</div>
+
+<h2 id="c11"><small>Capítulo 11</small>Caída, Elba y los Cien Días</h2>
+<p>Tras el desastre de Rusia, sus enemigos olieron la sangre. Prusia, Rusia, Austria, Suecia y Gran Bretaña se unieron. Napoleón reclutó a toda prisa un nuevo ejército, lleno de jóvenes de 18 años sin experiencia y casi sin caballería. En octubre de 1813 fue derrotado en <b>Leipzig</b>, la llamada <b>batalla de las Naciones</b>, en la que lucharon más de medio millón de soldados. Fue la mayor batalla de la historia de Europa hasta la Primera Guerra Mundial.</p>
+<p>En 1814 los aliados invadieron Francia. Napoleón luchó con enorme habilidad y ganó varias batallas pequeñas, pero sus propios mariscales, agotados, le pidieron que se rindiera. El <b>6 de abril de 1814</b> abdicó. Lo desterraron a <b>Elba</b>, una pequeña isla del Mediterráneo, frente a Italia, de la que le dejaron ser soberano. El hermano de Luis XVI volvió a París como rey <b>Luis XVIII</b>.</p>
+<p>Pero Napoleón se aburría en Elba, y le llegaban noticias de que muchos franceses estaban descontentos con la vuelta de los reyes. El 26 de febrero de 1815 se escapó con unos mil hombres y desembarcó en el sur de Francia. Empezaban los <b>Cien Días</b>.</p>
+<div class="sabias"><b>¿Sabías que...?</b> Cerca de Grenoble, un regimiento enviado por el rey le cerró el paso. Napoleón bajó del caballo, se acercó solo a los soldados, se abrió el abrigo y gritó: «¡Soldados! Si hay alguno entre vosotros que quiera matar a su emperador, aquí me tenéis». Los soldados tiraron los fusiles y se unieron a él. El mariscal <b>Ney</b>, que había prometido al rey traer a Napoleón «en una jaula de hierro», también se pasó a su bando. Luis XVIII huyó, y el 20 de marzo Napoleón entró en París sin disparar un solo tiro.</div>
+<div class="idea"><b>Idea clave:</b> derrotado en Leipzig y desterrado a Elba, Napoleón consiguió volver al poder en pocas semanas solo con su fama y su carisma.</div>
+
+<h2 id="c12"><small>Capítulo 12</small>Waterloo y Santa Elena</h2>
+<p>Las potencias europeas declararon a Napoleón «fuera de la ley» y preparaban ejércitos enormes. Napoleón decidió atacar primero, antes de que se juntaran. Fue a Bélgica, donde había dos ejércitos: uno británico y aliado, mandado por <b>Wellington</b>, y otro prusiano, mandado por el viejo mariscal <b>Blücher</b>. Su plan de siempre: separarlos y vencerlos uno a uno.</p>
+<p>El <b>18 de junio de 1815</b>, cerca del pueblo de <b>Waterloo</b>, atacó a Wellington. Todo salió mal:</p>
+<figure>
+<svg viewBox="0 0 600 220" role="img" aria-label="Cronología de la batalla de Waterloo a lo largo del día">
+  <line x1="40" y1="70" x2="560" y2="70" stroke="currentColor" stroke-width="3"/>
+  <g font-size="12" fill="currentColor" text-anchor="middle">
+    <circle cx="60" cy="70" r="7" fill="#64b5f6"/><text x="60" y="50">mañana</text><text x="60" y="100">lluvia: barro,</text><text x="60" y="116">se retrasa</text><text x="60" y="132">el ataque</text>
+    <circle cx="180" cy="70" r="7" fill="#1d3f8a"/><text x="180" y="50">11:30</text><text x="180" y="100">ataque a la</text><text x="180" y="116">granja de</text><text x="180" y="132">Hougoumont</text>
+    <circle cx="300" cy="70" r="7" fill="#1d3f8a"/><text x="300" y="50">16:00</text><text x="300" y="100">cargas de</text><text x="300" y="116">caballería de Ney</text><text x="300" y="132">contra los cuadros</text>
+    <circle cx="420" cy="70" r="7" fill="#b3261e"/><text x="420" y="50">tarde</text><text x="420" y="100">llegan los</text><text x="420" y="116">prusianos por</text><text x="420" y="132">el flanco</text>
+    <circle cx="540" cy="70" r="7" fill="#b3261e"/><text x="540" y="50">19:30</text><text x="540" y="100">la Guardia</text><text x="540" y="116">Imperial</text><text x="540" y="132">retrocede</text>
+  </g>
+  <text x="300" y="185" font-size="13" fill="currentColor" text-anchor="middle">«Wellington aguanta; Blücher llega a tiempo; el ejército francés se desmorona.»</text>
+</svg>
+<figcaption>Waterloo, un solo día. Hacia las nueve de la noche, la batalla estaba perdida.</figcaption>
+</figure>
+<ul>
+  <li>Había llovido toda la noche. Napoleón esperó a que el suelo se secara para mover los cañones, y perdió horas preciosas.</li>
+  <li>Wellington colocó a sus tropas detrás de una pequeña colina, protegidas de la artillería. Cuando la caballería de Ney cargó, la infantería británica formó en <b>cuadros</b>, bloques de soldados con las bayonetas hacia fuera, contra los que los caballos no podían hacer nada.</li>
+  <li>Napoleón había mandado a una parte de su ejército, con el mariscal Grouchy, a perseguir a los prusianos. Grouchy los perdió de vista, y los prusianos llegaron a Waterloo por la tarde.</li>
+  <li>Como último recurso, Napoleón lanzó a su <b>Guardia Imperial</b>, sus soldados de élite, que nunca habían retrocedido. Esta vez retrocedieron. Un grito recorrió el ejército: «¡La Guardia retrocede!». Y todo se vino abajo.</li>
+</ul>
+<p>Wellington diría después que había sido «la cosa más reñida que hayas visto en tu vida». Napoleón abdicó por segunda vez el 22 de junio. Intentó huir a Estados Unidos, pero el puerto estaba bloqueado por barcos británicos, y se entregó a ellos.</p>
+<h3>Santa Elena</h3>
+<p>Esta vez no se arriesgaron. Lo enviaron a <b>Santa Elena</b>, una diminuta isla volcánica en medio del océano Atlántico, a casi 2.000 kilómetros de la costa de África. Vivió allí seis años, en una casa húmeda y vigilado día y noche. Dictó sus memorias a sus acompañantes, cuidando mucho la imagen que dejaría a la historia. Murió el <b>5 de mayo de 1821</b>, con 51 años, probablemente de un cáncer de estómago, la misma enfermedad que había matado a su padre.</p>
+<div class="sabias"><b>¿Sabías que...?</b> Durante mucho tiempo se sospechó que Napoleón había sido envenenado con arsénico, porque se encontró mucho arsénico en su pelo. Pero análisis modernos mostraron que su pelo ya tenía niveles altos cuando era niño, igual que el de su hijo y el de Josefina. En aquella época había arsénico en muchas cosas: medicinas, tintes o el papel pintado de las paredes. La mayoría de los historiadores cree que murió por causas naturales.</div>
+<p>En 1840 el rey de Francia pidió a los británicos sus restos, que volvieron a París entre enormes multitudes. Hoy descansa bajo la cúpula dorada de los <b>Inválidos</b>, en París, dentro de un gran sarcófago de piedra roja.</p>
+<div class="idea"><b>Idea clave:</b> en Waterloo fallaron el tiempo, las comunicaciones y la suerte, justo lo que antes siempre había jugado a su favor. Napoleón murió prisionero en una isla perdida del Atlántico.</div>
+
+<h2 id="c13"><small>Capítulo 13</small>Mito, leyenda y legado</h2>
+<h3>¿Era bajito?</h3>
+<p>Es el mito más famoso sobre él, y es falso. Al morir le midieron <b>5 pies y 2 pulgadas</b>. Pero eran pies y pulgadas <b>franceses</b>, más largos que los ingleses.</p>
+<figure>
+<svg viewBox="0 0 600 260" role="img" aria-label="Comparación de alturas: Napoleón medía unos 168 cm, algo más que la media de su época; leyendo mal las pulgadas parecían 157 cm">
+  <line x1="50" y1="220" x2="560" y2="220" stroke="currentColor" stroke-opacity=".5"/>
+  <g stroke="currentColor" stroke-opacity=".15"><line x1="50" y1="50.0" x2="560" y2="50.0"/><line x1="50" y1="77.5" x2="560" y2="77.5"/></g>
+  <g font-size="11" fill="currentColor" text-anchor="end"><text x="46" y="54.0">168</text><text x="46" y="81.5">157</text><text x="46" y="224">100</text></g>
+  <rect x="90" y="50.0" width="100" height="170.0" fill="#1d3f8a"/>
+  <text x="140" y="42.0" font-size="14" fill="currentColor" text-anchor="middle" font-weight="bold">≈ 168 cm</text>
+  <text x="140" y="240" font-size="12" fill="currentColor" text-anchor="middle">Napoleón (medida real)</text>
+  <rect x="250" y="77.5" width="100" height="142.5" fill="#b3261e" fill-opacity=".7"/>
+  <text x="300" y="69.5" font-size="14" fill="currentColor" text-anchor="middle" font-weight="bold">≈ 157 cm</text>
+  <text x="300" y="240" font-size="12" fill="currentColor" text-anchor="middle">leyendo mal las pulgadas</text>
+  <rect x="410" y="57.5" width="100" height="162.5" fill="#9a7412" fill-opacity=".6"/>
+  <text x="460" y="49.5" font-size="14" fill="currentColor" text-anchor="middle" font-weight="bold">≈ 165 cm</text>
+  <text x="460" y="240" font-size="12" fill="currentColor" text-anchor="middle">francés medio de la época</text>
+</svg>
+<figcaption>El eje empieza en 100 cm para que se vean mejor las diferencias. Napoleón medía lo normal para su época, o un poco más.</figcaption>
+</figure>
+<p>El mito nació de varias cosas: la confusión con las medidas inglesas, su apodo cariñoso de «pequeño cabo» (que era por cariño, no por tamaño) y, sobre todo, la <b>propaganda británica</b>. El caricaturista James Gillray lo dibujaba como un hombrecillo enfurruñado y con rabietas. Además, solía estar rodeado de los soldados de su Guardia, que se elegían por ser especialmente altos.</p>
+<div class="sabias"><b>¿Sabías que...?</b> La famosa pose de Napoleón con la mano dentro del chaleco no tiene nada de especial: era una postura muy habitual en los retratos de la época, que transmitía calma y buena educación. Muchos otros personajes se hicieron retratar igual.</div>
+<h3>¿Genio o tirano?</h3>
+<p>Doscientos años después, Napoleón sigue dividiendo a los historiadores. Estas son las dos caras:</p>
+<ul>
+  <li><b>Lo que construyó:</b> el Código Civil, un Estado moderno y eficaz, escuelas, la idea de que el talento vale más que la cuna. Extendió por Europa el fin del feudalismo y el sistema métrico. Sin quererlo, despertó el nacionalismo en Alemania, Italia y España, y sus conquistas debilitaron a España hasta el punto de facilitar la independencia de casi toda Hispanoamérica.</li>
+  <li><b>Lo que destruyó:</b> sus guerras causaron entre tres y seis millones de muertos. Suprimió la libertad de prensa y las elecciones libres, restableció la esclavitud, sometió a las mujeres a sus maridos y saqueó obras de arte de media Europa para llenar el Louvre.</li>
+</ul>
+<p>Quizá lo más justo sea decir que fue el hijo de la Revolución francesa: conservó muchas de sus ideas y las extendió por Europa a golpe de cañón, pero traicionó la más importante, la libertad.</p>
+<div class="idea"><b>Idea clave:</b> muchas cosas que se cuentan de Napoleón son mito o propaganda. Su legado real es doble: instituciones modernas que aún usamos y millones de muertos en guerras.</div>
+
+<h2 id="c14"><small>Capítulo 14</small>Fechas clave y resumen</h2>
+<dl class="fechas">
+  <dt>15 de agosto de 1769</dt><dd>Nace en Ajaccio (Córcega).</dd>
+  <dt>Diciembre de 1793</dt><dd>Toma de Toulon; general con 24 años.</dd>
+  <dt>1796–1797</dt><dd>Campaña de Italia.</dd>
+  <dt>1798–1799</dt><dd>Expedición a Egipto.</dd>
+  <dt>9–10 de noviembre de 1799</dt><dd>Golpe de Brumario: Primer Cónsul.</dd>
+  <dt>21 de marzo de 1804</dt><dd>Código Civil.</dd>
+  <dt>2 de diciembre de 1804</dt><dd>Coronación como emperador.</dd>
+  <dt>21 de octubre de 1805</dt><dd>Derrota naval de Trafalgar.</dd>
+  <dt>2 de diciembre de 1805</dt><dd>Victoria de Austerlitz.</dd>
+  <dt>2 de mayo de 1808</dt><dd>Levantamiento de Madrid: empieza la Guerra de la Independencia.</dd>
+  <dt>19 de marzo de 1812</dt><dd>Constitución de Cádiz.</dd>
+  <dt>Junio–diciembre de 1812</dt><dd>Campaña de Rusia.</dd>
+  <dt>Octubre de 1813</dt><dd>Derrota de Leipzig.</dd>
+  <dt>6 de abril de 1814</dt><dd>Primera abdicación; exilio en Elba.</dd>
+  <dt>18 de junio de 1815</dt><dd>Waterloo.</dd>
+  <dt>5 de mayo de 1821</dt><dd>Muere en Santa Elena.</dd>
+</dl>
+<p><b>Resumen en seis frases</b></p>
+<ol>
+  <li>Napoleón fue un joven corso pobre que subió gracias a su talento militar y a las oportunidades que abrió la Revolución.</li>
+  <li>En 1799 tomó el poder con un golpe de Estado y ofreció orden a una Francia agotada por diez años de caos.</li>
+  <li>Creó instituciones que aún existen, como el Código Civil, aunque recortó libertades y restableció la esclavitud.</li>
+  <li>Como emperador ganó batallas legendarias, como Austerlitz, y llegó a dominar casi toda Europa con ayuda de su familia.</li>
+  <li>La guerra en España, la catástrofe de Rusia en 1812 y la alianza de toda Europa contra él provocaron su caída.</li>
+  <li>Tras volver durante los Cien Días, fue derrotado en Waterloo en 1815 y murió desterrado en Santa Elena en 1821.</li>
+</ol>
+<p><i>Para pensar:</i> Napoleón dijo que su verdadera gloria era el Código Civil y no sus cuarenta batallas. ¿Estás de acuerdo? ¿Qué crees que ha influido más en tu vida hoy?</p>
+<p class="serie" style="margin-top:32px">Siguiente libro de la serie: <a href="../restauracion-y-revoluciones/libro.html"><i>Restauración y revoluciones (1815–1848)</i></a>.</p>
+
+</main>
+<script>if ('serviceWorker' in navigator) navigator.serviceWorker.register('../../sw.js').catch(() => {});</script>
+</body>
+</html>

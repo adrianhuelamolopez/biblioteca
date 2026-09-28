@@ -1,0 +1,632 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1492</title>
+<script type="application/json" id="metadatos">
+{
+  "id": "1492",
+  "titulo": "1492",
+  "subtitulo": "El año que cambió el mundo",
+  "tema": "Historia",
+  "periodo": "Edad Moderna",
+  "fechas": "1492",
+  "año_inicio": 1492,
+  "año_fin": 1493,
+  "etiquetas": ["Reyes Católicos", "Isabel la Católica", "Granada", "Boabdil", "sefardíes", "expulsión de los judíos", "Cristóbal Colón", "descubrimiento de América", "taínos", "intercambio colombino"],
+  "nivel": "Intermedio",
+  "minutos_lectura": 35,
+  "portada": "portada.svg",
+  "resumen": "En un solo año, los Reyes Católicos conquistaron Granada, expulsaron a los judíos y enviaron a Colón hacia el oeste en busca de Asia. Lo que encontró cambió para siempre la comida, las lenguas y la historia de todo el planeta. Con tres mapas, esquemas y muchas curiosidades.",
+  "fecha": "2026-09-28"
+}
+</script>
+<style>
+  :root {
+    --papel: #fbf8f1; --tinta: #2a2622; --suave: #6b6259; --acento: #1d3f8a; --rojo: #b3261e; --oro: #9a7412; --caja: #eef1f8; --caja2: #f6efdc; --linea: #e3dccf;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --papel: #1c1b1a; --tinta: #ece6dc; --suave: #b3a998; --acento: #8fb0ff; --rojo: #ff8a80; --oro: #e2c46a; --caja: #232834; --caja2: #2c2819; --linea: #3a3632; color-scheme: dark; }
+  }
+  :root[data-theme="dark"] { --papel: #1c1b1a; --tinta: #ece6dc; --suave: #b3a998; --acento: #8fb0ff; --rojo: #ff8a80; --oro: #e2c46a; --caja: #232834; --caja2: #2c2819; --linea: #3a3632; color-scheme: dark; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--papel); color: var(--tinta); font: 19px/1.7 Georgia, "Times New Roman", serif; }
+  main { max-width: 680px; margin: 0 auto; padding: 32px 16px 80px; }
+  .portada { display: block; width: min(320px, 80%); margin: 8px auto 32px; border-radius: 6px; box-shadow: 0 10px 30px rgba(0,0,0,.25); }
+  h1 { font-size: 2.1em; line-height: 1.15; margin: 0 0 4px; text-align: center; text-wrap: balance; }
+  .sub { text-align: center; color: var(--suave); font-style: italic; margin: 0 0 40px; }
+  h2 { font-size: 1.4em; margin: 56px 0 8px; padding-top: 16px; border-top: 1px solid var(--linea); text-wrap: balance; }
+  h2 small { display: block; font-size: .6em; color: var(--acento); letter-spacing: .15em; text-transform: uppercase; font-weight: normal; }
+  h3 { font-size: 1.1em; margin: 32px 0 4px; }
+  figure { margin: 28px 0; text-align: center; }
+  figure svg { width: 100%; height: auto; max-width: 600px; }
+  figcaption { font-size: .8em; color: var(--suave); margin-top: 6px; }
+  .idea { background: var(--caja); border-left: 4px solid var(--acento); padding: 14px 18px; border-radius: 4px; margin: 24px 0; }
+  .idea b { color: var(--acento); }
+  .sabias { background: var(--caja2); padding: 12px 18px; border-radius: 6px; margin: 24px 0; font-size: .92em; }
+  .sabias > b:first-child { display: block; color: var(--oro); letter-spacing: .1em; text-transform: uppercase; font-size: .8em; }
+  .fondo { border: 1px solid var(--linea); padding: 12px 18px; border-radius: 6px; margin: 24px 0; font-size: .92em; }
+  .fondo > b:first-child { display: block; color: var(--rojo); letter-spacing: .1em; text-transform: uppercase; font-size: .8em; }
+  blockquote { margin: 20px 0; padding: 0 20px; font-style: italic; border-left: 3px solid var(--linea); color: var(--suave); }
+  ul, ol { padding-left: 1.2em; }
+  .indice { background: var(--caja); padding: 12px 20px; border-radius: 6px; font-size: .9em; }
+  .indice ol { margin: 6px 0; }
+  a { color: var(--acento); }
+  .fechas { font-size: .9em; }
+  .fechas dt { font-weight: bold; color: var(--acento); margin-top: 8px; }
+  .fechas dd { margin: 0 0 0 1em; }
+  .leyenda { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 18px; font-size: .78em; color: var(--suave); margin-top: 8px; }
+  .leyenda span::before { content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; background: var(--c); vertical-align: -1px; }
+  .volver { display: inline-block; margin: 0 0 16px; font: 15px/1.4 system-ui, sans-serif; color: var(--acento); text-decoration: none; }
+  .volver:hover { text-decoration: underline; }
+</style>
+<meta name="description" content="En un solo año, los Reyes Católicos conquistaron Granada, expulsaron a los judíos y enviaron a Colón hacia el oeste en busca de Asia. Lo que encontró cambió para siempre la comida, las lenguas y la historia de todo el planeta. Con tres mapas, esquemas y muchas curiosidades.">
+<meta name="theme-color" content="#fbf8f1" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1c1b1a" media="(prefers-color-scheme: dark)">
+<link rel="manifest" href="../../manifest.webmanifest">
+<link rel="icon" href="../../icono.svg" type="image/svg+xml">
+<link rel="icon" href="../../icono-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<meta name="apple-mobile-web-app-title" content="Biblioteca">
+</head>
+<body>
+<main>
+<a class="volver" href="../../index.html">← Biblioteca</a>
+
+<img class="portada" src="portada.svg" alt="Portada: 1492, el año que cambió el mundo">
+<h1>1492</h1>
+<p class="sub">El año que cambió el mundo</p>
+
+<nav class="indice">
+  <b>En este libro</b>
+  <ol>
+    <li><a href="#c1">Un año bisagra</a></li>
+    <li><a href="#c2">Isabel y Fernando</a></li>
+    <li><a href="#c3">Ocho siglos de frontera</a></li>
+    <li><a href="#c4">La guerra de Granada</a></li>
+    <li><a href="#c5">Sefarad: la expulsión de los judíos</a></li>
+    <li><a href="#c6">Colón y su gran error</a></li>
+    <li><a href="#c7">Cómo convenció a los reyes</a></li>
+    <li><a href="#c8">Tres barcos y noventa hombres</a></li>
+    <li><a href="#c9">¡Tierra!</a></li>
+    <li><a href="#c10">Un mundo desconocido</a></li>
+    <li><a href="#c11">El regreso y la noticia</a></li>
+    <li><a href="#c12">El gran intercambio</a></li>
+    <li><a href="#c13">Fechas clave y resumen</a></li>
+  </ol>
+</nav>
+
+<h2 id="c1"><small>Capítulo 1</small>Un año bisagra</h2>
+<p>La mayoría de los años se parecen mucho entre sí. Unos pocos cambian el rumbo de la historia. 1492 fue uno de ellos. En solo doce meses, los Reyes Católicos conquistaron Granada, el último reino musulmán de la península ibérica; expulsaron a los judíos que no quisieron hacerse cristianos; y pagaron el viaje de un marino genovés que, buscando un camino hacia Asia, se topó con un continente del que los europeos no sabían nada.</p>
+<p>Por eso muchos historiadores, sobre todo en España, toman 1492 como el final de la Edad Media y el comienzo de la <b>Edad Moderna</b>. Otros prefieren 1453, cuando los turcos otomanos conquistaron Constantinopla. Las dos fechas son una convención: nadie se despertó el 1 de enero de 1492 sintiéndose «moderno». Pero sirven para marcar un gran cambio.</p>
+<figure>
+<svg viewBox="0 0 600 420" role="img" aria-label="Calendario de los principales acontecimientos de 1492">
+  <line x1="110" y1="18" x2="110" y2="370" stroke="currentColor" stroke-opacity=".3" stroke-width="2"/>
+  <g font-size="13" fill="currentColor" text-anchor="end" fill-opacity=".75">
+    <text x="94" y="34">2 ene</text><text x="94" y="61">31 mar</text><text x="94" y="88">8 abr</text><text x="94" y="115">17 abr</text><text x="94" y="142">31 jul</text><text x="94" y="169">3 ago</text><text x="94" y="196">11 ago</text><text x="94" y="223">18 ago</text><text x="94" y="250">6 sep</text><text x="94" y="277">12 oct</text><text x="94" y="304">28 oct</text><text x="94" y="331">7 dic</text><text x="94" y="358">25 dic</text>
+  </g>
+  <g stroke="#fbf8f1" stroke-width="1.5">
+    <circle cx="110" cy="30" r="6" fill="#b3261e"/><circle cx="110" cy="57" r="6" fill="#9a7412"/><circle cx="110" cy="84" r="6" fill="#8a8a8a"/><circle cx="110" cy="111" r="6" fill="#1d3f8a"/><circle cx="110" cy="138" r="6" fill="#9a7412"/><circle cx="110" cy="165" r="6" fill="#1d3f8a"/><circle cx="110" cy="192" r="6" fill="#8a8a8a"/><circle cx="110" cy="219" r="6" fill="#b3261e"/><circle cx="110" cy="246" r="6" fill="#1d3f8a"/><circle cx="110" cy="273" r="6" fill="#1d3f8a"/><circle cx="110" cy="300" r="6" fill="#1d3f8a"/><circle cx="110" cy="327" r="6" fill="#b3261e"/><circle cx="110" cy="354" r="6" fill="#1d3f8a"/>
+  </g>
+  <g font-size="14" fill="currentColor">
+    <text x="126" y="35">Boabdil entrega Granada a los Reyes Católicos</text>
+    <text x="126" y="62">Se firma el edicto de expulsión de los judíos</text>
+    <text x="126" y="89">Muere en Florencia Lorenzo de Médici, «el Magnífico»</text>
+    <text x="126" y="116">Capitulaciones de Santa Fe: los reyes aceptan el plan de Colón</text>
+    <text x="126" y="143">Termina el plazo para que los judíos abandonen el reino</text>
+    <text x="126" y="170">Colón zarpa del puerto de Palos</text>
+    <text x="126" y="197">El cardenal valenciano Rodrigo Borgia es elegido papa</text>
+    <text x="126" y="224">Nebrija publica la primera gramática del castellano</text>
+    <text x="126" y="251">Colón deja La Gomera y se adentra en el océano</text>
+    <text x="126" y="278" font-weight="bold">Llegada a la isla de Guanahaní</text>
+    <text x="126" y="305">Colón llega a Cuba</text>
+    <text x="126" y="332">Un campesino intenta asesinar al rey Fernando en Barcelona</text>
+    <text x="126" y="359">La Santa María encalla en la costa de La Española</text>
+  </g>
+  <g font-size="12" fill="currentColor">
+    <circle cx="60" cy="398" r="5" fill="#b3261e"/><text x="70" y="402">Castilla y Aragón</text>
+    <circle cx="200" cy="398" r="5" fill="#9a7412"/><text x="210" y="402">Judíos</text>
+    <circle cx="290" cy="398" r="5" fill="#1d3f8a"/><text x="300" y="402">Colón</text>
+    <circle cx="370" cy="398" r="5" fill="#8a8a8a"/><text x="380" y="402">Resto de Europa</text>
+  </g>
+</svg>
+<figcaption>1492, mes a mes. Todo ocurrió en un solo año.</figcaption>
+</figure>
+<h3>El mundo en 1492</h3>
+<p>Europa tenía entonces unos 80 millones de habitantes. La imprenta de Gutenberg, que llevaba unos cuarenta años funcionando, empezaba a llenar el continente de libros. En Italia florecía el Renacimiento: Leonardo da Vinci tenía 40 años y Miguel Ángel, 17. Los portugueses llevaban décadas explorando la costa de África, y en 1488 Bartolomeu Dias había doblado por primera vez el extremo sur del continente, abriendo el camino por mar hacia la India. Al este, el Imperio otomano no dejaba de crecer.</p>
+<p>Al otro lado del océano, en un continente que ningún europeo de la época conocía, florecían grandes civilizaciones. En México, la capital de los mexicas, <b>Tenochtitlan</b>, construida sobre un lago, tenía unos 200.000 habitantes: más que cualquier ciudad de España. En los Andes, el <b>Imperio inca</b> se extendía a lo largo de más de 4.000 kilómetros, unido por una red de caminos de piedra. Y en China gobernaba la poderosa dinastía Ming, cuyas flotas habían llegado décadas antes hasta las costas de África oriental.</p>
+<div class="sabias"><b>¿Sabías que...?</b> En 1492, en la ciudad alemana de Núremberg, el cartógrafo Martin Behaim terminó el globo terráqueo más antiguo que se conserva. Lo llamó <i>Erdapfel</i>, «manzana de tierra». Tiene Europa, África y Asia, y entre la costa de Portugal y la de China solo dibuja océano salpicado de islas. Por supuesto, no aparece América. Es una foto perfecta de lo que sabían los europeos justo antes del viaje de Colón.</div>
+<div class="idea"><b>Idea clave:</b> en 1492 coincidieron tres hechos decisivos: la conquista de Granada, la expulsión de los judíos y el primer viaje de Colón. Por eso esa fecha se usa a menudo como el comienzo de la Edad Moderna.</div>
+
+<h2 id="c2"><small>Capítulo 2</small>Isabel y Fernando</h2>
+<p>En el siglo XV, la península ibérica estaba dividida en cinco reinos: <b>Castilla</b>, la <b>Corona de Aragón</b> (que incluía Aragón, Cataluña, Valencia, Mallorca y territorios en Italia), <b>Portugal</b>, <b>Navarra</b> y el reino musulmán de <b>Granada</b>. Castilla era, con diferencia, el más grande y poblado.</p>
+<p><b>Isabel</b> no nació para ser reina. Era hermanastra del rey Enrique IV de Castilla, que tenía una hija, Juana. Pero muchos nobles decían que Juana no era hija del rey, sino de un favorito de la corte, Beltrán de la Cueva, y la apodaron con crueldad «la Beltraneja». En medio de guerras entre bandos de nobles, Enrique IV acabó reconociendo a Isabel como heredera, con una condición: que no se casara sin su permiso.</p>
+<p>Isabel no le hizo caso. Eligió como marido a su primo <b>Fernando</b>, heredero de la Corona de Aragón. Para llegar hasta ella sin que lo detuvieran, Fernando cruzó Castilla disfrazado de mozo de mulas de unos comerciantes. Se casaron casi en secreto en Valladolid, el 19 de octubre de 1469. Ella tenía 18 años y él 17.</p>
+<div class="sabias"><b>¿Sabías que...?</b> Como Isabel y Fernando eran primos segundos, la Iglesia no les permitía casarse sin un permiso especial del papa, llamado dispensa. Para no esperar, presentaron una bula papal falsificada. Años después, un nuevo papa arregló la situación con una dispensa auténtica.</div>
+<p>Cuando Enrique IV murió en 1474, Isabel se proclamó reina en Segovia. Los partidarios de Juana, apoyados por el rey de Portugal, no lo aceptaron, y estalló una guerra que duró cinco años. Isabel y Fernando la ganaron. En la paz de 1479, Portugal renunció a Castilla, y los dos reinos se repartieron el océano: las islas Canarias para Castilla, y el resto de las costas africanas para Portugal. Ese reparto tendrá mucha importancia en la historia de Colón. Ese mismo año, Fernando heredó el trono de Aragón.</p>
+<div class="fondo"><b>Para entenderlo mejor: una unión, pero no un solo país</b>
+El matrimonio de Isabel y Fernando unió a sus coronas en una <b>unión dinástica</b>: tenían los mismos reyes, pero cada reino conservó sus propias leyes, sus Cortes, su moneda y hasta sus aduanas. Un valenciano seguía siendo extranjero a efectos de muchas leyes castellanas. Durante mucho tiempo, por ejemplo, el comercio con América quedó reservado a los súbditos de Castilla. España como Estado unificado tardaría todavía siglos en formarse.</div>
+<figure>
+<svg viewBox="0 0 600 330" role="img" aria-label="Población aproximada de los reinos de la península hacia 1490 y los emblemas del yugo y las flechas">
+  <g font-size="13" fill="currentColor">
+    <text x="160" y="36" text-anchor="end">Corona de Castilla</text>
+    <text x="160" y="68" text-anchor="end">Portugal</text>
+    <text x="160" y="100" text-anchor="end">Corona de Aragón</text>
+    <text x="160" y="132" text-anchor="end">Reino de Granada</text>
+    <text x="160" y="164" text-anchor="end">Navarra</text>
+  </g>
+  <g>
+    <rect x="170" y="22" width="315" height="20" fill="#b3261e" fill-opacity=".8"/>
+    <rect x="170" y="54" width="70" height="20" fill="#8a8a8a" fill-opacity=".8"/>
+    <rect x="170" y="86" width="63" height="20" fill="#c9a227"/>
+    <rect x="170" y="118" width="21" height="20" fill="#3f7d5a"/>
+    <rect x="170" y="150" width="10" height="20" fill="#8a8a8a" fill-opacity=".8"/>
+  </g>
+  <g font-size="12.5" fill="currentColor">
+    <text x="493" y="36">4,5 millones</text><text x="248" y="68">1 millón</text><text x="241" y="100">menos de 1 millón</text><text x="199" y="132">unos 300.000</text><text x="188" y="164">unos 150.000</text>
+  </g>
+  <text x="300" y="192" font-size="11" fill="currentColor" fill-opacity=".7" text-anchor="middle">Habitantes hacia 1490. Son cálculos aproximados: no había censos completos.</text>
+  <g transform="translate(150,262)" stroke="#6b4226" stroke-width="4" fill="none" stroke-linecap="round">
+    <path d="M-80,-22 Q0,-38 80,-22" stroke-width="9"/>
+    <path d="M-52,-26 Q-52,18 -30,18 Q-10,18 -10,-26"/>
+    <path d="M10,-26 Q10,18 30,18 Q52,18 52,-26"/>
+    <path d="M-6,-44 q-14,10 0,18 q14,8 0,18 M6,-44 q14,10 0,18 q-14,8 0,18" stroke="#9a7412" stroke-width="2.5"/>
+  </g>
+  <g transform="translate(450,262)" stroke="#6b4226" stroke-width="3" stroke-linecap="round">
+    <line x1="0" y1="34" x2="0" y2="-40"/><line x1="-14" y1="34" x2="-40" y2="-32"/><line x1="14" y1="34" x2="40" y2="-32"/><line x1="-7" y1="34" x2="-22" y2="-38"/><line x1="7" y1="34" x2="22" y2="-38"/>
+    <g fill="#b3261e" stroke="none">
+      <path d="M0,-50 l-5,11 h10z"/><path d="M-44,-42 l-2,12 l9,-6z"/><path d="M44,-42 l2,12 l-9,-6z"/><path d="M-24,-49 l-4,11 l9,-2z"/><path d="M24,-49 l4,11 l-9,-2z"/>
+    </g>
+    <rect x="-22" y="4" width="44" height="7" rx="2" fill="#9a7412" stroke="none"/>
+  </g>
+  <g font-size="12.5" fill="currentColor" text-anchor="middle">
+    <text x="150" y="314">El yugo de Fernando (Y de Ysabel)</text>
+    <text x="450" y="314">Las flechas de Isabel (F de Fernando)</text>
+  </g>
+</svg>
+<figcaption>Arriba, el peso de cada reino: Castilla tenía más de dos tercios de la población de la península. Abajo, los emblemas de los reyes: cada uno eligió un objeto que empezaba por la inicial del otro.</figcaption>
+</figure>
+<div class="sabias"><b>¿Sabías que...?</b> El famoso lema «Tanto monta, monta tanto, Isabel como Fernando» no significaba originalmente que los dos reyes valieran lo mismo. El lema de Fernando era solo «Tanto monta», y se refería a una leyenda de Alejandro Magno: ante un nudo que nadie sabía desatar, el nudo gordiano, Alejandro lo cortó de un tajo con su espada. «Tanto monta», es decir, «lo mismo da» cortar que desatar: lo importante es resolver el problema. La coletilla «Isabel como Fernando» se añadió más tarde.</div>
+<p>Los reyes se propusieron fortalecer su poder. Sometieron a los nobles más rebeldes, crearon una especie de policía para perseguir a los bandidos en los caminos, la <b>Santa Hermandad</b> (1476), y buscaron la unidad religiosa de sus reinos. Con ese fin, en 1478 obtuvieron del papa permiso para crear un tribunal propio, controlado por ellos: la <b>Inquisición</b>. El título de «Reyes Católicos» se lo concedió otro papa en 1496, en agradecimiento por sus servicios a la Iglesia.</p>
+<div class="sabias"><b>¿Sabías que...?</b> Isabel aprendió latín ya siendo reina, con una profesora excepcional: Beatriz Galindo, una de las mujeres más cultas de su tiempo, a la que apodaban «la Latina». Beatriz fundó en Madrid, con su marido, un hospital que el pueblo conocía como «el hospital de la Latina». Su marido, por cierto, era Francisco Ramírez de Madrid, el jefe de la artillería que conquistó Granada. El hospital desapareció, pero el apodo dio nombre a uno de los barrios más conocidos de Madrid: La Latina.</div>
+<div class="idea"><b>Idea clave:</b> el matrimonio de Isabel de Castilla y Fernando de Aragón unió sus coronas bajo los mismos reyes, aunque cada reino mantuvo sus leyes. Los Reyes Católicos reforzaron su poder frente a la nobleza y buscaron la unidad religiosa.</div>
+
+<h2 id="c3"><small>Capítulo 3</small>Ocho siglos de frontera</h2>
+<p>Para entender la conquista de Granada hay que retroceder casi ocho siglos. En el año <b>711</b>, un ejército musulmán llegado del norte de África cruzó el estrecho al mando de Tariq y derrotó al último rey visigodo. En pocos años, casi toda la península pasó a formar parte del mundo islámico. Los musulmanes la llamaron <b>al-Ándalus</b>.</p>
+<div class="sabias"><b>¿Sabías que...?</b> El nombre de <b>Gibraltar</b> viene del árabe <i>Yabal Tariq</i>, «la montaña de Tariq», en recuerdo del general que desembarcó allí en 711.</div>
+<p>Al-Ándalus vivió su época de mayor esplendor con el <b>califato de Córdoba</b>, proclamado en 929. Córdoba, con su gran mezquita, sus bibliotecas y sus baños públicos, fue una de las mayores y más ricas ciudades de Europa. Mientras tanto, en las montañas del norte, pequeños reinos cristianos fueron avanzando hacia el sur: Asturias, León, Castilla, Navarra, Aragón, los condados catalanes y Portugal.</p>
+<figure>
+<svg viewBox="0 0 600 272" role="img" aria-label="Gráfico aproximado del territorio de la península bajo gobierno musulmán entre 711 y 1492">
+  <g stroke="currentColor" stroke-opacity=".15"><line x1="50" y1="40" x2="580" y2="40"/><line x1="50" y1="120" x2="580" y2="120"/></g>
+  <line x1="50" y1="200" x2="580" y2="200" stroke="currentColor" stroke-opacity=".6"/>
+  <g font-size="11" fill="currentColor" fill-opacity=".7" text-anchor="end"><text x="44" y="44">100 %</text><text x="44" y="124">50 %</text><text x="44" y="204">0 %</text></g>
+  <path d="M57,200 L61,56 L116,72 L189,85 L248,88 L304,101 L314,107 L347,112 L388,117 L400,136 L413,189 L446,191 L566,192 L573,200 Z" fill="#3f7d5a" fill-opacity=".35" stroke="#3f7d5a" stroke-width="2"/>
+  <text x="200" y="150" font-size="13" fill="currentColor" text-anchor="middle">Territorio bajo gobierno musulmán</text>
+  <text x="200" y="167" font-size="11" fill="currentColor" fill-opacity=".7" text-anchor="middle">(porcentaje aproximado de la península)</text>
+  <text x="500" y="178" font-size="12" fill="currentColor" text-anchor="middle">Reino nazarí de Granada</text>
+  <g stroke="currentColor" stroke-opacity=".45">
+    <line x1="57" y1="200" x2="57" y2="210"/><line x1="201" y1="200" x2="201" y2="210"/><line x1="304" y1="200" x2="304" y2="228"/><line x1="388" y1="200" x2="388" y2="248"/><line x1="412" y1="200" x2="412" y2="228"/><line x1="573" y1="200" x2="573" y2="210"/>
+  </g>
+  <g font-size="12" fill="currentColor">
+    <text x="52" y="224">711: llegada</text>
+    <text x="201" y="224" text-anchor="middle">929: califato de Córdoba</text>
+    <text x="304" y="243" text-anchor="middle">1085: Toledo</text>
+    <text x="388" y="262" text-anchor="middle">1212: Navas de Tolosa</text>
+    <text x="412" y="243">1248: Sevilla</text>
+    <text x="580" y="224" text-anchor="end" font-weight="bold">1492</text>
+  </g>
+</svg>
+<figcaption>Casi ocho siglos resumidos en una línea. Los números son aproximados, pero muestran la idea: tras 1250, solo quedó el pequeño reino de Granada, que resistió dos siglos y medio más.</figcaption>
+</figure>
+<p>A comienzos del siglo XIII, los reinos cristianos lograron una gran victoria en <b>Las Navas de Tolosa</b> (1212). En las décadas siguientes conquistaron Córdoba (1236), Valencia (1238) y Sevilla (1248). De al-Ándalus solo sobrevivió un reino: el de <b>Granada</b>, gobernado por la dinastía nazarí desde 1238. Para no desaparecer, se convirtió en vasallo de Castilla y le pagó durante largas temporadas fuertes tributos en oro, llamados <i>parias</i>.</p>
+<p>Así, Granada vivió dos siglos y medio en una situación extraña: rodeada, amenazada, pero rica y culta. Allí se construyó uno de los edificios más bellos del mundo, la <b>Alhambra</b>, cuyo nombre significa «la roja», por el color de sus muros.</p>
+<div class="sabias"><b>¿Sabías que...?</b> En las paredes de la Alhambra se repite miles de veces una misma frase en árabe, el lema de la dinastía nazarí: «No hay más vencedor que Dios». Sus mosaicos geométricos son tan asombrosos que el artista holandés M. C. Escher, al visitarla en 1922 y 1936, pasó días copiándolos. De ellos nacieron sus famosos dibujos de figuras que encajan unas con otras sin dejar huecos.</div>
+<div class="fondo"><b>Para entenderlo mejor: ¿«Reconquista»?</b>
+A este largo proceso se le llama tradicionalmente <b>Reconquista</b>, como si los reinos cristianos hubieran estado recuperando algo que les pertenecía. Pero la palabra se popularizó siglos después, y muchos historiadores la discuten: no fue una guerra continua de ocho siglos, sino una larga historia de guerras, pactos, alianzas cambiantes y convivencia. Hubo reyes cristianos aliados con musulmanes contra otros cristianos, y al revés. Durante siglos vivieron en los reinos cristianos comunidades musulmanas, los mudéjares, y en al-Ándalus cristianos, los mozárabes. Y en ambos, judíos.</div>
+<div class="sabias"><b>¿Sabías que...?</b> Unas 4.000 palabras del español vienen del árabe, muchas de ellas empiezan por <i>al-</i>, que en árabe es el artículo «el»: almohada, aceite, azúcar, alcalde, ajedrez, albóndiga... Hasta la palabra <b>ojalá</b> viene del árabe <i>law šá lláh</i>, «si Dios quiere».</div>
+<div class="idea"><b>Idea clave:</b> desde 711, al-Ándalus fue perdiendo territorio frente a los reinos cristianos del norte. Tras 1250 solo quedó el reino nazarí de Granada, que sobrevivió dos siglos y medio como vasallo de Castilla.</div>
+
+<h2 id="c4"><small>Capítulo 4</small>La guerra de Granada</h2>
+<p>La guerra final empezó con un golpe de mano. En diciembre de 1481, el rey de Granada, Muley Hacén, se apoderó de la villa castellana de Zahara. En respuesta, en febrero de 1482, el marqués de Cádiz tomó por sorpresa <b>Alhama</b>, una ciudad nazarí situada muy cerca de la capital. Los Reyes Católicos decidieron entonces terminar de una vez con el reino de Granada.</p>
+<p>La guerra duró diez años. Los castellanos contaban con una gran ventaja: Granada estaba dividida por una guerra civil. El rey Muley Hacén se enfrentaba a su propio hijo, <b>Boabdil</b>, y más tarde también a su hermano, <b>el Zagal</b>. En 1483, Boabdil cayó prisionero de los castellanos en Lucena. Los Reyes Católicos lo liberaron a cambio de que se declarara su vasallo, y lo usaron para dividir aún más a los granadinos.</p>
+<figure>
+<svg viewBox="0 0 600 340" role="img" aria-label="Mapa de la guerra de Granada con el territorio del reino nazarí en 1482 y los años en que cayó cada ciudad">
+<defs><clipPath id="mgr-clip"><rect width="600" height="340" rx="6"/></clipPath><clipPath id="mgr-solo-tierra"><use href="#mgr-tierra"/></clipPath></defs>
+<g clip-path="url(#mgr-clip)">
+<rect width="600" height="340" fill="#4a90c2" fill-opacity=".12"/>
+<path id="mgr-tierra" d="M600,98l-37,25 -19,24 -17,44 -21,26 -10,4 -14,-11 -18,-2 -18,4 -8,9 -15,5 -14,-4 -30,-3 -13,1 -21,7 -18,-5 -30,-2 -66,5 -8,3 -8,11 -21,18 -32,1 -29,12 -7,8 -12,20 -4,16 -2,0 -3,-4 -5,1 -2,12 -11,5 -9,2 -22,-9 -19,-14 -9,-1 -16,-22 -7,-14 -5,-15 0,-1 1,-5 -1,-3 0,-47 1,-1 5,-2 -6,0 0,-196 600,0z" fill="#c8b88a" fill-opacity=".45" stroke="currentColor" stroke-opacity=".35" stroke-width=".6"/>
+<path d="M130,304l-5,-64 -3,-27 32,-23 46,0 33,-7 12,-23 25,-31 24,-11 18,-20 18,-26 43,0 37,-12 42,-18 43,10 30,39 18,23 10,23 15,46 -37,106 -255,15 -146,0" fill="#b3261e" fill-opacity=".16" stroke="#b3261e" stroke-width="1.6" stroke-dasharray="5 4" clip-path="url(#mgr-solo-tierra)"/>
+<text x="403.4" y="179.5" font-size="13" fill="currentColor" fill-opacity=".8" text-anchor="middle" font-style="italic">Reino nazarí en 1482</text>
+<text x="202.6" y="72.4" font-size="12" fill="currentColor" fill-opacity=".7" text-anchor="middle" font-style="italic" letter-spacing="2">CORONA DE CASTILLA</text>
+<text x="373.0" y="281.2" font-size="13" fill="currentColor" fill-opacity=".55" text-anchor="middle" font-style="italic">Mar Mediterráneo</text>
+<circle cx="180.7" cy="47.7" r="4.5" fill="#8a8a8a" stroke="#fff" stroke-width="1"/>
+<text x="187.7" y="51.7" font-size="12" fill="currentColor" text-anchor="start">Córdoba</text>
+<circle cx="301.2" cy="64.7" r="4.5" fill="#8a8a8a" stroke="#fff" stroke-width="1"/>
+<text x="308.2" y="68.7" font-size="12" fill="currentColor" text-anchor="start">Jaén</text>
+<circle cx="207.5" cy="179.5" r="4.5" fill="#8a8a8a" stroke="#fff" stroke-width="1"/>
+<text x="200.5" y="173.5" font-size="12" fill="currentColor" text-anchor="end">Antequera</text>
+<circle cx="276.9" cy="182.6" r="4.5" fill="#b3261e" stroke="#fff" stroke-width="1"/>
+<text x="283.9" y="194.6" font-size="12" fill="currentColor" text-anchor="start">Alhama 1482</text>
+<circle cx="133.3" cy="222.2" r="4.5" fill="#b3261e" stroke="#fff" stroke-width="1"/>
+<text x="140.3" y="226.2" font-size="12" fill="currentColor" text-anchor="start">Ronda 1485</text>
+<circle cx="257.4" cy="156.7" r="4.5" fill="#b3261e" stroke="#fff" stroke-width="1"/>
+<text x="250.4" y="150.7" font-size="12" fill="currentColor" text-anchor="end">Loja 1486</text>
+<circle cx="224.5" cy="225.2" r="4.5" fill="#b3261e" stroke="#fff" stroke-width="1"/>
+<text x="231.5" y="239.2" font-size="12" fill="currentColor" text-anchor="start">Málaga 1487</text>
+<circle cx="425.4" cy="107.7" r="4.5" fill="#b3261e" stroke="#fff" stroke-width="1"/>
+<text x="432.4" y="111.7" font-size="12" fill="currentColor" text-anchor="start">Baza 1489</text>
+<circle cx="380.3" cy="136.8" r="4.5" fill="#b3261e" stroke="#fff" stroke-width="1"/>
+<text x="387.3" y="150.8" font-size="12" fill="currentColor" text-anchor="start">Guadix 1489</text>
+<circle cx="463.1" cy="207.0" r="4.5" fill="#b3261e" stroke="#fff" stroke-width="1"/>
+<text x="470.1" y="221.0" font-size="12" fill="currentColor" text-anchor="start">Almería 1489</text>
+<circle cx="324.3" cy="155.1" r="6" fill="#b3261e" stroke="#fff" stroke-width="1"/>
+<text x="324.3" y="145.1" font-size="13" fill="currentColor" text-anchor="middle" font-weight="bold">Granada 1492</text>
+<circle cx="309.7" cy="153.6" r="3.5" fill="#1d3f8a" stroke="#fff" stroke-width="1"/>
+<text x="303.7" y="168.6" font-size="11" fill="currentColor" text-anchor="end">Santa Fe</text>
+</g></svg>
+<div class="leyenda"><span style="--c:#b3261e">Ciudad nazarí y año en que cayó</span><span style="--c:#8a8a8a">Ciudad castellana</span><span style="--c:#1d3f8a">Campamento de Santa Fe</span></div>
+<figcaption>La guerra de Granada, año a año. El territorio nazarí en 1482 está dibujado de forma aproximada.</figcaption>
+</figure>
+<p>La otra gran ventaja fue la <b>artillería</b>. Los reyes reunieron más de un centenar de cañones, llamados lombardas, que lanzaban bolas de piedra y de hierro. Las murallas de las ciudades nazaríes, construidas para resistir ataques de la Edad Media, no aguantaban el bombardeo. Una a una fueron cayendo: <b>Ronda</b> (1485), <b>Loja</b> (1486), <b>Málaga</b> (1487), <b>Baza</b>, <b>Guadix</b> y <b>Almería</b> (1489).</p>
+<p>Algunos asedios fueron terribles. Málaga resistió más de tres meses, y como castigo, casi todos sus habitantes, unos 11.000, fueron vendidos como esclavos. Baza aguantó seis meses. Allí se presentó la propia reina Isabel para animar a las tropas, y organizó hospitales para atender a los soldados heridos y enfermos, algo muy poco habitual en la época.</p>
+<div class="sabias"><b>¿Sabías que...?</b> En 1491, mientras sitiaban Granada, un incendio destruyó el campamento real. Los reyes ordenaron entonces construir en su lugar una ciudad de piedra, que se levantó en solo unos meses. La llamaron <b>Santa Fe</b>. Su trazado, con dos calles principales que se cruzan en forma de cruz y manzanas rectangulares, recuerda al de muchas ciudades que los españoles fundarían después en América.</div>
+<h3>La rendición</h3>
+<p>Aislada y sin esperanza de ayuda, Granada negoció su rendición. El 25 de noviembre de 1491 se firmaron las <b>Capitulaciones de Granada</b>, con condiciones muy generosas: los musulmanes podrían conservar su religión, sus mezquitas, sus leyes, sus propiedades, su lengua y su forma de vestir, y quien quisiera podría marcharse libremente al norte de África.</p>
+<p>El <b>2 de enero de 1492</b>, Boabdil entregó las llaves de la ciudad. Sobre la torre más alta de la Alhambra, la de la Vela, se izaron la cruz y el estandarte real. La noticia se celebró en toda la Europa cristiana, que lo vio como una revancha por la pérdida de Constantinopla, conquistada por los turcos en 1453.</p>
+<div class="sabias"><b>¿Sabías que...?</b> Según una leyenda, al marcharse hacia su exilio, Boabdil se detuvo en un puerto de montaña para mirar por última vez Granada y rompió a llorar. Su madre, Aixa, le habría dicho entonces: «Llora como mujer lo que no supiste defender como hombre». Aquel lugar se sigue llamando hoy <b>el Suspiro del Moro</b>. La frase de Aixa, en cambio, aparece por primera vez en un libro escrito décadas después, y casi seguro es inventada.</div>
+<p>Las promesas duraron poco. El primer arzobispo de Granada, Hernando de Talavera, intentó convertir a los musulmanes con paciencia, aprendiendo incluso árabe. Pero en 1499 llegó el cardenal <b>Cisneros</b>, que impuso bautismos en masa y mandó quemar miles de libros en árabe. Estalló una rebelión, y tras aplastarla, en 1502 se obligó a todos los musulmanes de Castilla a elegir entre el bautismo o el exilio. Los que se quedaron, llamados <b>moriscos</b>, fueron vigilados durante un siglo, y finalmente expulsados de España entre 1609 y 1614.</p>
+<div class="idea"><b>Idea clave:</b> tras diez años de guerra, en la que fueron decisivas la artillería castellana y las divisiones internas de los nazaríes, Granada se rindió el 2 de enero de 1492. Las promesas de respetar la religión musulmana se rompieron pocos años después.</div>
+
+<h2 id="c5"><small>Capítulo 5</small>Sefarad: la expulsión de los judíos</h2>
+<p>Los judíos llamaban a la península ibérica <b>Sefarad</b>, un nombre tomado de la Biblia. Vivían en ella desde la época romana, más de mil años antes de 1492. Fueron médicos, filósofos, comerciantes, artesanos, traductores y consejeros de reyes, tanto en al-Ándalus como en los reinos cristianos. Uno de los mayores sabios de la Edad Media, el filósofo y médico <b>Maimónides</b>, nació en Córdoba en 1138.</p>
+<p>La convivencia, sin embargo, nunca fue fácil. Los judíos vivían en barrios separados, las juderías, pagaban impuestos especiales y a menudo se les acusaba de todo tipo de males. En 1391 estalló en Sevilla una oleada de asaltos contra las juderías que se extendió por toda la península. Miles de judíos fueron asesinados y muchos otros aceptaron el bautismo para salvar la vida.</p>
+<p>Así nació un nuevo grupo, el de los <b>conversos</b> o «cristianos nuevos». Muchos prosperaron y ocuparon cargos importantes, lo que despertó envidias. Se les acusaba de seguir practicando el judaísmo a escondidas. Para perseguir a esos supuestos «falsos cristianos» se creó en 1478 la Inquisición, que en sus primeras décadas fue especialmente dura: según los cálculos de los historiadores, unas 2.000 personas fueron ejecutadas en sus primeros cincuenta años.</p>
+<h3>El edicto</h3>
+<p>Los inquisidores, con <b>Tomás de Torquemada</b> a la cabeza, convencieron a los reyes de que, mientras hubiera judíos en sus reinos, los conversos seguirían tentados a volver a su antigua fe. El <b>31 de marzo de 1492</b>, en la Alhambra recién conquistada, Isabel y Fernando firmaron el edicto: todos los judíos debían bautizarse o abandonar sus reinos antes del final de julio.</p>
+<p>Podían vender sus bienes y llevarse sus pertenencias, pero no oro, ni plata, ni monedas, ni caballos. Con tan poco tiempo, tuvieron que malvender todo lo que tenían. Un cronista de la época, el cura Andrés Bernáldez, lo describió así:</p>
+<blockquote>«Daban una casa por un asno, y una viña por un poco de paño o lienzo.»</blockquote>
+<div class="sabias"><b>¿Sabías que...?</b> Dos de los judíos más poderosos del reino, Isaac Abravanel y Abraham Seneor, que habían ayudado a financiar la guerra de Granada, intentaron convencer a los reyes para que anularan el edicto a cambio de una gran suma de dinero. Según una leyenda, Torquemada irrumpió en la sala, arrojó un crucifijo sobre la mesa y exclamó: «Judas vendió a Cristo por treinta monedas; vosotros queréis venderlo por treinta mil». Seneor acabó bautizándose, con los reyes como padrinos. Abravanel eligió el exilio y se marchó a Nápoles.</div>
+<p>No sabemos con exactitud cuántos judíos se marcharon. Los historiadores calculan que entre 50.000 y 150.000 personas. Otras muchas prefirieron convertirse para quedarse en su tierra.</p>
+<figure>
+<svg viewBox="0 0 600 430" role="img" aria-label="Mapa de los destinos de los judíos expulsados de España en 1492: Portugal, el norte de África, Italia y el Imperio otomano, y más tarde Ámsterdam">
+<defs><clipPath id="msef-clip"><rect width="600" height="430" rx="6"/></clipPath><marker id="msef-flecha0" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10z" fill="#b3261e"/></marker><marker id="msef-flecha1" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10z" fill="#b3261e"/></marker><marker id="msef-flecha2" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10z" fill="#b3261e"/></marker><marker id="msef-flecha3" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10z" fill="#b3261e"/></marker><marker id="msef-flecha4" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10z" fill="#b3261e"/></marker><marker id="msef-flecha5" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10z" fill="#1d3f8a"/></marker></defs>
+<g clip-path="url(#msef-clip)">
+<rect width="600" height="430" fill="#4a90c2" fill-opacity=".12"/>
+<path id="msef-tierra" d="M496,308l3,0 0,-1 1,0 1,1 -1,0 0,1 2,0 0,1 2,0 1,-1 2,0 1,-1 3,0 2,1 2,-1 4,0 2,-1 0,3 2,0 0,-1 2,-1 2,0 1,-2 0,5 -1,0 -1,1 -3,0 -3,1 -5,1 -5,2 -1,0 0,-2 -1,-1 -13,0 0,1 -1,-1 -1,0 0,-5 1,1 1,-1 0,-1 1,1zM482,256l1,2 1,0 2,1 3,1 2,-1 1,1 0,1 1,0 0,1 2,4 1,1 3,0 0,2 -3,0 0,-1 -2,0 0,-2 -1,0 -2,-2 -4,0 -1,-2 -1,0 -1,-1 -2,-1 -1,-1 -2,0 -1,-1 -1,1 -1,0 3,-3 1,0 1,-1zM343,0l0,7 -1,0 -1,1 -1,0 0,2 1,0 1,1 0,1 -1,1 -2,1 0,6 -2,1 -1,-2 0,-3 -1,-2 -3,0 -1,-2 0,-2 -1,-1 0,-2 -1,0 0,-1 1,-1 1,1 1,-1 1,-2 0,-1 2,0 0,4 2,0 0,-2 1,-1 -1,-1 1,-2 5,0zM326,8l2,4 -1,1 0,2 -1,2 -2,0 -4,-2 0,-1 -1,0 0,-5 1,0 3,-1 3,0zM238,253l1,1 1,-1 1,0 1,1 0,1 -3,3 0,1 -2,1 -1,0 -2,-1 -1,0 0,-2 -1,-1 -1,0 -1,1 -2,-2 6,-3 1,-1 3,-1 1,0 -1,1 1,0 0,1 -1,0zM316,239l0,1 2,4 0,1 -1,1 0,1 -1,2 0,3 1,1 -1,1 -1,9 0,3 -2,0 -2,-1 -2,0 -1,3 0,1 -2,1 -2,0 -2,-2 0,-1 -1,-2 0,-5 1,-2 -1,-1 2,0 0,-2 -1,-1 -1,0 0,-2 1,0 0,-4 -1,-1 0,-2 -2,-2 0,-5 0,1 1,0 1,1 2,0 2,-1 3,-3 2,-1 0,-1 1,-1 1,1 2,1 0,1 1,1 1,0 -1,0 0,2zM314,209l0,4 1,0 0,7 -2,2 0,5 -1,1 -1,2 0,1 -3,-1 -2,-2 0,-1 1,0 0,-1 -1,0 -1,-1 1,-1 -1,-1 -1,0 0,-1 1,-1 0,-1 -1,0 0,-2 1,-1 -1,-1 0,-1 1,-2 1,-1 3,0 0,-1 1,0 0,-1 1,0 1,1 0,-4 1,-1 1,0 0,2zM389,279l-2,2 -2,5 0,1 -1,1 0,2 -1,1 1,1 0,1 1,0 0,3 1,0 0,2 -1,1 0,1 -1,0 0,3 -1,0 -2,-1 -1,1 -2,-1 -1,0 -2,-3 -2,-1 -1,-1 -4,0 -3,-2 -3,-1 -2,-2 -1,0 -1,-1 -2,-1 -3,0 -2,-1 -1,-2 1,-2 0,-2 1,-1 1,0 0,-1 1,0 1,2 1,0 2,-1 1,-1 2,-1 0,1 1,0 0,1 1,0 2,1 4,0 1,-1 3,1 1,-1 2,0 2,-2 6,0 0,-1 2,0 2,-2 1,1zM214,0l1,1 0,5 1,4 0,4 1,1 0,1 4,2 0,1 2,2 2,4 1,1 -1,0 0,4 2,4 -1,0 -1,-1 -1,0 0,-1 -3,0 -1,-1 2,1 1,0 4,4 1,3 0,4 -1,0 -2,2 2,2 1,0 2,-2 5,0 2,1 4,4 0,4 -1,1 -1,2 0,2 -2,2 -2,0 0,2 -1,1 -1,0 -1,-1 -2,1 1,1 0,2 -1,0 -1,1 -3,0 2,0 0,2 6,0 1,1 1,0 0,1 -1,2 -4,1 0,2 -2,0 -1,1 -3,0 -1,1 -1,0 -4,-1 -3,-1 -3,1 -1,-1 -1,0 -1,-1 -2,0 -1,-1 1,1 -2,1 -6,0 1,1 0,1 -1,0 -3,-1 -2,0 -3,-3 -1,0 -4,1 -1,1 -2,4 -1,1 -1,0 -3,-3 -6,0 -1,1 -2,1 -1,0 -1,1 -1,0 -1,-1 -3,0 0,-1 1,-1 2,0 3,-2 2,-2 1,0 0,-1 3,-2 1,-1 0,-1 1,-1 2,-1 1,-2 6,0 2,1 1,1 2,0 8,-8 -1,1 -2,1 -1,0 -2,1 -1,0 -2,1 -3,0 -2,-3 -1,-1 -3,0 1,-1 1,0 -2,-1 -1,0 0,-1 -2,0 -1,1 -2,0 -2,-1 -1,-1 1,-1 -1,-1 2,-2 2,0 3,-1 4,-2 1,0 0,-1 1,-2 1,-1 -1,0 0,-2 1,0 0,-1 -1,-1 1,-1 0,-1 -3,0 -1,1 -2,0 3,-3 1,0 0,-1 1,-1 1,0 4,-1 4,0 2,1 0,-2 1,0 1,2 1,0 -1,-1 -1,-2 0,-2 2,-2 -1,0 0,-3 2,0 0,-2 1,-1 -1,-1 -1,0 -1,1 -2,-2 0,-1 -1,-3 0,-2 1,-3 3,-2 2,0 -1,0 -3,-1 -1,0 -1,1 -2,0 0,1 -3,0 0,-1 -2,0 -1,1 -1,-1 -2,-1 -1,1 0,1 -1,-1 0,-2 -1,-1 1,-1 1,0 1,-2 2,-3 28,0zM174,0l0,3 2,4 0,1 -1,0 -1,1 1,0 2,1 0,3 0,-1 -1,-1 0,1 -1,2 1,0 0,2 -3,0 0,1 -1,1 -2,0 -1,-1 1,1 0,1 -1,0 -1,-1 0,6 1,2 -1,1 0,9 -2,2 0,1 -1,1 0,2 -2,2 -1,0 1,2 -6,0 0,-1 -1,1 -6,0 0,1 -1,0 -2,1 -1,1 -2,0 -2,-2 0,3 -1,0 -2,1 -11,0 -1,-1 1,-1 2,-1 -6,0 1,-1 2,-1 1,0 1,-1 1,0 -6,0 0,-1 -1,0 0,-1 2,-1 1,0 1,-1 1,0 0,-1 -3,0 -1,-1 0,-1 2,-1 1,1 1,0 1,1 1,0 0,-2 -1,-1 2,0 2,-1 0,-1 3,1 2,0 3,-1 -1,0 -1,-1 -1,1 -4,0 0,-1 -1,0 -2,1 -1,0 2,-1 2,-2 1,0 1,-1 0,-1 2,-2 0,-1 1,1 1,-1 1,0 0,-1 -1,0 -3,-1 -1,0 0,-1 -1,-1 -2,0 1,-1 -2,0 -1,-1 1,0 0,-2 4,0 -2,-1 0,-1 2,-1 2,0 0,-1 -3,0 0,-2 1,0 0,-2 -1,0 1,-1 -1,-1 -1,1 1,-1 0,-1 1,0 1,1 1,-1 2,0 2,1 1,2 1,-1 1,0 2,1 1,1 1,0 0,-1 -1,-1 1,-1 1,0 1,-1 1,0 2,-2 -3,0 -3,-2 1,0 0,-1 2,0 1,-1 0,-1 8,0 -1,1 1,0 1,-1 2,0 1,1 1,-1 9,0zM0,400l12,0 6,-1 2,-1 3,-2 4,-2 9,-3 5,-4 10,-10 1,-3 0,-2 -1,-3 -1,-1 0,-1 2,-2 0,-3 2,-5 3,-5 5,-4 2,-2 1,-4 1,-2 6,-4 4,-3 1,-1 4,-1 10,-2 9,-3 3,-3 7,-9 8,-13 0,-1 6,0 1,-1 2,1 -1,0 0,4 2,3 5,5 4,1 8,0 1,1 5,0 4,-2 0,4 1,1 2,0 3,1 2,0 3,1 1,0 4,-1 4,-2 2,-2 4,-2 7,-2 1,0 2,1 1,0 2,-1 1,-3 3,-1 2,-1 4,-1 2,-1 4,-1 17,0 3,-2 9,0 3,-1 12,0 2,1 1,1 3,2 1,1 2,-1 3,-1 5,-1 2,-1 1,-2 2,0 1,1 5,1 3,0 0,-2 3,0 2,1 2,2 2,1 3,-1 5,0 3,-1 3,-3 1,0 7,-2 2,0 0,1 -1,1 1,1 1,-1 0,-1 2,0 2,1 -1,2 2,3 0,1 1,1 2,-1 0,-1 3,-1 2,-2 1,0 1,1 0,2 -1,0 -3,6 -2,1 -1,1 -1,2 0,1 3,6 1,0 3,2 0,5 1,1 -3,6 -2,3 -8,8 0,2 1,3 2,2 2,1 3,0 0,1 1,2 1,0 2,-2 1,1 1,3 2,1 -1,0 0,1 3,0 1,1 2,1 2,0 6,4 7,0 5,-1 2,-1 3,2 4,0 4,1 1,0 3,2 1,1 9,1 2,2 1,2 0,3 1,2 1,3 3,3 2,1 4,1 5,1 4,-1 8,2 7,2 2,1 3,1 7,5 4,1 5,0 4,-3 1,-1 4,-5 1,-3 0,-4 -1,-1 -2,-4 -1,-4 0,-5 1,-2 3,-4 9,-6 3,-1 2,0 2,-3 3,0 4,-1 2,1 3,1 3,0 2,1 3,0 1,3 0,2 2,1 9,0 2,1 1,1 5,-1 3,-1 2,0 5,5 1,2 2,0 7,-3 18,0 5,2 1,0 3,-1 2,1 7,-1 5,1 2,1 3,0 3,-3 2,-1 3,-5 2,-1 2,0 1,-1 0,-2 1,-1 6,-3 0,1 -4,2 2,0 2,-1 0,77 -600,0zM600,275l-1,-1 -3,-2 -2,-1 -3,0 -6,-2 -1,0 -8,2 0,1 1,4 -1,1 1,2 -1,1 0,1 -2,-1 -1,0 -1,2 -3,2 -6,0 -2,-1 -1,-1 -1,-2 -2,-2 -1,1 -2,0 -4,-1 -2,0 -1,2 -2,2 0,-1 1,-1 -4,1 -1,1 -3,0 0,-1 1,0 1,-1 4,-1 2,-4 1,0 -2,0 -5,2 -4,0 -1,1 -1,-1 1,-1 1,0 1,-1 0,-2 -2,0 0,-1 -2,0 -1,-1 -1,-2 -1,-1 2,-1 0,-3 -1,-1 -1,0 -3,-1 0,1 -1,-1 -2,-1 -1,0 0,1 -1,0 -1,-1 -2,0 0,-2 1,0 0,-1 -1,-2 0,-1 1,0 2,1 0,2 1,1 0,-1 1,-1 0,1 1,0 3,-1 1,-1 -3,0 -3,-3 0,-1 2,0 1,-2 -1,-1 -2,0 0,-3 -2,-1 -1,-1 2,-2 1,-2 -2,0 -4,1 -1,1 -3,1 0,-3 -1,-3 0,-2 2,-1 1,-3 3,-4 3,0 1,-2 2,0 1,1 2,1 3,-1 0,-1 1,0 -2,-2 3,0 0,2 4,-2 4,0 1,-1 3,0 1,-1 -1,0 -1,-1 -2,0 2,-2 1,0 5,-3 4,-1 -8,0 -1,-1 -1,0 -1,-1 0,-3 1,0 2,-1 7,0 5,-2 5,0 5,-2 1,-1 1,-2 6,-6 2,-3 2,-2 4,-2 4,-3 1,-1 9,-2 3,0 0,93zM600,103l-1,1 -1,2 -3,0 -2,2 -3,5 -1,3 -1,1 0,1 -1,0 2,-3 0,-2 -1,-1 -1,3 -2,2 1,2 0,1 1,2 2,2 4,3 1,1 3,0 1,-2 2,0 0,5 -3,0 -1,3 -2,1 0,2 -2,0 -2,1 -2,2 -1,4 -2,2 -2,1 -3,0 -2,-1 0,-6 -2,-2 -2,-1 -2,0 -3,-1 -2,0 -2,1 -1,-1 3,-4 2,-3 2,-1 1,-1 2,-3 -2,-2 0,1 -3,0 -1,-1 -2,2 -2,0 -3,2 -2,0 -3,-2 -2,0 -1,1 0,-1 1,-1 1,0 0,-1 -5,0 -1,-1 4,0 3,-1 2,0 0,-1 2,-1 -2,1 -4,0 -2,-2 0,-3 -2,-2 0,-1 -1,0 1,1 1,2 1,1 0,4 -1,1 -2,0 0,-2 -1,1 -1,2 -2,0 -4,2 0,5 -1,3 -2,4 0,1 -2,1 -1,1 -2,0 -1,1 0,2 3,3 0,8 -6,3 1,-1 -1,-1 0,-1 -2,0 0,1 1,2 0,1 -1,0 1,1 -1,1 0,1 1,-1 0,1 -1,3 0,1 1,5 0,9 -2,0 -2,1 -1,2 0,1 -1,1 1,2 0,5 -1,0 -2,5 2,0 1,1 1,2 3,2 0,1 2,4 2,2 2,1 7,2 2,0 0,2 -2,2 -8,0 -2,2 -2,0 -3,2 -2,4 -5,5 -3,4 -1,2 -1,1 -1,0 1,-1 0,-1 -1,-1 1,-2 1,-1 3,-2 1,-2 -3,1 -2,1 -3,0 -2,-2 -2,-1 -10,0 -2,2 -5,0 -2,3 -1,1 -4,0 0,1 2,2 0,2 2,0 4,2 0,1 -1,-1 -1,0 -1,-1 -3,0 -1,1 2,2 1,0 1,2 -1,1 -4,-4 -3,0 0,1 1,1 0,1 3,1 0,1 -3,-1 -1,-1 -1,-2 -3,-1 -2,-1 -1,-1 0,-1 1,-1 -2,0 0,1 -2,1 1,1 0,6 4,3 1,3 2,2 2,1 1,1 1,2 -2,2 -1,-1 1,-1 0,-1 -3,-1 0,1 -1,1 1,1 0,1 1,1 1,0 -1,1 -2,1 -1,1 -1,0 1,0 1,1 3,0 2,1 1,0 2,2 2,0 2,2 2,0 2,1 1,2 0,3 1,2 0,2 -1,0 -3,-3 -2,-1 -1,-1 -1,1 -3,1 -2,2 1,0 1,1 0,1 2,2 1,-1 2,2 0,1 -3,1 0,1 -1,0 -1,-2 -2,0 -1,-1 -1,0 -1,1 1,2 2,1 2,4 1,3 1,1 0,2 1,1 0,2 -1,-1 -1,0 -2,-2 -1,-2 -1,0 -1,1 -1,3 0,2 -1,0 0,-1 -1,-2 0,-1 -4,-4 -2,0 0,5 -5,-5 0,-2 1,-2 0,-1 -4,-4 -1,0 -1,-2 -1,0 -1,-1 0,-1 2,-2 1,-2 3,0 1,-2 1,-1 1,0 8,2 2,1 1,1 2,0 0,-1 -1,-1 3,0 0,-1 1,0 -1,-1 -4,0 -1,-1 -4,-2 -1,1 0,1 -1,0 -4,-1 -2,1 -1,1 -1,0 -2,1 -1,-2 0,-1 -1,0 0,2 -1,1 -2,-2 -1,-3 -2,-1 -1,-1 0,-2 1,0 2,1 1,-1 0,-2 -3,0 -1,1 -1,0 -2,-2 -4,-2 -1,-3 -3,-3 0,-1 -1,-1 -1,-3 -5,-2 -2,-2 0,-1 1,1 0,-2 -1,-2 -1,0 1,-3 0,-8 -1,-1 1,-3 0,-3 -1,-1 -2,0 -2,-1 0,-2 -3,-3 -4,-1 0,-1 -1,0 -2,-1 -2,-2 -4,-2 -3,0 -4,-2 -3,0 1,-1 1,0 6,2 -1,-1 -1,0 -3,-2 -2,-2 -3,-2 -6,-2 -1,0 -2,1 -1,0 -1,-1 0,-1 -1,-2 -4,-2 -5,-5 1,0 1,-1 2,0 -1,0 -1,-1 -4,-3 -1,-2 0,-6 -3,-2 -1,-1 -2,-1 -1,0 0,3 -2,3 0,1 -2,2 0,-1 -2,-2 -1,-2 0,-2 -1,-3 0,-1 1,0 1,-1 0,-1 -1,-2 -1,0 -1,1 -3,-1 -3,3 -2,1 -1,1 -2,0 1,-1 -1,0 -2,2 0,3 1,3 2,1 0,1 -2,2 0,-1 -1,0 0,2 2,8 3,3 3,1 4,4 3,1 2,3 1,3 2,5 1,3 2,3 4,4 8,4 3,0 6,-1 1,0 2,1 0,2 -2,1 -1,1 0,2 1,1 7,3 7,2 2,1 2,2 6,2 1,2 4,2 2,2 0,4 -1,1 0,2 -2,-1 -1,-1 -3,-5 -6,0 -2,-1 0,-1 -1,-1 -2,0 -1,1 -2,6 -2,4 0,2 1,2 3,0 2,2 2,1 0,4 1,2 -1,1 -2,0 -2,1 -1,2 -1,1 0,5 -3,2 -1,3 -1,1 0,1 -4,1 -2,-4 1,-1 2,-1 0,-6 1,0 1,-1 2,0 -1,-3 -1,-1 0,-2 -1,-4 -3,-4 -1,-3 -1,-2 -1,-1 -4,0 -4,-2 0,-4 -1,-1 -1,-2 -2,0 -1,1 -3,0 2,-2 -1,0 -1,-1 -3,0 0,-1 -3,-4 -2,-2 -1,1 -3,-1 -2,0 -1,1 0,-1 -3,-2 -2,0 -5,-6 -2,-2 -3,-2 -2,-3 -4,-2 -1,0 0,1 -1,0 0,-1 1,0 0,-2 -3,-3 -2,-1 -1,-1 0,-1 -2,0 0,-4 -1,-3 -1,-2 -1,-5 -1,-2 -1,-1 -4,-1 -5,-3 -1,-1 -3,-1 -2,0 -2,1 -3,3 -3,4 -9,3 -1,0 -3,4 -2,1 -1,0 0,1 -2,2 -2,0 -2,1 -1,0 -3,-1 -1,-1 -3,-1 -1,-2 -3,0 0,-1 -5,0 -2,-1 -1,0 -1,-1 -1,0 0,-1 -3,0 0,1 -1,0 -7,4 -2,4 0,5 1,2 0,2 1,0 0,1 -1,1 -1,0 0,1 1,1 0,3 -1,1 -2,1 -9,4 -3,3 -6,0 -4,1 -2,1 -3,2 -1,1 2,2 -1,0 -2,1 -1,0 -3,4 -5,5 -1,2 -4,5 0,1 1,6 0,2 1,1 2,1 1,1 -1,1 -3,2 -6,3 0,2 -2,1 0,2 -1,2 -2,2 1,2 -7,0 -4,2 -3,2 -2,4 -3,3 -1,0 -1,-1 -2,-1 -1,0 -2,1 -2,0 -3,-1 -4,0 -2,-1 -3,0 -7,-1 -1,0 -3,3 -3,-1 -3,1 -1,0 -2,2 -1,2 0,-1 -1,0 0,2 -2,0 -2,-2 -2,-1 -1,-1 -2,-4 0,-1 1,-1 -1,0 -1,-1 0,-2 2,-1 1,-1 -1,0 -1,1 -1,-2 -4,-5 0,-1 -1,0 0,1 -3,-1 -4,0 -5,1 -1,0 -2,-2 -4,-1 -7,0 2,-2 3,-6 0,-6 2,-3 0,-4 2,0 0,-1 -2,0 0,-1 -3,1 -1,0 0,-4 3,0 1,-1 0,-2 1,-1 2,-1 -1,0 -4,4 -4,0 0,-2 3,-6 0,-1 1,-1 1,0 1,-2 6,-8 0,-2 2,-5 2,-2 1,-3 0,-10 1,-1 0,-1 -1,0 0,-2 2,-1 -1,0 0,-3 2,-1 1,-1 0,-1 -1,0 0,-1 1,0 0,-1 -1,-1 1,-1 0,-1 -3,0 2,-2 0,-1 -1,0 -1,-1 0,-1 -1,-1 1,-1 1,-2 1,-1 1,0 2,-1 2,1 1,0 2,-1 2,0 0,-2 2,-1 3,0 2,-1 1,1 1,0 1,1 1,2 2,1 2,0 3,1 5,0 1,1 3,-1 2,2 4,1 8,4 6,0 2,-1 1,1 3,0 1,1 4,2 1,-1 1,0 3,1 3,2 5,0 1,-1 2,0 2,-1 2,-7 2,-8 1,-2 1,0 0,-2 -1,1 0,1 1,-8 1,-2 1,-3 2,1 1,1 0,2 1,3 0,1 1,1 0,-1 -1,-1 0,-5 -2,-2 -2,-3 -1,0 0,-1 1,0 1,1 0,-9 -1,-1 -1,0 -4,-4 -1,-2 -2,-3 0,-1 1,-2 0,-1 -1,-1 0,-1 1,-1 1,0 1,1 1,0 1,1 -3,-2 -4,0 0,-1 -1,0 0,-1 1,-1 0,-1 -1,0 -1,-1 -2,0 1,-1 -2,0 -2,-2 -1,0 -1,-1 -2,0 -3,-2 -2,-1 -3,0 0,-1 -3,-3 1,-1 1,1 1,-1 1,0 -2,-2 0,-1 1,0 1,1 1,0 0,-1 -1,0 -1,-1 -2,0 -1,-1 1,-2 2,-1 11,0 0,-1 3,0 2,1 2,4 1,1 3,-2 3,1 1,1 0,-1 1,-1 1,1 0,1 5,0 -1,-1 -1,-2 1,-6 -1,-2 -1,-3 0,-3 1,0 2,1 2,-1 1,1 0,5 2,0 2,1 3,0 3,1 2,0 1,-1 3,0 1,-1 -2,0 -1,-1 -1,0 1,-1 0,-1 5,-2 3,-1 4,-1 4,-4 -1,0 1,-7 1,-1 0,-1 1,-1 2,-1 5,-1 1,0 5,-2 4,-2 2,0 1,1 5,0 -1,0 -1,-1 -2,0 -1,-1 -2,0 0,-2 3,0 3,3 2,0 -3,-3 2,0 0,-1 -2,-2 0,-1 1,-1 0,-1 1,0 3,-3 2,-4 1,-5 0,-1 1,-1 1,0 2,-1 3,-2 2,-2 3,-2 9,0 1,1 0,1 2,0 -1,-1 0,-2 1,-1 1,-2 7,0 2,2 -1,2 1,0 1,-1 0,-2 2,2 0,2 0,-6 1,-1 0,-1 3,1 4,0 2,4 2,0 -1,0 -3,-4 -1,-1 -2,0 -1,-1 0,-5 -1,-1 -1,1 -1,0 0,-1 2,-2 1,0 0,-2 -1,-2 -1,-1 0,-4 -1,-2 1,0 0,-3 -3,-3 -2,-1 1,-5 0,-3 18,0 0,4 -1,-1 -1,0 -1,1 1,0 0,2 -1,0 -1,1 0,1 -1,0 -1,1 1,2 0,3 -1,1 -1,2 2,0 1,1 -1,1 3,3 0,3 -1,1 3,0 0,1 1,-1 4,2 2,-1 1,2 -1,1 -1,2 0,1 2,0 3,1 1,0 2,-3 1,0 3,-1 0,-1 1,0 3,-3 4,0 1,2 3,2 3,0 1,2 0,3 1,1 1,0 2,1 2,0 1,1 0,-3 -2,0 -2,-1 -1,1 -1,-1 0,-1 -1,-1 0,-2 2,2 2,1 1,0 3,-1 5,-2 6,-3 3,0 0,-1 1,-1 0,-1 2,-2 3,-1 1,-1 2,-1 5,-2 2,-1 3,0 4,2 0,1 -1,0 -2,-1 2,3 0,1 2,1 1,0 4,-1 2,-1 1,-2 1,-1 1,-2 0,-3 1,0 2,-1 1,-1 2,-1 1,-3 0,-1 1,-2 0,-3 1,1 0,1 -1,2 -1,3 -2,4 6,0 0,-3 -1,-3 0,-3 -1,-2 0,-1 179,0zM360,0l0,1 -2,1 0,3 1,1 0,2 -1,2 -3,0 -5,1 -4,-1 1,-1 0,-5 -1,-1 -2,-3 16,0zM375,314l-2,0 0,-1 2,0 0,1zM367,241l-1,0 0,-1 1,0 0,1zM346,303l-1,1 -1,-1 0,-1 1,0 1,1zM285,40l-1,1 1,-1zM282,41l-3,0 3,0zM274,43l-2,1 1,-1zM276,42l-2,0 3,-1 1,0zM396,203l5,0 1,1 -2,0 -2,1 -1,-1 -1,0zM402,201l-7,0 -2,-1 -1,0 4,0 4,1zM397,199l-3,0 -1,-1 0,-1 2,0 3,1zM193,95l-1,1 -1,0 0,-1 2,0zM197,100l0,1 -1,0 0,-1 -1,1 0,-2 2,1zM556,125l1,1 -6,0 -1,-1 0,-1 1,1zM545,293l-1,0 0,-2 -1,-1 0,-1 1,0 0,-1 1,-2 3,-2 1,1 -1,3 -1,1 1,1 -2,1zM538,302l0,1 0,-2 -1,-1 0,-3 1,-1 0,3 1,1 0,1zM543,283l0,1 -1,-1 1,-1 0,1zM532,279l-1,1 0,-2 -1,0 2,0 0,1zM532,283l-1,0 4,-4 1,1 -2,1 0,1 -1,0zM514,283l-2,0 -1,-2 2,-2 1,1 0,1zM510,282l-1,1 -1,0 0,-2 1,-1 1,1zM515,292l-2,0 1,0 0,-1 -1,0 0,-1 1,1zM512,287l0,1 -1,-1 0,-1 2,1zM527,267l2,0 1,1 -1,0 -1,1 -1,0 -1,-1 -1,1 -1,-1 1,-1 1,0zM518,273l-1,0 0,-1 1,-1 2,0 1,-1 0,1 -1,1zM518,285l-1,0 0,-1 1,0 1,-1 0,-1 1,0 -1,1zM526,286l-1,1 0,1 -1,-1 1,0 0,-1zM497,276l0,1 -1,-1 1,-2 1,1zM499,279l-1,1 0,-2 1,-1 0,1zM502,288l0,1 -3,1 1,-1 1,0 0,-1zM505,276l0,1 -1,0 0,-1zM505,272l-1,1 -2,-2 0,-1 -1,0 0,-1 1,-1 1,2 1,-1 0,2zM508,273l0,2 -1,0 -2,-2 3,0zM504,285l-1,0 0,-1 1,1zM517,262l-1,1 -2,-1 1,-1 0,-2 -2,-1 0,-1 2,-1 1,1 1,0 -1,1 1,0 0,4zM517,244l0,1 2,1 1,1 0,1 -1,0 0,1 1,0 -1,1 -1,0 -3,-1 -1,0 2,-2 -1,0 -1,2 -2,-1 -1,0 0,-2 2,0 0,-1 1,0 0,-1 2,0zM486,253l0,1 -1,0 -1,-2zM488,252l-1,1 0,-2 1,-1 0,2zM498,256l-1,1 -1,0 1,-1 -2,-1 0,-1 1,0 1,1zM505,229l-1,1 -2,-1 2,-1 1,1zM504,236l-1,1 0,2 -1,0 0,-1 -1,0 0,1 -1,0 0,-1 -1,-1 4,0 0,-1 1,0zM494,228l-1,1 -2,-1 1,-2 2,0 0,1zM510,233l-3,1 -1,0 1,-2 1,0 1,-1 1,1zM337,335l-2,1 0,-1 1,-1 1,0zM333,351l-1,0 0,1 -1,0 -1,-1 0,-2 2,0 1,1 1,0 -1,1zM186,19l-2,2 -1,-1 0,-1 4,-4 0,3zM186,33l1,0 0,1 -1,0 -1,1 -2,0 -1,-2 1,-2 2,0zM135,13l-1,-1 -2,-1 3,0 0,1zM367,16l-2,0 -2,-1 0,-3 1,-1 3,3 0,1zM355,26l0,2 -1,-1 -2,0 0,2 -1,0 -2,-2 0,-1 1,-1 -1,-1 2,-2 1,0 0,1 2,0 0,1 -1,1 1,1zM343,18l-1,0 -2,1 0,-2 1,0 0,-1 1,1 1,0zM344,7l-1,1 0,-1 1,-1 0,1zM333,19l1,1 2,0 0,3 -2,0 -4,-2 0,-3 2,0zM325,20l-2,0 -1,-2 1,0 0,1 1,0 1,1zM321,19l-3,0 0,-3 1,0 1,2 1,1zM327,21l-1,0 0,-2 1,-1 1,-2 1,-1 0,1 -2,5zM326,5l-1,0 0,-4 1,2 0,1zM332,27l-1,0 -1,-1 -1,0 1,-1 2,0 0,1zM304,21l0,-2 1,-3 1,0 -1,1 0,2 2,0 -2,1zM199,153l-1,1 0,-1 -1,-1 0,-2 1,1zM210,79l-1,0 0,1 -2,0 -2,-2 2,-1 1,0 1,1zM271,47l-1,1 0,-2 1,-1zM325,208l0,3 -1,-1 -3,0 1,-1 2,0zM302,267l-1,2 -1,-1 0,-1 1,0zM300,237l-1,0 1,-1 0,-1 1,1 -1,0zM252,253l-1,0 -3,-2 -2,0 1,-1 0,-1 2,0 2,1 1,2zM218,269l-1,0 -2,-1 1,-1 0,1 2,0zM216,265l0,1 -2,-1 -1,0 2,-2 0,-1 4,0 0,1 -2,1zM378,316l0,1 -1,0 -2,-1 0,-1 2,0 1,1zM379,188l-2,-1 0,-1zM373,174l-2,0 0,-1 -1,0 -1,-1 1,-1 0,-1 2,2zM374,177l0,1 -1,-1 -1,0 0,-1 1,0zM378,184l-1,-1 -1,0 0,-1 -3,-3 0,-1 0,1 1,0 3,3 2,1 -1,0zM378,190l1,0 -1,0 -3,-3 0,-1 1,1zM380,189l1,1 -1,0 0,-1 -1,0zM370,179l0,1 -1,-1 0,-2 -1,-2 0,-2 -1,-2 1,0 0,1 1,1 0,3 1,2zM407,206l2,1 -5,-1 1,0zM450,270l0,2 1,0 1,2 0,1 -2,-1 0,1 -1,0 0,-2 -1,0 -1,1 0,-3 2,0 0,-2zM454,279l2,1 -1,0 -1,1 -2,-1 -1,-1 0,-1 1,-1 1,1 1,0zM450,266l0,1 -1,0 0,-4 1,0 1,3zM452,271l-1,0 -1,-1 0,-2 0,1 1,0 0,1zM441,255l1,0 -2,0 -4,-4 0,-2 3,0 0,1 -1,1 1,1 0,2 1,0 1,1zM487,272l-1,0 0,1 -1,-1 0,-1 1,0zM485,300l0,1 -2,-1 0,-3 2,2zM261,67l1,1 0,1 -1,0 -1,-1 -1,0 -1,-1 1,0zM307,22l-2,0 0,-1 2,0zM289,39l-1,0 2,0zM511,276l-2,0 0,-1 2,0zM501,282l-1,1 -1,-1 1,-1 1,0 0,1z" fill="#c8b88a" fill-opacity=".45" stroke="currentColor" stroke-opacity=".35" stroke-width=".6"/>
+<path d="M142,237l-41,5" fill="none" stroke="#b3261e" stroke-width="3" marker-end="url(#msef-flecha0)" stroke-linecap="round"/>
+<path d="M126,282l-1,41" fill="none" stroke="#b3261e" stroke-width="3" marker-end="url(#msef-flecha1)" stroke-linecap="round"/>
+<path d="M195,263l52,9 52,3 51,-19 17,-14" fill="none" stroke="#b3261e" stroke-width="3" marker-end="url(#msef-flecha2)" stroke-linecap="round"/>
+<path d="M371,244l8,20 10,15 15,7 52,11 37,-20 8,-13 -13,-19 -13,-10" fill="none" stroke="#b3261e" stroke-width="3" marker-end="url(#msef-flecha3)" stroke-linecap="round"/>
+<path d="M499,267l11,-22 4,-15 24,-16" fill="none" stroke="#b3261e" stroke-width="3" marker-end="url(#msef-flecha4)" stroke-linecap="round"/>
+<path d="M88,239l1,-77 71,-58 81,-30 27,-14" fill="none" stroke="#1d3f8a" stroke-width="2.5" stroke-dasharray="7 5" marker-end="url(#msef-flecha5)" stroke-linecap="round"/>
+<text x="158.6" y="236.8" font-size="13" fill="currentColor" fill-opacity=".8" text-anchor="middle" font-style="italic" letter-spacing="3">SEFARAD</text>
+<text x="408.1" y="334.0" font-size="13" fill="currentColor" fill-opacity=".55" text-anchor="middle" font-style="italic">Mar Mediterráneo</text>
+<text x="489.5" y="186.4" font-size="11" fill="currentColor" fill-opacity=".7" text-anchor="middle" font-style="italic" letter-spacing="2">IMPERIO OTOMANO</text>
+<circle cx="88.6" cy="246.7" r="4.5" fill="#b3261e" stroke="#fff" stroke-width="1"/>
+<text x="80.6" y="260.7" font-size="12" fill="currentColor" text-anchor="end">Lisboa</text>
+<circle cx="125.1" cy="329.2" r="4.5" fill="#b3261e" stroke="#fff" stroke-width="1"/>
+<text x="132.1" y="333.2" font-size="12" fill="currentColor" text-anchor="start">Fez</text>
+<circle cx="370.5" cy="238.4" r="4.5" fill="#b3261e" stroke="#fff" stroke-width="1"/>
+<text x="366.5" y="229.4" font-size="12" fill="currentColor" text-anchor="end">Nápoles</text>
+<circle cx="472.7" cy="231.3" r="4.5" fill="#b3261e" stroke="#fff" stroke-width="1"/>
+<text x="472.7" y="222.3" font-size="12" fill="currentColor" text-anchor="middle" font-weight="bold">Salónica</text>
+<circle cx="541.7" cy="212.2" r="4.5" fill="#b3261e" stroke="#fff" stroke-width="1"/>
+<text x="541.7" y="203.2" font-size="12" fill="currentColor" text-anchor="middle" font-weight="bold">Estambul</text>
+<circle cx="270.8" cy="57.7" r="4.5" fill="#1d3f8a" stroke="#fff" stroke-width="1"/>
+<text x="278.8" y="61.7" font-size="12" fill="currentColor" text-anchor="start">Ámsterdam (hacia 1600)</text>
+</g></svg>
+<div class="leyenda"><span style="--c:#b3261e">Exilio de 1492</span><span style="--c:#1d3f8a">Migraciones posteriores</span></div>
+<figcaption>Los principales caminos del exilio sefardí.</figcaption>
+</figure>
+<p>La mayoría se fue a <b>Portugal</b>, pero allí solo encontraron un respiro: en 1497, el rey portugués los obligó a bautizarse. Otros cruzaron al norte de África, sobre todo a Fez, o se marcharon a Italia. Muchos terminaron en el <b>Imperio otomano</b>, cuyo sultán, Bayezid II, los acogió de buen grado. Se cuenta que comentó: «¿Cómo podéis llamar sabio a ese rey Fernando, que empobrece su país y enriquece el mío?», aunque probablemente la frase sea una leyenda.</p>
+<p>En ciudades como Estambul o <b>Salónica</b>, los sefardíes formaron grandes comunidades que durante más de cuatro siglos siguieron hablando su castellano, el <b>judeoespañol</b> o ladino. Salónica llegó a ser una ciudad de mayoría judía, la «Jerusalén de los Balcanes». Aquella comunidad sobrevivió hasta 1943, cuando los nazis deportaron a casi todos sus miembros a los campos de exterminio.</p>
+<div class="sabias"><b>¿Sabías que...?</b> Muchas familias sefardíes guardaron durante generaciones las llaves de las casas que habían tenido que abandonar en España, y las pasaban de padres a hijos. Y su judeoespañol conserva palabras y sonidos del castellano de 1492 que en España se perdieron: dicen, por ejemplo, <i>agora</i> en lugar de «ahora», y pronuncian <i>dixo</i> (dijo) con un sonido parecido a «disho», como se hacía en la Castilla de 1492. En 2015, España y Portugal aprobaron leyes para conceder su nacionalidad a los descendientes de aquellos expulsados.</div>
+<div class="idea"><b>Idea clave:</b> en 1492 los Reyes Católicos obligaron a los judíos a elegir entre el bautismo y el exilio. Decenas de miles se marcharon, y en el exilio mantuvieron durante siglos su lengua y su memoria de Sefarad.</div>
+
+<h2 id="c6"><small>Capítulo 6</small>Colón y su gran error</h2>
+<p>Sobre el origen de <b>Cristóbal Colón</b> se han escrito montañas de libros. Se ha dicho que era catalán, gallego, portugués, mallorquín o judío, y en 2024 un documental de televisión anunció un estudio de ADN, sin llegar a publicar sus datos para que otros científicos pudieran revisarlos. La mayoría de los historiadores siguen pensando lo que el propio Colón escribió en un documento de 1498: que había nacido en <b>Génova</b>, hacia 1451, en una familia de tejedores.</p>
+<p>Desde muy joven navegó por el Mediterráneo. En 1476, el barco en el que viajaba se hundió en un combate frente a la costa de Portugal, y Colón llegó a tierra nadando, agarrado a un remo. Se instaló en <b>Lisboa</b>, donde su hermano Bartolomé trabajaba haciendo mapas. Lisboa era entonces la capital mundial de la navegación. Allí se casó con Felipa Moniz, hija de un noble de la isla de Madeira, y navegó hasta Guinea, en África, y quizá hasta Irlanda o Islandia.</p>
+<p>Poco a poco se le fue ocurriendo una idea: si la Tierra es redonda, se puede llegar a Asia, la tierra de las especias, la seda y el oro, navegando hacia el <b>oeste</b>, en lugar de rodear África como intentaban los portugueses.</p>
+<div class="fondo"><b>Para entenderlo mejor: nadie creía que la Tierra fuera plana</b>
+Es un mito muy extendido que Colón tuvo que convencer a gente que creía que la Tierra era plana. Las personas cultas sabían que era redonda desde hacía casi dos mil años. Hacia el año 240 antes de Cristo, el sabio griego <b>Eratóstenes</b> incluso midió su tamaño comparando las sombras del Sol en dos ciudades de Egipto, y obtuvo una cifra que, según cómo se conviertan sus unidades, equivale a unos 40.000 kilómetros de circunferencia: asombrosamente cercana a la real. El mito de la Tierra plana se popularizó en el siglo XIX, sobre todo a partir de una biografía novelada de Colón escrita por el estadounidense Washington Irving.</div>
+<p>La discusión no era sobre la forma de la Tierra, sino sobre su <b>tamaño</b>. Y ahí Colón se equivocó por mucho. Hizo sus cálculos con los datos que más le convenían:</p>
+<ul>
+  <li>Usó una medida de un geógrafo árabe, Alfragano, pero confundió las millas árabes con las millas romanas, que eran más cortas. Así, calculó una Tierra una cuarta parte más pequeña de lo que es.</li>
+  <li>Creyó a los autores antiguos que exageraban la longitud de Asia hacia el este.</li>
+  <li>Añadió que, según Marco Polo, Japón, al que llamaba Cipango, estaba muy lejos de la costa china, en medio del océano.</li>
+</ul>
+<p>Con todo eso, concluyó que Japón estaba a unos 4.400 kilómetros al oeste de las islas Canarias. En realidad está a unos 20.000. Ningún barco de la época podía llevar comida y agua para un viaje tan largo sin tocar tierra. Si América no hubiera estado en medio, Colón y todos sus hombres habrían muerto de hambre y sed en el océano.</p>
+<figure>
+<svg viewBox="0 0 600 250" role="img" aria-label="Comparación de la distancia a Japón según Colón, unos 4.400 kilómetros, con la distancia real a América, unos 5.800, y a Japón, unos 20.000">
+  <text x="300" y="22" font-size="13" fill="currentColor" text-anchor="middle">Distancia navegando hacia el oeste desde las islas Canarias</text>
+  <g font-size="13" fill="currentColor">
+    <text x="60" y="58">Japón, según los cálculos de Colón</text>
+    <text x="60" y="118">América (las Bahamas), en realidad</text>
+    <text x="60" y="178">Japón, en realidad</text>
+  </g>
+  <rect x="50" y="66" width="110" height="20" fill="#c9a227"/>
+  <rect x="50" y="126" width="145" height="20" fill="#b3261e"/>
+  <rect x="50" y="186" width="500" height="20" fill="#1d3f8a"/>
+  <g font-size="13" fill="currentColor" font-weight="bold">
+    <text x="168" y="81">unos 4.400 km</text>
+    <text x="203" y="141">unos 5.800 km</text>
+    <text x="540" y="201" text-anchor="end" fill="#ffffff">unos 20.000 km</text>
+  </g>
+  <line x1="50" y1="40" x2="50" y2="214" stroke="currentColor" stroke-width="2"/>
+  <text x="50" y="234" font-size="12" fill="currentColor" text-anchor="middle">Canarias</text>
+  <text x="340" y="234" font-size="11" fill="currentColor" fill-opacity=".7" text-anchor="middle">Barras a escala.</text>
+</svg>
+<figcaption>El gran error de Colón. Por suerte para él, había un continente en medio que nadie esperaba.</figcaption>
+</figure>
+<div class="sabias"><b>¿Sabías que...?</b> Uno de los libros favoritos de Colón era <i>Imago Mundi</i>, «Imagen del mundo», un tratado de geografía del cardenal francés Pierre d'Ailly. Su ejemplar, lleno de cientos de notas escritas a mano en los márgenes, se conserva en Sevilla, en la Biblioteca Colombina. Gracias a esas notas sabemos qué datos subrayaba y cuáles prefería ignorar.</div>
+<div class="idea"><b>Idea clave:</b> Colón no fue el único que sabía que la Tierra es redonda; lo sabía cualquier persona culta. Lo que lo hizo diferente fue un cálculo equivocado que le hizo creer que Asia estaba mucho más cerca de lo que está.</div>
+
+<h2 id="c7"><small>Capítulo 7</small>Cómo convenció a los reyes</h2>
+<p>Hacia 1484, Colón presentó su plan al rey de Portugal, Juan II. Sus expertos lo estudiaron y lo rechazaron: los cálculos de Colón, dijeron, eran demasiado optimistas. Tenían razón. Además, Portugal ya tenía su propio proyecto: llegar a la India rodeando África.</p>
+<p>Viudo y con un hijo pequeño, Diego, Colón se trasladó a Castilla en 1485. Encontró apoyo en los frailes del monasterio de <b>La Rábida</b>, cerca del puerto de Palos, en Huelva, que le ayudaron a llegar hasta la corte. En enero de 1486, los Reyes Católicos lo recibieron por primera vez. Les interesó la idea, pero estaban en plena guerra de Granada y encargaron a una comisión de sabios que la estudiara.</p>
+<p>La espera duró seis años. La comisión, como la portuguesa, pensó que el viaje era imposible por la distancia. Mientras tanto, Colón vivió en Córdoba, donde tuvo otro hijo, Hernando, con Beatriz Enríquez de Arana. Su hermano Bartolomé intentó ofrecer el proyecto a los reyes de Inglaterra y de Francia, sin éxito.</p>
+<div class="sabias"><b>¿Sabías que...?</b> En diciembre de 1488, Colón estaba en Lisboa cuando regresó Bartolomeu Dias con una noticia histórica: había doblado el extremo sur de África, el cabo de Buena Esperanza. El camino hacia la India rodeando África estaba abierto. En uno de los libros de Colón hay una nota, escrita por él o por su hermano Bartolomé, que dice que estuvo presente. Para Portugal, su proyecto ya no tenía ningún interés.</div>
+<h3>El último intento</h3>
+<p>A finales de 1491, Colón volvió a presentar su plan a los reyes, en el campamento de Santa Fe, frente a Granada. Esta vez lo rechazaron por sus exigencias, que parecían desmesuradas. Colón, harto, se marchó montado en una mula, decidido a probar suerte en Francia.</p>
+<p>Entonces intervino <b>Luis de Santángel</b>, un funcionario del rey Fernando de una familia de conversos valencianos, encargado de las finanzas. Convenció a Isabel de que el riesgo era pequeño y la posible ganancia, enorme: si Colón fracasaba, se perdía poco dinero; si triunfaba, Castilla llegaría a Asia antes que Portugal. Él mismo adelantó el dinero. La reina mandó a un mensajero a buscar a Colón, que lo alcanzó a unos diez kilómetros, en el puente de Pinos Puente.</p>
+<div class="sabias"><b>¿Sabías que...?</b> Cuenta la tradición que Isabel se ofreció a empeñar sus joyas para pagar el viaje, y que Santángel le respondió que no hacía falta. La historia de las joyas se repite desde hace siglos, pero lo que dicen los documentos es que el dinero de la Corona, algo más de un millón de maravedís, lo adelantó Santángel. Colón aportó otro medio millón, que le prestaron unos comerciantes italianos. Y el puerto de Palos tuvo que poner dos de las tres naves, como castigo por una falta que había cometido antes contra la Corona.</div>
+<p>El <b>17 de abril de 1492</b>, en Santa Fe, se firmaron las <b>Capitulaciones</b>, el contrato entre los reyes y Colón. Sus condiciones eran asombrosas para un marino extranjero sin fortuna:</p>
+<figure>
+<svg viewBox="0 0 600 210" role="img" aria-label="Lo que Colón consiguió en las Capitulaciones de Santa Fe">
+  <g fill="#1d3f8a" fill-opacity=".1" stroke="#1d3f8a" stroke-opacity=".5">
+    <rect x="6" y="10" width="138" height="175" rx="8"/><rect x="154" y="10" width="138" height="175" rx="8"/><rect x="302" y="10" width="138" height="175" rx="8"/><rect x="450" y="10" width="138" height="175" rx="8"/>
+  </g>
+  <g fill="none" stroke="#9a7412" stroke-width="3" stroke-linecap="round"><circle cx="75" cy="27" r="5"/><line x1="75" y1="32" x2="75" y2="62"/><line x1="64" y1="40" x2="86" y2="40"/><path d="M59,50 Q61,64 75,64 Q89,64 91,50"/></g><path d="M203,58 L200,34 L212,46 L223,28 L234,46 L246,34 L243,58 Z" fill="#9a7412"/><g font-size="30" fill="#9a7412" text-anchor="middle" font-weight="bold"><text x="371" y="56">10 %</text><text x="519" y="56">1/8</text></g>
+  <g font-size="14" font-weight="bold" fill="currentColor" text-anchor="middle">
+    <text x="75" y="88">Almirante de</text><text x="75" y="106">la Mar Océana</text>
+    <text x="223" y="88">Virrey y</text><text x="223" y="106">gobernador</text>
+    <text x="371" y="88">La décima parte</text><text x="371" y="106">de las riquezas</text>
+    <text x="519" y="88">Una octava parte</text><text x="519" y="106">de los negocios</text>
+  </g>
+  <g font-size="12" fill="currentColor" text-anchor="middle">
+    <text x="75" y="132">Para siempre:</text><text x="75" y="149">él y sus herederos</text>
+    <text x="223" y="132">de todas las tierras</text><text x="223" y="149">que descubriera</text>
+    <text x="371" y="132">oro, plata, perlas,</text><text x="371" y="149">especias y demás</text><text x="371" y="166">mercancías</text>
+    <text x="519" y="132">si pagaba la octava</text><text x="519" y="149">parte de los gastos</text><text x="519" y="166">de cada expedición</text>
+  </g>
+</svg>
+<figcaption>Lo que Colón consiguió en Santa Fe. Si su plan salía bien, se convertiría en uno de los hombres más poderosos del mundo.</figcaption>
+</figure>
+<p>Los reyes aceptaron porque, en realidad, no creían que fuera a encontrar gran cosa. Cuando resultó que sí, estas promesas se convirtieron en un problema, y Colón y sus herederos pasaron décadas pleiteando con la Corona para que las cumpliera.</p>
+<div class="idea"><b>Idea clave:</b> tras años de rechazos, Colón consiguió el apoyo de los Reyes Católicos gracias a Luis de Santángel. En las Capitulaciones de Santa Fe obtuvo títulos y riquezas enormes, a cambio de un viaje que muchos expertos consideraban imposible.</div>
+
+<h2 id="c8"><small>Capítulo 8</small>Tres barcos y noventa hombres</h2>
+<p>La expedición se preparó en el puerto de <b>Palos de la Frontera</b>. Constaba de tres barcos: dos <b>carabelas</b>, ligeras y rápidas, la <b>Pinta</b> y la <b>Niña</b>; y una <b>nao</b>, más grande y lenta, la <b>Santa María</b>, que sería la nave capitana, mandada por el propio Colón.</p>
+<figure>
+<svg viewBox="0 0 600 424" role="img" aria-label="Los tres barcos de Colón dibujados a escala junto a un autobús y una cancha de baloncesto">
+<line x1="18" y1="113" x2="352" y2="113" stroke="#4a90c2" stroke-opacity=".6" stroke-width="2"/>
+<g stroke="#6b4226" stroke-width="2.2"><line x1="185" y1="92" x2="185" y2="21.2"/><line x1="281.6" y1="92" x2="281.6" y2="40.5"/><line x1="82" y1="79.8" x2="82" y2="41.2"/></g>
+<g fill="#f3ede1" stroke="#6b6259" stroke-width="1"><rect x="149.6" y="34.1" width="70.8" height="38.6" rx="3"/><rect x="168.9" y="22.8" width="32.2" height="9.7" rx="2"/><rect x="259.1" y="47" width="45.1" height="32.2" rx="3"/><path d="M98.1,42.4 L49.8,75 L98.1,75 Z"/></g><rect x="183.4" y="41" width="3.2" height="24.7" fill="#b3261e"/><rect x="167.3" y="48.8" width="35.4" height="3.2" fill="#b3261e"/>
+<path d="M185,21.2 l14,4 l-14,4 z" fill="#b3261e"/>
+<path d="M24,79.8 L62.6,79.8 L69.1,92 L281.6,92 L294.5,86.2 L346,83 L320.2,112 L56.2,112 L30.4,100.7 Z" fill="#6b4226"/>
+<text x="362" y="100" font-size="14" font-weight="bold" fill="currentColor">Santa María</text>
+<text x="362" y="117" font-size="12.5" fill="currentColor" fill-opacity=".8">nao · unos 23 m</text>
+<line x1="18" y1="209" x2="310" y2="209" stroke="#4a90c2" stroke-opacity=".6" stroke-width="2"/>
+<g stroke="#6b4226" stroke-width="2.2"><line x1="164" y1="190.6" x2="164" y2="129"/><line x1="248" y1="190.6" x2="248" y2="145.8"/><line x1="74.4" y1="180" x2="74.4" y2="146.4"/></g>
+<g fill="#f3ede1" stroke="#6b6259" stroke-width="1"><rect x="133.2" y="140.2" width="61.6" height="33.6" rx="3"/><rect x="228.4" y="151.4" width="39.2" height="28" rx="3"/><path d="M88.4,147.5 L46.4,175.8 L88.4,175.8 Z"/></g><rect x="162.4" y="146.3" width="3.2" height="21.5" fill="#b3261e"/><rect x="148.6" y="153" width="30.8" height="3.2" fill="#b3261e"/>
+<path d="M164,129 l14,4 l-14,4 z" fill="#b3261e"/>
+<path d="M24,180 L57.6,180 L63.2,190.6 L248,190.6 L259.2,185.6 L304,182.8 L281.6,208 L52,208 L29.6,198.2 Z" fill="#6b4226"/>
+<text x="320" y="196" font-size="14" font-weight="bold" fill="currentColor">Pinta</text>
+<text x="320" y="213" font-size="12.5" fill="currentColor" fill-opacity=".8">carabela · unos 20 m</text>
+<line x1="18" y1="295" x2="268" y2="295" stroke="#4a90c2" stroke-opacity=".6" stroke-width="2"/>
+<g stroke="#6b4226" stroke-width="2.2"><line x1="143" y1="279.2" x2="143" y2="226.9"/><line x1="214.4" y1="279.2" x2="214.4" y2="241.2"/><line x1="66.8" y1="270.2" x2="66.8" y2="241.6"/></g>
+<g fill="#f3ede1" stroke="#6b6259" stroke-width="1"><rect x="116.8" y="236.4" width="52.4" height="28.6" rx="3"/><rect x="197.7" y="245.9" width="33.3" height="23.8" rx="3"/><path d="M78.7,242.6 L43,266.6 L78.7,266.6 Z"/></g><rect x="141.4" y="241.5" width="3.2" height="18.3" fill="#b3261e"/><rect x="129.9" y="247.3" width="26.2" height="3.2" fill="#b3261e"/>
+<path d="M143,226.9 l14,4 l-14,4 z" fill="#b3261e"/>
+<path d="M24,270.2 L52.6,270.2 L57.3,279.2 L214.4,279.2 L223.9,275 L262,272.6 L243,294 L47.8,294 L28.8,285.7 Z" fill="#6b4226"/>
+<text x="278" y="282" font-size="14" font-weight="bold" fill="currentColor">Niña</text>
+<text x="278" y="299" font-size="12.5" fill="currentColor" fill-opacity=".8">carabela · unos 17 m</text>
+<rect x="24" y="318" width="168" height="30" rx="6" fill="#c9a227"/>
+<rect x="34" y="324" width="18" height="11" rx="2" fill="#fbf8f1" fill-opacity=".85"/>
+<rect x="59" y="324" width="18" height="11" rx="2" fill="#fbf8f1" fill-opacity=".85"/>
+<rect x="84" y="324" width="18" height="11" rx="2" fill="#fbf8f1" fill-opacity=".85"/>
+<rect x="109" y="324" width="18" height="11" rx="2" fill="#fbf8f1" fill-opacity=".85"/>
+<rect x="134" y="324" width="18" height="11" rx="2" fill="#fbf8f1" fill-opacity=".85"/>
+<rect x="159" y="324" width="18" height="11" rx="2" fill="#fbf8f1" fill-opacity=".85"/>
+<circle cx="54" cy="349" r="7" fill="#555"/><circle cx="162" cy="349" r="7" fill="#555"/>
+<text x="208" y="331" font-size="14" font-weight="bold" fill="currentColor">Autobús urbano</text><text x="208" y="347" font-size="12.5" fill="currentColor" fill-opacity=".8">12 m</text>
+<text x="24" y="386" font-size="14" font-weight="bold" fill="currentColor">Cancha de baloncesto <tspan font-weight="normal" font-size="12.5" fill-opacity=".8">· 28 m</tspan></text>
+<rect x="24" y="394" width="392" height="18" fill="#c9763a" fill-opacity=".35" stroke="currentColor" stroke-opacity=".5"/>
+<line x1="220.0" y1="394" x2="220.0" y2="412" stroke="currentColor" stroke-opacity=".5"/><circle cx="220.0" cy="403" r="6" fill="none" stroke="currentColor" stroke-opacity=".5"/>
+</svg>
+<figcaption>Los tres barcos, a escala junto a un autobús y una cancha de baloncesto. Son medidas aproximadas, porque no se conserva ningún plano.</figcaption>
+</figure>
+<p>Hoy nos parecen diminutos. En la Santa María no había camarotes para la tripulación: solo el capitán tenía una pequeña cámara. Los marineros dormían sobre la cubierta, donde encontraban un hueco. Comían una vez al día algo caliente, cocinado en un fogón sobre un cajón de arena: legumbres, tocino o pescado en salazón, y sobre todo <b>bizcocho</b>, un pan cocido dos veces para que durara meses sin pudrirse. Bebían vino y agua, que con las semanas se volvía verdosa.</p>
+<p>Los capitanes de las carabelas eran dos hermanos de Palos, marinos muy experimentados: <b>Martín Alonso Pinzón</b>, de la Pinta, y <b>Vicente Yáñez Pinzón</b>, de la Niña. Su prestigio fue clave para convencer a los marineros de la zona, que desconfiaban de aquel extranjero. En total embarcaron unos noventa hombres, casi todos de Palos, Moguer y Huelva. Solo cuatro eran presos a los que se perdonó la pena a cambio de alistarse.</p>
+<div class="sabias"><b>¿Sabías que...?</b> La Niña en realidad se llamaba <i>Santa Clara</i>. Su apodo venía de su dueño, Juan Niño, que viajaba a bordo. Y la Santa María tenía su propio mote, «la Gallega», porque se había construido en Galicia. Colón llevaba también un intérprete, Luis de Torres, un judío convertido que sabía hebreo y algo de árabe, pensando que le serviría para hablar con el emperador de China.</div>
+<h3>Cómo se navegaba</h3>
+<p>No había forma de saber con exactitud dónde estaba el barco. Colón navegaba «por estima»: sabía hacia dónde iba gracias a la <b>brújula</b>, calculaba a ojo la velocidad y medía el tiempo con un reloj de arena de media hora, la ampolleta. Un grumete le daba la vuelta cada vez que se vaciaba, cantando una oración. Multiplicando velocidad por tiempo, apuntaba cada día la distancia recorrida.</p>
+<div class="sabias"><b>¿Sabías que...?</b> Colón llevaba <b>dos cuentas</b> de las distancias: una verdadera, para él, y otra más corta, para enseñar a la tripulación, «porque si el viaje fuese luengo no se espantase ni desmayase la gente», escribió en su diario. El 10 de septiembre, por ejemplo, calculó 60 leguas recorridas pero anunció 48. Lo curioso es que Colón exageraba la velocidad de sus barcos, así que la cuenta «falsa» estaba más cerca de la realidad que la verdadera.</div>
+<p>El viaje reservó sorpresas inquietantes. El 13 de septiembre, Colón notó que la aguja de la brújula ya no apuntaba exactamente a la estrella Polar: había observado que la diferencia entre el norte que marca la brújula y el norte verdadero cambia de un lugar a otro del océano. Días después, los barcos entraron en un mar cubierto de algas flotantes, el <b>mar de los Sargazos</b>, y los marineros temieron quedarse atrapados en él.</p>
+<div class="idea"><b>Idea clave:</b> la expedición la formaban dos carabelas y una nao con unos noventa hombres, casi todos marinos de la zona de Palos. Navegaban con brújula, reloj de arena y cálculos a ojo, en condiciones muy duras.</div>
+
+<h2 id="c9"><small>Capítulo 9</small>¡Tierra!</h2>
+<p>El <b>3 de agosto de 1492</b>, media hora antes de la salida del sol, los tres barcos zarparon de Palos. Se dirigieron primero a las <b>islas Canarias</b>, que Castilla estaba terminando de conquistar, para reparar el timón de la Pinta, que se había roto, y cargar agua, leña y comida. El 6 de septiembre dejaron atrás La Gomera y se adentraron en un océano que nadie había cruzado.</p>
+<p>Colón eligió navegar recto hacia el oeste, a la altura de Canarias, y acertó: en esa zona soplan casi siempre vientos del este, los <b>alisios</b>, que empujaron los barcos a buen ritmo. Para volver, en cambio, tendría que buscar otros vientos más al norte.</p>
+<figure>
+<svg viewBox="0 0 600 310" role="img" aria-label="Mapa del primer viaje de Colón: la ida desde Palos por Canarias hasta Guanahaní, Cuba y La Española, y la vuelta por las Azores y Lisboa">
+<defs><clipPath id="m1492-clip"><rect width="600" height="310" rx="6"/></clipPath><marker id="m1492-flecha0" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10z" fill="#b3261e"/></marker><marker id="m1492-flecha1" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10z" fill="#b3261e"/></marker><marker id="m1492-flecha2" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10z" fill="#1d3f8a"/></marker><marker id="m1492-flecha3" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10z" fill="#1d3f8a"/></marker></defs>
+<g clip-path="url(#m1492-clip)">
+<rect width="600" height="310" fill="#4a90c2" fill-opacity=".12"/>
+<path id="m1492-tierra" d="M38,187l0,-1 0,1zM182,0l0,2 -1,1 -1,0 -2,1 0,1 1,-1 1,0 -1,1 0,1 -1,0 1,1 0,-1 1,0 0,1 3,-3 -2,1 0,-1 1,-1 0,-1 1,-1 1,0 0,1 3,0 0,1 -1,1 1,0 -2,2 -1,0 -1,1 -2,1 -4,0 -1,-1 0,-5 2,-2 4,0zM66,233l1,0 1,1 2,0 0,1 3,0 1,2 -5,0 0,1 -1,0 0,-1 -1,0 0,2 -1,-1 -2,0 -1,-1 -1,0 0,-1 -1,-1 -2,0 0,-1 1,-1 6,0zM143,233l2,0 1,1 1,0 0,1 -1,0 0,1 -1,0 0,1 -9,0 0,-4 7,0zM171,0l-1,1 -2,1 0,2 1,0 -3,0 0,-1 -1,0 1,0 -1,-1 0,-1 -1,0 0,1 -1,0 1,0 -3,0 -1,-1 0,-1 11,0zM99,52l1,0 1,-1 3,0 -3,2 -2,0 -1,1 -3,1 -4,0 -1,1 0,-1 -1,0 0,-1 1,0 2,-2 7,0 0,-1 1,-1 1,0 -1,1zM35,198l2,1 1,0 1,-1 0,1 5,0 0,1 4,0 0,1 1,-1 0,1 1,0 1,2 1,1 5,0 3,2 2,1 0,1 2,1 1,0 0,-1 -1,0 1,0 1,1 1,0 0,1 -1,0 1,1 0,-1 1,0 1,1 0,1 3,0 1,1 2,0 1,1 2,0 0,2 -1,0 0,1 1,-1 0,1 5,0 2,2 1,0 1,1 0,-1 1,1 0,1 -3,0 -2,1 -1,0 -1,1 0,-1 -1,1 -2,0 0,-1 -9,0 -1,1 -5,0 1,-2 3,-1 0,-1 1,0 0,-1 -1,0 0,-1 -6,0 0,-1 -2,-1 -1,-1 0,-2 -2,-2 -4,0 -4,-1 -1,-1 -2,0 0,-1 -1,-1 0,1 -3,0 -1,-1 0,-1 -1,0 0,1 -4,0 0,-1 -1,0 -1,-1 2,0 1,-1 -1,-1 -7,0 0,1 -1,0 -1,1 -1,0 0,1 -1,0 -1,1 0,-1 -1,1 -2,0 0,1 -1,1 -1,0 -1,1 -1,0 0,-1 -2,0 2,-1 1,0 1,-1 -1,-1 0,-1 2,-2 1,0 5,-2 1,0 3,-1 1,0 1,-1 2,0zM103,224l2,0 0,-1 4,0 1,-1 1,1 1,0 0,1 1,-1 1,1 1,0 0,1 1,0 1,-1 0,1 1,1 0,1 4,0 0,1 -3,0 1,0 1,1 3,0 2,1 2,2 0,1 -1,0 0,1 -1,0 0,1 -1,0 0,-1 -2,0 -1,-1 -5,0 0,1 -1,0 -1,1 -2,0 -1,-1 -2,0 -1,1 0,1 -1,2 -1,1 -1,-1 -1,0 0,-2 -1,0 -1,-1 -12,0 -1,1 -1,-1 -1,0 -2,-1 0,-2 5,0 1,1 6,0 1,-1 1,0 0,-1 -2,-1 -1,-1 1,-1 0,-2 -1,-1 -3,0 -1,-1 0,-1 2,0 2,-1 1,1 2,0 1,1zM514,310l1,-1 -1,0 0,1 -1,0 -1,-1 0,-2 -1,0 0,-1 -1,0 0,-1 -1,0 0,-1 1,0 0,1 1,-1 1,0 0,-1 -2,0 0,1 -1,-1 0,-1 2,0 0,-1 -2,0 0,-2 -2,-2 -1,0 0,-3 -2,0 0,-1 -1,0 -2,-1 -1,-2 0,-2 -1,1 0,-2 -1,0 -1,1 0,-2 -1,0 0,-1 -2,0 0,-1 1,0 -1,0 0,-1 1,-1 2,0 -3,0 0,-2 3,0 -3,0 -1,1 -2,0 0,-1 -3,0 0,-2 1,0 -2,0 -2,-1 0,-1 1,0 0,-1 1,0 -1,0 0,-1 0,1 -1,0 0,-6 1,0 0,1 3,0 1,-1 4,0 -5,0 -1,1 -1,0 0,-1 -1,-1 0,-1 -1,-1 1,-1 -1,0 -1,-1 0,-2 -1,0 -1,-1 0,-1 -2,0 0,1 0,-1 2,-1 4,-6 1,-1 0,-5 1,-3 2,-4 0,-7 -1,-2 0,-2 -2,-2 0,-1 1,0 0,-1 -1,1 1,-3 1,-1 0,-2 -1,-1 -1,-2 -1,0 -1,-1 -1,-2 -1,0 0,2 0,-4 1,-4 1,-2 1,-1 1,0 1,-2 0,-2 1,-1 0,-2 1,-2 2,-2 0,-1 -1,1 -1,0 1,0 0,-1 5,-5 1,0 1,-1 0,-4 1,-2 0,-1 1,-2 0,-1 1,-2 1,-1 1,0 1,-1 2,-1 2,-2 0,-2 2,-4 1,-1 0,-1 1,-1 3,0 6,-2 3,-3 3,-2 1,-1 2,-3 4,-4 0,-4 -1,-1 0,-7 1,-2 2,-3 1,-2 0,-2 3,-3 1,-3 1,0 2,-1 5,-2 2,-2 2,-1 1,-1 3,-6 3,-7 0,-1 1,-1 2,0 1,-1 0,2 2,2 1,2 2,1 2,0 2,-1 3,0 1,1 2,-1 1,0 0,-1 0,1 1,0 0,1 5,0 1,1 1,0 1,-1 2,-1 2,-2 0,-1 2,0 3,-2 2,0 0,213zM600,63l-1,2 0,1 1,3 0,5 -2,1 -1,1 0,1 -1,0 0,3 -1,1 1,1 -4,0 -2,2 -2,1 0,3 -2,1 -4,0 0,1 -1,-1 -3,0 -1,1 -1,-1 -2,0 -3,1 -1,0 -1,2 -4,0 0,1 -1,1 0,1 0,-1 -1,1 0,1 -1,0 -2,-2 -1,0 -1,-1 0,-2 -1,-1 0,-1 1,-1 -1,0 0,1 -1,-1 -3,-2 0,-1 0,1 -2,-1 -1,1 -1,0 -2,1 -2,0 -3,-1 -1,0 -1,1 -1,0 0,-1 1,-2 0,-4 -1,-1 1,-2 0,-1 -1,-1 2,0 -1,-1 -1,0 -1,1 -1,0 0,-3 2,0 0,-2 1,-1 -2,2 0,1 -3,0 0,-1 1,-1 0,-4 1,0 1,-1 1,-3 1,-2 0,-1 -1,0 1,-1 0,-3 1,0 0,-5 -1,-1 0,-4 -1,0 0,-1 1,-1 -1,0 0,-2 1,-1 1,0 -1,0 0,-1 1,0 -1,-1 0,-2 -1,1 -1,0 0,-1 1,-1 -1,0 0,-1 -1,0 0,-3 1,0 2,-1 2,0 1,-1 1,0 0,-2 1,0 1,-1 4,0 2,2 1,-1 9,0 2,1 2,0 4,1 3,0 1,-1 3,0 0,1 6,0 2,1 2,0 1,-1 2,0 1,-1 1,-5 0,-5 1,-1 0,-1 -1,1 1,-5 0,-3 1,0 2,2 0,2 1,0 0,1 0,-1 -1,0 0,-3 -1,-1 0,-1 -2,-1 0,-1 1,0 -1,-1 0,-4 -1,0 -1,-1 9,0zM152,234l-1,0 1,0zM117,276l-1,0 0,-1 1,0 0,1zM150,287l-2,0 2,0zM97,231l-2,0 -1,-1 1,-1 0,1 1,0zM428,88l-1,0 0,-1 1,0zM187,24l-2,0 2,0 1,-1zM165,236l-1,0 1,0zM148,236l-1,0 0,-1 2,0 0,1zM168,243l0,-1 0,1zM154,234l-1,-1 1,0zM153,238l1,0 -1,1 -1,0 0,-1zM66,184l-2,0 2,0zM40,187l0,-1 1,0zM3,248l-1,1 0,-1 2,0zM55,306l0,-2 1,1 -1,0zM92,9l-3,0 1,0 2,-2 1,0 -1,1 0,1zM91,8l-1,0 1,-1 1,0zM179,9l-1,-1 2,0 -1,1zM139,17l-1,0 1,-1 0,1zM129,20l-1,0 0,1 0,-2 1,0 0,1zM489,286l0,-1 1,0 0,1zM488,224l-1,1 0,-2 1,0zM482,122l1,1 1,-1 1,1 -1,1 -1,0 -1,-1zM491,286l-1,0 1,0 -1,0 1,-1zM488,158l-1,2 0,1 -1,0 -2,-2 0,-1 3,0 1,-1 1,0zM506,154l0,1 -1,-1 0,-1 1,0 0,-1 2,0 0,-1 0,2 -1,1zM503,160l-1,1 -1,0 0,-1 1,0 2,-4 0,-1 1,0 0,4zM494,160l0,3 -2,0 0,-3 2,0zM492,285l0,-1 1,1 -1,0zM493,283l0,-1 1,0 0,1zM427,244l-1,0 0,-1 1,-1 1,0 0,1zM429,245l-2,0 1,0 0,-1 1,1zM482,161l-1,0 0,-1 2,0 0,1zM491,283l-1,0 0,-1 1,0zM490,280l0,1 -1,0 0,-1 1,0zM477,163l0,1 -1,-1 -1,0 1,0 1,-1zM442,249l2,0 0,2 -2,0 0,-1zM433,259l-2,0 0,-1 2,0 0,1zM478,157l-1,0 -1,-2 2,0 0,2zM434,246l1,1 -2,0 -1,-1 1,0zM443,246l-1,1 0,-2 0,1zM441,257l-1,0 0,-1 1,0 0,1zM439,258l-1,1 -1,0 0,-1 -1,0 0,-1 1,-1 1,1zM593,5l0,1 -2,-2 0,-1 1,1zM386,66l-1,0 0,-1 1,0zM414,73l-2,0 0,-1 -1,0 1,0 0,-1 1,1 1,0 0,1zM409,74l-1,0 -1,-1 -1,0 -1,-1 2,1zM403,74l-1,0 -1,-1 2,0 0,1zM406,75l1,0 -3,0 0,-1 -1,0 1,0zM423,80l4,0 0,1 -4,0 -1,-1 0,-1 1,0zM107,47l0,-1 0,1zM88,64l-1,1 1,-2zM88,56l-1,0 1,-1 1,0 -1,0 0,1zM153,127l-1,0 1,0 0,-1 1,0zM113,48l-2,1 0,-1 1,0 0,-1 1,1zM108,47l-1,0 1,0 0,-1zM117,49l-2,0 1,0 0,-1 1,1zM77,103l-2,0 1,0zM78,97l-1,-1 1,1zM80,79l-1,1 2,-2 0,-2 0,2zM78,102l-1,1 0,-1 1,0 1,-2 0,-2 0,4zM72,107l0,-1 1,-1 1,0 -1,1zM14,148l-1,1 -1,-1 3,0zM38,138l-1,2 0,-2zM64,190l-1,1 1,0 0,-1 0,1 1,1 0,1 -1,1 -1,0 0,-1 -1,-1 0,-1 -1,-1 2,0zM64,207l-1,1 0,-1 -1,0 0,-1 1,0 1,1zM61,205l-1,0 0,-1 -1,0 2,0 0,1zM57,203l2,0 0,1 -1,0 -1,-1zM67,177l0,1 -1,-1 -1,0 1,-1 1,0 0,-4 -1,0 -1,-2 -3,0 0,-1 1,0 1,1 1,0 1,1 0,1 1,0 1,1 0,1 -1,1 0,2zM89,202l-2,0 0,-1 1,0zM86,191l-1,1 0,-1 1,0zM96,213l0,1 -1,1 -4,0 0,-1 1,0 0,-1 3,0 1,-1zM88,205l-1,1 0,-1 1,0 1,-1 0,-1 1,0 -1,-1 1,0 0,1 -2,2zM71,181l1,1 1,0 1,1 0,4 0,-1 -1,0 1,0 0,-3 -1,0 0,-1 -1,0 -1,-1 -1,0 0,-1zM78,196l-1,0 -2,-1 0,-1 1,1 1,0 0,1zM83,200l0,1 -1,-2 -1,0 0,-2 -1,-1 0,-1 1,0 0,2 2,2 0,1zM80,190l0,1 -1,0 0,-2 -2,-2 1,0 0,2zM62,206l-1,0 0,-1 1,0 0,1zM33,173l-1,0 1,0zM63,187l0,1 -1,1 -1,0 0,1 0,-1 -1,0 0,-1 -1,0 -1,-1 1,0 0,1 1,-1 -1,0 0,-1 1,-1 0,-2 1,0 1,1 0,2zM37,187l-1,1 1,-1zM46,167l0,-1 -2,-4 1,1 0,1zM30,210l-1,1 -3,0 -1,-1 2,0 -1,-1 0,-1 1,-1 1,1 1,0 0,1 1,1zM33,172l0,1 0,-2 0,1zM52,202l-1,0 -1,-1 2,1zM58,171l4,0 0,1 -4,0 -1,1 -1,0 -1,-2 0,1 2,0 0,-1zM45,183l-2,2 1,-1 0,-1 1,0 0,-1 1,0zM32,298l-1,0 1,0zM38,227l2,0 -2,0 0,-1zM0,218l1,0 -1,0 0,1 0,-1zM168,242l-1,0 -1,-1 1,0 0,1 1,0zM180,267l-1,0 -1,-1 1,0 0,-1 1,0zM180,262l-2,0 0,-1 1,0 -1,0 -1,-1 0,-1 2,0 0,1 1,0 -1,0 1,1zM179,293l-6,0 1,-1 1,0 1,-2 0,-1 -2,0 1,-1 5,0 -1,1 0,3zM129,278l0,1 0,-1 -1,0 0,-1 1,1zM181,285l-1,0 1,0 1,-1 0,1zM171,246l-1,0 1,-1zM189,272l-1,-1 0,-1 1,0 0,1 1,0zM159,286l0,1 -4,0 1,-1 1,0 1,1 0,-1 1,-1zM165,235l-1,0 1,0zM174,279l0,-1 1,0 0,1zM174,240l-1,-1 1,0zM177,252l0,-1 1,1zM174,243l0,1 -1,0 0,-1 1,0zM177,256l-1,1 0,-3 1,0 0,1zM177,249l-2,0 0,-1 1,-1 0,1 2,1zM175,251l-1,0 -1,-2 1,0 0,-1 1,1 0,2zM178,271l-1,0 0,-1 1,0 0,1zM96,204l2,0 0,1 -1,0 0,-1 -2,0zM125,279l-2,-2 0,1 2,0zM105,209l-1,0 0,-1 1,0 0,1zM97,211l-1,0 0,-1zM104,208l-1,0 0,-1 1,1zM101,208l0,1 1,-1 0,1 -2,0zM179,302l-1,-1 1,0 0,-1 1,0 0,1zM180,300l-1,0 1,-1 1,0 -1,0zM100,0l-2,1 -1,0 -1,1 0,1 -1,0 0,1 -1,1 -1,2 -3,0 0,1 -1,1 -2,0 2,1 -2,2 -3,2 1,-1 6,-3 1,0 0,-1 1,-1 0,-2 3,-3 2,-1 1,-2 55,0 0,1 3,1 2,0 0,1 -1,1 1,0 1,1 2,0 1,1 4,0 0,1 1,0 1,1 0,-1 2,0 1,-2 1,0 0,2 3,0 1,1 0,1 -1,1 2,0 0,1 1,0 -2,0 -1,1 -2,0 0,1 -1,0 -1,1 -2,0 -2,1 -1,1 -2,1 -4,0 0,2 -2,0 0,-1 -1,-1 0,1 -1,1 0,-1 -1,0 0,3 -1,1 -1,0 -2,2 0,1 -1,1 -1,0 -1,1 0,1 -3,0 -1,-2 0,-1 -1,0 0,1 -1,-1 0,-3 2,-4 -2,1 1,0 0,-1 1,0 1,-1 1,0 1,-1 -1,0 -1,1 0,-1 1,0 5,-3 1,-1 2,-1 0,-1 1,1 0,1 1,1 0,1 0,-2 1,0 2,-1 2,0 1,-1 -10,0 0,1 -1,-1 0,-1 2,-1 1,-2 1,0 -1,0 -1,-1 0,-1 0,2 -2,2 -1,0 -2,1 -1,1 -3,2 -1,-1 0,-1 -1,0 1,1 -1,1 -1,0 -1,1 0,-1 -2,1 -1,0 0,-1 -1,0 0,3 1,0 -2,2 -2,0 -1,1 -1,0 -2,2 0,-1 -1,0 0,-1 0,1 -2,0 0,2 -1,-1 -1,0 1,-1 -1,0 0,-1 0,1 -1,0 0,1 -1,2 0,1 -1,1 -1,-1 0,1 -1,0 0,1 -1,0 0,-1 0,1 -1,0 0,-1 0,2 0,-1 -1,0 0,1 0,-1 -1,0 -1,1 0,1 -1,1 -3,6 0,2 1,0 0,1 -1,0 0,1 -1,0 -1,1 1,1 2,0 0,3 1,0 0,1 1,1 2,0 1,-1 -1,-1 0,-1 -1,0 0,-1 1,0 0,1 1,1 0,2 -1,0 -2,1 -1,0 -1,1 0,-2 -2,2 -2,0 0,-1 1,-1 -2,0 0,-1 0,3 -1,1 -2,1 -1,-1 -1,1 -6,0 0,1 -1,0 -3,1 -1,1 0,1 -1,0 -1,1 0,-1 1,-1 0,-2 -1,-1 1,1 0,2 -1,2 -1,0 0,1 -1,0 0,2 2,0 0,4 -1,2 0,-1 1,-1 -1,0 0,2 -1,1 0,1 -1,0 0,2 -1,0 0,1 -1,2 -2,0 1,-1 0,-1 -2,0 -3,-3 0,-1 2,-2 1,0 0,-1 1,0 -1,1 -2,0 0,1 -1,1 0,2 1,1 0,2 2,2 0,1 1,0 -1,1 1,0 0,2 -1,0 0,1 -1,1 0,1 -2,4 0,1 -1,0 -1,1 0,2 -1,-1 0,-1 1,-2 1,-1 0,-1 1,-1 -2,0 0,-1 1,0 -1,-1 0,-2 0,1 -2,0 0,-1 -1,0 0,-2 2,0 -1,-1 -1,0 0,-1 1,0 0,-1 -1,1 0,-1 1,0 0,-3 1,-1 1,0 -1,0 1,-1 -1,0 0,-1 0,2 -2,0 0,1 0,-1 0,1 -1,0 0,1 -1,-1 1,1 0,1 -1,0 1,1 0,2 -1,0 1,2 0,1 -1,0 0,-2 -1,0 1,1 0,1 2,2 0,1 -1,-1 -1,0 -2,-2 0,1 0,-1 -2,0 0,-2 1,-1 0,-1 0,1 -1,1 -1,0 0,2 1,1 0,-1 1,0 1,2 2,0 0,1 1,0 1,1 0,2 -1,0 -2,-2 -1,0 0,-1 -1,-1 -1,0 2,1 0,1 3,3 1,0 0,2 -1,0 0,1 -1,0 -1,-2 3,3 0,1 -1,0 -1,-1 0,-1 -1,0 -2,-1 -1,0 0,1 2,0 1,1 1,0 0,1 1,1 3,0 1,1 0,1 1,4 1,3 -1,-2 -1,-1 0,-4 -1,0 0,2 1,1 0,2 0,-1 -1,0 -1,-1 0,2 0,-1 -1,0 1,1 -2,0 0,1 -1,0 -1,-1 0,-1 0,2 5,0 0,2 0,-1 1,-1 1,1 0,2 -2,1 -1,1 -2,0 0,-1 -1,0 0,1 -1,0 -1,-1 -1,0 3,2 1,0 -1,1 0,1 -2,0 -1,-1 0,1 1,1 1,0 2,-1 1,1 -1,1 -2,0 0,1 -3,0 0,1 -1,0 0,-1 -1,0 0,1 1,0 -2,2 -1,0 -1,1 0,2 0,-2 0,2 -3,0 -2,1 -4,4 0,1 0,-1 -1,0 1,2 -1,1 -2,0 0,1 -1,0 0,1 -1,0 0,1 -2,0 0,1 -3,0 1,0 0,2 -1,0 0,-1 -1,0 0,1 1,0 -2,2 0,1 -1,0 0,1 -1,0 0,3 -1,1 1,0 -1,1 -1,0 0,4 1,3 0,1 3,9 3,4 0,1 -1,0 0,1 1,1 0,2 -1,-2 0,-3 0,1 -1,0 0,-1 1,0 0,-1 -1,0 0,-1 0,3 1,1 0,1 3,7 1,1 0,10 -1,0 0,1 -1,1 0,2 -1,1 -5,0 0,-1 1,0 1,1 0,-1 -1,0 -1,-2 -1,-1 0,-1 -1,0 -2,-2 0,-3 -1,0 0,-1 1,-1 -1,1 0,1 -1,-1 0,-2 1,-1 -2,0 1,1 -1,0 -1,-1 -2,-3 0,-1 2,-2 0,-1 -1,0 -1,-1 0,1 1,0 -1,1 -1,0 0,-4 1,-2 0,-3 -4,-4 -3,-4 -2,-1 -3,0 0,1 -1,0 -2,1 -1,0 0,1 -3,0 0,-1 1,0 -1,-1 -1,0 -1,-2 1,0 -1,0 0,-1 1,0 -1,0 0,1 -1,0 -4,-2 2,0 -1,-1 -1,1 0,-1 -1,1 -2,0 0,-142zM0,211l0,2 1,0 -1,1 0,1 0,-4zM0,253l1,-1 2,0 1,1 1,-1 1,0 0,-1 1,0 3,1 2,0 1,-1 2,1 2,0 -1,0 2,0 3,3 -1,-1 -1,0 0,1 1,0 1,1 0,1 1,0 0,-1 1,0 0,1 0,-1 -1,0 0,-1 2,1 1,2 1,0 -1,0 0,2 0,-1 -1,0 0,1 1,0 0,4 -1,1 -1,2 0,10 -1,-1 1,-1 0,-1 -1,1 0,4 -1,0 0,2 1,0 0,2 -1,0 0,3 2,2 1,2 0,1 4,4 0,1 1,0 2,2 0,1 1,0 0,1 1,1 2,0 0,-1 -1,0 2,0 1,2 3,0 2,-1 1,-1 1,0 3,-1 1,-1 1,0 0,-1 1,0 0,-1 2,1 3,0 0,1 3,0 3,1 2,1 0,1 3,2 0,1 3,3 0,1 1,0 0,-4 -1,0 0,-1 1,0 3,-2 1,-2 1,-1 2,0 1,-1 0,-1 -1,-1 1,0 0,-3 -1,1 0,-1 2,-2 0,-1 2,-2 2,-1 3,1 1,0 -1,0 -1,1 2,0 0,-2 1,-1 0,-1 2,0 0,1 1,0 3,-1 6,-3 2,-2 0,-1 1,0 0,-1 2,0 1,-1 2,1 1,1 0,1 -2,2 -1,0 -2,1 -1,0 0,2 1,1 0,1 1,0 0,2 1,0 0,1 -2,2 0,1 -1,1 -1,2 1,1 0,1 1,1 0,1 1,1 3,0 0,-1 1,-1 0,-3 -1,-2 -1,-1 0,-2 -1,0 0,-2 1,0 0,-1 1,0 3,-2 2,0 2,-1 1,0 0,-1 2,0 0,-1 -3,0 0,-3 1,0 1,-1 0,1 1,0 0,3 1,1 6,0 1,1 2,1 0,2 1,0 -1,1 0,1 1,1 8,0 1,-1 5,0 1,1 1,2 3,0 1,1 3,0 5,-3 3,0 -1,0 -2,-1 -1,1 0,-1 9,0 2,-1 3,1 3,-1 0,1 -3,0 -1,1 -3,0 0,1 1,0 0,2 1,0 0,-1 1,2 1,1 0,-1 1,1 0,-1 2,0 0,2 1,0 0,-1 1,0 0,-1 0,1 4,2 1,0 0,2 -1,0 0,1 -1,1 0,2 -3,0 0,1 1,0 1,1 1,-1 2,0 0,-1 3,1 0,-1 2,0 2,2 1,0 1,1 2,1 3,2 1,1 -135,0 -1,-2 -1,-1 2,0 -1,-1 1,-1 1,0 0,1 1,0 0,1 1,0 -2,-2 0,-1 -1,0 0,1 0,-1 -1,0 0,1 -1,0 0,-2 -1,0 0,-1 -2,0 0,-1 -1,0 -1,-1 -2,1 -1,0 0,1 -1,0 0,1 -2,2 -1,0 -1,1 -1,0 0,1 1,0 0,1 2,2 -7,0 0,-2 -1,1 0,1 -2,0 -1,-3 -1,-1 -3,0 0,-1 -1,1 -1,0 -1,-1 -1,0 0,2 -1,-1 -1,0 0,-3 -2,0 1,1 0,1 -1,0 -2,-2 0,-1 1,0 -1,-1 0,-1 -1,-1 -2,-1 -1,-1 -2,0 -1,-1 0,-2 -2,-1 -1,-1 -1,0 0,1 1,0 1,1 1,0 0,1 -1,1 -1,0 0,1 0,-1 -1,-1 -2,-1 -1,0 -1,-1 0,-2 1,-1 0,-2 -1,0 0,-1 1,0 0,-1 -5,-5 -2,-1 0,-2 -1,0 0,-25zM7,248l-1,0 1,-1zM98,222l1,0 -2,0 -1,-1 1,0z" fill="#c8b88a" fill-opacity=".45" stroke="currentColor" stroke-opacity=".35" stroke-width=".6"/>
+<path d="M200,161l-1,-3 -5,-5 -5,-2 -5,-1 -6,-1 -12,0 -6,1 -5,1 -5,2 -5,5 -1,3 1,3 2,3 3,2 5,2 5,1 12,2 12,-2 5,-1 5,-2 3,-2 2,-3 1,-3" fill="#c9a227" fill-opacity=".18" stroke="#9a7412" stroke-width="1.5" stroke-dasharray="5 4"/>
+<path d="M553,86l-16,13 -29,45 -14,15 -11,1 -40,-2 -40,-1 -39,1 -40,3 -45,1 -46,2 -44,5 -45,8 -57,14" fill="none" stroke="#b3261e" stroke-width="2.5" marker-end="url(#m1492-flecha0)" stroke-linecap="round"/>
+<path d="M86,193l-5,13 -3,7 9,6 8,3 6,1" fill="none" stroke="#b3261e" stroke-width="2.5" stroke-linecap="round"/>
+<path d="M102,223l19,4 30,-39 30,-31 33,-32 53,-22 57,-17 51,-2 50,2 36,-8 36,-7 38,1" fill="none" stroke="#1d3f8a" stroke-width="2.5" stroke-dasharray="7 5" marker-end="url(#m1492-flecha2)" stroke-linecap="round"/>
+<path d="M536,74l1,12 15,0" fill="none" stroke="#1d3f8a" stroke-width="2.5" stroke-dasharray="7 5" stroke-linecap="round"/>
+<text x="310.4" y="232.8" font-size="14" fill="currentColor" fill-opacity=".55" text-anchor="middle" font-style="italic" letter-spacing="1">Océano Atlántico</text>
+<text x="296.5" y="119.4" font-size="11" fill="currentColor" fill-opacity=".55" text-anchor="middle" font-style="italic">Mar de los Sargazos</text>
+<text x="556.0" y="172.9" font-size="11" fill="currentColor" fill-opacity=".55" text-anchor="middle" font-style="italic" letter-spacing="3">ÁFRICA</text>
+<text x="571.2" y="58.0" font-size="10" fill="currentColor" fill-opacity=".55" text-anchor="middle" font-style="italic" letter-spacing="2">EUROPA</text>
+<text x="106.3" y="147.0" font-size="11" fill="currentColor" fill-opacity=".55" text-anchor="middle" font-style="italic">Japón, según Colón</text>
+<text x="36.4" y="93.3" font-size="10" fill="currentColor" fill-opacity=".55" text-anchor="middle" font-style="italic" letter-spacing="2">AMÉRICA</text>
+<circle cx="553.3" cy="85.2" r="4.5" fill="#b3261e" stroke="#fff" stroke-width="1"/>
+<text x="560.3" y="89.2" font-size="12" fill="currentColor" text-anchor="start" font-weight="bold">Palos</text>
+<circle cx="537.7" cy="72.2" r="4.5" fill="#1d3f8a" stroke="#fff" stroke-width="1"/>
+<text x="530.7" y="65.2" font-size="12" fill="currentColor" text-anchor="end">Lisboa</text>
+<circle cx="482.6" cy="160.5" r="4.5" fill="#b3261e" stroke="#fff" stroke-width="1"/>
+<text x="482.6" y="178.5" font-size="12" fill="currentColor" text-anchor="middle">La Gomera</text>
+<circle cx="427.3" cy="87.5" r="4.5" fill="#1d3f8a" stroke="#fff" stroke-width="1"/>
+<text x="427.3" y="78.5" font-size="12" fill="currentColor" text-anchor="middle">Azores</text>
+<circle cx="85.6" cy="191.6" r="4.5" fill="#b3261e" stroke="#fff" stroke-width="1"/>
+<text x="78.6" y="184.6" font-size="12" fill="currentColor" text-anchor="end" font-weight="bold">Guanahaní</text>
+<circle cx="77.5" cy="213.9" r="4.5" fill="#b3261e" stroke="#fff" stroke-width="1"/>
+<text x="73.5" y="229.9" font-size="12" fill="currentColor" text-anchor="end">Cuba</text>
+<circle cx="101.5" cy="223.7" r="4.5" fill="#b3261e" stroke="#fff" stroke-width="1"/>
+<text x="107.5" y="239.7" font-size="12" fill="currentColor" text-anchor="start">La Navidad</text>
+</g></svg>
+<div class="leyenda"><span style="--c:#b3261e">Ida (agosto–octubre de 1492)</span><span style="--c:#1d3f8a">Vuelta (enero–marzo de 1493)</span><span style="--c:#c9a227">Donde Colón creía que estaba Japón</span></div>
+<figcaption>El primer viaje de Colón, con costas reales. La ruta es aproximada: sabemos por dónde fue gracias a su diario.</figcaption>
+</figure>
+<p>Pasaban los días y no aparecía tierra. Hubo varias falsas alarmas: el 25 de septiembre, Martín Alonso Pinzón gritó que veía tierra, y todos se arrodillaron a dar gracias... pero eran nubes. El 7 de octubre, siguiendo a bandadas de pájaros, cambiaron el rumbo hacia el suroeste. El 10 de octubre, tras más de un mes sin ver costa, la tripulación estalló. Colón escribió: «Aquí la gente ya no lo podía sufrir; quejábase del largo viaje». Consiguió calmarlos, según algunas versiones prometiendo que volverían si no encontraban tierra en pocos días.</p>
+<p>El 11 de octubre aparecieron señales claras: un palo tallado por manos humanas y una rama con flores flotando en el agua. Esa noche, hacia las diez, Colón creyó ver una luz a lo lejos, «como una candelilla de cera que se alzaba y levantaba». A las dos de la madrugada del <b>12 de octubre</b>, el vigía de la Pinta, <b>Rodrigo de Triana</b>, vio a la luz de la luna una costa blanca y gritó: «¡Tierra, tierra!». Esta vez era verdad.</p>
+<div class="sabias"><b>¿Sabías que...?</b> Los reyes habían prometido una recompensa de 10.000 maravedís al año, de por vida, al primero que viera tierra. No se la llevó Rodrigo de Triana, sino Colón, que alegó que él había visto la luz horas antes. Según un cronista de la época, Rodrigo, amargado, acabó marchándose a África y haciéndose musulmán. No sabemos si es cierto.</div>
+<p>Aquella mañana desembarcaron en una pequeña isla de las Bahamas que sus habitantes llamaban <b>Guanahaní</b>. Colón bajó a tierra con el estandarte real y dos banderas con una cruz verde y las iniciales de los reyes, la F y la Y, tomó posesión de la isla en nombre de Castilla y la bautizó como <b>San Salvador</b>.</p>
+<div class="fondo"><b>Para entenderlo mejor: ¿qué isla era?</b>
+No sabemos con seguridad cuál de las islas de las Bahamas es Guanahaní. Los investigadores han propuesto al menos diez candidatas comparando las descripciones del diario de Colón con la geografía real. La más aceptada, la antigua isla Watling, fue rebautizada oficialmente como San Salvador en 1925. Pero el debate sigue abierto.</div>
+<p>Allí vivían los <b>lucayos</b>, un pueblo de la gran familia de los <b>taínos</b>, que habitaban las Bahamas y las grandes islas del Caribe. Colón los llamó «indios», porque estaba convencido de haber llegado a las Indias, es decir, a Asia. El nombre, fruto de un error, se ha quedado para siempre.</p>
+<p>Su diario muestra una mezcla inquietante de admiración y ambición. Describe a los lucayos como gente «muy bien hecha, de muy hermosos cuerpos y muy buenas caras», pacífica y generosa, que no conocía las armas de hierro: cuando les enseñó las espadas, «las tomaban por el filo y se cortaban con ignorancia». Pero enseguida añade: «Ellos deben ser buenos servidores». Y dos días después escribe que con cincuenta hombres se podría someterlos a todos. Era un anuncio de lo que vendría.</p>
+<div class="idea"><b>Idea clave:</b> tras 33 días en alta mar sin ver tierra, el 12 de octubre de 1492 la expedición llegó a Guanahaní, en las Bahamas. Colón creyó haber llegado a Asia, y por eso llamó «indios» a sus habitantes.</div>
+
+<h2 id="c10"><small>Capítulo 10</small>Un mundo desconocido</h2>
+<p>Colón recorrió varias islas de las Bahamas preguntando por el oro y por el gran emperador de China, el Gran Kan. Los lucayos le hablaron, por señas, de una isla enorme al sur. El 28 de octubre llegó a <b>Cuba</b>. Quedó deslumbrado: «Nunca tan hermosa cosa vido», escribió. Convencido de que Cuba era parte del continente asiático, envió tierra adentro a dos hombres, entre ellos el intérprete Luis de Torres, a buscar al Gran Kan con cartas de los reyes.</p>
+<p>No encontraron ningún emperador, sino aldeas de casas de madera y palma. Pero volvieron con una novedad: habían visto a hombres y mujeres que llevaban en la mano unos tizones de hierbas enrolladas, encendidos por un extremo, y aspiraban su humo. Eran los primeros europeos en ver fumar <b>tabaco</b>.</p>
+<div class="sabias"><b>¿Sabías que...?</b> Otra cosa llamó mucho la atención de los españoles: los taínos dormían en unas redes de algodón colgadas entre dos postes, que llamaban <b>hamacas</b>. A los marineros, que dormían en el suelo de la cubierta, les pareció una idea excelente. En pocos años, las hamacas se convirtieron en las camas de los marineros de todo el mundo, y lo siguieron siendo durante más de tres siglos.</div>
+<figure>
+<svg viewBox="0 0 600 200" role="img" aria-label="Diez palabras del español que vienen de la lengua de los taínos">
+  <g fill="#3f7d5a" fill-opacity=".12" stroke="#3f7d5a" stroke-opacity=".5">
+    <rect x="4" y="6" width="110" height="84" rx="8"/><rect x="122" y="6" width="110" height="84" rx="8"/><rect x="240" y="6" width="110" height="84" rx="8"/><rect x="358" y="6" width="110" height="84" rx="8"/><rect x="476" y="6" width="110" height="84" rx="8"/>
+    <rect x="4" y="104" width="110" height="84" rx="8"/><rect x="122" y="104" width="110" height="84" rx="8"/><rect x="240" y="104" width="110" height="84" rx="8"/><rect x="358" y="104" width="110" height="84" rx="8"/><rect x="476" y="104" width="110" height="84" rx="8"/>
+  </g>
+  <g font-size="16" font-weight="bold" fill="currentColor" text-anchor="middle">
+    <text x="59" y="36">hamaca</text><text x="177" y="36">canoa</text><text x="295" y="36">huracán</text><text x="413" y="36">barbacoa</text><text x="531" y="36">maíz</text>
+    <text x="59" y="134">cacique</text><text x="177" y="134">sabana</text><text x="295" y="134">iguana</text><text x="413" y="134">batata</text><text x="531" y="134">caníbal</text>
+  </g>
+  <g font-size="11.5" fill="currentColor" text-anchor="middle">
+    <text x="59" y="58">cama de red</text><text x="59" y="74">colgante</text>
+    <text x="177" y="58">barca hecha con</text><text x="177" y="74">un solo tronco</text>
+    <text x="295" y="58">gran tormenta;</text><text x="295" y="74">era un dios taíno</text>
+    <text x="413" y="58">armazón de palos</text><text x="413" y="74">para asar o secar</text>
+    <text x="531" y="58">el cereal de</text><text x="531" y="74">América</text>
+    <text x="59" y="156">jefe de un</text><text x="59" y="172">pueblo</text>
+    <text x="177" y="156">llanura sin</text><text x="177" y="172">árboles</text>
+    <text x="295" y="156">un gran lagarto</text><text x="295" y="172">de las islas</text>
+    <text x="413" y="156">un tubérculo,</text><text x="413" y="172">el boniato</text>
+    <text x="531" y="156">viene de «caribe»,</text><text x="531" y="172">un pueblo temido</text>
+  </g>
+</svg>
+<figcaption>Diez palabras que el español tomó de la lengua de los taínos. Desde el español, varias pasaron a casi todos los idiomas del mundo.</figcaption>
+</figure>
+<div class="sabias"><b>¿Sabías que...?</b> <b>Canoa</b> fue la primera palabra americana que entró en un diccionario de la lengua castellana: el del gramático Antonio de Nebrija, publicado pocos años después del viaje.</div>
+<p>El 21 de noviembre, Martín Alonso Pinzón se separó con la Pinta sin permiso de Colón, probablemente para buscar oro por su cuenta. Colón siguió con las otras dos naves y el 6 de diciembre llegó a una gran isla montañosa que le recordó a Castilla. La llamó <b>La Española</b>; hoy la comparten Haití y la República Dominicana. Allí lo recibió amistosamente un cacique llamado <b>Guacanagarí</b>, y los españoles vieron por fin oro: pequeñas piezas que los taínos llevaban como adorno y cambiaban con gusto por cascabeles y cuentas de vidrio.</p>
+<p>En la noche del 24 al 25 de diciembre, mientras Colón dormía, el timonel de la Santa María dejó el timón en manos de un grumete, algo que estaba prohibido. Las corrientes arrastraron suavemente el barco contra un arrecife, donde quedó encallado sin remedio. La gente de Guacanagarí ayudó a descargarlo todo con sus canoas, y Colón anotó con asombro que no se perdió «ni una agujeta», es decir, ni la punta de un cordón.</p>
+<p>Como no cabían todos en la pequeña Niña, Colón decidió dejar allí a 39 hombres, en un fuerte construido con la madera de la Santa María. Lo llamó <b>La Navidad</b>, por la fecha del naufragio. Fue el primer asentamiento europeo en América desde los vikingos. Cuando Colón volvió, un año después, lo encontró quemado y a todos sus hombres muertos: se habían peleado entre ellos y habían abusado de los taínos, hasta que un cacique de la zona acabó con ellos.</p>
+<div class="idea"><b>Idea clave:</b> Colón exploró Cuba y La Española creyendo que estaba en Asia. Los europeos descubrieron el tabaco, las hamacas y las canoas, y el español empezó a llenarse de palabras taínas. En La Española dejó el primer asentamiento europeo, La Navidad.</div>
+
+<h2 id="c11"><small>Capítulo 11</small>El regreso y la noticia</h2>
+<p>El 6 de enero de 1493 reapareció la Pinta, y las dos carabelas emprendieron juntas el regreso el 16 de enero. Colón sabía que no podía volver por el mismo camino, contra los alisios, y subió hacia el norte en busca de vientos del oeste. Otra vez acertó.</p>
+<p>A mediados de febrero, cerca de las islas Azores, les sorprendió una tormenta terrible que separó las dos naves. Convencido de que iba a morir, Colón escribió un relato del viaje en un pergamino, lo envolvió en un paño encerado, lo metió en un barril y lo arrojó al mar, con la esperanza de que alguien lo encontrara si la Niña se hundía. Nunca se encontró.</p>
+<div class="sabias"><b>¿Sabías que...?</b> Durante la tormenta, los marineros de la Niña prometieron hacer peregrinaciones si se salvaban, y echaron a suertes quién iría con garbanzos metidos en un gorro: uno de ellos estaba marcado con una cruz. A Colón le tocó dos veces. Al llegar a las Azores, la mitad de la tripulación fue a cumplir su promesa y a rezar en una ermita, descalzos y en camisa... y las autoridades portuguesas los detuvieron a todos. Tardaron días en soltarlos.</div>
+<p>Otra tormenta empujó a la Niña hasta <b>Lisboa</b>, el 4 de marzo. Allí Colón fue recibido por el rey Juan II, el mismo que había rechazado su proyecto. Según un cronista portugués, algunos cortesanos le propusieron al rey matarlo en secreto para quedarse con el descubrimiento; el rey no quiso. Finalmente, el <b>15 de marzo de 1493</b>, la Niña entró en el puerto de Palos. La Pinta llegó ese mismo día, horas más tarde. Martín Alonso Pinzón, enfermo, murió pocos días después.</p>
+<p>En abril, los reyes recibieron a Colón en Barcelona con todos los honores. Desfiló ante la corte con varios taínos, loros de colores, adornos de oro y plantas nunca vistas. Mientras tanto, una carta suya contando el viaje se imprimió en Barcelona y, en pocos meses, en Roma, Basilea, París y Amberes. Gracias a la imprenta, la noticia recorrió Europa a una velocidad nunca vista.</p>
+<figure>
+<svg viewBox="0 0 600 250" role="img" aria-label="Los cuatro viajes de Colón y lo que encontró en cada uno">
+  <g fill="#1d3f8a" fill-opacity=".1" stroke="#1d3f8a" stroke-opacity=".5">
+    <rect x="6" y="10" width="138" height="200" rx="8"/><rect x="154" y="10" width="138" height="200" rx="8"/><rect x="302" y="10" width="138" height="200" rx="8"/><rect x="450" y="10" width="138" height="200" rx="8"/>
+  </g>
+  <g font-size="13" fill="#b3261e" text-anchor="middle" font-weight="bold" letter-spacing="1"><text x="75" y="34">1.er VIAJE</text><text x="223" y="34">2.º VIAJE</text><text x="371" y="34">3.er VIAJE</text><text x="519" y="34">4.º VIAJE</text></g>
+  <g font-size="15" fill="currentColor" text-anchor="middle" font-weight="bold"><text x="75" y="58">1492–1493</text><text x="223" y="58">1493–1496</text><text x="371" y="58">1498–1500</text><text x="519" y="58">1502–1504</text></g>
+  <g font-size="12.5" fill="currentColor" text-anchor="middle" fill-opacity=".8"><text x="75" y="80">3 barcos</text><text x="223" y="80">17 barcos</text><text x="371" y="80">6 barcos</text><text x="519" y="80">4 barcos</text></g>
+  <g font-size="12.5" fill="currentColor" text-anchor="middle">
+    <text x="75" y="110">Bahamas,</text><text x="75" y="127">Cuba y</text><text x="75" y="144">La Española</text>
+    <text x="223" y="110">Antillas Menores,</text><text x="223" y="127">Puerto Rico</text><text x="223" y="144">y Jamaica</text>
+    <text x="371" y="110">Trinidad y la costa</text><text x="371" y="127">de Venezuela:</text><text x="371" y="144">¡un continente!</text>
+    <text x="519" y="110">La costa de</text><text x="519" y="127">América Central,</text><text x="519" y="144">de Honduras</text><text x="519" y="161">a Panamá</text>
+  </g>
+  <g font-size="11.5" fill="currentColor" text-anchor="middle" font-style="italic" fill-opacity=".75">
+    <text x="75" y="190">Naufraga la Santa María</text>
+    <text x="223" y="190">Funda La Isabela</text>
+    <text x="371" y="190">Vuelve preso</text>
+    <text x="519" y="190">Varado un año en Jamaica</text>
+  </g>
+  <text x="300" y="236" font-size="12" fill="currentColor" text-anchor="middle">Colón murió en 1506, sin admitir nunca del todo que aquello no era Asia.</text>
+</svg>
+<figcaption>Los cuatro viajes de Colón. En el tercero pisó por primera vez el continente americano.</figcaption>
+</figure>
+<p>Colón hizo tres viajes más. Pero fue mucho mejor navegante que gobernante: como virrey de La Española fue tan duro y desorganizado que los propios colonos se rebelaron, y en 1500 un enviado de los reyes lo mandó de vuelta a España encadenado. Recuperó la libertad, pero no sus cargos. Murió en <b>Valladolid</b> en 1506, rico pero amargado, sin admitir nunca del todo que aquellas tierras no eran Asia.</p>
+<div class="sabias"><b>¿Sabías que...?</b> En su cuarto viaje, Colón quedó atrapado un año en Jamaica con sus barcos destrozados. Cuando los taínos de la isla dejaron de darles comida, Colón, que sabía por sus tablas astronómicas que el 29 de febrero de 1504 habría un eclipse de Luna, les anunció que su Dios los castigaría borrando la Luna del cielo. Cuando la Luna se oscureció, los taínos, aterrados, volvieron a traerles alimentos.</div>
+<div class="sabias"><b>¿Sabías que...?</b> Los restos de Colón viajaron casi tanto como él: de Valladolid a Sevilla, de allí a Santo Domingo, luego a La Habana y, en 1898, de vuelta a Sevilla. Santo Domingo asegura que los verdaderos restos nunca salieron de allí. En 2006, un análisis de ADN confirmó que al menos parte de los huesos de la catedral de Sevilla son de Colón. Y el nuevo continente no recibió su nombre, sino el de otro navegante, <b>Américo Vespucio</b>, que defendió que se trataba de un «nuevo mundo»: así lo bautizó un cartógrafo alemán en un mapa de 1507.</div>
+<div class="idea"><b>Idea clave:</b> Colón volvió en marzo de 1493 y la imprenta difundió la noticia por toda Europa. Hizo cuatro viajes, pero murió en 1506 convencido de haber llegado a Asia, y el continente acabó llevando el nombre de Américo Vespucio.</div>
+
+<h2 id="c12"><small>Capítulo 12</small>El gran intercambio</h2>
+<p>El viaje de Colón unió dos mitades del planeta que habían evolucionado separadas durante miles de años. Plantas, animales, personas, ideas y enfermedades empezaron a cruzar el océano en las dos direcciones. Los historiadores llaman a este proceso el <b>intercambio colombino</b>, y algunos biólogos lo consideran uno de los mayores cambios en la historia de la vida en la Tierra desde la extinción de los dinosaurios.</p>
+<figure>
+<svg viewBox="0 0 600 330" role="img" aria-label="El intercambio colombino: lo que viajó de América al resto del mundo y del resto del mundo a América">
+  <defs>
+    <marker id="ic1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="#3f7d5a"/></marker>
+    <marker id="ic2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="#9a7412"/></marker>
+  </defs>
+  <rect x="6" y="10" width="236" height="232" rx="10" fill="#3f7d5a" fill-opacity=".1" stroke="#3f7d5a" stroke-opacity=".5"/>
+  <rect x="358" y="10" width="236" height="232" rx="10" fill="#9a7412" fill-opacity=".1" stroke="#9a7412" stroke-opacity=".5"/>
+  <g font-size="14" font-weight="bold" fill="currentColor" text-anchor="middle"><text x="124" y="36">De América</text><text x="476" y="36">De Europa, África y Asia</text></g>
+  <g font-size="13" fill="currentColor" text-anchor="middle">
+    <text x="124" y="64">maíz · patata · tomate</text><text x="124" y="86">cacao · tabaco · vainilla</text><text x="124" y="108">pimiento y guindilla</text><text x="124" y="130">judías · calabaza</text><text x="124" y="152">cacahuete · girasol</text><text x="124" y="174">aguacate · piña</text><text x="124" y="196">pavo · caucho</text><text x="124" y="222" font-style="italic">plata y oro</text>
+    <text x="476" y="64">trigo · arroz · cebada</text><text x="476" y="86">caña de azúcar · café</text><text x="476" y="108">plátano · naranja</text><text x="476" y="130">vid · olivo</text><text x="476" y="152">caballo · vaca · cerdo</text><text x="476" y="174">oveja · gallina</text><text x="476" y="196">hierro · rueda de carro</text><text x="476" y="222" font-style="italic">esclavos africanos</text>
+  </g>
+  <path d="M250,90 L350,90" stroke="#3f7d5a" stroke-width="4" marker-end="url(#ic1)"/>
+  <path d="M350,160 L250,160" stroke="#9a7412" stroke-width="4" marker-end="url(#ic2)"/>
+  <rect x="120" y="258" width="360" height="62" rx="10" fill="#b3261e" fill-opacity=".12" stroke="#b3261e" stroke-opacity=".6"/>
+  <text x="300" y="283" font-size="14" font-weight="bold" fill="currentColor" text-anchor="middle">Y también enfermedades</text>
+  <text x="300" y="305" font-size="13" fill="currentColor" text-anchor="middle">viruela, sarampión, gripe, tifus...</text>
+</svg>
+<figcaption>El intercambio colombino. Muchos de estos productos tardaron décadas o siglos en extenderse, pero todos empezaron a viajar a partir de 1492.</figcaption>
+</figure>
+<p>Piensa en tu cocina. Sin 1492 no existirían la tortilla de patatas, el gazpacho con tomate, el chocolate, las patatas fritas ni el pimentón. La comida italiana no tendría salsa de tomate, ni la india o la tailandesa guindilla picante. Y en América no habría café, ni carne de vaca, ni pan de trigo, ni caballos.</p>
+<div class="sabias"><b>¿Sabías que...?</b> La primera receta italiana de salsa de tomate, publicada en Nápoles en 1692, se llamaba «salsa de tomate a la española». Y los caballos ya habían vivido en América, pero se extinguieron allí hace unos 10.000 años. Los que llevaron los españoles transformaron la vida de muchos pueblos: los comanches o los sioux, que hoy imaginamos siempre a caballo, no los conocieron hasta los siglos XVII y XVIII.</div>
+<p>La <b>patata</b>, fácil de cultivar y muy nutritiva, permitió alimentar a muchos más europeos y ayudó a que la población de Europa creciera durante los siglos siguientes. Tanto, que algunos países llegaron a depender peligrosamente de ella: cuando una plaga arruinó las cosechas de patata en 1845, Irlanda sufrió una hambruna terrible, como se cuenta en el libro <a href="../restauracion-y-revoluciones/libro.html#c9"><i>Restauración y revoluciones</i></a>.</p>
+<h3>La cara más oscura</h3>
+<p>Para los pueblos de América, la llegada de los europeos fue una catástrofe. Los indígenas no tenían ninguna defensa contra enfermedades como la <b>viruela</b> o el sarampión, que en Europa, Asia y África circulaban desde hacía siglos. Las epidemias, junto con las guerras, el trabajo forzado y el hundimiento de sus sociedades, provocaron un desplome demográfico gigantesco. Muchos historiadores calculan que en el siglo siguiente a 1492 murió cerca del 90 % de la población indígena de América. En La Española, donde quizá vivían cientos de miles de taínos en 1492, en 1514 quedaban menos de 30.000.</p>
+<p>Para sustituir a esa mano de obra, los europeos llevaron a América a millones de africanos esclavizados. La trata atlántica de esclavos, que duró hasta el siglo XIX, fue otra de las consecuencias de aquel encuentro.</p>
+<div class="fondo"><b>Para entenderlo mejor: ¿descubrimiento o encuentro?</b>
+Durante siglos se habló del «descubrimiento de América». Pero América ya había sido descubierta hacía más de 15.000 años por los pueblos que llegaron desde Asia y la poblaron de norte a sur. Incluso otros europeos llegaron antes que Colón: hacia el año 1000, los vikingos de Leif Erikson fundaron un pequeño poblado en Terranova, en Canadá, que abandonaron poco después. Por eso hoy muchos prefieren hablar del «encuentro entre dos mundos». Lo que sí hizo el viaje de Colón fue conectar ambos lados del océano de forma permanente. Desde entonces, la historia de la humanidad es, por primera vez, una historia de todo el planeta.</div>
+<div class="sabias"><b>¿Sabías que...?</b> El 12 de octubre es hoy la Fiesta Nacional de España. En muchos países de América se celebra con otros nombres, que reflejan otras miradas sobre lo ocurrido: en Venezuela es el Día de la Resistencia Indígena, y en Argentina, el Día del Respeto a la Diversidad Cultural.</div>
+<div class="idea"><b>Idea clave:</b> el viaje de Colón puso en contacto dos mundos separados durante milenios. Las plantas y animales que cruzaron el océano cambiaron la alimentación de todo el planeta, pero las enfermedades y la conquista causaron una catástrofe para los pueblos indígenas de América.</div>
+
+<h2 id="c13"><small>Capítulo 13</small>Fechas clave y resumen</h2>
+<dl class="fechas">
+  <dt>711</dt><dd>Los musulmanes llegan a la península ibérica.</dd>
+  <dt>1238</dt><dd>Comienza el reino nazarí de Granada.</dd>
+  <dt>19 de octubre de 1469</dt><dd>Boda de Isabel y Fernando en Valladolid.</dd>
+  <dt>1478</dt><dd>Se crea la Inquisición.</dd>
+  <dt>1479</dt><dd>Fin de la guerra de sucesión; Fernando, rey de Aragón.</dd>
+  <dt>1482–1492</dt><dd>Guerra de Granada.</dd>
+  <dt>2 de enero de 1492</dt><dd>Boabdil entrega Granada.</dd>
+  <dt>31 de marzo de 1492</dt><dd>Edicto de expulsión de los judíos.</dd>
+  <dt>17 de abril de 1492</dt><dd>Capitulaciones de Santa Fe.</dd>
+  <dt>3 de agosto de 1492</dt><dd>Colón zarpa de Palos.</dd>
+  <dt>12 de octubre de 1492</dt><dd>Llegada a Guanahaní.</dd>
+  <dt>25 de diciembre de 1492</dt><dd>Naufragio de la Santa María; se funda La Navidad.</dd>
+  <dt>15 de marzo de 1493</dt><dd>Colón regresa a Palos.</dd>
+  <dt>1494</dt><dd>Tratado de Tordesillas: Castilla y Portugal se reparten el océano.</dd>
+  <dt>1506</dt><dd>Muere Colón en Valladolid.</dd>
+</dl>
+<p><b>Resumen en seis frases</b></p>
+<ol>
+  <li>El matrimonio de Isabel y Fernando unió las coronas de Castilla y Aragón, aunque cada reino conservó sus leyes.</li>
+  <li>Tras diez años de guerra, el 2 de enero de 1492 cayó Granada, el último reino musulmán de la península.</li>
+  <li>Ese mismo año, los judíos tuvieron que elegir entre el bautismo o el exilio; los que se marcharon, los sefardíes, conservaron durante siglos su lengua.</li>
+  <li>Colón, convencido por un error de cálculo de que Asia estaba cerca, consiguió el apoyo de los reyes y zarpó de Palos el 3 de agosto.</li>
+  <li>El 12 de octubre llegó a las Bahamas, y después a Cuba y La Española, creyendo que estaba en Asia.</li>
+  <li>Su viaje conectó para siempre los dos lados del Atlántico, con enormes consecuencias para la alimentación, las lenguas y la vida de todo el planeta, y con una catástrofe para los pueblos indígenas.</li>
+</ol>
+<p><i>Para pensar:</i> Colón llegó a América gracias a un error de cálculo, y los expertos que lo contradecían tenían razón. ¿Conoces otros casos en los que alguien acertó por motivos equivocados? ¿Qué nos enseña eso sobre la suerte y la ciencia?</p>
+
+</main>
+<script>if ('serviceWorker' in navigator) navigator.serviceWorker.register('../../sw.js').catch(() => {});</script>
+</body>
+</html>

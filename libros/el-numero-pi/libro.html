@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>El número π</title>
+<script type="application/json" id="metadatos">
+{
+  "id": "el-numero-pi",
+  "titulo": "El número π",
+  "subtitulo": "La historia de 4.000 años de un número que nunca termina",
+  "tema": "Matemáticas",
+  "etiquetas": ["pi", "círculo", "Arquímedes", "geometría", "números irracionales", "historia de las matemáticas"],
+  "nivel": "Intermedio",
+  "minutos_lectura": 25,
+  "portada": "portada.svg",
+  "resumen": "Qué es π, por qué aparece en todos los círculos, cómo lo calcularon babilonios, egipcios, Arquímedes y los matemáticos chinos e indios, por qué no se acaba nunca y para qué sirve hoy. Con dibujos, cálculos paso a paso y muchas curiosidades.",
+  "fecha": "2026-09-27"
+}
+</script>
+<style>
+  :root {
+    --papel: #f7f8f4; --tinta: #23262a; --suave: #5f666d; --acento: #0f6b5c; --rojo: #c0392b; --oro: #9a6b12; --caja: #e9f2ef; --caja2: #f5eedc; --linea: #dfe3dc;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --papel: #191b1c; --tinta: #e6e9e4; --suave: #a6ada8; --acento: #5fd1bb; --rojo: #ff8a7a; --oro: #e2c46a; --caja: #1f2b28; --caja2: #2c2819; --linea: #34393a; color-scheme: dark; }
+  }
+  :root[data-theme="dark"] { --papel: #191b1c; --tinta: #e6e9e4; --suave: #a6ada8; --acento: #5fd1bb; --rojo: #ff8a7a; --oro: #e2c46a; --caja: #1f2b28; --caja2: #2c2819; --linea: #34393a; color-scheme: dark; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--papel); color: var(--tinta); font: 19px/1.7 Georgia, "Times New Roman", serif; }
+  main { max-width: 680px; margin: 0 auto; padding: 32px 16px 80px; }
+  .portada { display: block; width: min(320px, 80%); margin: 8px auto 32px; border-radius: 6px; box-shadow: 0 10px 30px rgba(0,0,0,.25); }
+  h1 { font-size: 2.1em; line-height: 1.15; margin: 0 0 4px; text-align: center; }
+  .sub { text-align: center; color: var(--suave); font-style: italic; margin: 0 0 40px; }
+  h2 { font-size: 1.4em; margin: 56px 0 8px; padding-top: 16px; border-top: 1px solid var(--linea); text-wrap: balance; }
+  h2 small { display: block; font-size: .6em; color: var(--acento); letter-spacing: .15em; text-transform: uppercase; font-weight: normal; }
+  h3 { font-size: 1.1em; margin: 32px 0 4px; }
+  figure { margin: 28px 0; text-align: center; }
+  figure svg { width: 100%; height: auto; max-width: 600px; }
+  figcaption { font-size: .8em; color: var(--suave); margin-top: 6px; }
+  .idea { background: var(--caja); border-left: 4px solid var(--acento); padding: 14px 18px; border-radius: 4px; margin: 24px 0; }
+  .idea b { color: var(--acento); }
+  .sabias { background: var(--caja2); padding: 12px 18px; border-radius: 6px; margin: 24px 0; font-size: .92em; }
+  .sabias > b:first-child { display: block; color: var(--oro); letter-spacing: .1em; text-transform: uppercase; font-size: .8em; }
+  .fondo { border: 1px solid var(--linea); padding: 12px 18px; border-radius: 6px; margin: 24px 0; font-size: .92em; }
+  .fondo > b:first-child { display: block; color: var(--rojo); letter-spacing: .1em; text-transform: uppercase; font-size: .8em; }
+  .formula { text-align: center; font-size: 1.15em; margin: 18px 0; }
+  .tabla { overflow-x: auto; margin: 20px 0; }
+  table { border-collapse: collapse; width: 100%; font-size: .85em; font-variant-numeric: tabular-nums; }
+  th, td { border-bottom: 1px solid var(--linea); padding: 6px 8px; text-align: left; }
+  th { color: var(--acento); font-weight: normal; letter-spacing: .05em; }
+  .cifras { font-family: "Courier New", monospace; font-size: .8em; word-break: break-all; background: var(--caja); padding: 12px; border-radius: 6px; line-height: 1.5; }
+  ul, ol { padding-left: 1.2em; }
+  .indice { background: var(--caja); padding: 12px 20px; border-radius: 6px; font-size: .9em; }
+  .indice ol { margin: 6px 0; }
+  a { color: var(--acento); }
+  blockquote { margin: 20px 0; padding: 0 20px; font-style: italic; border-left: 3px solid var(--linea); color: var(--suave); }
+  .volver { display: inline-block; margin: 0 0 16px; font: 15px/1.4 system-ui, sans-serif; color: var(--acento); text-decoration: none; }
+  .volver:hover { text-decoration: underline; }
+</style>
+<meta name="description" content="Qué es π, por qué aparece en todos los círculos, cómo lo calcularon babilonios, egipcios, Arquímedes y los matemáticos chinos e indios, por qué no se acaba nunca y para qué sirve hoy. Con dibujos, cálculos paso a paso y muchas curiosidades.">
+<meta name="theme-color" content="#f7f8f4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#191b1c" media="(prefers-color-scheme: dark)">
+<link rel="manifest" href="../../manifest.webmanifest">
+<link rel="icon" href="../../icono.svg" type="image/svg+xml">
+<link rel="icon" href="../../icono-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<meta name="apple-mobile-web-app-title" content="Biblioteca">
+</head>
+<body>
+<main>
+<a class="volver" href="../../index.html">← Biblioteca</a>
+
+<img class="portada" src="portada.svg" alt="Portada: El número π">
+<h1>El número π</h1>
+<p class="sub">La historia de 4.000 años de un número que nunca termina</p>
+
+<nav class="indice">
+  <b>En este libro</b>
+  <ol>
+    <li><a href="#c1">Un número escondido en todos los círculos</a></li>
+    <li><a href="#c2">Del perímetro al área</a></li>
+    <li><a href="#c3">Babilonios, egipcios y la Biblia</a></li>
+    <li><a href="#c4">Arquímedes encierra a π</a></li>
+    <li><a href="#c5">China e India toman el relevo</a></li>
+    <li><a href="#c6">Sumas infinitas</a></li>
+    <li><a href="#c7">Un número que nunca termina ni se repite</a></li>
+    <li><a href="#c8">La carrera de los decimales</a></li>
+    <li><a href="#c9">Calcular π tirando agujas</a></li>
+    <li><a href="#c10">¿Para qué sirve π?</a></li>
+    <li><a href="#c11">π en la cultura: días, poemas y récords</a></li>
+    <li><a href="#c12">Resumen</a></li>
+  </ol>
+</nav>
+
+<h2 id="c1"><small>Capítulo 1</small>Un número escondido en todos los círculos</h2>
+<p>Coge cualquier objeto redondo: una moneda, un plato, la rueda de una bici. Mide con una cuerda lo que mide su borde (la <b>circunferencia</b>) y luego mide lo que mide de lado a lado pasando por el centro (el <b>diámetro</b>). Divide la primera medida entre la segunda. Te saldrá algo un poco mayor que 3.</p>
+<p>Lo asombroso es que da siempre lo mismo, sea el círculo del tamaño de una moneda o del tamaño de la órbita de la Tierra. Ese número, siempre igual, es <b>π</b> (se lee «pi»):</p>
+<p class="formula"><b>π = circunferencia ÷ diámetro ≈ 3,14159...</b></p>
+<figure>
+<svg viewBox="0 0 600 230" role="img" aria-label="Un círculo de diámetro 1 que rueda una vuelta completa recorre una distancia de pi, un poco más de 3 diámetros">
+  <g stroke="currentColor" stroke-opacity=".4" stroke-width="1">
+    <line x1="40" y1="190" x2="580" y2="190"/>
+  </g>
+  <circle cx="100" cy="130" r="60" fill="#0f6b5c" fill-opacity=".15" stroke="#0f6b5c" stroke-width="4"/>
+  <line x1="40" y1="130" x2="160" y2="130" stroke="#c0392b" stroke-width="3"/>
+  <text x="100" y="122" font-size="13" fill="#c0392b" text-anchor="middle">diámetro = 1</text>
+  <circle cx="100" cy="190" r="5" fill="#9a6b12"/>
+  <line x1="100" y1="190" x2="477" y2="190" stroke="#0f6b5c" stroke-width="6"/>
+  <circle cx="477" cy="190" r="5" fill="#9a6b12"/>
+  <g stroke="#c0392b" stroke-width="3">
+    <line x1="100" y1="205" x2="220" y2="205"/><line x1="220" y1="210" x2="340" y2="210"/><line x1="340" y1="205" x2="460" y2="205"/><line x1="460" y1="210" x2="477" y2="210"/>
+  </g>
+  <g font-size="13" fill="currentColor" text-anchor="middle"><text x="160" y="226">1</text><text x="280" y="226">2</text><text x="400" y="226">3</text><text x="505" y="226">0,14...</text></g>
+  <text x="290" y="175" font-size="14" fill="#0f6b5c" text-anchor="middle">una vuelta completa de la rueda = π</text>
+  <path d="M170 90 A 70 70 0 0 1 170 170" fill="none" stroke="currentColor" stroke-opacity=".4" stroke-width="2" stroke-dasharray="4 4"/>
+</svg>
+<figcaption>Si una rueda de 1 metro de diámetro da una vuelta, avanza π metros: 3 diámetros y «un poquito» más.</figcaption>
+</figure>
+<p>Ese «poquito» (0,14159...) es lo que ha traído de cabeza a los matemáticos durante 4.000 años. Por eso la fórmula de la longitud de una circunferencia es:</p>
+<p class="formula">Longitud = π × diámetro = 2 × π × radio</p>
+<div class="sabias"><b>¿Sabías que...?</b> El símbolo π viene de la primera letra de la palabra griega <i>periphéreia</i>, «el contorno». Lo usó por primera vez con este sentido el matemático galés <b>William Jones</b> en 1706, y lo popularizó el suizo <b>Leonhard Euler</b> a partir de 1737. Antes se hablaba de «la razón entre la circunferencia y el diámetro», o se escribían fracciones como 22/7.</div>
+<div class="idea"><b>Idea clave:</b> π es el número de veces que el diámetro de un círculo cabe en su contorno. Es el mismo en todos los círculos: un poco más de 3.</div>
+
+<h2 id="c2"><small>Capítulo 2</small>Del perímetro al área</h2>
+<p>π no solo sirve para medir el borde de un círculo. También aparece en su superficie. La fórmula que se aprende en el colegio es:</p>
+<p class="formula"><b>Área = π × radio²</b></p>
+<p>Pero ¿de dónde sale? Hay una forma preciosa de verlo, que ya intuían los griegos. Corta el círculo en muchos trozos, como una pizza, y colócalos alternando uno hacia arriba y otro hacia abajo.</p>
+<figure>
+<svg viewBox="0 0 600 250" role="img" aria-label="Un círculo cortado en porciones que, colocadas alternadas, forman casi un rectángulo de base pi por radio y altura radio">
+  <g transform="translate(90,120)">
+    <circle r="70" fill="#0f6b5c" fill-opacity=".12" stroke="#0f6b5c" stroke-width="2"/>
+    <g stroke="#0f6b5c" stroke-width="1.5">
+      <line x1="0" y1="0" x2="70" y2="0"/><line x1="0" y1="0" x2="49.5" y2="49.5"/><line x1="0" y1="0" x2="0" y2="70"/><line x1="0" y1="0" x2="-49.5" y2="49.5"/><line x1="0" y1="0" x2="-70" y2="0"/><line x1="0" y1="0" x2="-49.5" y2="-49.5"/><line x1="0" y1="0" x2="0" y2="-70"/><line x1="0" y1="0" x2="49.5" y2="-49.5"/>
+    </g>
+    <text x="0" y="100" font-size="13" fill="currentColor" text-anchor="middle">círculo de radio r</text>
+  </g>
+  <path d="M190 120 L230 120" stroke="currentColor" stroke-width="2"/><path d="M225 114 L233 120 L225 126" fill="none" stroke="currentColor" stroke-width="2"/>
+  <g fill="#0f6b5c" fill-opacity=".25" stroke="#0f6b5c" stroke-width="1.5">
+    <path d="M260 160 L287 90 L314 160 Q287 168 260 160 Z"/>
+    <path d="M287 90 L314 160 L341 90 Q314 82 287 90 Z" fill="#9a6b12" fill-opacity=".25" stroke="#9a6b12"/>
+    <path d="M314 160 L341 90 L368 160 Q341 168 314 160 Z"/>
+    <path d="M341 90 L368 160 L395 90 Q368 82 341 90 Z" fill="#9a6b12" fill-opacity=".25" stroke="#9a6b12"/>
+    <path d="M368 160 L395 90 L422 160 Q395 168 368 160 Z"/>
+    <path d="M395 90 L422 160 L449 90 Q422 82 395 90 Z" fill="#9a6b12" fill-opacity=".25" stroke="#9a6b12"/>
+    <path d="M422 160 L449 90 L476 160 Q449 168 422 160 Z"/>
+    <path d="M449 90 L476 160 L503 90 Q476 82 449 90 Z" fill="#9a6b12" fill-opacity=".25" stroke="#9a6b12"/>
+  </g>
+  <line x1="260" y1="185" x2="503" y2="185" stroke="#c0392b" stroke-width="2"/>
+  <text x="381" y="205" font-size="14" fill="#c0392b" text-anchor="middle">base ≈ media circunferencia = π × r</text>
+  <line x1="515" y1="90" x2="515" y2="160" stroke="#c0392b" stroke-width="2"/>
+  <text x="522" y="130" font-size="14" fill="#c0392b">altura ≈ r</text>
+  <text x="381" y="235" font-size="14" fill="currentColor" text-anchor="middle">Área ≈ base × altura = π × r × r = π × r²</text>
+</svg>
+<figcaption>Cuantos más trozos hagas, más se parece la figura a un rectángulo perfecto.</figcaption>
+</figure>
+<p>La mitad de las porciones aportan su borde curvo abajo y la otra mitad arriba, así que la base de la figura mide la mitad de la circunferencia, es decir, <b>π × r</b>. La altura es el radio, <b>r</b>. Con trozos cada vez más finos, la figura se convierte en un rectángulo de área π × r × r. Esta idea de cortar algo en infinitos trozos diminutos es la semilla del <b>cálculo integral</b>, que Newton y Leibniz desarrollarían dos mil años después.</p>
+<div class="idea"><b>Idea clave:</b> el mismo número π que mide el borde del círculo sirve para calcular su superficie: área = π × r².</div>
+
+<h2 id="c3"><small>Capítulo 3</small>Babilonios, egipcios y la Biblia</h2>
+<p>Los pueblos antiguos necesitaban π para cosas muy prácticas: construir ruedas, calcular cuánto grano cabía en un silo redondo o medir campos. No conocían el valor exacto, pero se acercaron mucho.</p>
+<ul>
+  <li><b>Babilonia</b> (hacia 1900–1600 a. C.). Una tablilla de arcilla usa un valor equivalente a <b>3 + 1/8 = 3,125</b>.</li>
+  <li><b>Egipto</b> (hacia 1650 a. C.). El <b>papiro Rhind</b>, copiado por un escriba llamado Ahmes, explica cómo calcular el área de un campo redondo: quitar al diámetro su novena parte y elevar al cuadrado el resultado. Eso equivale a usar π ≈ <b>256/81 ≈ 3,1605</b>. ¡Un error de menos del 1 %!</li>
+  <li><b>La Biblia</b>. El libro primero de los Reyes describe una enorme pila de bronce del templo de Salomón «de diez codos de un borde al otro» y «treinta codos de contorno». Eso da π = 3 exacto.</li>
+</ul>
+<div class="fondo"><b>Para entenderlo mejor: el truco egipcio</b>
+El escriba egipcio no pensaba en «π». Buscaba un cuadrado con la misma superficie que el círculo. Su receta era: si el campo mide 9 de diámetro, dibuja un cuadrado de lado 8. Área del cuadrado: 8 × 8 = 64. Área real del círculo: π × 4,5² ≈ 63,6. ¡Casi exacto! Este problema, construir un cuadrado con la misma área que un círculo, se llama la <b>cuadratura del círculo</b>, y obsesionaría a los matemáticos durante miles de años (verás cómo terminó en el capítulo 7).</div>
+<div class="idea"><b>Idea clave:</b> hace casi 4.000 años, babilonios y egipcios ya usaban valores de π con un error menor del 1 %, por pura necesidad práctica.</div>
+
+<h2 id="c4"><small>Capítulo 4</small>Arquímedes encierra a π</h2>
+<p>Hacia el año 250 a. C., en Siracusa (Sicilia), el griego <b>Arquímedes</b> hizo algo nuevo: no se conformó con un valor aproximado, sino que buscó un método para <b>demostrar</b> entre qué dos números está π, sin ninguna duda.</p>
+<p>Su idea fue genial y sencilla. Un círculo es difícil de medir, pero un polígono (una figura de lados rectos) no. Así que dibujó un hexágono <b>dentro</b> del círculo y otro <b>fuera</b>. El contorno del círculo tiene que estar entre el contorno del hexágono pequeño y el del grande.</p>
+<figure>
+<svg viewBox="0 0 600 240" role="img" aria-label="Polígonos de 6 y 12 lados dentro y fuera de un círculo, cada vez más pegados a él">
+  <g transform="translate(150,115)">
+    <polygon points="92.4,0 46.2,80 -46.2,80 -92.4,0 -46.2,-80 46.2,-80" fill="none" stroke="#c0392b" stroke-width="2.5"/>
+    <circle r="80" fill="#0f6b5c" fill-opacity=".12" stroke="#0f6b5c" stroke-width="2.5"/>
+    <polygon points="80,0 40,69.3 -40,69.3 -80,0 -40,-69.3 40,-69.3" fill="none" stroke="#9a6b12" stroke-width="2.5"/>
+    <text x="0" y="112" font-size="14" fill="currentColor" text-anchor="middle">6 lados: 3 &lt; π &lt; 3,46</text>
+  </g>
+  <g transform="translate(430,115)">
+    <polygon points="82.8,0 71.7,41.4 41.4,71.7 0,82.8 -41.4,71.7 -71.7,41.4 -82.8,0 -71.7,-41.4 -41.4,-71.7 0,-82.8 41.4,-71.7 71.7,-41.4" fill="none" stroke="#c0392b" stroke-width="2.5"/>
+    <circle r="80" fill="#0f6b5c" fill-opacity=".12" stroke="#0f6b5c" stroke-width="2.5"/>
+    <polygon points="80,0 69.3,40 40,69.3 0,80 -40,69.3 -69.3,40 -80,0 -69.3,-40 -40,-69.3 0,-80 40,-69.3 69.3,-40" fill="none" stroke="#9a6b12" stroke-width="2.5"/>
+    <text x="0" y="112" font-size="14" fill="currentColor" text-anchor="middle">12 lados: 3,10 &lt; π &lt; 3,22</text>
+  </g>
+</svg>
+<figcaption>En amarillo, el polígono de dentro (se queda corto); en rojo, el de fuera (se pasa). El círculo, en verde, queda atrapado entre los dos.</figcaption>
+</figure>
+<p>Después fue <b>duplicando</b> el número de lados: 12, 24, 48 y 96. Cuantos más lados, más se pegan los polígonos al círculo y más estrecha es la «trampa» donde queda atrapado π. Hizo todos los cálculos a mano, sin nuestros números decimales y calculando raíces cuadradas muy difíciles.</p>
+<div class="tabla"><table>
+  <tr><th>Lados</th><th>Polígono de dentro</th><th>Polígono de fuera</th></tr>
+  <tr><td>6</td><td>3,0000</td><td>3,4641</td></tr>
+  <tr><td>12</td><td>3,1058</td><td>3,2154</td></tr>
+  <tr><td>24</td><td>3,1326</td><td>3,1597</td></tr>
+  <tr><td>48</td><td>3,1394</td><td>3,1461</td></tr>
+  <tr><td>96</td><td>3,1410</td><td>3,1427</td></tr>
+</table></div>
+<p>Con 96 lados llegó a su famoso resultado:</p>
+<p class="formula"><b>3 + 10/71 &lt; π &lt; 3 + 1/7</b><br><span style="font-size:.8em">es decir, entre 3,1408 y 3,1429</span></p>
+<p>De ahí viene la fracción <b>22/7 ≈ 3,1429</b>, que todavía se usa como aproximación sencilla. Durante casi dos mil años, el método de Arquímedes fue <i>el</i> método para calcular π.</p>
+<div class="sabias"><b>¿Sabías que...?</b> Arquímedes murió en el año 212 a. C., cuando los romanos tomaron Siracusa. Según la leyenda, estaba dibujando figuras geométricas en la arena cuando un soldado romano entró en su casa. Arquímedes le dijo «¡no estropees mis círculos!», y el soldado lo mató. Probablemente es una historia adornada, pero muestra cómo le recordaban: absorto en sus problemas hasta el final.</div>
+<div class="idea"><b>Idea clave:</b> Arquímedes atrapó a π entre polígonos cada vez más parecidos al círculo. Fue la primera vez que alguien calculó π con un método que podía hacerse tan preciso como se quisiera.</div>
+
+<h2 id="c5"><small>Capítulo 5</small>China e India toman el relevo</h2>
+<p>Mientras Europa olvidaba gran parte de las matemáticas griegas, en Asia se hicieron grandes avances.</p>
+<ul>
+  <li><b>Liu Hui</b> (China, año 263) usó polígonos como Arquímedes, pero llegó a uno de 3.072 lados y obtuvo <b>3,1416</b>.</li>
+  <li><b>Zu Chongzhi</b> (China, hacia el año 480) demostró que π está entre 3,1415926 y 3,1415927. ¡Siete decimales correctos! Fue el valor más preciso del mundo durante unos 900 años. Además dio una fracción asombrosa:</li>
+</ul>
+<p class="formula"><b>355/113 = 3,1415929...</b></p>
+<p>Con números de solo tres cifras, acierta seis decimales. Un truco para recordarla: escribe los tres primeros impares repetidos, <b>11 33 55</b>, y parte la cifra por la mitad: 113 | 355. Luego pon la segunda mitad encima.</p>
+<ul>
+  <li><b>Madhava de Sangamagrama</b> (India, hacia el año 1400), fundador de la escuela de Kerala, descubrió algo revolucionario: que π se puede calcular con una <b>suma infinita</b> de fracciones. Lo vemos en el capítulo siguiente.</li>
+  <li><b>Al-Kashi</b> (Samarcanda, 1424) calculó 16 decimales usando un polígono de más de 800 millones de lados.</li>
+</ul>
+<div class="idea"><b>Idea clave:</b> durante la Edad Media, los mayores avances sobre π se hicieron en China, India y el mundo islámico.</div>
+
+<h2 id="c6"><small>Capítulo 6</small>Sumas infinitas</h2>
+<p>Madhava en India, y siglos después el alemán <b>Gottfried Leibniz</b> en 1674, encontraron una fórmula sorprendente:</p>
+<p class="formula"><b>π = 4 × (1 − 1/3 + 1/5 − 1/7 + 1/9 − 1/11 + ...)</b></p>
+<p>Se van sumando y restando las fracciones con los números impares, para siempre. ¿Cómo puede un círculo esconderse en una lista de números impares? Es uno de esos misterios que hacen de las matemáticas algo mágico. Mira lo que pasa al sumar cada vez más términos:</p>
+<div class="tabla"><table>
+  <tr><th>Términos sumados</th><th>Resultado</th></tr>
+  <tr><td>1</td><td>4,0000</td></tr>
+  <tr><td>2</td><td>2,6667</td></tr>
+  <tr><td>3</td><td>3,4667</td></tr>
+  <tr><td>10</td><td>3,0418</td></tr>
+  <tr><td>100</td><td>3,1316</td></tr>
+  <tr><td>1.000</td><td>3,1406</td></tr>
+  <tr><td>1.000.000</td><td>3,1415917</td></tr>
+</table></div>
+<figure>
+<svg viewBox="0 0 600 220" role="img" aria-label="Los resultados saltan por encima y por debajo de pi y se acercan cada vez más">
+  <line x1="40" y1="110" x2="580" y2="110" stroke="#0f6b5c" stroke-width="2" stroke-dasharray="6 5"/>
+  <text x="575" y="100" font-size="14" fill="#0f6b5c" text-anchor="end">π = 3,14159...</text>
+  <polyline fill="none" stroke="#c0392b" stroke-width="2.5" points="60,16 110,165 160,73 210,137 260,88 310,127 360,97 410,120 460,103 510,117 560,106"/>
+  <g fill="#c0392b"><circle cx="60" cy="16" r="4"/><circle cx="110" cy="165" r="4"/><circle cx="160" cy="73" r="4"/><circle cx="210" cy="137" r="4"/><circle cx="260" cy="88" r="4"/><circle cx="310" cy="127" r="4"/><circle cx="360" cy="97" r="4"/><circle cx="410" cy="120" r="4"/><circle cx="460" cy="103" r="4"/><circle cx="510" cy="117" r="4"/><circle cx="560" cy="106" r="4"/></g>
+  <text x="68" y="20" font-size="12" fill="currentColor">4</text>
+  <text x="118" y="178" font-size="12" fill="currentColor">2,67</text>
+  <text x="300" y="205" font-size="13" fill="currentColor" text-anchor="middle">número de términos sumados (1, 2, 3, ... 11) →</text>
+</svg>
+<figcaption>Cada término hace que el resultado se pase por arriba o se quede corto, cada vez un poco menos.</figcaption>
+</figure>
+<p>La fórmula es bellísima, pero muy lenta: ¡con un millón de términos solo se aciertan cinco decimales! Por eso los matemáticos buscaron otras sumas infinitas mucho más rápidas. En 1706, el inglés <b>John Machin</b> encontró una que le permitió calcular 100 decimales a mano. Fórmulas parecidas se usaron durante más de 200 años.</p>
+<div class="fondo"><b>Para entenderlo mejor: π donde no hay círculos</b>
+En 1734 Euler resolvió un famoso problema: ¿cuánto vale la suma 1 + 1/4 + 1/9 + 1/16 + 1/25 + ..., es decir, la suma de los inversos de todos los cuadrados? La respuesta fue un escándalo: <b>π²/6</b>. Ahí no hay ningún círculo a la vista y, sin embargo, aparece π. Hoy sabemos que π está en muchísimos sitios: en la probabilidad, en las ondas, en la física cuántica... A menudo porque, en el fondo, hay algo que gira o se repite.</div>
+<div class="idea"><b>Idea clave:</b> π puede calcularse con sumas infinitas de números sencillos, sin dibujar ningún círculo. Eso permitió calcularlo con muchos más decimales.</div>
+
+<h2 id="c7"><small>Capítulo 7</small>Un número que nunca termina ni se repite</h2>
+<p>Hay números cuyos decimales terminan (como 0,25 = 1/4) y otros cuyos decimales se repiten para siempre (como 0,333... = 1/3). Todos ellos pueden escribirse como una fracción, y se llaman <b>racionales</b>.</p>
+<p>En 1761, el suizo <b>Johann Heinrich Lambert</b> demostró que π <b>no</b> es así: es <b>irracional</b>. No existe ninguna fracción que sea exactamente igual a π. Fracciones como 22/7 o 355/113 son solo aproximaciones. Y sus decimales no terminan nunca ni forman un patrón que se repita.</p>
+<p class="cifras">3,1415926535 8979323846 2643383279 5028841971 6939937510 5820974944 5923078164 0628620899 8628034825 3421170679...</p>
+<h3>El final de la cuadratura del círculo</h3>
+<p>Desde los griegos, miles de personas intentaron resolver la <b>cuadratura del círculo</b>: construir, usando solo una regla sin marcas y un compás, un cuadrado con exactamente la misma área que un círculo dado. En 1882, el alemán <b>Ferdinand von Lindemann</b> demostró que π es <b>trascendente</b>, algo todavía más «raro» que irracional: no es la solución de ninguna ecuación con números enteros. Y eso implica que la cuadratura del círculo es <b>imposible</b>. Después de más de 2.000 años, el problema quedó resuelto demostrando que no tenía solución.</p>
+<div class="sabias"><b>¿Sabías que...?</b> Por eso decimos «eso es la cuadratura del círculo» cuando algo es imposible. Aun así, muchos aficionados siguieron enviando «soluciones» a las academias de ciencias, hasta el punto de que la Academia de París decidió ya en 1775 no leer ninguna más.</div>
+<div class="fondo"><b>Para entenderlo mejor: ¿está tu cumpleaños dentro de π?</b>
+Los decimales de π parecen totalmente aleatorios: cada cifra del 0 al 9 aparece más o menos el mismo número de veces. Si eso sigue así para siempre (algo que se sospecha pero nadie ha demostrado), cualquier secuencia de cifras aparecería en algún lugar de π: tu fecha de nacimiento, tu número de teléfono... En la práctica, en los primeros diez millones de decimales es casi seguro encontrar cualquier fecha escrita con seis cifras, como 150869.</div>
+<div class="idea"><b>Idea clave:</b> π no se puede escribir como fracción y sus decimales nunca terminan ni se repiten. Por eso es imposible construir un cuadrado exactamente igual en área a un círculo con regla y compás.</div>
+
+<h2 id="c8"><small>Capítulo 8</small>La carrera de los decimales</h2>
+<p>Aunque para cualquier uso práctico bastan unos pocos decimales, calcular más cifras de π se convirtió en un desafío, una especie de récord deportivo de las matemáticas.</p>
+<figure>
+<svg viewBox="0 0 600 290" role="img" aria-label="Número de decimales conocidos de pi a lo largo de la historia, en escala logarítmica, desde 2 hasta 200 billones">
+  <g stroke="currentColor" stroke-opacity=".15"><line x1="75" y1="250.0" x2="580" y2="250.0"/><line x1="75" y1="202.0" x2="580" y2="202.0"/><line x1="75" y1="154.0" x2="580" y2="154.0"/><line x1="75" y1="106.0" x2="580" y2="106.0"/><line x1="75" y1="58.0" x2="580" y2="58.0"/></g>
+  <g font-size="11" fill="currentColor" text-anchor="end"><text x="70" y="254.0">1</text><text x="70" y="206.0">1.000</text><text x="70" y="158.0">1 millón</text><text x="70" y="110.0">mil millones</text><text x="70" y="62.0">1 billón</text></g>
+  <polyline fill="none" stroke="#c0392b" stroke-width="2" points="80,245.2 150,236.5 230,230.7 300,225.3 370,206.5 430,197.1 490,106.0 560,21.2"/>
+  <g fill="#c0392b"><circle cx="80" cy="245.2" r="5"/><circle cx="150" cy="236.5" r="5"/><circle cx="230" cy="230.7" r="5"/><circle cx="300" cy="225.3" r="5"/><circle cx="370" cy="206.5" r="5"/><circle cx="430" cy="197.1" r="5"/><circle cx="490" cy="106.0" r="5"/><circle cx="560" cy="21.2" r="5"/></g>
+  <g font-size="11" fill="currentColor"><text x="75" y="265.2">Arquímedes: 2</text><text x="130" y="224.5">Zu Chongzhi: 7</text><text x="238" y="246.7">Al-Kashi: 16</text><text x="260" y="213.3">Van Ceulen: 35</text><text x="378" y="222.5">Shanks: 527</text><text x="350" y="187.1">ENIAC: 2.037</text><text x="370" y="102.0">1989: mil millones</text><text x="430" y="25.2">2024: 200 billones</text></g>
+  <text x="330" y="282" font-size="12" fill="currentColor" text-anchor="middle">Cada línea horizontal multiplica por 1.000. El eje horizontal no está a escala de tiempo.</text>
+</svg>
+<figcaption>De 2 decimales a cientos de billones: la mayor parte del salto ocurrió en los últimos 70 años, gracias a los ordenadores.</figcaption>
+</figure>
+<ul>
+  <li><b>Ludolph van Ceulen</b> (Países Bajos) dedicó gran parte de su vida a calcular 35 decimales con el método de Arquímedes, usando polígonos de más de 4 trillones de lados. Estaba tan orgulloso que pidió que los grabaran en su tumba. En Alemania, durante mucho tiempo, a π se le llamó «el número de Ludolph».</li>
+  <li><b>William Shanks</b> (Inglaterra) pasó años calculando a mano y en 1873 publicó 707 decimales. En 1944 se descubrió que se había equivocado en el 528: todas las cifras a partir de ahí estaban mal. Durante 70 años nadie se había dado cuenta.</li>
+  <li>En 1949, el <b>ENIAC</b>, uno de los primeros ordenadores, calculó 2.037 decimales en unas 70 horas.</li>
+  <li>Hoy, los récords se hacen con ordenadores durante meses. En 2024 se superaron los <b>200 billones</b> de decimales (200 millones de millones). Impresos, llenarían una biblioteca más grande que cualquiera que exista.</li>
+</ul>
+<div class="idea"><b>Idea clave:</b> calcular decimales de π fue durante siglos una prueba de paciencia. Hoy es una prueba de potencia para los ordenadores: si un ordenador calcula bien billones de cifras de π, es que funciona bien.</div>
+
+<h2 id="c9"><small>Capítulo 9</small>Calcular π tirando agujas</h2>
+<p>En 1777, el naturalista francés <b>Georges-Louis Leclerc, conde de Buffon</b>, planteó un problema curioso. Imagina un suelo de tablas de madera, todas del mismo ancho. Tiramos al azar una aguja que mide exactamente lo mismo que el ancho de una tabla. ¿Qué probabilidad hay de que la aguja caiga cruzando una de las rayas entre tablas?</p>
+<figure>
+<svg viewBox="0 0 600 220" role="img" aria-label="Agujas lanzadas al azar sobre líneas paralelas; las que cruzan una línea están en rojo">
+  <g stroke="currentColor" stroke-opacity=".5" stroke-width="2">
+    <line x1="30" y1="30" x2="570" y2="30"/><line x1="30" y1="90" x2="570" y2="90"/><line x1="30" y1="150" x2="570" y2="150"/><line x1="30" y1="210" x2="570" y2="210"/>
+  </g>
+  <g stroke-width="4" stroke-linecap="round">
+    <line x1="60" y1="50" x2="110" y2="80" stroke="#0f6b5c"/>
+    <line x1="140" y1="70" x2="170" y2="120" stroke="#c0392b"/>
+    <line x1="210" y1="160" x2="265" y2="185" stroke="#0f6b5c"/>
+    <line x1="300" y1="130" x2="320" y2="185" stroke="#c0392b"/>
+    <line x1="360" y1="40" x2="420" y2="45" stroke="#0f6b5c"/>
+    <line x1="450" y1="110" x2="470" y2="165" stroke="#c0392b"/>
+    <line x1="500" y1="20" x2="545" y2="55" stroke="#c0392b"/>
+    <line x1="90" y1="175" x2="140" y2="200" stroke="#0f6b5c"/>
+    <line x1="380" y1="100" x2="425" y2="135" stroke="#0f6b5c"/>
+    <line x1="220" y1="60" x2="235" y2="115" stroke="#c0392b"/>
+  </g>
+</svg>
+<figcaption>En rojo, las agujas que cruzan una raya. Con agujas tan largas como el ancho de la tabla, eso pasa aproximadamente 2 de cada π veces (un 64 %).</figcaption>
+</figure>
+<p>La respuesta, sorprendentemente, es <b>2/π</b>, más o menos un 64 %. ¡Aparece π aunque no haya ningún círculo! (En realidad sí lo hay, escondido: la aguja puede caer girada en cualquier ángulo, y los ángulos «dan la vuelta» como un círculo).</p>
+<p>Eso significa que puedes calcular π tirando agujas: lanza muchas, cuenta cuántas cruzan una raya y calcula <b>π ≈ 2 × (agujas lanzadas) ÷ (agujas que cruzan)</b>. Con palillos de dientes y las rayas de un suelo de tarima puedes probarlo en casa. Eso sí, hacen falta miles de lanzamientos para acertar solo dos decimales.</p>
+<div class="idea"><b>Idea clave:</b> π aparece también en la probabilidad. Este tipo de cálculo, usando el azar para obtener un número, se llama hoy <b>método de Montecarlo</b> y se usa en ciencia e ingeniería.</div>
+
+<h2 id="c10"><small>Capítulo 10</small>¿Para qué sirve π?</h2>
+<p>π aparece allí donde hay algo redondo, algo que gira o algo que oscila:</p>
+<ul>
+  <li><b>Ingeniería</b>: ruedas, engranajes, tuberías, depósitos, cables, antenas.</li>
+  <li><b>Física</b>: el movimiento de los péndulos y de los planetas, las ondas del sonido y de la luz, la electricidad de los enchufes (que va y viene 50 veces por segundo en Europa).</li>
+  <li><b>Estadística</b>: la famosa «campana de Gauss», que describe cosas como la altura de las personas, lleva π en su fórmula.</li>
+  <li><b>Tecnología</b>: el GPS, la compresión de fotos y música o las señales de wifi usan matemáticas llenas de π.</li>
+</ul>
+<h3>¿Cuántos decimales hacen falta de verdad?</h3>
+<p>Muy pocos. Los ingenieros de la NASA que guían naves espaciales por el sistema solar usan <b>15 decimales</b> (3,141592653589793). Con ellos, si calculan el contorno de un círculo cuyo radio es la distancia hasta la sonda Voyager 1, más de 20.000 millones de kilómetros, el error sería de apenas unos centímetros.</p>
+<p>Y con unos <b>40 decimales</b> se podría calcular la circunferencia de todo el universo observable con un error menor que el tamaño de un átomo de hidrógeno. Los billones de decimales calculados no sirven para medir nada: se calculan por el desafío, para probar ordenadores y para estudiar cómo se reparten las cifras.</p>
+<div class="idea"><b>Idea clave:</b> π es imprescindible en ciencia y técnica, pero con 15 decimales basta para navegar por el sistema solar.</div>
+
+<h2 id="c11"><small>Capítulo 11</small>π en la cultura: días, poemas y récords</h2>
+<h3>El Día de π</h3>
+<p>En los países donde las fechas se escriben mes/día, el 14 de marzo es 3/14. Por eso, desde 1988, se celebra ese día el <b>Día de π</b>, a menudo comiendo tartas redondas (en inglés, <i>pie</i> se pronuncia igual que «pi»). Desde 2020, la UNESCO celebra ese mismo día el <b>Día Internacional de las Matemáticas</b>. Casualidades: Albert Einstein nació un 14 de marzo (de 1879) y Stephen Hawking murió un 14 de marzo (de 2018).</p>
+<h3>Poemas para recordar π</h3>
+<p>Existen poemas en los que el número de letras de cada palabra da las cifras de π. En español, uno muy conocido es este:</p>
+<blockquote>Soy y seré a todos definible,<br>mi nombre tengo que daros,<br>cociente diametral siempre inmedible<br>soy de los redondos aros.</blockquote>
+<p>Cuenta las letras: <i>Soy</i> (3), <i>y</i> (1), <i>seré</i> (4), <i>a</i> (1), <i>todos</i> (5), <i>definible</i> (9)... = 3,14159... El poema completo da 20 cifras correctas. A este arte de memorizar π se le llama, en broma, <b>pifilología</b>.</p>
+<div class="sabias"><b>¿Sabías que...?</b> El récord oficial de decimales de π recitados de memoria supera las <b>70.000 cifras</b>, y se tardan horas en recitarlas. En la posición 762 de los decimales de π aparecen seis nueves seguidos: 999999. Se llama el <b>punto de Feynman</b>, por el físico Richard Feynman, que bromeaba con que le gustaría memorizar π hasta ahí para terminar diciendo «nueve, nueve, nueve, nueve, nueve, nueve... y así sucesivamente», como si π fuera racional.</div>
+<div class="sabias"><b>¿Sabías que...?</b> En 1897, en el estado de Indiana (Estados Unidos), un médico aficionado a las matemáticas convenció a un diputado para presentar una ley que, entre otras cosas, fijaba un valor erróneo de π (sus cálculos daban cosas como 3,2). ¡La Cámara de Representantes la aprobó por unanimidad! Por suerte, un profesor de matemáticas, C. A. Waldo, estaba ese día en el edificio, explicó a los senadores el disparate, y el Senado la aparcó para siempre. π no se puede cambiar por ley.</div>
+<div class="idea"><b>Idea clave:</b> π es tan famoso que tiene su propio día, sus poemas y hasta sus récords de memoria. Es probablemente el número más conocido del mundo después de los que usamos para contar.</div>
+
+<h2 id="c12"><small>Capítulo 12</small>Resumen</h2>
+<ol>
+  <li>π es el número de veces que el diámetro de un círculo cabe en su contorno, igual para todos los círculos: 3,14159...</li>
+  <li>El mismo número sirve para calcular el área del círculo: π × r².</li>
+  <li>Babilonios y egipcios ya usaban buenos valores hace 4.000 años; Arquímedes inventó un método para calcularlo con la precisión que se quisiera.</li>
+  <li>Matemáticos de China, India y el mundo islámico lo mejoraron durante la Edad Media, y las sumas infinitas permitieron calcular muchos más decimales.</li>
+  <li>π es irracional y trascendente: sus decimales no terminan ni se repiten, y la cuadratura del círculo es imposible.</li>
+  <li>Aparece en la física, la probabilidad y la tecnología, aunque con 15 decimales basta para casi todo.</li>
+</ol>
+<p><i>Para pensar:</i> coge una lata, un vaso y un plato, mide su contorno con una cuerda y su diámetro con una regla, y divide. ¿Cuántos decimales de π consigues acertar? ¿Por qué crees que es tan difícil acertar más?</p>
+
+</main>
+<script>if ('serviceWorker' in navigator) navigator.serviceWorker.register('../../sw.js').catch(() => {});</script>
+</body>
+</html>
