@@ -1,0 +1,1110 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Los dinosaurios</title>
+<script type="application/json" id="metadatos">
+{
+  "id": "los-dinosaurios",
+  "titulo": "Los dinosaurios",
+  "subtitulo": "Gigantes, plumas y un asteroide",
+  "tema": "Paleontología",
+  "etiquetas": ["dinosaurios", "paleontología", "fósiles", "Mesozoico", "Jurásico", "Cretácico", "Tyrannosaurus", "saurópodos", "plumas", "aves", "Chicxulub", "extinción", "Teruel", "Las Hoyas"],
+  "nivel": "Intermedio",
+  "minutos_lectura": 85,
+  "portada": "portada.svg",
+  "resumen": "Un recorrido completo por los 165 millones de años en que los dinosaurios dominaron la Tierra: cómo se descubrieron, cómo se forman y se datan sus fósiles, quiénes fueron los gigantes y los cazadores, qué nos cuentan sus huellas, sus huevos y sus plumas, y por qué un asteroide acabó con todos menos con las aves. Con los grandes yacimientos de España y Portugal y muchas curiosidades.",
+  "fecha": "2026-09-28"
+}
+</script>
+<style>
+  :root {
+    --papel: #fbf8f1; --tinta: #2a2622; --suave: #6b6259; --acento: #2e7d4f; --rojo: #b3261e; --oro: #9a7412; --caja: #edf5ef; --caja2: #f6efdc; --linea: #e3dccf;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --papel: #1c1b1a; --tinta: #ece6dc; --suave: #b3a998; --acento: #7fd1a0; --rojo: #ff8a80; --oro: #e2c46a; --caja: #1f2b24; --caja2: #2c2819; --linea: #3a3632; color-scheme: dark; }
+  }
+  :root[data-theme="dark"] { --papel: #1c1b1a; --tinta: #ece6dc; --suave: #b3a998; --acento: #7fd1a0; --rojo: #ff8a80; --oro: #e2c46a; --caja: #1f2b24; --caja2: #2c2819; --linea: #3a3632; color-scheme: dark; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--papel); color: var(--tinta); font: 19px/1.7 Georgia, "Times New Roman", serif; }
+  main { max-width: 680px; margin: 0 auto; padding: 32px 16px 80px; }
+  .portada { display: block; width: min(320px, 80%); margin: 8px auto 32px; border-radius: 6px; box-shadow: 0 10px 30px rgba(0,0,0,.25); }
+  h1 { font-size: 2.1em; line-height: 1.15; margin: 0 0 4px; text-align: center; text-wrap: balance; }
+  .sub { text-align: center; color: var(--suave); font-style: italic; margin: 0 0 40px; }
+  h2 { font-size: 1.4em; margin: 56px 0 8px; padding-top: 16px; border-top: 1px solid var(--linea); text-wrap: balance; }
+  h2 small { display: block; font-size: .6em; color: var(--acento); letter-spacing: .15em; text-transform: uppercase; font-weight: normal; }
+  h3 { font-size: 1.1em; margin: 32px 0 4px; }
+  figure { margin: 28px 0; text-align: center; }
+  figure svg { width: 100%; height: auto; max-width: 600px; }
+  figcaption { font-size: .8em; color: var(--suave); margin-top: 6px; }
+  .idea { background: var(--caja); border-left: 4px solid var(--acento); padding: 14px 18px; border-radius: 4px; margin: 24px 0; }
+  .idea b { color: var(--acento); }
+  .sabias { background: var(--caja2); padding: 12px 18px; border-radius: 6px; margin: 24px 0; font-size: .92em; }
+  .sabias > b:first-child { display: block; color: var(--oro); letter-spacing: .1em; text-transform: uppercase; font-size: .8em; }
+  .fondo { border: 1px solid var(--linea); padding: 12px 18px; border-radius: 6px; margin: 24px 0; font-size: .92em; }
+  .fondo > b:first-child { display: block; color: var(--rojo); letter-spacing: .1em; text-transform: uppercase; font-size: .8em; }
+  blockquote { margin: 20px 0; padding: 0 20px; font-style: italic; border-left: 3px solid var(--linea); color: var(--suave); }
+  ul, ol { padding-left: 1.2em; }
+  .indice { background: var(--caja); padding: 12px 20px; border-radius: 6px; font-size: .9em; }
+  .indice ol { margin: 6px 0; }
+  a { color: var(--acento); }
+  .fechas { font-size: .9em; }
+  .fechas dt { font-weight: bold; color: var(--acento); margin-top: 8px; }
+  .fechas dd { margin: 0 0 0 1em; }
+  .volver { display: inline-block; margin: 0 0 16px; font: 15px/1.4 system-ui, sans-serif; color: var(--acento); text-decoration: none; }
+  .volver:hover { text-decoration: underline; }
+</style>
+<meta name="description" content="Un recorrido completo por los 165 millones de años en que los dinosaurios dominaron la Tierra: cómo se descubrieron, cómo se forman y se datan sus fósiles, quiénes fueron los gigantes y los cazadores, qué nos cuentan sus huellas, sus huevos y sus plumas, y por qué un asteroide acabó con todos menos con las aves. Con los grandes yacimientos de España y Portugal y muchas curiosidades.">
+<meta name="theme-color" content="#fbf8f1" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1c1b1a" media="(prefers-color-scheme: dark)">
+<link rel="manifest" href="../../manifest.webmanifest">
+<link rel="icon" href="../../icono.svg" type="image/svg+xml">
+<link rel="icon" href="../../icono-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<meta name="apple-mobile-web-app-title" content="Biblioteca">
+</head>
+<body>
+<main>
+<a class="volver" href="../../index.html">← Biblioteca</a>
+
+<img class="portada" src="portada.svg" alt="Portada: Los dinosaurios">
+<h1>Los dinosaurios</h1>
+<p class="sub">Gigantes, plumas y un asteroide</p>
+
+<nav class="indice">
+  <b>En este libro</b>
+  <ol>
+    <li><a href="#c1">Huesos de dragones</a></li>
+    <li><a href="#c2">La guerra de los huesos</a></li>
+    <li><a href="#c3">El tiempo profundo</a></li>
+    <li><a href="#c4">Cómo se forma y se data un fósil</a></li>
+    <li><a href="#c5">Qué es (y qué no es) un dinosaurio</a></li>
+    <li><a href="#c6">Dos caderas y un árbol</a></li>
+    <li><a href="#c7">Terópodos: los cazadores</a></li>
+    <li><a href="#c8">Saurópodos: los titanes</a></li>
+    <li><a href="#c9">Ornitisquios: cuernos, placas y picos</a></li>
+    <li><a href="#c10">Detectives del Mesozoico</a></li>
+    <li><a href="#c11">Plumas: los dinosaurios que siguen aquí</a></li>
+    <li><a href="#c12">España, tierra de dinosaurios</a></li>
+    <li><a href="#c13">El día que cayó el cielo</a></li>
+    <li><a href="#c14">Mitos de película, fechas y resumen</a></li>
+  </ol>
+</nav>
+
+<h2 id="c1"><small>Capítulo 1</small>Huesos de dragones</h2>
+<p>Imagina que vas paseando por el campo y encuentras, medio enterrado, un hueso más grande que tu brazo. Es de piedra, pesa como un ladrillo y no se parece a nada que conozcas. ¿De quién es? Hoy cualquier niño respondería: «¡De un dinosaurio!». Pero durante casi toda la historia de la humanidad esa palabra no existía, y la gente tuvo que buscar otras explicaciones.</p>
+<p>Los huesos gigantes aparecían de vez en cuando en canteras, minas y acantilados. Muchas culturas los interpretaron como restos de gigantes, de dragones o de animales que se habían ahogado en el diluvio universal. En China, durante siglos, los «huesos de dragón» se molían para preparar remedios medicinales; la mayoría eran de mamíferos antiguos, pero es posible que entre ellos hubiera también restos de dinosaurio. La historiadora Adrienne Mayor ha propuesto que los cráneos de <i>Protoceratops</i>, un dinosaurio con pico y gola que abunda en el desierto de Gobi, pudieron inspirar la leyenda del grifo, el monstruo con pico de águila y cuerpo de león. Es una idea sugerente, aunque no se puede demostrar.</p>
+
+<h3>Un «muslo de gigante» en Oxford</h3>
+<p>La primera ilustración conocida de un hueso de dinosaurio se publicó en 1677. Su autor fue <b>Robert Plot</b>, profesor de química en Oxford y primer director del Museo Ashmolean. En su libro sobre la historia natural del condado de Oxford dibujó el extremo de un fémur enorme encontrado en una cantera. Plot pensó primero que podía ser de un elefante de guerra traído por los romanos, pero lo descartó y concluyó que era el hueso de un ser humano gigante, como los que mencionan la Biblia y las leyendas antiguas.</p>
+<p>El hueso se perdió, pero el dibujo sobrevivió. En 1763 otro autor, Richard Brookes, lo volvió a publicar con un pie que decía <i>Scrotum humanum</i>, porque en el dibujo el extremo del fémur recordaba a una parte muy concreta de la anatomía masculina. Así, por un malentendido, uno de los primeros nombres científicos que recibió un dinosaurio fue una broma involuntaria. Hoy sabemos que aquel hueso seguramente pertenecía a un <i>Megalosaurus</i>.</p>
+<div class="sabias"><b>¿Sabías que...?</b> Algunos paleontólogos llegaron a plantear, medio en serio, que el nombre <i>Scrotum humanum</i> debería tener prioridad sobre <i>Megalosaurus</i>, porque se publicó antes. La comisión que vigila los nombres científicos lo impidió: Brookes solo había puesto una etiqueta descriptiva a un dibujo y nunca quiso nombrar una especie.</div>
+
+<h3>El gran lagarto del reverendo Buckland</h3>
+<p>A principios del siglo XIX la geología estaba de moda en Inglaterra. Uno de sus personajes más pintorescos era <b>William Buckland</b>, clérigo y profesor en Oxford, famoso por dar clases a caballo, por guardar animales vivos en su casa y por su empeño en probar el sabor de todas las criaturas posibles, desde ratones hasta cocodrilos. Buckland reunió varios huesos de una cantera de Stonesfield: parte de una mandíbula con dientes curvos y aserrados como cuchillos, vértebras, huesos de la cadera y de las patas.</p>
+<p>En febrero de 1824 los presentó en la Sociedad Geológica de Londres con el nombre de <b><i>Megalosaurus</i></b>, «lagarto grande». Fue el primer dinosaurio no aviano que recibió un nombre científico válido. Buckland lo imaginó como un lagarto gigantesco de unos doce metros que caminaba a cuatro patas. Se equivocaba en la postura y exageraba el tamaño, pero había comprendido lo esencial: aquellos huesos eran de un reptil carnívoro que ya no existía.</p>
+
+<h3>Los dientes del doctor Mantell</h3>
+<p>Casi al mismo tiempo, un médico rural de Sussex, <b>Gideon Mantell</b>, reunía fósiles en su tiempo libre. Según la versión más extendida, en 1822 su esposa, <b>Mary Ann Mantell</b>, encontró junto a un camino unos dientes fósiles muy raros mientras él visitaba a un paciente. La historia es encantadora, pero el propio Mantell la contó de formas distintas, y algunos historiadores creen que los dientes los compró a obreros de una cantera. Lo que es seguro es que Mary Ann le ayudaba mucho: dibujaba los fósiles con gran habilidad y muchas de las láminas de sus libros son suyas.</p>
+<p>Los dientes eran planos y estaban desgastados, como los de un animal que mastica plantas. Los expertos a los que Mantell consultó, incluido el famoso naturalista francés Georges Cuvier, pensaron al principio que eran de un pez o de un mamífero reciente. Mantell no se rindió. En el museo del Colegio de Cirujanos de Londres, un joven ayudante le enseñó el esqueleto de una iguana, el lagarto de América, y Mantell vio que sus dientes eran iguales, solo que muchísimo más pequeños. En 1825 bautizó a su animal como <b><i>Iguanodon</i></b>, «diente de iguana».</p>
+<p>Mantell calculó su tamaño comparando los dientes con los de la iguana y le salió un animal enorme, de unos dieciocho metros o más (hoy sabemos que medía unos diez). También encontró un hueso en forma de cono y lo colocó sobre la nariz, como el cuerno de un rinoceronte. Muchos años después se descubrió que ese «cuerno» era en realidad un pulgar en forma de púa. Mantell dedicó su vida y su fortuna a los fósiles; acabó arruinado, separado de su familia y enfrentado con su gran rival, Richard Owen.</p>
+<div class="fondo"><b>Para entenderlo mejor: ¿qué es un fósil?</b> Un fósil es cualquier resto o rastro de un ser vivo antiguo que se ha conservado en las rocas: huesos, dientes, conchas, hojas, huellas, huevos, incluso excrementos. La palabra viene del latín <i>fossilis</i>, «sacado de la tierra al cavar». La ciencia que estudia los fósiles se llama paleontología, del griego <i>palaios</i> («antiguo»), <i>ontos</i> («ser») y <i>logos</i> («estudio»). En el capítulo 4 veremos cómo se forma un fósil paso a paso.</div>
+
+<h3>Owen inventa una palabra</h3>
+<p><b>Richard Owen</b> era el anatomista más prestigioso de Inglaterra: brillante, trabajador incansable y, según muchos de sus contemporáneos, arrogante y poco generoso con el mérito ajeno. En 1841 presentó en una reunión científica en Plymouth un largo informe sobre los reptiles fósiles de Gran Bretaña, que se publicó en 1842. En él se fijó en que <i>Megalosaurus</i>, <i>Iguanodon</i> y un tercer animal, el acorazado <i>Hylaeosaurus</i> (también descrito por Mantell), compartían rasgos que no tenía ningún reptil vivo: varias vértebras soldadas a la cadera y patas grandes, como de mamífero.</p>
+<p>Owen decidió que eran un grupo propio y le dio un nombre: <b>Dinosauria</b>, del griego <i>deinós</i>, «terrible» o «temiblemente grande», y <i>sauros</i>, «lagarto». Así nació la palabra <b>dinosaurio</b>. Curiosamente, Owen los imaginó no como lagartos gigantes sino como reptiles pesados y robustos, parecidos a elefantes o rinocerontes, con las patas bien rectas bajo el cuerpo. En eso acertó más que Buckland y Mantell, aunque se equivocó en casi todo lo demás.</p>
+<div class="sabias"><b>¿Sabías que...?</b> Owen fue el gran impulsor del Museo de Historia Natural de Londres, abierto en 1881, una «catedral de la naturaleza» con arcos y columnas decorados con animales y plantas. Paradójicamente, también fue uno de los críticos más duros de Darwin y de su teoría de la <a href="../la-evolucion/libro.html">evolución</a>, que hoy explica precisamente de dónde vinieron los dinosaurios.</div>
+
+<h3>Una cena dentro de un Iguanodon</h3>
+<p>Los dinosaurios se hicieron famosos entre el gran público gracias a una exposición. En 1851 Londres celebró la Gran Exposición en un enorme edificio de hierro y cristal, el Palacio de Cristal. Cuando se trasladó al barrio de Sydenham, el escultor <b>Benjamin Waterhouse Hawkins</b> recibió el encargo de construir en sus jardines animales prehistóricos a tamaño real, siguiendo las indicaciones de Owen.</p>
+<p>Para promocionar el proyecto, en la Nochevieja de 1853 Hawkins organizó una cena para una veintena de científicos y patrocinadores dentro del molde de uno de los Iguanodon, que todavía estaba sin terminar. Owen presidía la mesa. Las esculturas se inauguraron en 1854 y fueron un éxito enorme: miles de visitantes vieron por primera vez un dinosaurio «de verdad». Hoy siguen en el parque, y aunque sabemos que son muy inexactas (los Iguanodon parecen rinocerontes con escamas y llevan el pulgar en la nariz), son un tesoro histórico protegido.</p>
+
+<figure>
+<svg viewBox="0 0 600 330" role="img" aria-label="Línea de tiempo a escala de 1677 a 1861 con los primeros hallazgos de dinosaurios, y una ampliación de 1820 a 1861 donde se ven Megalosaurus, Iguanodon, la palabra Dinosauria, el Palacio de Cristal, Hadrosaurus y Archaeopteryx">
+<text x="40" y="24" font-size="13" fill="currentColor" font-weight="bold">De 1677 a 1861, a escala</text>
+<rect x="40" y="60" width="520" height="14" fill="#9a7412" fill-opacity=".25" stroke="#9a7412" stroke-opacity=".6"/>
+<rect x="435" y="60" width="125" height="14" fill="#b3261e" fill-opacity=".35"/>
+<line x1="40" y1="54" x2="40" y2="80" stroke="currentColor"/>
+<text x="40" y="96" font-size="12" fill="currentColor" text-anchor="middle">1677</text>
+<text x="40" y="112" font-size="12" fill="currentColor" text-anchor="start">Plot dibuja el fémur</text>
+<line x1="283" y1="54" x2="283" y2="80" stroke="currentColor"/>
+<text x="283" y="96" font-size="12" fill="currentColor" text-anchor="middle">1763</text>
+<text x="283" y="112" font-size="12" fill="currentColor" text-anchor="middle">«Scrotum humanum»</text>
+<text x="498" y="48" font-size="12" fill="#b3261e" text-anchor="middle" font-weight="bold">se amplía abajo</text>
+<text x="40" y="140" font-size="12" fill="currentColor" fill-opacity=".8">Casi todo ocurrió en los últimos cuarenta años del periodo.</text>
+<line x1="435" y1="74" x2="40" y2="190" stroke="#b3261e" stroke-opacity=".5" stroke-dasharray="3 3"/>
+<line x1="560" y1="74" x2="560" y2="190" stroke="#b3261e" stroke-opacity=".5" stroke-dasharray="3 3"/>
+<rect x="40" y="190" width="520" height="14" fill="#b3261e" fill-opacity=".25" stroke="#b3261e" stroke-opacity=".6"/>
+<text x="40" y="182" font-size="12" fill="currentColor">1820</text>
+<text x="560" y="182" font-size="12" fill="currentColor" text-anchor="end">1861</text>
+<circle cx="90.7" cy="197" r="4" fill="currentColor"/>
+<line x1="90.7" y1="204" x2="90.7" y2="226" stroke="currentColor" stroke-opacity=".5"/>
+<text x="90.7" y="240" font-size="12" fill="currentColor" text-anchor="middle" font-weight="bold">1824</text>
+<text x="90.7" y="255" font-size="12" fill="currentColor" text-anchor="middle">Megalosaurus</text>
+<circle cx="103.4" cy="197" r="4" fill="currentColor"/>
+<line x1="103.4" y1="204" x2="103.4" y2="270" stroke="currentColor" stroke-opacity=".5"/>
+<text x="103.4" y="284" font-size="12" fill="currentColor" text-anchor="start" font-weight="bold">1825</text>
+<text x="103.4" y="299" font-size="12" fill="currentColor" text-anchor="start">Iguanodon</text>
+<circle cx="319" cy="197" r="4" fill="currentColor"/>
+<line x1="319" y1="204" x2="319" y2="226" stroke="currentColor" stroke-opacity=".5"/>
+<text x="319" y="240" font-size="12" fill="currentColor" text-anchor="middle" font-weight="bold">1842</text>
+<text x="319" y="255" font-size="12" fill="currentColor" text-anchor="middle">Owen: «Dinosauria»</text>
+<circle cx="471.2" cy="197" r="4" fill="currentColor"/>
+<line x1="471.2" y1="204" x2="471.2" y2="270" stroke="currentColor" stroke-opacity=".5"/>
+<text x="471.2" y="284" font-size="12" fill="currentColor" text-anchor="middle" font-weight="bold">1854</text>
+<text x="471.2" y="299" font-size="12" fill="currentColor" text-anchor="middle">Palacio de Cristal</text>
+<circle cx="521.9" cy="197" r="4" fill="currentColor"/>
+<line x1="521.9" y1="204" x2="521.9" y2="226" stroke="currentColor" stroke-opacity=".5"/>
+<text x="521.9" y="240" font-size="12" fill="currentColor" text-anchor="middle" font-weight="bold">1858</text>
+<text x="521.9" y="255" font-size="12" fill="currentColor" text-anchor="middle">Hadrosaurus</text>
+<circle cx="560" cy="197" r="4" fill="currentColor"/>
+<line x1="560" y1="204" x2="560" y2="310" stroke="currentColor" stroke-opacity=".5"/>
+<text x="555" y="322" font-size="12" fill="currentColor" text-anchor="end"><tspan font-weight="bold">1861</tspan> Archaeopteryx</text>
+</svg>
+<figcaption>Los primeros pasos de la paleontología de dinosaurios, a escala. Durante casi dos siglos solo hubo huesos sueltos; después, en unas pocas décadas, llegaron los nombres, las exposiciones y los primeros esqueletos casi completos.</figcaption>
+</figure>
+
+<h3>El fin de los gigantes del diluvio</h3>
+<p>Estos descubrimientos cambiaron para siempre la forma de ver el pasado. Hasta entonces, muchos pensaban que todas las especies habían existido siempre, desde la creación. Cuvier ya había demostrado a finales del siglo XVIII, estudiando mamuts y mastodontes, que algunas especies se habían <b>extinguido</b>, es decir, habían desaparecido por completo. Los dinosaurios llevaron esa idea mucho más lejos: había existido un mundo entero, habitado por reptiles colosales, que no se parecía en nada al actual. Y ese mundo tenía que ser muy, muy antiguo.</p>
+<p>Faltaba saber cuánto. Faltaba saber también cómo eran de verdad aquellos animales, porque con unos pocos huesos sueltos cada científico reconstruía un monstruo distinto. Las respuestas llegarían del otro lado del Atlántico, de las grandes llanuras del Oeste americano, y de la mano de dos hombres que se odiaban a muerte.</p>
+<div class="idea"><b>Idea clave:</b> durante siglos los huesos de dinosaurio se atribuyeron a gigantes y dragones. Entre 1824 y 1842, Buckland, los Mantell y Owen los reconocieron como reptiles extinguidos, y Owen inventó para ellos la palabra «dinosaurio».</div>
+
+<h2 id="c2"><small>Capítulo 2</small>La guerra de los huesos</h2>
+<p>En 1858, en una granja de Haddonfield, en Nueva Jersey (Estados Unidos), un caballero aficionado a la naturaleza llamado William Parker Foulke oyó hablar de unos huesos enormes que unos obreros habían sacado veinte años antes de una cantera de marga, una tierra arcillosa que se usaba como abono. Foulke contrató a un equipo, volvió a excavar y encontró algo que nadie había visto en Inglaterra: buena parte del esqueleto de un mismo animal.</p>
+<p>El anatomista <b>Joseph Leidy</b>, de Filadelfia, lo estudió y lo llamó <b><i>Hadrosaurus foulkii</i></b>, «lagarto robusto de Foulke». Leidy se fijó en algo importante: las patas traseras eran mucho más largas que las delanteras. Aquel animal no caminaba siempre a cuatro patas como un rinoceronte, sino que podía erguirse sobre las traseras, apoyándose en la cola, como un canguro. Era la primera vez que se podía reconstruir un dinosaurio con cierto fundamento. En 1868, Waterhouse Hawkins, el escultor del Palacio de Cristal, montó una réplica de su esqueleto en la Academia de Ciencias Naturales de Filadelfia: fue el primer esqueleto de dinosaurio montado del mundo, y el museo tuvo que limitar las visitas por la avalancha de público.</p>
+
+<h3>Dos amigos que se volvieron enemigos</h3>
+<p>Aquel éxito despertó la vocación de dos jóvenes muy diferentes. <b>Edward Drinker Cope</b> (1840–1897) era de Filadelfia, hijo de una rica familia cuáquera. Era un genio precoz, impulsivo, capaz de escribir artículos científicos a una velocidad asombrosa, y de un carácter volcánico. <b>Othniel Charles Marsh</b> (1831–1899) era más lento, metódico y calculador. Tenía un tío millonario, el banquero George Peabody, que pagó un museo de historia natural en la Universidad de Yale y puso a su sobrino al frente.</p>
+<p>Al principio fueron amigos. Se conocieron en Berlín en los años sesenta, se escribían con cordialidad y hasta se dedicaron especies el uno al otro. Pero la amistad se agrió pronto. Según la versión más repetida, en 1868 Cope enseñó a Marsh las canteras de Nueva Jersey donde buscaba fósiles, y poco después Marsh sobornó a los canteros para que le enviaran a él los huesos que encontraran. Fuera exactamente así o no, desde entonces se desconfiaron para siempre.</p>
+
+<h3>La cabeza en la cola</h3>
+<p>El episodio más humillante le tocó a Cope. En 1868 recibió de Kansas el esqueleto de un reptil marino de cuello larguísimo, un plesiosaurio, y lo llamó <b><i>Elasmosaurus</i></b>. Al reconstruirlo, colocó la cabeza en el extremo equivocado: al final de la cola. Como las vértebras del cuello de estos animales eran muy numerosas, Cope pensó que eran las de una cola larga y que el cuello era corto.</p>
+<p>Fue Leidy quien, en 1870, señaló el error en público. Cope, avergonzado, intentó comprar y destruir todos los ejemplares de la revista donde había publicado su dibujo. Marsh contó durante años que había sido él quien descubrió el fallo, y no dejó de recordarlo cada vez que pudo. Aunque los historiadores dudan de esa versión, la herida quedó abierta.</p>
+<figure>
+<svg viewBox="0 0 600 300" role="img" aria-label="Dos siluetas de Elasmosaurus: arriba la reconstrucción de Cope con la cabeza al final de la cola y un cuello corto; abajo la correcta, con un cuello larguísimo y una cola corta">
+<text x="20" y="26" font-size="13" fill="#b3261e" font-weight="bold">Cope, 1868: cabeza al final de la cola</text>
+<ellipse cx="200" cy="85" rx="70" ry="26" fill="#b3261e" fill-opacity=".3" stroke="#b3261e"/>
+<path d="M132 80 Q110 72 100 76" fill="none" stroke="#b3261e" stroke-width="7" stroke-linecap="round"/>
+<path d="M270 85 C330 80 380 70 430 64 C480 58 520 60 545 66" fill="none" stroke="#b3261e" stroke-width="8" stroke-linecap="round"/>
+<ellipse cx="555" cy="67" rx="17" ry="9" fill="#b3261e" fill-opacity=".6" stroke="#b3261e"/>
+<circle cx="562" cy="64" r="2" fill="currentColor"/>
+<path d="M165 105 L140 135 L160 132 L180 108Z M235 105 L255 135 L270 130 L250 105Z" fill="#b3261e" fill-opacity=".5"/>
+<text x="555" y="100" font-size="12" fill="currentColor" text-anchor="end">cabeza</text>
+<text x="92" y="100" font-size="12" fill="currentColor" text-anchor="middle">«cola»</text>
+<text x="400" y="100" font-size="12" fill="currentColor" text-anchor="middle">«cola» larguísima</text>
+<text x="20" y="168" font-size="13" fill="#2f6f4e" font-weight="bold">Como era en realidad</text>
+<ellipse cx="400" cy="235" rx="70" ry="26" fill="#2f6f4e" fill-opacity=".3" stroke="#2f6f4e"/>
+<path d="M468 232 Q500 236 530 250" fill="none" stroke="#2f6f4e" stroke-width="7" stroke-linecap="round"/>
+<path d="M332 232 C270 226 220 216 170 208 C120 200 80 204 58 212" fill="none" stroke="#2f6f4e" stroke-width="8" stroke-linecap="round"/>
+<ellipse cx="46" cy="214" rx="17" ry="9" fill="#2f6f4e" fill-opacity=".6" stroke="#2f6f4e"/>
+<circle cx="39" cy="211" r="2" fill="currentColor"/>
+<path d="M365 255 L340 285 L360 282 L380 258Z M435 255 L455 285 L470 280 L450 255Z" fill="#2f6f4e" fill-opacity=".5"/>
+<text x="46" y="245" font-size="12" fill="currentColor" text-anchor="middle">cabeza</text>
+<text x="200" y="245" font-size="12" fill="currentColor" text-anchor="middle">cuello de unas 70 vértebras</text>
+<text x="545" y="275" font-size="12" fill="currentColor" text-anchor="end">cola</text>
+</svg>
+<figcaption>El error de Cope. <i>Elasmosaurus</i> no era un dinosaurio sino un reptil marino, pero su reconstrucción equivocada desató la enemistad más famosa de la historia de la ciencia.</figcaption>
+</figure>
+
+<h3>La fiebre de los huesos</h3>
+<p>En 1877 la guerra estalló de verdad. Ese año, un profesor y un par de trabajadores del ferrocarril encontraron, en Colorado y en Wyoming, yacimientos riquísimos en huesos gigantes. Eran rocas del Jurásico superior, de hace unos 150 millones de años, que hoy se conocen como la <b>formación Morrison</b>. Los descubridores escribieron a Cope y a Marsh a la vez, para ver quién pagaba más. En el lugar llamado Como Bluff, en Wyoming, dos empleados del ferrocarril que firmaban con nombres falsos para ocultar su hallazgo acabaron trabajando para Marsh.</p>
+<p>Durante los quince años siguientes, los equipos de ambos rivales excavaron a toda prisa en el Oeste americano, en tierras de los pueblos indígenas y en plena época de las guerras contra ellos. Se espiaban, se robaban trabajadores, desviaban envíos de fósiles e incluso, según se cuenta, destruían con dinamita los huesos que no podían llevarse para que no los aprovechara el otro. Los fósiles se embalaban mal, se mezclaban y se describían a toda velocidad, a veces con un par de huesos, para ganar la carrera y ponerles nombre antes que el rival.</p>
+<div class="fondo"><b>Para entenderlo mejor: ¿cómo se nombra una especie?</b> Cada especie tiene un nombre científico de dos palabras en latín o en griego latinizado, en cursiva: el género, con mayúscula, y la especie, con minúscula. Por ejemplo, <i>Tyrannosaurus rex</i> o <i>Homo sapiens</i>. Existe una regla de oro, la de <b>prioridad</b>: si dos científicos ponen nombres distintos al mismo animal, vale el primero que se publicó correctamente. Por eso Cope y Marsh corrían tanto: publicar un día antes significaba quedarse con el nombre para siempre.</div>
+<p>De esa carrera salieron muchos de los dinosaurios más famosos. Marsh bautizó a <i>Stegosaurus</i>, <i>Allosaurus</i>, <i>Apatosaurus</i>, <i>Diplodocus</i>, <i>Brontosaurus</i> y <i>Triceratops</i>. Cope, a <i>Camarasaurus</i> y a <i>Coelophysis</i>. Según los recuentos habituales, entre los dos describieron unas 136 especies nuevas de dinosaurios: unas 80 Marsh y unas 56 Cope. Muchas no sobrevivieron a una revisión posterior, porque eran el mismo animal con dos nombres o se basaban en restos insuficientes.</p>
+
+<h3>El caso del brontosaurio</h3>
+<p>El ejemplo más famoso es el brontosaurio. En 1877 Marsh llamó <i>Apatosaurus</i> a un saurópodo joven, y en 1879 llamó <i>Brontosaurus</i>, «lagarto del trueno», a otro esqueleto más grande y completo. En 1903 el paleontólogo Elmer Riggs concluyó que ambos eran el mismo género. Por la regla de prioridad, el nombre válido era <i>Apatosaurus</i>, el primero. Pero «brontosaurio» ya era popular y siguió en libros, películas y hasta en sellos de correos.</p>
+<p>Para colmo, al esqueleto montado en los museos le pusieron durante décadas un cráneo equivocado, parecido al de <i>Camarasaurus</i>, porque no se había encontrado el suyo. No se corrigió del todo hasta finales de los años setenta. Y la historia tuvo un giro inesperado: en 2015, tres investigadores, entre ellos el portugués Octávio Mateus, compararon cientos de rasgos de muchos esqueletos y concluyeron que <i>Brontosaurus</i> era lo bastante distinto de <i>Apatosaurus</i> como para merecer su propio género. El brontosaurio volvía a existir, aunque no todos los especialistas están convencidos.</p>
+<div class="sabias"><b>¿Sabías que...?</b> Marsh fue uno de los primeros grandes defensores de Darwin en América. Sus fósiles de caballos, ordenados desde un animal del tamaño de un perro con varios dedos hasta el caballo moderno de un solo dedo, y sus aves fósiles con dientes, fueron algunas de las mejores pruebas de la <a href="../la-evolucion/libro.html">evolución</a> de su tiempo. Darwin le escribió en 1880 para decirle que su trabajo era el mejor apoyo que había recibido su teoría en veinte años.</div>
+
+<h3>Un final sin vencedores</h3>
+<p>En 1890 la pelea saltó a la prensa. Cope, que había perdido gran parte de su fortuna en malas inversiones, filtró al periódico <i>New York Herald</i> un montón de acusaciones contra Marsh: que plagiaba, que era incompetente, que se apropiaba del trabajo de sus ayudantes. Marsh respondió con otras tantas. El escándalo dañó a los dos. Marsh perdió su puesto en el Servicio Geológico de Estados Unidos y acabó sus días viviendo de su sueldo en Yale. Cope tuvo que vender parte de su colección.</p>
+<p>Cope murió en 1897. Se cuenta que donó su cuerpo a la ciencia con la idea de que midieran su cerebro y lo compararan con el de Marsh, convencido de que el suyo sería más grande, pero Marsh nunca aceptó el desafío. Es una anécdota que se repite mucho y que quizá esté adornada. Marsh murió dos años después, en 1899.</p>
+<p>La guerra de los huesos dejó una imagen poco edificante de la ciencia, llena de celos y trampas. Pero también dejó una herencia enorme: toneladas de fósiles en los museos, decenas de dinosaurios nuevos y la primera idea clara de lo variados que habían sido. Antes de 1877 se conocían en Norteamérica solo unas pocas especies; al final del siglo, el público ya soñaba con gigantes de veinte metros de largo.</p>
+<div class="idea"><b>Idea clave:</b> en el Oeste americano, Cope y Marsh compitieron con espías, sobornos y prisas. Su rivalidad llenó los museos de fósiles y nos dio muchos dinosaurios famosos, pero también errores, como la cabeza de <i>Elasmosaurus</i> en la cola o el doble nombre del brontosaurio.</div>
+
+<h2 id="c3"><small>Capítulo 3</small>El tiempo profundo</h2>
+<p>Cuando hablamos de dinosaurios, las cifras de tiempo se vuelven mareantes: 66 millones de años, 150 millones, 230 millones. Nuestro cerebro no está preparado para imaginar esas distancias. Un siglo ya nos parece mucho; mil años, una eternidad. Por eso los geólogos hablan de <b>tiempo profundo</b>: el tiempo inmenso de la historia de la Tierra, frente al cual toda la historia humana es un parpadeo.</p>
+<p>La Tierra tiene unos <b>4.540 millones de años</b>. Lo sabemos gracias a la radiactividad de ciertas rocas y meteoritos, como veremos en el próximo capítulo. Si metiéramos toda esa historia en un solo año de calendario, con la formación del planeta el 1 de enero a medianoche, los primeros seres vivos aparecerían hacia finales de febrero o marzo, los animales con esqueleto a mediados de noviembre, los primeros dinosaurios hacia el <b>13 de diciembre</b>, y el asteroide que acabó con ellos caería el <b>26 de diciembre</b>. Nuestra especie, <i>Homo sapiens</i>, llegaría el 31 de diciembre a eso de las once y veinticinco de la noche. Toda la historia escrita, desde los sumerios hasta hoy, ocuparía solo los últimos treinta y tantos segundos.</p>
+
+<h3>Eras y periodos</h3>
+<p>Para orientarse en ese océano de tiempo, los geólogos lo dividen en tramos, como los capítulos de un libro. Los más grandes que nos interesan son las <b>eras</b>: el Paleozoico («vida antigua»), el <b>Mesozoico</b> («vida media») y el Cenozoico («vida reciente»), en el que vivimos. El Mesozoico es la era de los dinosaurios y se divide en tres <b>periodos</b>: Triásico, Jurásico y Cretácico. Cada uno recibió su nombre en el siglo XIX por las rocas donde se estudió primero: el Triásico por las tres capas de roca típicas de Alemania, el Jurásico por los montes del Jura, entre Francia y Suiza, y el Cretácico por la creta (<i>creta</i> en latín), la roca blanca de los acantilados de Dover.</p>
+<figure>
+<svg viewBox="0 0 600 360" role="img" aria-label="Barra a escala de toda la historia de la Tierra, 4.540 millones de años, donde el Mesozoico ocupa una franja estrecha al final; debajo, una ampliación de los últimos 260 millones de años con el Triásico, el Jurásico, el Cretácico y el Cenozoico, y la aparición de los dinosaurios, Stegosaurus, Tyrannosaurus, el impacto y los humanos">
+<text x="30" y="22" font-size="13" fill="currentColor" font-weight="bold">Toda la historia de la Tierra, a escala</text>
+<rect x="30" y="44" width="475.9" height="22" fill="#6b6259" fill-opacity=".35"/>
+<rect x="505.9" y="44" width="34.1" height="22" fill="#1d3f8a" fill-opacity=".55"/>
+<rect x="540" y="44" width="22.1" height="22" fill="#2f6f4e" fill-opacity=".9"/>
+<rect x="562.1" y="44" width="7.9" height="22" fill="#9a7412" fill-opacity=".8"/>
+<text x="268" y="60" font-size="12" fill="currentColor" text-anchor="middle">Precámbrico: casi 4.000 millones de años sin animales grandes</text>
+<text x="30" y="82" font-size="12" fill="currentColor">4.540</text>
+<text x="213.2" y="82" font-size="12" fill="currentColor" text-anchor="middle">3.000</text>
+<text x="451.1" y="82" font-size="12" fill="currentColor" text-anchor="middle">1.000</text>
+<text x="570" y="82" font-size="12" fill="currentColor" text-anchor="end">0</text>
+<text x="300" y="98" font-size="12" fill="currentColor" fill-opacity=".8" text-anchor="middle">millones de años atrás</text>
+<text x="522" y="38" font-size="12" fill="#1d3f8a" text-anchor="end">Paleozoico</text>
+<line x1="551" y1="30" x2="551" y2="44" stroke="#2f6f4e"/>
+<text x="555" y="24" font-size="12" fill="#2f6f4e" text-anchor="end" font-weight="bold">Mesozoico</text>
+<line x1="540" y1="66" x2="30" y2="140" stroke="#2f6f4e" stroke-opacity=".6" stroke-dasharray="3 3"/>
+<line x1="570" y1="66" x2="570" y2="140" stroke="#2f6f4e" stroke-opacity=".6" stroke-dasharray="3 3"/>
+<text x="30" y="132" font-size="13" fill="currentColor" font-weight="bold">Ampliación: los últimos 260 millones de años</text>
+<rect x="30" y="170" width="16.6" height="34" fill="#1d3f8a" fill-opacity=".35"/>
+<rect x="46.6" y="170" width="105.1" height="34" fill="#b3261e" fill-opacity=".35"/>
+<rect x="151.7" y="170" width="117.1" height="34" fill="#1d3f8a" fill-opacity=".45"/>
+<rect x="268.8" y="170" width="164.1" height="34" fill="#2f6f4e" fill-opacity=".5"/>
+<rect x="432.9" y="170" width="137.1" height="34" fill="#9a7412" fill-opacity=".45"/>
+<text x="99.2" y="192" font-size="12.5" fill="currentColor" text-anchor="middle" font-weight="bold">Triásico</text>
+<text x="210.3" y="192" font-size="12.5" fill="currentColor" text-anchor="middle" font-weight="bold">Jurásico</text>
+<text x="350.9" y="192" font-size="12.5" fill="currentColor" text-anchor="middle" font-weight="bold">Cretácico</text>
+<text x="501.5" y="192" font-size="12.5" fill="currentColor" text-anchor="middle" font-weight="bold">Cenozoico</text>
+<text x="46.6" y="222" font-size="12" fill="currentColor" text-anchor="middle">252</text>
+<text x="151.7" y="222" font-size="12" fill="currentColor" text-anchor="middle">201</text>
+<text x="268.8" y="222" font-size="12" fill="currentColor" text-anchor="middle">145</text>
+<text x="432.9" y="222" font-size="12" fill="currentColor" text-anchor="middle">66</text>
+<text x="570" y="222" font-size="12" fill="currentColor" text-anchor="end">hoy</text>
+<line x1="86.1" y1="150" x2="86.1" y2="170" stroke="currentColor"/>
+<text x="86.1" y="146" font-size="12" fill="currentColor" text-anchor="middle">primeros dinosaurios</text>
+<line x1="432.9" y1="150" x2="432.9" y2="170" stroke="#b3261e" stroke-width="2"/>
+<text x="432.9" y="146" font-size="12" fill="#b3261e" text-anchor="middle" font-weight="bold">impacto</text>
+<line x1="254.3" y1="204" x2="254.3" y2="250" stroke="currentColor" stroke-opacity=".6"/>
+<line x1="430.8" y1="204" x2="430.8" y2="250" stroke="currentColor" stroke-opacity=".6"/>
+<line x1="569.4" y1="204" x2="569.4" y2="250" stroke="currentColor" stroke-opacity=".6"/>
+<text x="254.3" y="266" font-size="12" fill="currentColor" text-anchor="middle">Stegosaurus</text>
+<text x="430.8" y="266" font-size="12" fill="currentColor" text-anchor="middle">T. rex</text>
+<text x="569" y="266" font-size="12" fill="currentColor" text-anchor="end">nosotros</text>
+<path d="M256 284 v8 h173 v-8" fill="none" stroke="#b3261e" stroke-width="1.5"/>
+<text x="342.5" y="310" font-size="12" fill="#b3261e" text-anchor="middle">unos 85 millones de años</text>
+<path d="M433 284 v8 h135 v-8" fill="none" stroke="#1d3f8a" stroke-width="1.5"/>
+<text x="500.5" y="310" font-size="12" fill="#1d3f8a" text-anchor="middle">66 millones</text>
+<text x="300" y="344" font-size="12" fill="currentColor" fill-opacity=".85" text-anchor="middle">El T. rex vivió más cerca de nosotros que del Stegosaurus.</text>
+</svg>
+<figcaption>Arriba, los 4.540 millones de años de la Tierra: toda la era de los dinosaurios cabe en una franja verde de apenas un 4 % de la barra, y los humanos no se verían ni con lupa. Abajo, ampliada, la era Mesozoica con sus tres periodos.</figcaption>
+</figure>
+
+<h3>Antes de los dinosaurios: la gran mortandad</h3>
+<p>El Mesozoico empezó con una catástrofe. Hace unos <b>252 millones de años</b>, al final del periodo Pérmico, se produjo la peor extinción de la historia de la vida. Enormes erupciones volcánicas en lo que hoy es Siberia lanzaron durante miles de años cantidades descomunales de gases que calentaron el planeta y volvieron los océanos ácidos y pobres en oxígeno. Desaparecieron en torno al 80 o el 90 % de las especies marinas y buena parte de las terrestres. Los paleontólogos la llaman «la gran mortandad».</p>
+<p>Aquello dejó el mundo casi vacío, y los supervivientes se repartieron los huecos. Entre ellos había un grupo de reptiles llamados <b>arcosaurios</b>, «reptiles dominantes», del que saldrían los cocodrilos, los pterosaurios y los dinosaurios.</p>
+
+<h3>Triásico (252 a 201 millones de años): los comienzos</h3>
+<p>En el Triásico todos los continentes estaban unidos en un único supercontinente, <b>Pangea</b>, rodeado por un océano gigantesco. Su interior era muy seco y caluroso, con grandes desiertos. Los primeros dinosaurios seguros aparecen hace unos <b>233 a 230 millones de años</b>, sobre todo en Argentina y Brasil. Eran animales pequeños o medianos, ágiles, que corrían sobre dos patas, como <i>Eoraptor</i>, del tamaño de un perro mediano, o <i>Herrerasaurus</i>, un depredador de unos cuatro metros, ambos del valle de Ischigualasto, en Argentina.</p>
+<p>Al principio no dominaban nada. Compartían el mundo con parientes de los cocodrilos mucho más grandes y temibles, y eran una parte minoritaria de la fauna. Por aquella misma época aparecieron también los primeros mamíferos, pequeños como musarañas. Hace unos <b>201 millones de años</b>, otra extinción, provocada de nuevo por volcanes gigantescos mientras Pangea empezaba a romperse, eliminó a muchos de sus competidores. Los dinosaurios sobrevivieron mejor y, a partir de entonces, se apoderaron de la tierra firme.</p>
+
+<h3>Jurásico (201 a 145 millones de años): la edad de los gigantes</h3>
+<p>En el Jurásico, Pangea se fue partiendo en dos grandes bloques, uno al norte y otro al sur, y entre ellos se abrió un mar. El clima se volvió más húmedo y templado, y se extendieron los bosques de coníferas, helechos y cícadas. Fue la gran época de los <b>saurópodos</b>, los gigantes de cuello largo, como <i>Diplodocus</i>, <i>Brachiosaurus</i> o el español <i>Turiasaurus</i>, y de depredadores como <i>Allosaurus</i>. También vivieron entonces <i>Stegosaurus</i> y, al final del periodo, <i>Archaeopteryx</i>, uno de los primeros dinosaurios con plumas capaces de volar. La península ibérica era entonces un conjunto de islas y costas cálidas junto a un mar poco profundo.</p>
+
+<h3>Cretácico (145 a 66 millones de años): flores y cuernos</h3>
+<p>El Cretácico es el periodo más largo de los tres: casi 80 millones de años. Los continentes siguieron separándose hasta tomar formas parecidas a las actuales, y el nivel del mar subió tanto que inundó grandes regiones; Norteamérica llegó a estar partida en dos por un mar interior. Hace unos 130 millones de años aparecieron las <b>plantas con flores</b>, que hoy dominan el paisaje. Los dinosaurios se diversificaron más que nunca: hadrosaurios con pico de pato, ceratopsios con cuernos, anquilosaurios acorazados, tiranosaurios y los titanosaurios, los animales terrestres más grandes de todos los tiempos. Y se acabó de golpe, hace <b>66 millones de años</b>, con la caída de un asteroide.</p>
+<div class="sabias"><b>¿Sabías que...?</b> Entre el <i>Stegosaurus</i> y el <i>Tyrannosaurus rex</i> pasaron más de 80 millones de años, más que entre el <i>T. rex</i> y nosotros. Es como la famosa comparación con Cleopatra: la reina egipcia vivió más cerca en el tiempo de la llegada del ser humano a la Luna que de la construcción de la Gran Pirámide. Las películas que juntan a todos los dinosaurios en una misma escena mezclan animales que nunca se vieron.</div>
+<div class="fondo"><b>Para entenderlo mejor: dinosaurios durante 165 millones de años.</b> Los dinosaurios no avianos, es decir, todos menos las aves, existieron durante unos 165 millones de años, desde hace unos 231 hasta hace 66. Nuestro género, <i>Homo</i>, tiene menos de tres millones de años. A veces se dice que los dinosaurios fueron un «fracaso» porque se extinguieron, pero pocos grupos de animales han dominado la tierra firme durante tanto tiempo. Y, como veremos, en realidad no se extinguieron del todo.</div>
+<div class="idea"><b>Idea clave:</b> la era de los dinosaurios, el Mesozoico, duró de hace 252 a hace 66 millones de años y se divide en Triásico, Jurásico y Cretácico. Es un tramo enorme, pero representa solo el 4 % de la historia de la Tierra, y dentro de él hubo faunas muy distintas que nunca coincidieron.</div>
+
+<h2 id="c4"><small>Capítulo 4</small>Cómo se forma y se data un fósil</h2>
+<p>Convertirse en fósil es algo extraordinariamente raro. Cuando un animal muere, lo normal es que los carroñeros se coman su carne, que los insectos, los hongos y las bacterias descompongan el resto, y que el sol, la lluvia y las raíces desmenucen los huesos. En pocos años no queda nada. Se calcula que solo una fracción minúscula de todos los seres que han vivido ha dejado algún rastro en las rocas, y de esa fracción los paleontólogos solo han encontrado una parte todavía más pequeña.</p>
+<p>Por eso cada fósil es casi un milagro, y por eso conocemos a muchos dinosaurios por un puñado de huesos. De la mayoría de las especies que existieron nunca sabremos nada.</p>
+
+<h3>La receta de un fósil</h3>
+<p>Para que un dinosaurio se fosilice hace falta, ante todo, que quede <b>enterrado rápidamente</b>, antes de que lo destruyan. Eso ocurre sobre todo en lugares donde se acumula sedimento, es decir, arena, barro o ceniza que el agua o el viento van depositando: el fondo de un lago, la llanura que inunda un río en cada crecida, un delta, una laguna costera o una duna que se desploma. Un animal que muere en una ladera rocosa tiene muchas menos posibilidades que uno que cae a un río.</p>
+<p>Una vez enterrados, los huesos quedan protegidos del oxígeno y de los carroñeros. Con el tiempo, más y más capas de sedimento se amontonan encima, las de abajo se compactan y se endurecen hasta convertirse en roca. Mientras tanto, el agua que circula por el subsuelo lleva disueltos minerales, como la sílice, la calcita o compuestos de hierro, que se van depositando en los poros microscópicos del hueso. El hueso original no desaparece necesariamente, pero se rellena y se endurece: por eso los huesos fósiles pesan tanto y parecen de piedra. Este proceso se llama <b>permineralización</b>. A veces el hueso se disuelve por completo y deja un hueco con su forma, un <b>molde</b>, que puede rellenarse después con otro mineral y formar una copia exacta, un <b>vaciado</b> natural.</p>
+<figure>
+<svg viewBox="0 0 600 250" role="img" aria-label="Cuatro pasos de la formación de un fósil: un dinosaurio muere junto a un río, el esqueleto queda enterrado en barro, las capas se acumulan y los minerales convierten los huesos en fósiles, y millones de años después la erosión lo saca a la luz">
+<g font-size="12" fill="currentColor" text-anchor="middle">
+<text x="75" y="20" font-weight="bold">1. Muere</text>
+<text x="225" y="20" font-weight="bold">2. Se entierra</text>
+<text x="375" y="20" font-weight="bold">3. Se mineraliza</text>
+<text x="525" y="20" font-weight="bold">4. Aflora</text>
+<text x="75" y="228">junto a un río</text>
+<text x="75" y="243">o un lago</text>
+<text x="225" y="228">el barro lo tapa</text>
+<text x="225" y="243">antes de pudrirse</text>
+<text x="375" y="228">capas encima;</text>
+<text x="375" y="243">los huesos, piedra</text>
+<text x="525" y="228">la erosión lo</text>
+<text x="525" y="243">deja al descubierto</text>
+</g>
+<g stroke="currentColor" stroke-opacity=".25"><line x1="150" y1="30" x2="150" y2="210"/><line x1="300" y1="30" x2="300" y2="210"/><line x1="450" y1="30" x2="450" y2="210"/></g>
+<rect x="5" y="150" width="140" height="60" fill="#9a7412" fill-opacity=".25"/>
+<path d="M5 150 Q40 142 80 150 T145 148" fill="#1d3f8a" fill-opacity=".35"/>
+<g transform="translate(20 110)">
+<ellipse cx="55" cy="30" rx="30" ry="12" fill="#6b6259" fill-opacity=".8"/>
+<path d="M28 28 Q10 22 0 32" stroke="#6b6259" stroke-width="5" fill="none" stroke-linecap="round"/>
+<path d="M84 28 Q100 20 108 30" stroke="#6b6259" stroke-width="6" fill="none" stroke-linecap="round"/>
+<circle cx="110" cy="31" r="5" fill="#6b6259"/>
+<path d="M45 40 l-4 10 M68 40 l4 10" stroke="#6b6259" stroke-width="5" stroke-linecap="round"/>
+</g>
+<rect x="155" y="120" width="140" height="90" fill="#9a7412" fill-opacity=".25"/>
+<rect x="155" y="120" width="140" height="30" fill="#9a7412" fill-opacity=".25"/>
+<g stroke="currentColor" stroke-width="2.5" stroke-linecap="round" fill="none" transform="translate(170 150)">
+<path d="M20 20 Q55 10 90 18"/><path d="M90 18 Q105 12 112 20"/><path d="M20 20 Q8 22 0 30"/>
+<path d="M35 18 v10 M45 16 v10 M55 15 v10 M65 15 v10 M75 16 v10"/>
+<path d="M40 24 l-6 14 M78 24 l6 14"/>
+</g>
+<rect x="305" y="40" width="140" height="170" fill="#9a7412" fill-opacity=".2"/>
+<g fill="#9a7412" fill-opacity=".25"><rect x="305" y="40" width="140" height="28"/><rect x="305" y="96" width="140" height="26"/><rect x="305" y="150" width="140" height="14"/></g>
+<g stroke="#b3261e" stroke-width="3" stroke-linecap="round" fill="none" transform="translate(320 168)">
+<path d="M20 20 Q55 10 90 18"/><path d="M90 18 Q105 12 112 20"/><path d="M20 20 Q8 22 0 30"/>
+<path d="M35 18 v10 M45 16 v10 M55 15 v10 M65 15 v10 M75 16 v10"/>
+<path d="M40 24 l-6 14 M78 24 l6 14"/>
+</g>
+<g stroke="#1d3f8a" stroke-opacity=".7" stroke-width="1.5"><path d="M340 70 l0 90 M380 70 l0 90 M420 70 l0 90" stroke-dasharray="2 5"/></g>
+<text x="375" y="87" font-size="12" fill="#1d3f8a" text-anchor="middle">agua con minerales</text>
+<path d="M455 210 L455 120 Q480 70 520 90 Q550 100 595 60 L595 210Z" fill="#9a7412" fill-opacity=".3"/>
+<g stroke="#b3261e" stroke-width="3" stroke-linecap="round" fill="none" transform="translate(470 118)">
+<path d="M20 20 Q40 12 60 14"/><path d="M35 18 v10 M45 16 v10 M55 15 v10"/>
+</g>
+<g transform="translate(560 32)" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"><circle cx="0" cy="0" r="5"/><path d="M0 5 v18 M0 12 l-8 6 M0 12 l8 -2 M0 23 l-6 12 M0 23 l6 12"/></g>
+</svg>
+<figcaption>Del cadáver a la roca. El paso 3 dura millones de años; el paso 4 depende de que la erosión saque el fósil justo en la época en que alguien pasa por allí, antes de que el viento y la lluvia lo destruyan.</figcaption>
+</figure>
+<p>Además de los huesos, se fosilizan otras cosas: dientes, que son la parte más dura del cuerpo y los fósiles de dinosaurio más comunes; huellas y rastros; huevos y nidos; piel, cuando queda la impresión de las escamas en el barro; incluso excrementos petrificados, los <b>coprolitos</b>, y piedras que algunos dinosaurios tragaban para ayudar a triturar la comida, los <b>gastrolitos</b>. A estos restos que no son parte del cuerpo, sino señales de lo que hacía el animal, se les llama <b>icnofósiles</b> o fósiles traza.</p>
+<div class="sabias"><b>¿Sabías que...?</b> Hay lugares excepcionales donde se conservan hasta las partes blandas: plumas, piel, músculos o el contenido del estómago. Se llaman <i>Lagerstätten</i>, una palabra alemana de mineros que significa «lugar de almacenamiento». Tres de los más famosos para los dinosaurios son las calizas de Solnhofen (Alemania), las capas de ceniza volcánica de Liaoning (China) y un yacimiento español, Las Hoyas (Cuenca), en el antiguo fondo de un lago.</div>
+
+<h3>Del campo al museo</h3>
+<p>Encontrar un fósil es solo el principio. Los paleontólogos prospectan zonas donde afloran rocas de la edad adecuada, a menudo lugares áridos donde hay poca vegetación que tape el suelo, y buscan fragmentos que la erosión ha dejado a la vista. Cuando aparece un hueso, se excava con cuidado, se anota y fotografía su posición exacta y se endurece con pegamentos especiales. Los huesos grandes se envuelven, junto con la roca que los rodea, en una <b>chaqueta de escayola</b>, igual que se escayola un brazo roto, para transportarlos sin que se rompan. Algunas pesan varias toneladas.</p>
+<p>Ya en el laboratorio, los técnicos preparadores retiran la roca grano a grano con pequeños martillos neumáticos, agujas y lupas. Preparar un esqueleto grande puede llevar años. Y el esqueleto que ves en un museo casi nunca es el fósil original: suelen ser réplicas ligeras de resina, porque los huesos auténticos pesan demasiado y son demasiado valiosos para colgarlos de hierros.</p>
+
+<h3>¿Qué edad tiene? Primero, el orden</h3>
+<p>Saber cuántos años tiene un fósil fue durante mucho tiempo imposible. Pero sí se podía saber qué era más antiguo y qué más reciente. En 1669, el danés <b>Nicolás Steno</b> formuló una idea sencilla: en una serie de capas de roca sedimentaria que no se ha dado la vuelta, las de abajo se depositaron antes que las de arriba. Es el <b>principio de superposición</b>, como una pila de periódicos en la que los más antiguos quedan al fondo.</p>
+<p>A principios del siglo XIX, el agrimensor inglés <b>William Smith</b>, que trabajaba excavando canales, se dio cuenta de que cada capa contenía fósiles característicos, siempre en el mismo orden, y que eso permitía reconocer la misma capa en lugares muy lejanos. En 1815 publicó el primer mapa geológico de todo un país, Inglaterra y Gales. Con esos <b>fósiles guía</b> se construyó la escala de los periodos geológicos, aunque durante décadas nadie supo cuántos millones de años duraba cada uno.</p>
+
+<h3>Relojes dentro de las rocas</h3>
+<p>La respuesta llegó con el descubrimiento de la radiactividad, a finales del siglo XIX. Algunos átomos son inestables: se transforman espontáneamente en átomos de otro elemento, a un ritmo fijo que no cambia con la temperatura ni con la presión. El tiempo que tarda en transformarse la mitad de esos átomos se llama <b>periodo de semidesintegración</b> o vida media. Si una roca contiene un «átomo padre» radiactivo y el «átomo hijo» en el que se convierte, la proporción entre los dos funciona como un reloj de arena. Puedes ver más sobre isótopos y elementos en <a href="../la-tabla-periodica/libro.html">La tabla periódica</a>.</p>
+<figure>
+<svg viewBox="0 0 600 300" role="img" aria-label="A la izquierda, un corte de capas de roca con un hueso de dinosaurio entre dos capas de ceniza volcánica datadas en 75,3 y 74,8 millones de años. A la derecha, barras a escala que muestran cómo cada periodo de semidesintegración reduce a la mitad los átomos radiactivos: 100, 50, 25, 12,5 y 6,25 por ciento">
+<text x="20" y="22" font-size="13" fill="currentColor" font-weight="bold">Un bocadillo de ceniza</text>
+<g>
+<rect x="20" y="40" width="190" height="36" fill="#9a7412" fill-opacity=".3"/>
+<rect x="20" y="76" width="190" height="14" fill="#6b6259" fill-opacity=".6"/>
+<rect x="20" y="90" width="190" height="40" fill="#9a7412" fill-opacity=".18"/>
+<rect x="20" y="130" width="190" height="44" fill="#9a7412" fill-opacity=".3"/>
+<rect x="20" y="174" width="190" height="14" fill="#6b6259" fill-opacity=".6"/>
+<rect x="20" y="188" width="190" height="50" fill="#9a7412" fill-opacity=".2"/>
+<g stroke="#b3261e" stroke-width="3" stroke-linecap="round" fill="none" transform="translate(60 135)"><path d="M0 15 Q50 0 100 12"/><circle cx="0" cy="15" r="5"/><circle cx="100" cy="12" r="5"/></g>
+</g>
+<text x="215" y="87" font-size="12" fill="currentColor">ceniza: 74,8</text>
+<text x="215" y="150" font-size="12" fill="#b3261e" font-weight="bold">hueso</text>
+<text x="215" y="185" font-size="12" fill="currentColor">ceniza: 75,3</text>
+<text x="20" y="260" font-size="12" fill="currentColor">El dinosaurio tiene entre</text>
+<text x="20" y="276" font-size="12" fill="currentColor">75,3 y 74,8 millones de años.</text>
+<text x="330" y="22" font-size="13" fill="currentColor" font-weight="bold">La mitad cada vez</text>
+<g font-size="12" fill="currentColor">
+<rect x="330" y="50" width="220" height="24" fill="#1d3f8a" fill-opacity=".6"/><text x="555" y="67">100 %</text>
+<rect x="330" y="84" width="110" height="24" fill="#1d3f8a" fill-opacity=".6"/><text x="445" y="101">50 %</text>
+<rect x="330" y="118" width="55" height="24" fill="#1d3f8a" fill-opacity=".6"/><text x="390" y="135">25 %</text>
+<rect x="330" y="152" width="27.5" height="24" fill="#1d3f8a" fill-opacity=".6"/><text x="362" y="169">12,5 %</text>
+<rect x="330" y="186" width="13.75" height="24" fill="#1d3f8a" fill-opacity=".6"/><text x="348" y="203">6,25 %</text>
+<text x="322" y="67" text-anchor="end">0</text><text x="322" y="101" text-anchor="end">1</text><text x="322" y="135" text-anchor="end">2</text><text x="322" y="169" text-anchor="end">3</text><text x="322" y="203" text-anchor="end">4</text>
+<text x="330" y="236">vidas medias transcurridas (izquierda)</text>
+<text x="330" y="256">y átomos radiactivos que quedan</text>
+<text x="330" y="276" fill="#1d3f8a">uranio 238: una vida media = 4.470 millones de años</text>
+</g>
+</svg>
+<figcaption>Los huesos no se pueden datar directamente, pero las cenizas volcánicas sí. Si un fósil queda entre dos capas de ceniza fechadas por su uranio, su edad está acotada entre ambas.</figcaption>
+</figure>
+<p>Para los dinosaurios, el reloj más útil es el del <b>uranio</b>, que se transforma lentamente en plomo. El uranio 238 tiene una vida media de unos 4.470 millones de años, y el uranio 235, de unos 704 millones. Se mide en unos cristalitos muy resistentes llamados <b>circones</b>, que se forman en el magma y que las erupciones esparcen con la ceniza. Otro reloj muy usado es el del potasio 40, que se convierte en argón 40.</p>
+<p>Hay un detalle importante: casi nunca se puede datar el hueso en sí, porque los relojes radiactivos miden cuándo se formó un cristal en una roca volcánica, no cuándo murió un animal. Por eso los paleontólogos buscan capas de ceniza por encima y por debajo del fósil. Si la de abajo tiene 75,3 millones de años y la de arriba 74,8, el dinosaurio murió entre esas dos fechas. Con los métodos actuales, algunas capas se fechan con un margen de error de unas pocas decenas de miles de años, algo asombroso tratándose de rocas de hace 66 millones.</p>
+<div class="fondo"><b>Para entenderlo mejor: ¿y el carbono 14?</b> Es un error muy común pensar que los dinosaurios se datan con carbono 14. Ese reloj sirve para restos orgánicos de hasta unos 50.000 años, porque su vida media es de solo 5.730 años: pasados unos diez periodos, queda tan poco que no se puede medir. En un hueso de 66 millones de años habrían pasado más de once mil vidas medias del carbono 14. Para el tiempo profundo hacen falta relojes mucho más lentos, como el uranio o el potasio.</div>
+<p>Con estos métodos, el geoquímico estadounidense <b>Clair Patterson</b> calculó en 1956, midiendo el plomo de meteoritos, que la Tierra tiene unos 4.550 millones de años, una cifra que apenas ha cambiado desde entonces. Y gracias a miles de dataciones, hoy la escala del tiempo geológico tiene fechas bastante precisas: sabemos, por ejemplo, que el límite entre el Cretácico y el periodo siguiente ocurrió hace unos 66,0 millones de años.</p>
+<div class="idea"><b>Idea clave:</b> para fosilizarse, un animal tiene que quedar enterrado muy deprisa, y después los minerales convierten sus huesos en piedra. Para saber su edad, primero se ordenan las capas de roca, y después se fechan las cenizas volcánicas cercanas con relojes radiactivos como el uranio, no con el carbono 14.</div>
+
+<h2 id="c5"><small>Capítulo 5</small>Qué es (y qué no es) un dinosaurio</h2>
+<p>Haz una prueba: pide a varias personas que nombren dinosaurios. Casi seguro que alguien dirá «pterodáctilo», otro «plesiosaurio» y quizá alguien más «mamut». Ninguno de ellos es un dinosaurio. La palabra se usa a menudo para cualquier bicho grande y antiguo, pero para los científicos tiene un significado muy preciso.</p>
+
+<h3>Una familia, no un tamaño</h3>
+<p>Hoy los biólogos clasifican a los seres vivos por su <b>parentesco</b>, es decir, por quién desciende de quién, igual que un árbol genealógico. Un grupo natural, llamado <b>clado</b>, está formado por un antepasado y <i>todos</i> sus descendientes. Con esta idea, los dinosaurios se definen así: el antepasado común más reciente del <i>Triceratops</i> y de las aves actuales, y todos los animales que descienden de él. Cualquier animal que pertenezca a esa rama es un dinosaurio, sea enorme o diminuto; cualquiera que esté fuera no lo es, por grande y antiguo que sea.</p>
+<p>Eso tiene una consecuencia sorprendente, que veremos con calma en el capítulo 11: las aves están dentro de esa rama. Un gorrión o una gallina son dinosaurios, tanto como un <i>Tyrannosaurus</i>. El dinosaurio más pequeño que conocemos vive hoy en Cuba: el colibrí zunzuncito, que pesa unos dos gramos.</p>
+
+<h3>Las señas de identidad</h3>
+<p>¿Cómo se reconoce a un dinosaurio por sus huesos? Los paleontólogos buscan una combinación de rasgos que heredaron de su antepasado común. Los más importantes tienen que ver con la forma de andar:</p>
+<ul>
+<li><b>Patas erguidas bajo el cuerpo.</b> Los lagartos y las salamandras tienen las patas abiertas hacia los lados, con los codos y las rodillas hacia fuera, y avanzan culebreando. Los dinosaurios tenían las patas verticales, como columnas, justo debajo del cuerpo, igual que un caballo o un avestruz.</li>
+<li><b>Una cadera con agujero.</b> El hueco de la pelvis donde encaja la cabeza del fémur, llamado acetábulo, está abierto por el centro en los dinosaurios, como un anillo, en lugar de ser una cazoleta cerrada. En esa posición erguida, el peso del cuerpo se apoya en el borde superior del hueco, que es muy robusto, y el centro no hace falta.</li>
+<li><b>Un fémur con la cabeza girada hacia dentro</b>, como el nuestro, para encajar de lado en la cadera.</li>
+<li><b>Un tobillo en bisagra</b>, que solo se dobla hacia delante y hacia atrás, y pies que se apoyan sobre los dedos, no sobre la planta.</li>
+<li><b>Varias vértebras soldadas a la cadera</b>, las vértebras sacras, que hacen la pelvis más fuerte. Fue uno de los rasgos en los que se fijó Owen en 1842.</li>
+</ul>
+<figure>
+<svg viewBox="0 0 600 250" role="img" aria-label="Tres animales vistos de frente: un lagarto con las patas abiertas hacia los lados, un cocodrilo con las patas semierguidas y un dinosaurio con las patas verticales debajo del cuerpo, como columnas">
+<g font-size="12.5" fill="currentColor" text-anchor="middle">
+<text x="100" y="24" font-weight="bold">Reptando</text>
+<text x="300" y="24" font-weight="bold">Semierguido</text>
+<text x="500" y="24" font-weight="bold">Erguido</text>
+<text x="100" y="228">lagartos, salamandras</text>
+<text x="300" y="228">cocodrilos (a veces)</text>
+<text x="500" y="228">dinosaurios, mamíferos</text>
+</g>
+<line x1="10" y1="190" x2="590" y2="190" stroke="currentColor" stroke-opacity=".4"/>
+<ellipse cx="100" cy="150" rx="34" ry="20" fill="#2f6f4e" fill-opacity=".45" stroke="#2f6f4e"/>
+<path d="M70 150 L35 150 L30 190 M130 150 L165 150 L170 190" stroke="#2f6f4e" stroke-width="7" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+<ellipse cx="300" cy="130" rx="34" ry="22" fill="#9a7412" fill-opacity=".45" stroke="#9a7412"/>
+<path d="M272 140 L250 160 L256 190 M328 140 L350 160 L344 190" stroke="#9a7412" stroke-width="7" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+<ellipse cx="500" cy="92" rx="34" ry="24" fill="#b3261e" fill-opacity=".4" stroke="#b3261e"/>
+<path d="M480 110 L480 150 L480 190 M520 110 L520 150 L520 190" stroke="#b3261e" stroke-width="8" fill="none" stroke-linecap="round"/>
+<g font-size="12" fill="currentColor" fill-opacity=".85" text-anchor="middle">
+<text x="100" y="118">codos y rodillas</text><text x="100" y="104">hacia fuera</text>
+<text x="500" y="54">el peso cae recto</text><text x="500" y="40">sobre las patas</text>
+</g>
+<path d="M500 60 v16" stroke="currentColor" stroke-width="1.5"/><path d="M495 72 l5 6 l5 -6" fill="none" stroke="currentColor" stroke-width="1.5"/>
+</svg>
+<figcaption>Tres formas de sostener el cuerpo, vistas de frente. Las patas en columna de los dinosaurios les permitían respirar mientras corrían, crecer hasta tamaños enormes y, en muchos casos, caminar solo sobre las dos traseras.</figcaption>
+</figure>
+<div class="fondo"><b>Para entenderlo mejor: ¿por qué importa la postura?</b> Un lagarto que corre dobla el cuerpo de lado a lado, y ese movimiento aprieta un pulmón y luego el otro: le cuesta respirar mientras corre, por eso hace carreras cortas y se detiene a jadear. Con las patas bajo el cuerpo, el tronco no se retuerce, y el animal puede correr y respirar a la vez durante mucho tiempo. Además, una columna vertical soporta el peso con mucho menos esfuerzo muscular que una pata doblada hacia fuera, igual que es más fácil sostener una mochila con los brazos estirados hacia abajo que con los codos abiertos. Sin esa postura, los saurópodos de decenas de toneladas no habrían sido posibles.</div>
+
+<h3>Los que no son dinosaurios</h3>
+<p>Con esta definición en la mano, muchos animales famosos quedan fuera:</p>
+<p><b>Los pterosaurios</b>, como <i>Pteranodon</i> o <i>Quetzalcoatlus</i>, eran reptiles voladores que vivieron en la misma época. Eran primos cercanos de los dinosaurios, de la misma rama de los arcosaurios, pero no dinosaurios. Sus alas eran una membrana de piel sostenida por un cuarto dedo larguísimo, y los mayores alcanzaban unos diez metros de envergadura, lo que mide una avioneta. El nombre «pterodáctilo» corresponde a un pterosaurio concreto, <i>Pterodactylus</i>, del tamaño de una gaviota.</p>
+<p><b>Los reptiles marinos</b> tampoco lo son. Los <b>ictiosaurios</b> parecían delfines; los <b>plesiosaurios</b>, como el <i>Elasmosaurus</i> de Cope, tenían cuatro aletas y a menudo un cuello larguísimo; los <b>mosasaurios</b> eran lagartos gigantes marinos, parientes de los varanos y las serpientes. Ningún dinosaurio vivió en el mar abierto, aunque algunos, como <i>Spinosaurus</i>, pasaban mucho tiempo en el agua y las aves marinas actuales, como los pingüinos, sí nadan de maravilla.</p>
+<p><b><i>Dimetrodon</i></b>, el reptil con una vela en el lomo que aparece en muchas cajas de juguetes de dinosaurios, vivió hace unos 295 a 272 millones de años, casi cuarenta millones de años antes que el primer dinosaurio. Y ni siquiera era un reptil en sentido estricto: pertenecía a la rama de los sinápsidos, la misma que dio lugar a los mamíferos. Está más emparentado contigo que con un <i>T. rex</i>.</p>
+<p><b>Los mamuts</b> son mamíferos, parientes de los elefantes, y vivieron en las edades de hielo, hasta hace apenas unos 4.000 años en una isla del Ártico, cuando en Egipto ya se habían construido las pirámides. Nuestros antepasados los cazaron y los pintaron en las cuevas. Entre el último dinosaurio no aviano y el primer mamut pasaron más de sesenta millones de años.</p>
+<div class="sabias"><b>¿Sabías que...?</b> Los parientes vivos más cercanos de los dinosaurios, sin contar a las aves, son los cocodrilos. Aves y cocodrilos comparten, por ejemplo, un corazón de cuatro cámaras y el cuidado de las crías. Por eso los paleontólogos los usan para deducir cómo pudo ser un dinosaurio: lo que tienen en común un cocodrilo y una gaviota seguramente lo tenía también un <i>Stegosaurus</i>, que queda entre los dos en el árbol de familia.</div>
+<p>Por último, todos los dinosaurios fueron animales de tierra firme. Caminaban, corrían y, algunos, trepaban o planeaban. Los únicos que conquistaron el aire de verdad fueron las aves y sus parientes más próximos. En el resto de este libro, cuando digamos «dinosaurios» sin más, hablaremos sobre todo de los dinosaurios no avianos, los que desaparecieron hace 66 millones de años; pero conviene no olvidar que la familia sigue viva.</p>
+<div class="idea"><b>Idea clave:</b> un dinosaurio no es cualquier animal grande y antiguo, sino un miembro de una familia concreta con patas erguidas bajo el cuerpo y una cadera con agujero. Los pterosaurios, los reptiles marinos, <i>Dimetrodon</i> y los mamuts no son dinosaurios; las aves, sí.</div>
+
+<h2 id="c6"><small>Capítulo 6</small>Dos caderas y un árbol</h2>
+<p>Hoy se conocen más de mil especies de dinosaurios no avianos, y cada año se describen varias decenas nuevas, muchas de ellas en Argentina, China y Estados Unidos. Para no perderse en esa multitud, los paleontólogos los ordenan en grupos, como las ramas de un árbol. La primera gran división la propuso a finales del siglo XIX el británico <b>Harry Govier Seeley</b>, y se basa en un hueso muy concreto: la cadera.</p>
+
+<h3>Cadera de lagarto, cadera de ave</h3>
+<p>La pelvis de un dinosaurio tiene tres huesos a cada lado. Arriba está el <b>ilion</b>, una placa que se une a la columna vertebral. Por debajo salen otros dos: el <b>pubis</b> y el <b>isquion</b>. En 1887 Seeley se fijó en que en unos dinosaurios el pubis apunta hacia delante y hacia abajo, como en los lagartos, mientras que en otros gira hacia atrás y se coloca paralelo al isquion, como en las aves. Llamó a los primeros <b>saurisquios</b> («cadera de lagarto») y a los segundos <b>ornitisquios</b> («cadera de ave»).</p>
+<figure>
+<svg viewBox="0 0 600 250" role="img" aria-label="Dos pelvis vistas de lado con la cabeza del animal a la izquierda: en la de saurisquio el pubis apunta hacia delante y abajo; en la de ornitisquio el pubis apunta hacia atrás, paralelo al isquion">
+<g font-size="13" fill="currentColor" text-anchor="middle" font-weight="bold">
+<text x="150" y="24">Saurisquio</text><text x="450" y="24">Ornitisquio</text>
+</g>
+<g font-size="12" fill="currentColor" text-anchor="middle">
+<text x="150" y="42">«cadera de lagarto»</text><text x="450" y="42">«cadera de ave»</text>
+<text x="300" y="242" fill-opacity=".8">la cabeza del animal está a la izquierda</text>
+</g>
+<path d="M300 232 h-40" stroke="currentColor" stroke-width="1.5"/><path d="M266 227 l-6 5 l6 5" fill="none" stroke="currentColor" stroke-width="1.5"/>
+<path d="M70 80 Q150 50 230 82 Q150 100 70 80Z" fill="#9a7412" fill-opacity=".45" stroke="#9a7412" stroke-width="2"/>
+<circle cx="150" cy="100" r="13" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="3 3"/>
+<path d="M138 104 L85 190 L100 196 L150 110Z" fill="#1d3f8a" fill-opacity=".55" stroke="#1d3f8a" stroke-width="2"/>
+<path d="M162 104 L210 185 L196 192 L150 110Z" fill="#b3261e" fill-opacity=".5" stroke="#b3261e" stroke-width="2"/>
+<g font-size="12" fill="currentColor">
+<text x="150" y="68" text-anchor="middle">ilion</text>
+<text x="60" y="206">pubis</text>
+<text x="210" y="206">isquion</text>
+</g>
+<path d="M370 80 Q450 50 530 82 Q450 100 370 80Z" fill="#9a7412" fill-opacity=".45" stroke="#9a7412" stroke-width="2"/>
+<circle cx="450" cy="100" r="13" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="3 3"/>
+<path d="M440 108 L390 100 L392 92 L446 98Z" fill="#1d3f8a" fill-opacity=".35" stroke="#1d3f8a" stroke-width="1.5"/>
+<path d="M444 110 L482 200 L494 196 L456 106Z" fill="#1d3f8a" fill-opacity=".55" stroke="#1d3f8a" stroke-width="2"/>
+<path d="M462 104 L515 180 L503 188 L452 110Z" fill="#b3261e" fill-opacity=".5" stroke="#b3261e" stroke-width="2"/>
+<g font-size="12" fill="currentColor">
+<text x="450" y="68" text-anchor="middle">ilion</text>
+<text x="440" y="216" text-anchor="middle">pubis, hacia atrás</text>
+<text x="520" y="200">isquion</text>
+</g>
+</svg>
+<figcaption>Las dos caderas de Seeley. El círculo discontinuo es el hueco donde encaja el fémur. Paradójicamente, las aves no descienden de los de «cadera de ave», sino de los de «cadera de lagarto»: su pubis se giró hacia atrás por su cuenta.</figcaption>
+</figure>
+<p>Aquí hay una trampa curiosa. Las aves descienden de dinosaurios saurisquios, en concreto de los terópodos. El pubis de las aves apunta hacia atrás porque se fue girando a lo largo de su evolución, independientemente de lo que ocurrió en los ornitisquios. Los nombres de Seeley siguen usándose, pero ya no hay que tomarlos al pie de la letra.</p>
+
+<h3>Los ornitisquios: picos y armaduras</h3>
+<p>Todos los ornitisquios eran herbívoros, o casi. Además de la cadera, comparten un hueso que no tiene ningún otro animal: el <b>predentario</b>, un hueso extra en la punta de la mandíbula inferior que sostenía un pico córneo, como el de una tortuga, para cortar plantas. Se dividen en tres grandes ramas:</p>
+<ul>
+<li><b>Tireóforos</b> («portadores de escudo»): los acorazados, con placas, púas y escudos de hueso en la piel. Aquí están <i>Stegosaurus</i> y los anquilosaurios.</li>
+<li><b>Ornitópodos</b> («pies de ave»): herbívoros bípedos o cuadrúpedos sin armadura, como <i>Iguanodon</i> y los hadrosaurios de pico de pato.</li>
+<li><b>Marginocéfalos</b> («cabeza con borde»): los que tienen una gola o una cúpula de hueso en la parte trasera del cráneo, como los ceratopsios (<i>Triceratops</i>) y los paquicefalosaurios, de cráneo abombado.</li>
+</ul>
+
+<h3>Los saurisquios: cuellos largos y garras</h3>
+<p>Los saurisquios se dividen en dos ramas muy distintas. Los <b>sauropodomorfos</b> empezaron siendo herbívoros medianos que podían andar sobre dos patas, como el <i>Plateosaurus</i> del Triásico de Alemania, y acabaron dando los <b>saurópodos</b>: gigantes cuadrúpedos de cuello y cola larguísimos. Los <b>terópodos</b> eran casi todos carnívoros bípedos, con garras y dientes afilados: desde el pequeño <i>Coelophysis</i> hasta <i>Tyrannosaurus</i> y <i>Spinosaurus</i>. De una rama de terópodos pequeños y emplumados salieron las aves.</p>
+<p>Sauropodomorfos y terópodos comparten algo muy especial: huesos llenos de huecos de aire. Muchas de sus vértebras estaban excavadas por bolsas conectadas con los pulmones, igual que ocurre hoy en las aves. Eso aligeraba el esqueleto y mejoraba la respiración, y probablemente fue una de las claves del tamaño gigantesco de los saurópodos.</p>
+<figure>
+<svg viewBox="0 0 600 290" role="img" aria-label="Árbol de familia simplificado de los dinosaurios: los ornitisquios con Stegosaurus, Ankylosaurus, Iguanodon y Triceratops, y los saurisquios con los saurópodos como Diplodocus y los terópodos Allosaurus, Tyrannosaurus, Velociraptor y las aves, que siguen vivas">
+<g stroke="currentColor" stroke-width="2" fill="none">
+<path d="M40 123.7 H120"/>
+<path d="M120 79 V168.4"/>
+<path d="M120 79 H220 M220 53 V105"/>
+<path d="M220 53 H300 M300 40 V66 M300 40 H360 M300 66 H360"/>
+<path d="M220 105 H280 M280 92 V118 M280 92 H360 M280 118 H360"/>
+<path d="M120 168.4 H180 M180 144 V192.8 M180 144 H360"/>
+<path d="M180 192.8 H240 M240 170 V215.5 M240 170 H360"/>
+<path d="M240 215.5 H280 M280 196 V235 M280 196 H360"/>
+<path d="M280 235 H320 M320 222 V248 M320 222 H360"/>
+</g>
+<path d="M320 248 H470" stroke="#b3261e" stroke-width="3" fill="none"/>
+<circle cx="120" cy="123.7" r="5" fill="#b3261e"/>
+<text x="40" y="112" font-size="12" fill="currentColor" font-weight="bold">Dinosaurios</text>
+<g font-size="12.5" fill="currentColor">
+<text x="366" y="44">Stegosaurus</text>
+<text x="366" y="70">Ankylosaurus</text>
+<text x="366" y="96">Iguanodon</text>
+<text x="366" y="122">Triceratops</text>
+<text x="366" y="148">Diplodocus</text>
+<text x="366" y="174">Allosaurus</text>
+<text x="366" y="200">Tyrannosaurus</text>
+<text x="366" y="226">Velociraptor</text>
+</g>
+<text x="476" y="252" font-size="12.5" fill="#b3261e" font-weight="bold">Aves (hoy)</text>
+<g font-size="12" fill="#2f6f4e">
+<path d="M500 36 V126" stroke="#2f6f4e" stroke-width="2"/>
+<text x="508" y="78">ornitis-</text><text x="508" y="93">quios</text>
+</g>
+<g font-size="12" fill="#1d3f8a">
+<path d="M480 140 V152" stroke="#1d3f8a" stroke-width="2"/>
+<text x="488" y="150">saurópodos</text>
+<path d="M500 166 V232" stroke="#1d3f8a" stroke-width="2"/>
+<text x="508" y="196">terópodos</text>
+</g>
+<text x="130" y="282" font-size="12" fill="currentColor" fill-opacity=".85">Saurisquios: saurópodos y terópodos. Árbol simplificado, no a escala de tiempo.</text>
+</svg>
+<figcaption>Un árbol de familia muy simplificado. La única rama que llega hasta hoy es la de las aves, que brotó entre los terópodos pequeños y emplumados, cerca de <i>Velociraptor</i>.</figcaption>
+</figure>
+<div class="fondo"><b>Para entenderlo mejor: ¿cómo se dibuja un árbol de familia con fósiles?</b> No se pueden hacer pruebas de ADN a un dinosaurio. Lo que hacen los paleontólogos es anotar cientos de rasgos de cada esqueleto (si tiene tal agujero en el cráneo, cuántos dedos, qué forma tiene tal hueso) y buscar con programas de ordenador el árbol que explica esas semejanzas con el menor número de cambios posible. Es el método llamado <b>cladística</b>. Cuando aparecen fósiles nuevos, el árbol puede cambiar. En 2017, por ejemplo, un equipo de Cambridge y Londres propuso que los terópodos estaban más cerca de los ornitisquios que de los saurópodos, lo que habría revuelto las ramas de Seeley. La propuesta se sigue discutiendo y hoy la mayoría de los especialistas mantiene la división clásica.</div>
+<div class="sabias"><b>¿Sabías que...?</b> En 1878, en una mina de carbón de Bernissart, en Bélgica, los mineros encontraron a más de 300 metros de profundidad restos de unos treinta y ocho animales, casi todos <i>Iguanodon</i>, muchos de ellos esqueletos casi completos. Gracias a ellos se supo que su «cuerno» era un pulgar en forma de púa. Excavarlos llevó años, y muchos de ellos siguen expuestos, de pie, en el Museo de Ciencias Naturales de Bruselas.</div>
+<div class="idea"><b>Idea clave:</b> los dinosaurios se dividen en ornitisquios (herbívoros con pico, como <i>Stegosaurus</i> o <i>Triceratops</i>) y saurisquios, que incluyen a los saurópodos gigantes y a los terópodos carnívoros. Las aves son una rama de terópodos, la única que sigue viva.</div>
+
+<h2 id="c7"><small>Capítulo 7</small>Terópodos: los cazadores</h2>
+<p>Los terópodos son los dinosaurios de las películas: bípedos, con dientes afilados, garras en las manos y una cola larga que servía de contrapeso para equilibrar la cabeza. Su nombre significa «pies de bestia». Casi todos eran carnívoros, aunque algunos se volvieron herbívoros u omnívoros. Tenían tres dedos principales apoyados en el suelo, dejando huellas como las de una gallina gigante, y huesos huecos y ligeros. Vivieron durante toda la era de los dinosaurios, desde el Triásico hasta el último día del Cretácico, y siguen entre nosotros en forma de aves.</p>
+
+<h3><i>Tyrannosaurus rex</i>, el rey tirano</h3>
+<p>En 1902 el cazador de fósiles <b>Barnum Brown</b>, del Museo Americano de Historia Natural de Nueva York, encontró en Montana un esqueleto parcial de un carnívoro enorme. En 1905 el director del museo, Henry Fairfield Osborn, lo bautizó <i>Tyrannosaurus rex</i>, «lagarto tirano, rey». Vivió al final del Cretácico, entre hace unos 68 y 66 millones de años, en el oeste de Norteamérica: fue uno de los últimos dinosaurios no avianos.</p>
+<p>El ejemplar más completo, apodado <b>Sue</b> en honor de la buscadora de fósiles Sue Hendrickson, que lo encontró en Dakota del Sur en 1990, mide unos 12,3 metros de largo y tenía la cadera a unos 3,7 metros del suelo. Los cálculos de su peso rondan las <b>8 o 9 toneladas</b>, lo que pesan un par de elefantes africanos grandes. Sue protagonizó una batalla judicial por la propiedad del terreno, fue incautado por el FBI y en 1997 se subastó por 8,36 millones de dólares, que pagó el Museo Field de Chicago con ayuda de empresas patrocinadoras. En 2020 otro ejemplar, Stan, se vendió por 31,8 millones, y los precios desorbitados de los esqueletos preocupan a los científicos, porque sacan fósiles importantes de los museos.</p>
+<p>El <i>T. rex</i> tenía la mordedura más potente conocida de un animal terrestre. Los estudios que han reconstruido sus músculos la estiman entre unos <b>35.000 y 57.000 newtons</b> en los dientes de atrás, como el peso de un objeto de tres a seis toneladas apretando sobre un solo punto. Sus dientes, con forma de plátano y bordes aserrados, podían medir unos 30 centímetros contando la raíz. No cortaban como cuchillos: aplastaban y trituraban, hasta el punto de que en sus coprolitos aparecen fragmentos de hueso.</p>
+<div class="fondo"><b>Para entenderlo mejor: los brazos del T. rex.</b> Sus famosos brazos cortos, de apenas un metro y con dos dedos, han dado pie a muchas bromas. Pero eran musculosos: un estudio de 2001 calculó que cada uno podía levantar unos 200 kilos. ¿Para qué servían? No se sabe con certeza. Se ha propuesto que sujetaban a la presa, que ayudaban a levantarse del suelo o que simplemente eran un resto sin mucha utilidad, que se fue reduciendo porque la cabeza enorme hacía todo el trabajo. Es una de esas preguntas que los fósiles solos no pueden resolver del todo.</div>
+<p>El <i>T. rex</i> tenía un olfato excelente: las zonas de su cerebro dedicadas al olor eran enormes. Sus ojos miraban bastante hacia delante, y los estudios de su cráneo sugieren que tenía buena visión en profundidad, como un ave rapaz. Estudiando los anillos de crecimiento de sus huesos, que veremos en el capítulo 10, se sabe que crecía muy deprisa en la adolescencia, llegando a ganar unos dos kilos al día, que se hacía adulto hacia los veinte años y que casi ningún ejemplar pasaba de los treinta.</p>
+<p>¿Y era veloz? En la película <i>Parque Jurásico</i> persigue a un todoterreno. Los cálculos biomecánicos, que simulan sus músculos y huesos en el ordenador, indican que un adulto de varias toneladas no podía correr de verdad: se rompería los huesos. Probablemente caminaba deprisa, a unos 20 kilómetros por hora como máximo. Un jeep lo habría dejado atrás sin esfuerzo, aunque no una persona a pie. Los jóvenes, más ligeros y de patas proporcionalmente más largas, sí debían de ser mucho más rápidos.</p>
+
+<h3><i>Spinosaurus</i>: el pescador de la vela</h3>
+<p>En 1912, en el oasis de Bahariya, en Egipto, el buscador de fósiles Richard Markgraf desenterró unos huesos extraños para el paleontólogo alemán <b>Ernst Stromer</b>. Entre ellos había vértebras con espinas de hasta un metro y medio de alto, que debían de sostener una vela en el lomo. Stromer lo llamó <i>Spinosaurus</i> en 1915 y guardó los fósiles en el museo de Múnich. En abril de 1944, durante la Segunda Guerra Mundial, un bombardeo aliado destruyó el museo, y con él los huesos. Durante décadas, <i>Spinosaurus</i> fue poco más que unos dibujos antiguos.</p>
+<p>A principios del siglo XXI aparecieron nuevos restos en Marruecos, y en 2014 y 2020 un equipo dirigido por el paleontólogo Nizar Ibrahim presentó una imagen sorprendente: un animal de patas traseras cortas, huesos muy densos (que ayudan a sumergirse, como el lastre de un buzo) y una cola alta y aplanada como una aleta, que sugería que nadaba activamente. Según algunas estimaciones, medía unos catorce metros, lo que lo convertiría en el terópodo más largo conocido. Otros investigadores creen que era más bien una garza gigante, que pescaba vadeando en aguas poco profundas. El debate sigue abierto, pero todos coinciden en que comía mucho pescado: su hocico largo y estrecho, como el de un cocodrilo, y sus dientes cónicos son perfectos para atrapar presas resbaladizas.</p>
+<div class="sabias"><b>¿Sabías que...?</b> Los espinosáuridos vivieron también en la península ibérica. En Portugal se describió en 2022 <i>Iberospinus natarioi</i>, estudiado por Octávio Mateus y el paleontólogo español Darío Estraviz-López, y en Vallibona (Castellón) se encontró <i>Vallibonavenatrix cani</i>, descrito en 2019 y bautizado en honor de Juan Cano, el aficionado que lo descubrió. Ambos vivieron hace unos 125 a 130 millones de años.</div>
+
+<h3>El verdadero <i>Velociraptor</i></h3>
+<p>Pocos dinosaurios son tan famosos y tan mal conocidos por el público como el <i>Velociraptor</i>. El verdadero fue descubierto en 1923 por Peter Kaisen, un miembro de una expedición estadounidense al desierto de Gobi, en Mongolia, y descrito en 1924. Vivió hace unos 75 a 71 millones de años. Medía como mucho unos 2 metros de largo, casi todo cola, y la cadera le llegaba a medio metro del suelo: más o menos la altura de la rodilla de una persona adulta. Pesaba entre 15 y 20 kilos, como un perro mediano o un pavo grande.</p>
+<p>Tenía una garra grande y curva en el segundo dedo de cada pie, que llevaba levantada al caminar para no desgastarla. Y tenía plumas: en 2007 se encontraron en un hueso de su antebrazo unas pequeñas protuberancias, las <b>papilas</b>, que en las aves actuales sirven de anclaje a las grandes plumas del ala. Era, en resumen, algo parecido a un ave de presa corredora, más que a un lagarto escamoso del tamaño de un hombre.</p>
+<figure>
+<svg viewBox="0 0 600 270" role="img" aria-label="Siluetas a escala de un Velociraptor de 2 metros, un Deinonychus de 3,4 metros y una persona de 1,75 metros, con una línea discontinua a 1,7 metros que marca la altura de los raptores de la película">
+<defs>
+<path id="din-rap" d="M0,-27 L4,-30 L12,-31 Q16,-30 18,-28 Q22,-26 26,-27 Q36,-30 46,-28 Q70,-27 100,-27 Q70,-24 46,-22 Q38,-17 28,-19 Q22,-22 17,-25 L12,-25 L3,-25 Z"/>
+</defs>
+<line x1="10" y1="230" x2="590" y2="230" stroke="currentColor" stroke-opacity=".5"/>
+<g transform="translate(20 230) scale(1.1)">
+<use href="#din-rap" fill="#2f6f4e" fill-opacity=".75"/>
+<path d="M40,-22 L44,-12 L40,-5 L45,0 M24,-22 L28,-16 L24,-13" fill="none" stroke="#2f6f4e" stroke-width="2.4" stroke-linecap="round"/>
+<path d="M24,-21 L36,-10 L27,-12Z" fill="#2f6f4e" fill-opacity=".6"/>
+</g>
+<g transform="translate(160 230) scale(1.87)">
+<use href="#din-rap" fill="#1d3f8a" fill-opacity=".6"/>
+<path d="M40,-22 L44,-12 L40,-5 L45,0 M24,-22 L28,-16 L24,-13" fill="none" stroke="#1d3f8a" stroke-width="1.6" stroke-linecap="round"/>
+<path d="M24,-21 L36,-10 L27,-12Z" fill="#1d3f8a" fill-opacity=".5"/>
+</g>
+<g transform="translate(450 230)" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round">
+<circle cx="0" cy="-86" r="9"/><path d="M0 -77 V-42 M0 -70 L-13 -46 M0 -70 L13 -46 M0 -42 L-9 0 M0 -42 L9 0"/>
+</g>
+<line x1="10" y1="136" x2="590" y2="136" stroke="#b3261e" stroke-dasharray="6 4" stroke-width="1.5"/>
+<text x="590" y="128" font-size="12" fill="#b3261e" text-anchor="end">1,7 m: altura de los «velocirraptores» de la película</text>
+<g font-size="12" fill="currentColor" text-anchor="middle">
+<text x="75" y="250" font-weight="bold">Velociraptor</text><text x="75" y="265">2 m, unos 15 kg</text>
+<text x="253" y="250" font-weight="bold">Deinonychus</text><text x="253" y="265">3,4 m, unos 70 kg</text>
+<text x="450" y="250" font-weight="bold">Persona</text><text x="450" y="265">1,75 m</text>
+</g>
+<path d="M530 230 v-55" stroke="currentColor" stroke-opacity=".5"/><path d="M526 181 l4 -6 l4 6" fill="none" stroke="currentColor" stroke-opacity=".5"/>
+<text x="538" y="205" font-size="12" fill="currentColor">1 m</text>
+</svg>
+<figcaption>A escala. El <i>Velociraptor</i> real apenas llegaba a la rodilla de una persona. Los «raptores» del cine se inspiraron en su primo americano <i>Deinonychus</i>, y aun así se hicieron más grandes; ambos, además, tenían plumas.</figcaption>
+</figure>
+<p>¿De dónde salieron entonces los monstruos de la película? El novelista Michael Crichton se inspiró en <i>Deinonychus</i>, un pariente norteamericano de unos 3,4 metros descubierto en los años sesenta, pero prefirió el nombre de <i>Velociraptor</i> porque sonaba más espectacular. Para la película los hicieron aún más grandes, de un metro setenta de altura. Por casualidad, mientras se rodaba, se descubrió en Utah un pariente de ese tamaño, <i>Utahraptor</i>, que vivió muchos millones de años antes y en otro continente.</p>
+<p>El fósil más famoso de <i>Velociraptor</i> es el de los «dinosaurios luchadores», encontrado en 1971 por una expedición polaco-mongola: un <i>Velociraptor</i> con la garra clavada en el cuello de un <i>Protoceratops</i>, un herbívoro del tamaño de una oveja, que a su vez le muerde el brazo. Los dos murieron así, seguramente sepultados por una duna que se desplomó o por una tormenta de arena. Es una instantánea de hace más de 70 millones de años.</p>
+<div class="idea"><b>Idea clave:</b> los terópodos eran dinosaurios bípedos, casi todos carnívoros. El <i>T. rex</i> pesaba unas 8 o 9 toneladas y tenía una mordedura brutal, pero no corría como en el cine; <i>Spinosaurus</i> pescaba; y el <i>Velociraptor</i> real era un cazador emplumado del tamaño de un pavo.</div>
+
+<h2 id="c8"><small>Capítulo 8</small>Saurópodos: los titanes</h2>
+<p>Si hubo animales que parecen imposibles, fueron los saurópodos: cabeza diminuta, cuello interminable, cuerpo de barril sobre cuatro patas como columnas y una cola larguísima. Fueron los animales más grandes que han pisado jamás la tierra firme. Solo algunas ballenas, que flotan en el agua y no tienen que sostener su peso sobre patas, los superan.</p>
+
+<h3>Los récords</h3>
+<p>Medir un saurópodo gigante es muy difícil, porque casi nunca se encuentra un esqueleto completo. Hay que calcular el tamaño a partir de unas pocas vértebras o de un fémur, comparándolos con parientes mejor conocidos, y el peso a partir del grosor de los huesos de las patas o de modelos en tres dimensiones. Por eso las cifras de los récords son siempre aproximadas y cambian con cada estudio.</p>
+<p>Uno de los candidatos a mayor dinosaurio es <b><i>Argentinosaurus huinculensis</i></b>, de la provincia de Neuquén, en la Patagonia argentina. En 1987 un ganadero, Guillermo Heredia, encontró en su finca un hueso enorme que tomó por un tronco petrificado. Era parte de una pata. Los paleontólogos José Bonaparte y Rodolfo Coria lo describieron en 1993 a partir de unas pocas vértebras, costillas y huesos de las patas. Una sola de sus vértebras de la espalda mide más de metro y medio de alto. Las estimaciones más citadas le dan entre <b>30 y 35 metros de largo</b> y entre 65 y 80 toneladas, aunque hay cálculos por encima y por debajo.</p>
+<p>Otro gigante argentino, <b><i>Patagotitan mayorum</i></b>, se conoce mucho mejor: en la estancia La Flecha, en Chubut, aparecieron a partir de 2010 los restos de seis individuos. Se describió en 2017 con unos 37 metros y unas 60 toneladas; estudios posteriores lo han rebajado algo. Una réplica de su esqueleto es tan larga que en el Museo Americano de Historia Natural de Nueva York la cabeza asoma por la puerta de la sala.</p>
+<figure>
+<svg viewBox="0 0 600 400" role="img" aria-label="Siluetas a escala: Argentinosaurus de unos 35 metros junto a una persona; un Tyrannosaurus de 12 metros junto a un autobús de 12 metros; un Triceratops, un Stegosaurus y un Velociraptor, cada fila con una persona de 1,75 metros">
+<g fill="#2f6f4e" fill-opacity=".7" transform="translate(30 150) scale(15)">
+<ellipse cx="18" cy="-5.5" rx="6" ry="2.6"/>
+<path d="M12.5,-7 Q5,-6 0,-3 Q5,-5 12.5,-4.4 Z"/>
+<path d="M22.5,-7.5 Q28,-9.6 32.6,-9.9 L33,-8.9 Q28,-8 23.6,-4.6 Z"/>
+<ellipse cx="33.7" cy="-9.5" rx="1.3" ry="0.6"/>
+<rect x="13.8" y="-4" width="1.3" height="4"/><rect x="15.6" y="-4" width="1.3" height="4"/>
+<rect x="20.2" y="-4" width="1.3" height="4"/><rect x="22" y="-4" width="1.3" height="4"/>
+</g>
+<g stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" transform="translate(575 150)"><circle cx="0" cy="-23" r="3.2"/><path d="M0 -20 V-11 M0 -18 L-4 -12 M0 -18 L4 -12 M0 -11 L-3 0 M0 -11 L3 0"/></g>
+<line x1="20" y1="150" x2="590" y2="150" stroke="currentColor" stroke-opacity=".5"/>
+<text x="30" y="20" font-size="12.5" fill="currentColor" font-weight="bold">Argentinosaurus, unos 35 m</text>
+<text x="590" y="116" font-size="12" fill="currentColor" text-anchor="end">persona</text>
+<g transform="translate(30 270) scale(15)">
+<path fill="#b3261e" fill-opacity=".65" d="M0,-3.3 Q4,-4 7,-4.4 Q9.5,-4.6 10.5,-4.2 L12,-4.3 L12.2,-3.6 L10.6,-3.4 Q9.5,-3 8,-2.6 Q6,-2.4 5,-2.9 Q3,-3.1 0,-3.3 Z"/>
+<path d="M6.2,-3.2 L7,-1.8 L6.2,-0.4 L6.9,0" fill="none" stroke="#b3261e" stroke-opacity=".75" stroke-width=".45" stroke-linecap="round"/>
+</g>
+<g transform="translate(250 270) scale(15)">
+<rect x="0" y="-3.2" width="12" height="2.9" rx=".3" fill="#9a7412" fill-opacity=".55"/>
+<g fill="currentColor" fill-opacity=".3"><rect x=".6" y="-2.8" width="1.6" height="1"/><rect x="2.6" y="-2.8" width="1.6" height="1"/><rect x="4.6" y="-2.8" width="1.6" height="1"/><rect x="6.6" y="-2.8" width="1.6" height="1"/><rect x="8.6" y="-2.8" width="1.6" height="1"/><rect x="10.6" y="-2.8" width="1" height="1"/></g>
+<circle cx="2.4" cy="-0.4" r=".45" fill="currentColor"/><circle cx="9.6" cy="-0.4" r=".45" fill="currentColor"/>
+</g>
+<g stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" transform="translate(500 270)"><circle cx="0" cy="-23" r="3.2"/><path d="M0 -20 V-11 M0 -18 L-4 -12 M0 -18 L4 -12 M0 -11 L-3 0 M0 -11 L3 0"/></g>
+<line x1="20" y1="270" x2="590" y2="270" stroke="currentColor" stroke-opacity=".5"/>
+<text x="30" y="192" font-size="12.5" fill="currentColor" font-weight="bold">T. rex, unos 12 m</text>
+<text x="340" y="220" font-size="12.5" fill="currentColor" text-anchor="middle" font-weight="bold">autobús, 12 m</text>
+<g transform="translate(30 370) scale(15)" fill="#1d3f8a" fill-opacity=".6">
+<ellipse cx="4.6" cy="-1.9" rx="3" ry="1.15"/>
+<path d="M1.8,-2.3 Q0.6,-2 0,-1.3 Q0.8,-1.6 1.8,-1.4 Z"/>
+<circle cx="7.6" cy="-2.5" r="1.05"/>
+<path d="M7.8,-2 L9,-1.7 L8.8,-1.2 L7.8,-1.3 Z"/>
+<path d="M8.1,-2.6 L9.4,-3.3 L8.3,-2.2 Z"/>
+<rect x="2.6" y="-1.2" width=".5" height="1.2"/><rect x="6" y="-1.2" width=".5" height="1.2"/>
+</g>
+<g transform="translate(210 370) scale(15)" fill="#9a7412" fill-opacity=".7">
+<ellipse cx="4.3" cy="-2" rx="3" ry="1.3"/>
+<path d="M1.5,-2.2 Q0.6,-1.8 0,-1.6 Q0.6,-1.3 1.6,-1.3 Z"/>
+<path d="M7,-1.8 Q8,-1.3 8.6,-1 L8.8,-0.8 L8.2,-0.7 Q7.4,-1 6.8,-1.3 Z"/>
+<path d="M2,-2.9 L2.5,-3.9 L3,-3.1 Z M3,-3.2 L3.7,-4.4 L4.3,-3.3 Z M4.3,-3.3 L5,-4.3 L5.6,-3.2 Z M5.6,-3 L6.2,-3.8 L6.6,-2.8 Z"/>
+<path d="M0.4,-1.7 L-0.4,-2.4 L0.6,-1.9 Z M0.3,-1.5 L-0.5,-1.2 L0.5,-1.4 Z"/>
+<rect x="2.4" y="-1.2" width=".5" height="1.2"/><rect x="5.8" y="-1.2" width=".5" height="1.2"/>
+</g>
+<g transform="translate(400 370) scale(0.3)">
+<use href="#din-rap" fill="#2f6f4e" fill-opacity=".85"/>
+<path d="M40,-22 L44,-12 L40,-5 L45,0" fill="none" stroke="#2f6f4e" stroke-width="6" stroke-linecap="round"/>
+</g>
+<g stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" transform="translate(500 370)"><circle cx="0" cy="-23" r="3.2"/><path d="M0 -20 V-11 M0 -18 L-4 -12 M0 -18 L4 -12 M0 -11 L-3 0 M0 -11 L3 0"/></g>
+<line x1="20" y1="370" x2="590" y2="370" stroke="currentColor" stroke-opacity=".5"/>
+<g font-size="12" fill="currentColor" text-anchor="middle">
+<text x="100" y="390">Triceratops, 9 m</text>
+<text x="275" y="390">Stegosaurus, 9 m</text>
+<text x="410" y="390">Velociraptor</text>
+<text x="500" y="390">persona</text>
+</g>
+<g transform="translate(560 370)"><line x1="0" y1="0" x2="0" y2="-75" stroke="currentColor"/><line x1="-4" y1="-75" x2="4" y2="-75" stroke="currentColor"/><text x="-6" y="-60" font-size="12" fill="currentColor" text-anchor="end">5 m</text></g>
+</svg>
+<figcaption>Todos a la misma escala. Un <i>Argentinosaurus</i> era casi tres veces más largo que un autobús urbano, y el <i>T. rex</i>, tan largo como uno. Las siluetas son aproximadas: las proporciones exactas de los gigantes, conocidos por pocos huesos, son inciertas.</figcaption>
+</figure>
+
+<h3>Cómo se construye un gigante</h3>
+<p>Ser tan grande tiene problemas de ingeniería enormes. El primero es el peso: si duplicas el tamaño de un animal en todas las direcciones, su peso se multiplica por ocho, pero la sección de sus huesos, que es lo que lo sostiene, solo por cuatro. Por eso los animales grandes necesitan patas proporcionalmente mucho más gruesas. Los saurópodos las tenían rectas como columnas y apoyaban el peso en almohadillas carnosas, como los elefantes.</p>
+<p>El segundo es el cuello. Un cuello de diez metros con una cabeza pesada sería imposible de sostener. Los saurópodos lo resolvieron con una cabeza pequeñísima y con vértebras llenas de cavidades de aire, conectadas con un sistema de sacos aéreos como el de las aves. Por dentro, esas vértebras parecen panales. Algunos saurópodos chinos del grupo de <i>Mamenchisaurus</i> tenían cuellos de más de doce metros, tan largos como un autobús.</p>
+<p>¿Para qué tanto cuello? Una explicación es que les permitía comer en un gran círculo sin mover el enorme cuerpo, ahorrando muchísima energía, como una grúa que no necesita desplazarse. También alcanzaban hojas altas que otros no podían tocar. Lo que no hacían era masticar: no tenían muelas. Arrancaban las hojas con dientes en forma de lápiz o de cuchara y las tragaban enteras. La digestión la hacía un aparato digestivo gigantesco, donde las plantas fermentaban durante días.</p>
+<div class="fondo"><b>Para entenderlo mejor: de un huevo a un titán.</b> A pesar de su tamaño, los saurópodos ponían huevos más o menos del tamaño de un pomelo, de unos 15 centímetros, y en gran número. En Auca Mahuevo, en la Patagonia, se encontraron en 1997 miles de huevos de titanosaurio, algunos con embriones en los que se veía hasta la piel. Una cría recién nacida pesaba unos pocos kilos, y el adulto podía llegar a decenas de toneladas: su peso se multiplicaba más de diez mil veces. Para lograrlo crecían a toda velocidad durante años. Un huevo pequeño tiene ventajas: la cáscara puede ser fina para que respire el embrión, y la madre puede poner muchos. La mayoría de las crías moría pronto, pero bastaba con que sobrevivieran unas pocas.</div>
+
+<h3>El diplodocus de Madrid</h3>
+<p>El saurópodo más famoso de España no es español. En 1899, una expedición pagada por el magnate del acero <b>Andrew Carnegie</b> encontró en Wyoming un esqueleto casi completo de <i>Diplodocus</i>, al que se llamó <i>Diplodocus carnegii</i> en su honor. Carnegie, encantado, mandó hacer réplicas de yeso y las regaló a varios jefes de Estado: el rey de Inglaterra, el káiser alemán, el presidente de Francia... El rey <b>Alfonso XIII</b> pidió la suya, y en septiembre de 1913 llegaron al puerto de Barcelona 34 cajas con más de cuatro toneladas de piezas. En noviembre de ese año el esqueleto quedó montado en el Museo Nacional de Ciencias Naturales de Madrid. Fue el primer esqueleto de dinosaurio montado en la península ibérica y durante décadas el único. Hoy sigue allí, con sus veintitantos metros de largo.</p>
+<p>La larga cola de los diplodócidos, terminada en una punta fina como un látigo, ha dado lugar a una idea espectacular: que la chasqueaban a tanta velocidad que rompían la barrera del sonido, como un látigo de domador. Lo propusieron dos investigadores en 1997 con una simulación por ordenador. Un estudio de 2022, con modelos más detallados, concluyó que la punta no llegaba a esa velocidad, aunque sí podía moverse lo bastante rápido como para producir un fuerte chasquido o un golpe peligroso.</p>
+
+<h3><i>Turiasaurus</i>, el gigante de Teruel</h3>
+<p>España tiene su propio titán. En mayo de 2003, en el yacimiento de El Húmero, cerca de <b>Riodeva</b> (Teruel), el equipo de la Fundación Conjunto Paleontológico de Teruel-Dinópolis empezó a desenterrar los huesos de un saurópodo enorme del Jurásico superior, de hace entre unos 155 y 145 millones de años. En 2006, Rafael Royo-Torres, Alberto Cobos y Luis Alcalá lo presentaron en la revista <i>Science</i> con el nombre de <b><i>Turiasaurus riodevensis</i></b>, por <i>Turia</i>, el nombre latino de Teruel, y por Riodeva.</p>
+<p>Solo su húmero, el hueso del brazo, mide 1,79 metros: más que una persona alta. Las primeras estimaciones le daban unos 36 metros y unas 40 toneladas, y los cálculos posteriores lo han reducido a unos 30 metros o algo menos, con un peso de entre 30 y 50 toneladas. Aun así, se considera el dinosaurio más grande encontrado en Europa. Además dio nombre a un grupo nuevo, los turiasaurios, del que después se han reconocido parientes en la propia España, en Portugal, en Tanzania y en Estados Unidos.</p>
+<div class="sabias"><b>¿Sabías que...?</b> Uno de los primeros dinosaurios españoles con nombre propio fue también un saurópodo turolense: <i>Aragosaurus ischiaticus</i>, descrito en 1987 a partir de huesos hallados en Galve (Teruel). Medía unos 18 metros y vivió hace unos 136 millones de años. Galve, un pueblo de poco más de cien habitantes, tiene hoy un museo paleontológico propio.</div>
+<div class="idea"><b>Idea clave:</b> los saurópodos fueron los animales terrestres más grandes de la historia, con más de 30 metros y decenas de toneladas. Lo lograron gracias a patas en columna, cuellos ligeros llenos de aire, cabezas diminutas que no masticaban y un crecimiento rapidísimo desde huevos pequeños. En España destaca <i>Turiasaurus</i>, de Teruel, el mayor dinosaurio de Europa.</div>
+
+<h2 id="c9"><small>Capítulo 9</small>Ornitisquios: cuernos, placas y picos</h2>
+<p>Los ornitisquios fueron los grandes herbívoros de la era de los dinosaurios: vacas, ciervos, rinocerontes y elefantes del Mesozoico, todos con un pico córneo en la punta de la boca. Frente a los depredadores desarrollaron un catálogo asombroso de defensas y adornos: cuernos, golas, placas, púas, corazas, mazas en la cola y crestas huecas. Algunos de ellos son los dinosaurios más populares.</p>
+
+<h3><i>Triceratops</i>, el de los tres cuernos</h3>
+<p>En 1887 llegaron a manos de Marsh unos cuernos enormes encontrados cerca de Denver, en Colorado. Marsh pensó que eran de un bisonte gigante y lo llamó <i>Bison alticornis</i>. Dos años después, al estudiar cráneos más completos de Wyoming, comprendió su error y describió a <b><i>Triceratops</i></b>, «cara con tres cuernos». Vivió al final del Cretácico, a la vez que el <i>T. rex</i> y en los mismos lugares, y es uno de los dinosaurios más abundantes en las rocas de esa época.</p>
+<p>Medía unos 8 o 9 metros y pesaba entre 6 y 12 toneladas, según el ejemplar y el estudio. Su cráneo, con la gola incluida, podía superar los dos metros y medio: uno de los mayores de cualquier animal terrestre. Tenía dos cuernos largos sobre los ojos, de hasta un metro, y uno más corto sobre la nariz. Detrás de su pico, sus dientes formaban baterías que cortaban las plantas como tijeras.</p>
+<p>La gola no era un buen escudo: en algunos parientes tenía grandes agujeros tapados solo por piel. Hoy se cree que servía sobre todo para exhibirse, reconocerse entre ellos y atraer pareja, como la cornamenta de un ciervo. Pero los cuernos sí se usaban para pelear: en los cráneos de <i>Triceratops</i> se han encontrado heridas curadas que encajan con choques de cuernos entre ellos. Y hay huesos de <i>Triceratops</i> con marcas de dientes de <i>T. rex</i>, alguna de ellas cicatrizada: prueba de que al menos uno sobrevivió al ataque.</p>
+<div class="sabias"><b>¿Sabías que...?</b> Los ceratopsios tenían primos pequeños. El más famoso es <i>Protoceratops</i>, del desierto de Gobi, del tamaño de una oveja, el mismo que aparece peleando con el <i>Velociraptor</i> en el fósil de los «dinosaurios luchadores». De otro pariente, <i>Psittacosaurus</i>, «lagarto loro», se conocen cientos de ejemplares, algunos con cerdas largas en la cola.</div>
+
+<h3><i>Stegosaurus</i>: placas y púas</h3>
+<p><b><i>Stegosaurus</i></b>, «lagarto con tejado», fue otro de los hallazgos de Marsh en 1877. Marsh creyó al principio que sus placas estaban tumbadas sobre el lomo como las tejas de un tejado, de ahí el nombre. En realidad estaban de pie, en dos filas alternadas a lo largo del lomo, y algunas pasaban del medio metro de alto. Vivió en el Jurásico superior, hace unos 155 a 150 millones de años, medía hasta unos 9 metros y pesaba varias toneladas.</p>
+<p>¿Para qué servían las placas? No eran huesos del esqueleto, sino huesos formados en la piel, finos y surcados por canales de vasos sanguíneos. Se ha propuesto que ayudaban a regular la temperatura, captando o soltando calor como un radiador, pero la explicación más aceptada es que eran para exhibirse y reconocerse entre ellos. Las armas de verdad estaban en la cola: cuatro púas de casi un metro. Se conoce una vértebra de <i>Allosaurus</i> con un agujero que encaja perfectamente con una de esas púas. En inglés, ese conjunto de púas se llama <i>thagomizer</i>, una palabra inventada en 1982 por el dibujante Gary Larson en una viñeta de humor que los paleontólogos adoptaron en serio.</p>
+<div class="fondo"><b>Para entenderlo mejor: el mito del segundo cerebro.</b> El <i>Stegosaurus</i> tenía un cerebro diminuto, más o menos del tamaño de un limón, para un cuerpo de varias toneladas. Marsh observó que en la cadera el canal de la médula espinal era mucho más ancho que el cerebro, y se extendió la idea de que tenía un «segundo cerebro» en el trasero para controlar las patas y la cola. No es así. Ese ensanchamiento aparece también en las aves actuales y contiene el llamado cuerpo glucogénico, un tejido que almacena energía. Un cerebro pequeño bastaba a un herbívoro que no necesitaba perseguir a nadie.</div>
+<p>En julio de 2024 un esqueleto de <i>Stegosaurus</i> apodado Apex se subastó en Nueva York por unos 44,6 millones de dólares, el precio más alto pagado nunca por un fósil. En la península ibérica vivieron estegosaurios emparentados, como <i>Dacentrurus</i>, y en Portugal se describió en 2009 <i>Miragaia</i>, un estegosaurio de cuello sorprendentemente largo.</p>
+
+<h3>Tanques vivientes</h3>
+<p>Los <b>anquilosaurios</b> llevaron la defensa al extremo. Tenían el cuerpo cubierto de placas óseas incrustadas en la piel, los <b>osteodermos</b>, que formaban una coraza; algunos tenían incluso párpados blindados. Unos, los anquilosáuridos, como <i>Ankylosaurus</i>, llevaban en la punta de la cola una maza de hueso capaz de romper la pata de un depredador. Otros, los nodosáuridos, no tenían maza pero sí grandes púas en los hombros.</p>
+<p>El fósil de anquilosaurio mejor conservado apareció por casualidad en 2011 en una mina de arenas bituminosas de Alberta, en Canadá, cuando la excavadora de un operario, Shawn Funk, golpeó una roca extraña. Era un nodosáurido, <i>Borealopelta</i>, conservado en tres dimensiones con su coraza y su piel en su sitio, hasta el punto de parecer una estatua. Los análisis químicos detectaron restos de pigmento: era de color pardo rojizo por arriba y más claro por abajo, un camuflaje que indica que incluso un animal acorazado de más de una tonelada temía a los depredadores.</p>
+<p>España tiene uno de los anquilosaurios más completos de Europa: <b><i>Europelta carbonensis</i></b>, hallado en una mina de carbón de Ariño (Teruel) y descrito en 2013. Medía unos 5 metros y vivió hace unos 113 millones de años.</p>
+
+<h3>Picos de pato y crestas que suenan</h3>
+<p>Los <b>ornitópodos</b> no tenían armadura: su defensa era la vista, el oído, la velocidad y, probablemente, vivir en manada. Los primeros eran pequeños y corredores; después llegaron <i>Iguanodon</i> y, en el Cretácico final, los <b>hadrosaurios</b> o dinosaurios de pico de pato, que se extendieron por casi todo el mundo. En España se han encontrado muchos ornitópodos, como <i>Morelladon</i>, descrito en 2015 en Morella (Castellón), que tenía una vela en el lomo, y hadrosaurios del Pirineo como <i>Arenysaurus</i>, en Huesca.</p>
+<p>Los hadrosaurios fueron las mejores máquinas de masticar de su tiempo. Detrás del pico tenían cientos de dientes apretados en columnas, las <b>baterías dentales</b>, que formaban una superficie de molienda como una lima y se iban reponiendo a medida que se desgastaban. De algunos, como <i>Edmontosaurus</i>, se conocen «momias»: esqueletos con impresiones de piel, que muestran escamas de distintos tamaños e incluso una cresta carnosa en la cabeza.</p>
+<figure>
+<svg viewBox="0 0 600 250" role="img" aria-label="Cabeza de Parasaurolophus de perfil con su larga cresta hueca hacia atrás; una flecha muestra el camino del aire desde las narinas, subiendo por dentro de la cresta y volviendo hacia la garganta">
+<path d="M70 150 Q60 140 72 132 L150 118 Q200 110 240 100 L470 40 Q495 36 500 52 Q502 64 485 70 L270 138 Q260 170 240 185 Q200 205 150 195 L90 175 Q72 168 70 150Z" fill="#9a7412" fill-opacity=".35" stroke="#9a7412" stroke-width="2"/>
+<circle cx="225" cy="140" r="7" fill="currentColor"/>
+<path d="M78 160 L170 178" stroke="currentColor" stroke-width="1.5" stroke-opacity=".6"/>
+<path d="M100 140 Q160 125 250 105 L470 50 Q490 48 488 58 Q485 64 470 66 L260 120 Q245 150 250 205" fill="none" stroke="#b3261e" stroke-width="3" stroke-dasharray="7 4"/>
+<path d="M244 197 l6 12 l6 -12" fill="none" stroke="#b3261e" stroke-width="3"/>
+<circle cx="98" cy="141" r="5" fill="#b3261e"/>
+<g font-size="12" fill="currentColor">
+<text x="60" y="118">narinas</text>
+<text x="330" y="36" font-weight="bold">cresta hueca, de hasta 1 m</text>
+<text x="270" y="220">hacia la garganta</text>
+<text x="60" y="222">pico</text>
+<text x="360" y="120" fill="#b3261e">el aire sube y baja por dentro:</text>
+<text x="360" y="136" fill="#b3261e">un instrumento de viento</text>
+</g>
+</svg>
+<figcaption>La cresta de <i>Parasaurolophus</i> no era maciza: por dentro la recorrían los conductos de la nariz, que subían hasta la punta y volvían. Al soplar, el aire resonaba en esos tubos y producía un sonido grave, como una trompa o un trombón.</figcaption>
+</figure>
+<p>Algunos hadrosaurios, como <i>Parasaurolophus</i> o <i>Corythosaurus</i>, tenían crestas huecas en la cabeza. En los años ochenta, el paleontólogo David Weishampel estudió la cresta de <i>Parasaurolophus</i> y propuso que funcionaba como un instrumento de viento. Más tarde, otros investigadores reconstruyeron la cresta por ordenador a partir de un escáner y simularon su sonido: un bramido grave y profundo. Cada especie, e incluso los jóvenes y los adultos, tendrían crestas distintas y, por tanto, «voces» distintas, que les servirían para llamarse en los bosques.</p>
+<p>Por último, los <b>paquicefalosaurios</b> tenían el cráneo abombado como una cúpula de hueso macizo de más de veinte centímetros de grosor. Durante mucho tiempo se los imaginó chocando cabeza contra cabeza como los carneros. Hay dudas sobre si aguantarían golpes frontales, pero se han encontrado lesiones en sus cúpulas compatibles con impactos, así que al menos algo de eso hacían.</p>
+<div class="idea"><b>Idea clave:</b> los ornitisquios eran herbívoros con pico que desarrollaron defensas y adornos de todo tipo: los cuernos y la gola de <i>Triceratops</i>, las placas y púas de <i>Stegosaurus</i>, la coraza de los anquilosaurios y las crestas sonoras de los hadrosaurios. Muchos servían tanto para defenderse como para exhibirse.</div>
+
+<h2 id="c10"><small>Capítulo 10</small>Detectives del Mesozoico</h2>
+<p>Un esqueleto cuenta cómo era un animal, pero no cómo vivía. Para eso hay que buscar otras pistas: las marcas que dejó al andar, los nidos donde puso sus huevos, el interior microscópico de sus huesos y hasta los restos de color en sus plumas. A todo lo que un animal deja sin ser parte de su cuerpo (huellas, madrigueras, huevos, excrementos) se le llama <b>fósil de actividad</b> o icnofósil. Son las cámaras de seguridad del Mesozoico.</p>
+
+<h3>Huellas: el momento exacto</h3>
+<p>Un hueso puede haber viajado kilómetros arrastrado por un río antes de fosilizar. Una huella, en cambio, está siempre donde se hizo, y se hizo en un instante concreto: ese animal estuvo ahí, ese día, pisando ese barro. Por eso las huellas son tan valiosas, aunque casi nunca sepamos con seguridad qué especie las dejó (se les da nombre propio, distinto del nombre del animal: por ejemplo <i>Iguanodontipus</i> para las de un ornitópodo).</p>
+<p>De una huella se saca mucho. La forma dice si el pie tenía tres dedos con garras afiladas (un terópodo), tres dedos anchos y romos (un ornitópodo) o era una mancha redonda enorme (un saurópodo). El tamaño da una idea de la altura del animal: en muchos dinosaurios, la altura de la cadera es aproximadamente cuatro veces la longitud del pie. Y la distancia entre huellas dice a qué velocidad iba.</p>
+<div class="fondo"><b>Para entenderlo mejor: calcular la velocidad de un animal extinguido.</b> En 1976 el zoólogo británico R. McNeill Alexander se dio cuenta de que animales muy distintos, de la gallina al elefante, se mueven siguiendo la misma regla: para andar igual de «rápido» en proporción a su tamaño, dan zancadas proporcionales a la longitud de sus patas. Si mides en un rastro fósil la <b>zancada</b> (la distancia entre dos pisadas del mismo pie) y estimas la <b>altura de la cadera</b> a partir del tamaño del pie, su fórmula te da una velocidad aproximada. El resultado es sorprendentemente modesto: la mayoría de los rastros de dinosaurio conocidos corresponden a animales que paseaban entre 4 y 8 km/h, la velocidad de una persona andando. Es lógico: nadie corre todo el rato, y menos por un barrizal. Solo unos pocos rastros de terópodos dan carreras de más de 30 km/h.</div>
+<figure>
+<svg viewBox="0 0 600 345" role="img" aria-label="Arriba, un rastro de cinco huellas de terópodo con la zancada marcada entre dos pisadas del mismo pie y el paso entre dos consecutivas; abajo, un esquema de la pata que muestra que la altura de la cadera equivale a unas cuatro veces el largo del pie">
+<defs>
+<g id="din-hue-pie">
+<ellipse cx="0" cy="-7" rx="11" ry="10"/>
+<path d="M-5 -10 L-4 -32 L0 -39 L4 -32 L5 -10 Z"/>
+<path d="M-9 -8 L-21 -23 L-26 -32 L-17 -29 L-3 -14 Z"/>
+<path d="M9 -8 L21 -23 L26 -32 L17 -29 L3 -14 Z"/>
+</g>
+</defs>
+<line x1="40" y1="128" x2="520" y2="128" stroke="currentColor" stroke-width="1" stroke-opacity=".28" stroke-dasharray="5 5"/>
+<g fill="#2f6f4e" fill-opacity=".75">
+<use href="#din-hue-pie" x="70" y="140"/>
+<use href="#din-hue-pie" x="170" y="116"/>
+<use href="#din-hue-pie" x="270" y="140"/>
+<use href="#din-hue-pie" x="370" y="116"/>
+<use href="#din-hue-pie" x="470" y="140"/>
+</g>
+<path d="M70 178 H270" stroke="#b3261e" stroke-width="2"/>
+<path d="M70 172 v12 M270 172 v12" stroke="#b3261e" stroke-width="2"/>
+<text x="170" y="200" font-size="14" fill="#b3261e" text-anchor="middle" font-weight="bold">zancada (mismo pie)</text>
+<path d="M70 64 H170" stroke="#9a7412" stroke-width="2"/>
+<path d="M70 58 v12 M170 58 v12" stroke="#9a7412" stroke-width="2"/>
+<text x="120" y="48" font-size="14" fill="#9a7412" text-anchor="middle" font-weight="bold">paso</text>
+<line x1="20" y1="222" x2="580" y2="222" stroke="currentColor" stroke-opacity=".2"/>
+<g stroke="#1d3f8a" stroke-width="7" fill="none" stroke-linecap="round">
+<path d="M86 234 L122 272 L74 298 L114 304"/>
+</g>
+<circle cx="86" cy="234" r="10" fill="#1d3f8a"/>
+<path d="M72 316 H116" stroke="#9a7412" stroke-width="3"/>
+<path d="M72 310 v12 M116 310 v12" stroke="#9a7412" stroke-width="3"/>
+<text x="94" y="337" font-size="14" fill="#9a7412" text-anchor="middle">pie</text>
+<path d="M44 234 V304" stroke="#b3261e" stroke-width="3"/>
+<path d="M39 234 h10 M39 304 h10" stroke="#b3261e" stroke-width="3"/>
+<g font-size="14" fill="currentColor">
+<text x="150" y="252" fill="#b3261e" font-weight="bold">altura de la cadera ≈ 4 × largo del pie</text>
+<text x="150" y="282">Con la zancada y esa altura, una fórmula</text>
+<text x="150" y="304">de 1976 da la velocidad del animal.</text>
+</g>
+</svg>
+<figcaption>Con dos medidas tomadas en la roca (la zancada y el tamaño del pie) se estima la altura de la cadera y, con ella, la velocidad a la que iba el animal.</figcaption>
+</figure>
+<p>Hay rastros espectaculares. En Cal Orcko, junto a Sucre (Bolivia), una pared de cantera casi vertical de unos 80 metros de alto conserva miles de huellas: era una orilla de barro que después se inclinó con el plegamiento de los Andes. En Texas, en el río Paluxy, hay rastros de saurópodo con huellas de terópodo al lado, que durante años se contaron como una persecución, aunque no hay manera de saber si los dos animales pasaron por allí el mismo día o con semanas de diferencia. Y muchos yacimientos muestran varios rastros paralelos, en la misma dirección y separados de forma regular: la mejor prueba de que algunos dinosaurios se desplazaban en grupo.</p>
+
+<h3>Huevos, nidos y padres</h3>
+<p>Todos los dinosaurios ponían huevos. Durante mucho tiempo no se encontraron, hasta que en 1923, en el desierto de Gobi, una expedición del Museo Americano de Historia Natural dirigida por Roy Chapman Andrews desenterró nidadas de huevos alargados colocados en círculos. Cerca había restos de <i>Protoceratops</i>, así que se supuso que eran suyos, y a un terópodo hallado encima de una de las puestas lo llamaron <i>Oviraptor</i>, «ladrón de huevos», porque parecía pillado en pleno robo.</p>
+<p>Setenta años después llegó la rehabilitación. En 1993, en el yacimiento de Ukhaa Tolgod, se encontró uno de aquellos huevos con un embrión dentro: no era de <i>Protoceratops</i>, sino del propio <i>Oviraptor</i>. Y el ejemplar de 1924 no estaba robando: estaba incubando su propia puesta, con las patas recogidas y los brazos extendidos sobre los huevos, exactamente en la postura de un ave que empolla. El nombre, sin embargo, ya no se puede cambiar: las reglas de la nomenclatura no permiten corregir un apellido injusto.</p>
+<div class="sabias"><b>¿Sabías que...?</b> Los huevos de dinosaurio no eran gigantescos. El mayor conocido ronda los 30 centímetros de largo, poco más que un balón de rugby, aunque el animal adulto pesara treinta toneladas. La razón es física: la cáscara tiene que dejar pasar el oxígeno, y si el huevo crece mucho, la cáscara debe engrosarse tanto que la cría no podría romperla ni el aire entraría. Por eso un saurópodo recién nacido pesaba unos pocos kilos y debía multiplicar su peso miles de veces antes de ser adulto.</div>
+<p>En 1978, en Montana, la buscadora de fósiles Marion Brandvold enseñó unos huesos diminutos a los paleontólogos Jack Horner y Bob Makela. Aquello llevó a un lugar que hoy se llama Egg Mountain: decenas de nidos agrupados, con crías cuyas articulaciones no estaban del todo formadas pero cuyos dientes ya estaban desgastados. Es decir, los pequeños se quedaban en el nido sin poder andar bien y alguien les llevaba comida. Al dinosaurio lo llamaron <b><i>Maiasaura</i></b>, «lagarta buena madre». Fue la primera prueba sólida de cuidado parental en dinosaurios.</p>
+
+<h3>Anillos dentro del hueso</h3>
+<p>Si se corta un hueso fósil en láminas finísimas y se mira al microscopio, aparece la estructura íntima del tejido. Esa técnica, la <b>histología ósea</b>, ha cambiado nuestra idea de los dinosaurios más que casi ninguna otra.</p>
+<p>Los huesos de muchos dinosaurios tienen <b>líneas de crecimiento detenido</b>, anillos parecidos a los de los árboles que se forman cuando el crecimiento se frena, seguramente en la estación seca o fría. Contando esos anillos se sabe la edad del animal, y midiendo la distancia entre ellos, lo deprisa que creció ese año. El resultado para <i>Tyrannosaurus rex</i> es asombroso: crecía muy poco hasta los doce años y luego, durante unos cuatro años, engordaba del orden de dos kilos al día, hasta alcanzar el tamaño adulto sobre los veinte. El ejemplar más viejo conocido, Sue, murió con unos veintiocho años. Ningún reptil actual crece así; las aves y los mamíferos, sí.</p>
+<p>La estructura fina del hueso también habla. El de los dinosaurios es en general <b>fibrolamelar</b>, un tejido de crecimiento rápido lleno de vasos sanguíneos, típico de animales de metabolismo alto, no el hueso denso y pobre en vasos de un lagarto. Junto con las plumas, la postura erguida y los nidos, es una de las razones por las que hoy se piensa que muchos dinosaurios tenían un metabolismo intermedio o alto, más cercano al de un ave que al de un cocodrilo.</p>
+
+<h3>El color de lo que ya no existe</h3>
+<p>Durante dos siglos se dio por hecho que el color de un dinosaurio era imposible de saber y que los artistas podían pintarlos como quisieran. En 2008 eso cambió. Investigadores que examinaban plumas fósiles con microscopio electrónico vieron unos corpúsculos diminutos, alargados o redondos, que otros habían tomado por bacterias fosilizadas. No lo eran: eran <b>melanosomas</b>, las bolsitas que dentro de las células guardan la melanina, el mismo pigmento que da color a nuestro pelo.</p>
+<p>La clave es que la forma del melanosoma se corresponde con el color. Los alargados, como salchichas, dan negros y grises; los redondeados, como albóndigas, dan rojizos y anaranjados. Comparando miles de melanosomas fósiles con los de aves actuales se puede reconstruir, con margen de error pero con método, el color de un animal de hace 125 millones de años.</p>
+<p>Los primeros resultados llegaron en 2010. <i>Sinosauropteryx</i>, el pequeño terópodo chino, tenía la cola con anillos alternos anaranjados y claros, como un lémur. <i>Anchiornis</i>, del tamaño de una paloma, era negro y gris con una cresta rojiza en la cabeza y motas blancas en las alas. En 2012 se describió el brillo metálico, azulado y tornasolado, de las plumas de <i>Microraptor</i>, como el de un cuervo o un estornino. Y el acorazado <i>Borealopelta</i> resultó ser pardo rojizo por arriba y claro por abajo, el camuflaje típico de una presa. Los dinosaurios no eran grises: eran un zoo de colores.</p>
+<div class="sabias"><b>¿Sabías que...?</b> También se estudian sus excrementos fosilizados, llamados <b>coprolitos</b>. Uno hallado en Canadá en 1995, de más de 40 centímetros y atribuido a un tiranosaurio, contenía fragmentos de hueso triturado: la prueba de que aquel animal rompía y tragaba los huesos de sus presas, algo que casi ningún depredador actual hace. Y en el estómago de algunos saurópodos aparecen piedras lisas y pulidas, los <b>gastrolitos</b>, que quizá ayudaban a moler la comida como hace la molleja de una gallina.</div>
+<div class="idea"><b>Idea clave:</b> las huellas, los huevos, los nidos, la microestructura de los huesos y hasta los melanosomas convierten esqueletos mudos en animales con velocidad, edad, familia y color. La paleontología ya no es solo describir huesos: es reconstruir comportamientos.</div>
+
+<h2 id="c11"><small>Capítulo 11</small>Plumas: los dinosaurios que siguen aquí</h2>
+<p>Este es el capítulo que más ha cambiado en los últimos treinta años, y el que más cuesta creer la primera vez que se oye. La frase corta es esta: los dinosaurios no se extinguieron del todo. Unos cuantos sobrevivieron, se diversificaron y hoy hay unas once mil especies suyas repartidas por el planeta. Las llamamos aves. El gorrión del balcón y el pollo de la nevera no son parientes lejanos de los dinosaurios: <b>son</b> dinosaurios, igual que un murciélago es un mamífero aunque vuele.</p>
+
+<h3>La pluma de Solnhofen</h3>
+<p>En 1861, en las canteras de caliza de Solnhofen, en Baviera, apareció la impresión de una sola pluma. Aquella piedra tenía unos 150 millones de años, del Jurásico superior, y en ella se veían con todo detalle el eje central y las barbas, una pluma moderna de verdad. Ese mismo año apareció un esqueleto casi completo del animal: tenía plumas y alas como un ave, pero también dientes en las mandíbulas, tres dedos con garras libres en cada mano y una larga cola con vértebras, cosas que ninguna ave tiene. Lo llamaron <b><i>Archaeopteryx</i></b>, «ala antigua».</p>
+<p>La fecha no pudo ser mejor: <i>El origen de las especies</i> se había publicado en 1859 (esa historia se cuenta en <a href="../la-evolucion/libro.html">La evolución</a>). Aquí estaba el eslabón que los críticos pedían, un animal a medio camino entre dos grandes grupos. El ejemplar de 1861 acabó en Londres; un segundo, aún mejor, apareció en 1874 o 1875 y está en Berlín. Hoy se conocen alrededor de una docena.</p>
+<p>Thomas Henry Huxley, el biólogo que defendía las ideas de Darwin con más ganas que nadie, se fijó en otra cosa: en lo mucho que el esqueleto de un pollo se parecía al de <i>Compsognathus</i>, un pequeño dinosaurio de las mismas canteras. En 1868 propuso que las aves descendían de los dinosaurios. Tenía razón, pero su idea se olvidó durante un siglo.</p>
+
+<h3>Ostrom, Deinonychus y la resurrección de una idea</h3>
+<p>La culpa del olvido la tuvo, sobre todo, un libro de 1926 del danés Gerhard Heilmann, muy influyente, que descartaba el parentesco por un detalle anatómico: los dinosaurios, decía, no tenían <b>fúrcula</b>, ese hueso en forma de horquilla que en las aves se forma al fundirse las dos clavículas y que en el pollo asado llamamos «espoleta». Un ave tiene fúrcula; si los dinosaurios no la tenían, no podían ser sus antepasados.</p>
+<p>La objeción se vino abajo cuando se encontraron fúrculas en un dinosaurio tras otro: en oviraptorosaurios, en dromeosáuridos, incluso en <i>Tyrannosaurus rex</i>. Simplemente no se habían reconocido, porque son huesos finos que se rompen o se confunden con costillas.</p>
+<p>El golpe definitivo lo dio John Ostrom en 1969 al describir <i>Deinonychus</i>, un depredador ágil, de cola rígida y garra en hoz, cuyo esqueleto se parecía al de <i>Archaeopteryx</i> hueso por hueso. Ostrom retomó la idea de Huxley, y a partir de los años ochenta el análisis por ordenador de cientos de caracteres anatómicos fue confirmándola: las aves están dentro de los terópodos, en el grupo de los <b>maniraptores</b>, al lado de los dromeosáuridos.</p>
+<div class="fondo"><b>Para entenderlo mejor: «dentro de», no «al lado de».</b> Decir que las aves descienden de los dinosaurios se queda corto. En la clasificación moderna, un grupo lo forman un antepasado y <i>todos</i> sus descendientes, sin excepciones. Como las aves descienden de un terópodo, las aves son terópodos, los terópodos son dinosaurios y por tanto las aves son dinosaurios, para siempre. Ocurre lo mismo con nosotros: somos mamíferos, pero también seguimos siendo vertebrados y, más atrás, animales. Por eso los paleontólogos distinguen entre los <b>dinosaurios no avianos</b>, que se extinguieron hace 66 millones de años, y los avianos, que están cantando ahí fuera.</div>
+
+<h3>China, 1996: la avalancha</h3>
+<p>Faltaba ver plumas en un dinosaurio que claramente no fuera un ave. Llegaron de golpe. En 1996 se dio a conocer <b><i>Sinosauropteryx</i></b>, un pequeño terópodo de la provincia china de Liaoning, en rocas de unos 125 millones de años, cubierto de una pelusa de filamentos simples. No podía volar ni de lejos: aquellos filamentos servían para abrigarse o para exhibirse.</p>
+<p>Detrás vinieron decenas. <i>Caudipteryx</i>, con un abanico de plumas auténticas en la punta de la cola y en los brazos, pero con brazos demasiado cortos para volar. <i>Microraptor</i>, descrito en 2003, con plumas largas en los brazos <i>y</i> en las piernas: cuatro alas, probablemente un planeador entre árboles. Y en 2012, <i>Yutyrannus huali</i>, «bello tirano emplumado», un pariente de los tiranosaurios de unos 9 metros y más de una tonelada, con filamentos de hasta 20 centímetros. El dinosaurio emplumado más grande conocido no era un pajarillo.</p>
+<p>¿Por qué precisamente en China? Porque Liaoning tiene una combinación única: lagos tranquilos en cuyo fondo se depositaba un barro finísimo, y volcanes cercanos que de vez en cuando enterraban toda la fauna bajo una lluvia de ceniza. Es el mismo tipo de accidente que sepultó Pompeya, pero repetido durante millones de años.</p>
+<figure>
+<svg viewBox="0 0 600 220" role="img" aria-label="Cinco etapas de la evolución de la pluma: un filamento único, un penacho de filamentos, una pluma con eje y barbas sueltas, una pluma cerrada con barbillas en gancho y una pluma de vuelo asimétrica">
+<g stroke="#2f6f4e" fill="none" stroke-width="2">
+<path d="M50 150 v-80"/>
+</g>
+<g stroke="#2f6f4e" fill="none" stroke-width="2">
+<path d="M165 150 v-30 M165 120 l-16 -50 M165 120 l16 -50 M165 120 l-6 -55 M165 120 l6 -55"/>
+</g>
+<g stroke="#2f6f4e" fill="none" stroke-width="2">
+<path d="M285 150 v-85" stroke-width="3"/>
+<path d="M285 140 l-22 -18 M285 128 l-22 -18 M285 116 l-22 -18 M285 104 l-22 -18 M285 92 l-20 -16 M285 80 l-16 -14"/>
+<path d="M285 140 l22 -18 M285 128 l22 -18 M285 116 l22 -18 M285 104 l22 -18 M285 92 l20 -16 M285 80 l16 -14"/>
+</g>
+<g>
+<path d="M405 150 v-90" stroke="#2f6f4e" stroke-width="3" fill="none"/>
+<path d="M405 148 q-30 -30 -22 -70 q10 -18 22 -22Z" fill="#2f6f4e" fill-opacity=".45"/>
+<path d="M405 148 q30 -30 22 -70 q-10 -18 -22 -22Z" fill="#2f6f4e" fill-opacity=".45"/>
+</g>
+<g>
+<path d="M530 150 v-90" stroke="#2f6f4e" stroke-width="3" fill="none"/>
+<path d="M530 148 q-16 -34 -12 -70 q6 -16 12 -22Z" fill="#1d3f8a" fill-opacity=".5"/>
+<path d="M530 148 q40 -30 30 -72 q-14 -18 -30 -20Z" fill="#1d3f8a" fill-opacity=".5"/>
+</g>
+<g font-size="12" fill="currentColor" text-anchor="middle">
+<text x="50" y="175">1. filamento</text>
+<text x="50" y="192">hueco</text>
+<text x="165" y="175">2. penacho</text>
+<text x="165" y="192">de filamentos</text>
+<text x="285" y="175">3. eje y barbas</text>
+<text x="285" y="192">sueltas</text>
+<text x="405" y="175">4. barbillas</text>
+<text x="405" y="192">en gancho</text>
+<text x="530" y="175">5. pluma de vuelo</text>
+<text x="530" y="192">asimétrica</text>
+</g>
+<path d="M90 110 h35 M205 110 h35 M330 110 h35 M450 110 h35" stroke="#9a7412" stroke-width="2"/>
+<path d="M118 105 l8 5 l-8 5 M233 105 l8 5 l-8 5 M358 105 l8 5 l-8 5 M478 105 l8 5 l-8 5" fill="none" stroke="#9a7412" stroke-width="2"/>
+<text x="300" y="30" font-size="13" fill="currentColor" text-anchor="middle" font-weight="bold">Ninguna etapa se inventó para volar: el vuelo llegó al final</text>
+</svg>
+<figcaption>La secuencia propuesta por los estudios del desarrollo de las plumas en aves actuales, confirmada paso a paso por los fósiles chinos. Las etapas 1 a 3 aparecen en dinosaurios que no volaban.</figcaption>
+</figure>
+
+<h3>Para qué sirve media pluma</h3>
+<p>Era una objeción clásica: un ala a medias no vuela, así que ¿de qué servía? La respuesta es que las plumas no nacieron para volar. Los biólogos del desarrollo Richard Prum y Alan Brush propusieron una secuencia a partir de cómo crece una pluma hoy en el folículo de un ave: primero un filamento hueco, luego un penacho de filamentos unidos por la base, luego un eje central con barbas sueltas a los lados, luego barbas con <b>barbillas</b> diminutas terminadas en gancho que se enganchan entre sí y forman una superficie continua, y por último la pluma asimétrica, con la parte delantera estrecha, que funciona como un ala.</p>
+<p>Cada una de esas etapas existe en los fósiles chinos, y casi todas en animales incapaces de volar. Las primeras plumas debieron de servir para conservar el calor, y enseguida para exhibirse: colores, abanicos en la cola, manchas en las alas. El vuelo llegó después, aprovechando una estructura que ya estaba ahí. La evolución no diseña: recicla.</p>
+<div class="sabias"><b>¿Sabías que...?</b> En 2007, al estudiar un antebrazo de <i>Velociraptor</i>, se encontraron en el cúbito unas protuberancias alineadas: los mismos <b>bultos de inserción</b> que en las aves actuales anclan las plumas grandes del ala. Es decir, tenemos la prueba directa en el hueso de que <i>Velociraptor</i> tenía plumas de verdad en los brazos, aunque pesara quince kilos y no pudiera despegar. Curiosamente, algo parecido se ha propuesto para el cúbito del <i>Concavenator</i> de Cuenca, aunque en ese caso la interpretación sigue discutiéndose.</div>
+
+<h3>¿Cómo se empieza a volar?</h3>
+<p>Hay dos explicaciones clásicas. La de «desde los árboles hacia abajo» dice que animales trepadores fueron alargando sus saltos hasta planear, y luego batir. La de «desde el suelo hacia arriba» dice que corredores rápidos usaban los brazos emplumados para dar equilibrio y empuje en los saltos. Hoy muchos investigadores se fijan en un comportamiento observado en polluelos de perdiz y otras aves: al subir una pendiente o un tronco, baten las alas hacia abajo no para elevarse, sino para pegar mejor las patas a la superficie y no resbalar. Es posible que el aleteo naciera así, como un truco para agarrarse, mucho antes de servir para despegar.</p>
+<p>Sea cual sea la respuesta, el resultado está claro. Las aves son el único linaje de dinosaurios que cruzó la frontera de hace 66 millones de años, y lo hicieron con un aspecto muy concreto: pequeñas, con pico sin dientes y capaces de comer semillas. Volveremos a ello en el capítulo del asteroide.</p>
+<div class="idea"><b>Idea clave:</b> las plumas aparecieron en dinosaurios que no volaban, primero como abrigo y adorno, y solo después se convirtieron en alas. Las aves no descienden de los dinosaurios: son dinosaurios terópodos vivos, el único grupo que sobrevivió a la extinción.</div>
+
+<h2 id="c12"><small>Capítulo 12</small>España, tierra de dinosaurios</h2>
+<p>Cuando se habla de dinosaurios, la imaginación se va a Montana, a Mongolia o a la Patagonia. Conviene corregir ese mapa: la península ibérica es uno de los mejores lugares de Europa para buscar dinosaurios, y en los últimos cuarenta años se han descrito aquí decenas de especies nuevas. La razón es geológica. Durante el Jurásico y el Cretácico, buena parte de lo que hoy es España era un mosaico de islas, lagunas costeras, deltas y llanuras de barro junto a un mar cálido y poco profundo. Ese barro se convirtió en la roca que hoy aflora en Teruel, en Cuenca, en La Rioja y en la costa asturiana.</p>
+
+<h3>Las huellas de La Rioja</h3>
+<p>En la sierra riojana, en los alrededores de Enciso, Igea, Munilla y Cornago, hay más de cien yacimientos con miles de <b>icnitas</b> (huellas fósiles), de las mayores concentraciones de Europa. Se formaron hace unos 120 a 145 millones de años, cuando aquello era la orilla de un enorme lago. Hoy las capas están inclinadas por el levantamiento de la cordillera, así que en algunos sitios las huellas se ven casi verticales, en una pared.</p>
+<p>Lo que se lee ahí no son animales sueltos, sino escenas: rastros de saurópodos gigantes, pisadas de terópodos de tres dedos con marcas de garra, rastros paralelos que sugieren grupos y hasta huellas que se interpretan como de un animal nadando, que tocaba el fondo con las puntas de los dedos. En Enciso hay un centro de interpretación y varios yacimientos preparados para visitar.</p>
+
+<h3>La costa de los dinosaurios</h3>
+<p>Entre Gijón y Ribadesella, en unos 60 kilómetros de acantilados asturianos, afloran rocas del Jurásico superior repletas de huellas, algunas visibles en la misma playa cuando baja la marea. Hay icnitas de saurópodo de casi un metro de diámetro. En Colunga se levantó en 2004 el <b>Museo del Jurásico de Asturias</b> (MUJA), un edificio con forma de huella de tres dedos vista desde el aire.</p>
+
+<h3>Teruel: el gigante y el museo</h3>
+<p>Teruel es probablemente la provincia más dinosauriana de España. Allí se describió en 1987 <b><i>Aragosaurus ischiaticus</i></b>, hallado en Galve, el primer dinosaurio nombrado en España y uno de los primeros saurópodos de Europa descritos en el siglo XX.</p>
+<p>En 2003, en Riodeva, empezaron a salir huesos enormes: un húmero de casi 1,8 metros. En 2006 el equipo de la Fundación Conjunto Paleontológico de Teruel describió <b><i>Turiasaurus riodevensis</i></b>, un saurópodo del final del Jurásico, hace unos 150 millones de años. Las primeras estimaciones lo situaban entre los mayores de Europa, con cifras en torno a los 30 metros y varias decenas de toneladas; los cálculos posteriores han rebajado algo esos números, como suele ocurrir, pero sigue siendo un animal descomunal. Dio nombre a todo un grupo de saurópodos, los turiasaurios.</p>
+<p>En la mina de carbón de Santa María, en Ariño, apareció además un yacimiento excepcional del Cretácico inferior, con el anquilosaurio <i>Europelta</i> y el ornitópodo <i>Proa</i>, ambos descritos en 2013. Y desde 2001 Teruel tiene <b>Dinópolis</b>, un conjunto de parque temático y museo paleontológico repartido en varias sedes de la provincia, con una fundación científica detrás que es la que firma buena parte de estos hallazgos.</p>
+
+<h3>Cuenca: un lago perfecto y una obra del AVE</h3>
+<p>El yacimiento de <b>Las Hoyas</b>, en la serranía de Cuenca, es uno de esos lugares raros donde la conservación es tan buena que aparecen tejidos blandos. Hace unos 125 millones de años era un humedal con aguas tranquilas y fondo sin oxígeno, donde los cadáveres no se descomponían del todo. De allí salen plantas, insectos, anfibios, aves primitivas como <i>Iberomesornis</i> y <i>Eoalulavis</i>, y dos dinosaurios famosos.</p>
+<p>El primero, <b><i>Pelecanimimus polyodon</i></b>, descrito en 1994, es un ornitomimosaurio (los dinosaurios «imitadores de avestruz») con una rareza: más de doscientos dientes diminutos, cuando sus parientes tenían el pico desnudo. Conservaba incluso la impresión de una bolsa de piel bajo la mandíbula, como la de un pelícano, de ahí su nombre.</p>
+<p>El segundo, descrito en 2010 por Francisco Ortega, Fernando Escaso y José Luis Sanz, es <b><i>Concavenator corcovatus</i></b>, «el cazador jorobado de Cuenca». Era un terópodo de unos 5 o 6 metros con dos vértebras del lomo alargadas en punta, que formaban una joroba estrecha delante de la cadera. Nadie sabe para qué servía: quizá exhibición, quizá una reserva de grasa. Además, en su cúbito presenta unos bultos alineados que los autores interpretaron como puntos de anclaje de estructuras parecidas a plumas, algo inesperado en un terópodo de ese grupo. La interpretación sigue debatiéndose, y es uno de los fósiles españoles más citados del mundo.</p>
+<p>La otra gran historia conquense empezó con una excavadora. En 2007, las obras del AVE entre Madrid y Levante cortaron un cerro cerca de Fuentes y dejaron al descubierto <b>Lo Hueco</b>, un yacimiento del final del Cretácico con miles de fósiles. La excavación de urgencia duró meses y de allí salió, entre otros, <b><i>Lohuecotitan pandafilandi</i></b>, descrito en 2016: un titanosaurio de unos 15 metros cuyo nombre de especie homenajea a un gigante del <i>Quijote</i>.</p>
+<figure>
+<svg viewBox="0 0 600 500" role="img" aria-label="Mapa esquemático de la península ibérica con ocho yacimientos numerados: Asturias, La Rioja, Burgos, Pirineo, Teruel, Cuenca, Castellón y Portugal, con su leyenda debajo">
+<path d="M85 31 L174 40 L248 44 L280 48 L328 47 L533 92 L487 131 L429 159 L385 211 L372 289 L301 322 L186 351 L148 335 L40 314 L34 244 L56 141 L64 47 Z" fill="#2f6f4e" fill-opacity=".14" stroke="#2f6f4e" stroke-width="2"/>
+<g stroke="#9a7412" stroke-width="2" stroke-opacity=".7" fill="none">
+<path d="M330 50 Q420 62 525 90"/>
+</g>
+<text x="398" y="46" font-size="12" fill="#9a7412">Pirineos</text>
+<g fill="#b3261e">
+<circle cx="190" cy="52" r="13"/><circle cx="309" cy="99" r="13"/><circle cx="264" cy="106" r="13"/>
+<circle cx="440" cy="97" r="13"/><circle cx="363" cy="160" r="13"/><circle cx="314" cy="190" r="13"/>
+<circle cx="398" cy="180" r="13"/><circle cx="46" cy="240" r="13"/>
+</g>
+<g font-size="13" fill="#fbf8f1" text-anchor="middle" font-weight="bold">
+<text x="190" y="57">1</text><text x="309" y="104">2</text><text x="264" y="111">3</text>
+<text x="440" y="102">4</text><text x="363" y="165">5</text><text x="314" y="195">6</text>
+<text x="398" y="185">7</text><text x="46" y="245">8</text>
+</g>
+<line x1="20" y1="368" x2="580" y2="368" stroke="currentColor" stroke-opacity=".25"/>
+<g fill="#b3261e">
+<circle cx="28" cy="392" r="10"/><circle cx="28" cy="420" r="10"/><circle cx="28" cy="448" r="10"/><circle cx="28" cy="476" r="10"/>
+<circle cx="308" cy="392" r="10"/><circle cx="308" cy="420" r="10"/><circle cx="308" cy="448" r="10"/><circle cx="308" cy="476" r="10"/>
+</g>
+<g font-size="12" fill="#fbf8f1" text-anchor="middle" font-weight="bold">
+<text x="28" y="396">1</text><text x="28" y="424">2</text><text x="28" y="452">3</text><text x="28" y="480">4</text>
+<text x="308" y="396">5</text><text x="308" y="424">6</text><text x="308" y="452">7</text><text x="308" y="480">8</text>
+</g>
+<g font-size="13" fill="currentColor">
+<text x="46" y="397">Asturias: huellas y el MUJA</text>
+<text x="46" y="425">La Rioja: miles de icnitas</text>
+<text x="46" y="453">Burgos: Salas de los Infantes</text>
+<text x="46" y="481">Pirineo: Arén y Coll de Nargó</text>
+<text x="326" y="397">Teruel: Dinópolis, Riodeva, Galve</text>
+<text x="326" y="425">Cuenca: Las Hoyas y Lo Hueco</text>
+<text x="326" y="453">Castellón: Morella y Vallibona</text>
+<text x="326" y="481">Portugal: Lourinhã y Cabo Espichel</text>
+</g>
+</svg>
+<figcaption>Algunos de los grandes yacimientos de dinosaurios de la península ibérica. El mapa es esquemático: las posiciones son aproximadas.</figcaption>
+</figure>
+
+<h3>Burgos, Castellón y el Pirineo</h3>
+<p>En Salas de los Infantes, en la sierra de la Demanda burgalesa, se excava desde los años ochenta. De allí salió en 2011 <b><i>Demandasaurus darwini</i></b>, un saurópodo de cuello relativamente corto emparentado con formas africanas, lo que apoya la idea de que hubo conexiones entre Iberia y África durante el Cretácico inferior.</p>
+<p>En la comarca de Els Ports, en Castellón, la zona de Morella ha dado ornitópodos como <b><i>Morelladon beltrani</i></b>, descrito en 2015, con una vela de espinas en el lomo, y varios espinosaurios, el grupo de terópodos de hocico de cocodrilo: <i>Vallibonavenatrix cani</i>, descrito en 2019 a partir de restos de Vallibona, fue el primer espinosaurio nombrado en España.</p>
+<p>Y en el Pirineo, en Huesca y Lleida, afloran algunas de las rocas continentales más modernas de Europa, de los últimos cientos de miles de años del Cretácico. Allí vivieron los últimos dinosaurios del continente, como el hadrosaurio <i>Arenysaurus ardevoli</i>, descrito en 2009 a partir de restos de Arén. En Coll de Nargó, en Lleida, hay una de las mayores concentraciones de huevos de dinosaurio de Europa, con miles de cáscaras y nidos.</p>
+<div class="sabias"><b>¿Sabías que...?</b> Portugal juega en la misma liga. La región de Lourinhã, al norte de Lisboa, tiene una fauna jurásica sorprendentemente parecida a la de Norteamérica, con parientes de <i>Allosaurus</i> y de <i>Stegosaurus</i>. De allí salieron <i>Torvosaurus gurneyi</i>, descrito en 2014 y uno de los mayores depredadores conocidos de Europa, y <i>Miragaia</i>, un estegosaurio de cuello largo. En 2022 se describió en el cabo Espichel un espinosaurio propio, <i>Iberospinus natarioi</i>.</div>
+<div class="fondo"><b>Para entenderlo mejor: ¿por qué tantas especies enanas o raras?</b> Durante buena parte del Cretácico, Europa no era un continente, sino un archipiélago de islas en un mar cálido. Las islas hacen cosas extrañas con los animales: los grandes tienden a encoger, porque hay poco alimento y pocos depredadores, y los pequeños a crecer. El caso más claro de Europa no está en España, sino en Rumanía, en el yacimiento de Haţeg, donde vivieron saurópodos del tamaño de un caballo y hadrosaurios enanos. En la Iberia cretácica también se ven faunas mezcladas, con parientes africanos, asiáticos y americanos juntos, justo lo que cabe esperar de un puzle de islas cambiantes.</div>
+<div class="idea"><b>Idea clave:</b> España y Portugal están entre los mejores lugares de Europa para estudiar dinosaurios: huellas por miles en La Rioja y Asturias, gigantes en Teruel, conservación excepcional en Las Hoyas, un yacimiento entero destapado por las obras del AVE en Cuenca y los últimos dinosaurios europeos en el Pirineo.</div>
+
+<h2 id="c13"><small>Capítulo 13</small>El día que cayó el cielo</h2>
+<p>Hace 66 millones de años, en poco tiempo, desapareció alrededor del 75 % de las especies de la Tierra. Se fueron los dinosaurios no avianos, los pterosaurios, los grandes reptiles marinos, los amonites y una parte enorme del plancton. Sobrevivieron las aves, los mamíferos, los cocodrilos, las tortugas, los anfibios, los insectos y las plantas con semilla. Es el límite entre el Cretácico y el Paleógeno, que los geólogos abrevian como límite K/Pg. Durante ciento cincuenta años nadie supo por qué pasó. Hoy tenemos una respuesta con nombre, lugar y hasta estación del año.</p>
+
+<h3>Una capa de arcilla que aparece en todas partes</h3>
+<p>Si se recorre una serie de rocas marinas del final del Cretácico, en muchos lugares del mundo aparece la misma cosa: una capa de arcilla de uno o dos centímetros que separa unas calizas llenas de fósiles de otras casi vacías. En los años setenta, el geólogo Walter Alvarez estudiaba esa capa en el desfiladero de Bottaccione, cerca de Gubbio, en Italia. Quería saber cuánto tiempo había tardado en depositarse.</p>
+<p>Su padre, Luis Alvarez, era físico y había ganado el Nobel en 1968. Le propuso un método ingenioso: medir el <b>iridio</b>. El iridio es un metal muy raro en la corteza terrestre, porque casi todo el que había se hundió hacia el núcleo cuando la Tierra se formó, pero es relativamente abundante en los meteoritos. Como cae polvo cósmico sobre la Tierra a un ritmo más o menos constante, la cantidad de iridio en la arcilla diría cuántos años había tardado en acumularse.</p>
+<p>El resultado no tenía sentido. En vez de la pizca esperada, la capa contenía unas treinta veces más iridio que las rocas de encima y de debajo. Repitieron el análisis en Stevns Klint, en Dinamarca: lo mismo. En 1980 publicaron en <i>Science</i> la explicación que se les ocurrió: no era polvo acumulado despacio, era el material de un asteroide grande, de unos diez kilómetros, vaporizado en un impacto y repartido por toda la atmósfera. Casi al mismo tiempo, el geólogo neerlandés Jan Smit llegaba a la misma conclusión estudiando una sección española.</p>
+<div class="sabias"><b>¿Sabías que...?</b> Esa sección está en Caravaca de la Cruz, en Murcia, en el barranco del Gredero. La llaman la <b>Capa Negra</b>, está protegida como Monumento Natural y es uno de los registros del límite K/Pg más completos y mejor estudiados del mundo: se puede poner un dedo sobre el último día del Cretácico. Otra sección magnífica está en el flysch de Zumaia, en Guipúzcoa, donde las capas verticales de la playa permiten caminar por millones de años en unos pasos.</div>
+
+<h3>El cráter que estaba escondido</h3>
+<p>La hipótesis tenía un agujero: faltaba el agujero. Un asteroide de diez kilómetros deja un cráter de unos ciento ochenta, y no se encontraba ninguno de esa edad.</p>
+<p>Estaba encontrado desde hacía años, pero nadie lo sabía. En 1978, dos geofísicos de la petrolera mexicana Pemex, Glen Penfield y Antonio Camargo, buscando petróleo en el Golfo de México con mapas magnéticos y gravimétricos, vieron una estructura circular enorme y casi perfecta, medio en tierra y medio en el mar, centrada en el pueblo de Chicxulub, en Yucatán. Dedujeron que podía ser un cráter de impacto y lo comentaron en un congreso en 1981, pero su trabajo era confidencial y el hallazgo pasó desapercibido. Aquel mismo congreso reunía a los que buscaban el cráter del iridio, y por una de esas casualidades increíbles, unos y otros no se cruzaron.</p>
+<p>La conexión se hizo en 1991, cuando Alan Hildebrand y sus colegas reunieron las pruebas: el tamaño, la edad y, sobre todo, los depósitos del Caribe y del golfo, llenos de <b>esférulas</b> de vidrio (gotas de roca fundida solidificadas en el aire) y de <b>cuarzo de choque</b>, granos de cuarzo con láminas internas que solo se forman con presiones enormes y repentinas. El cráter está enterrado bajo un kilómetro de sedimentos, así que no se ve desde la superficie; lo único que lo delata en el paisaje es un semicírculo de cenotes, los pozos naturales de Yucatán, que siguen el borde de la estructura. La fecha, afinada con métodos radiométricos, es de unos 66,0 millones de años.</p>
+<figure>
+<svg viewBox="0 0 600 420" role="img" aria-label="Cronología del impacto de Chicxulub: desde el segundo cero hasta miles de años después, con los efectos en cada escala de tiempo">
+<line x1="180" y1="40" x2="180" y2="392" stroke="#b3261e" stroke-width="3"/>
+<g fill="#b3261e">
+<circle cx="180" cy="55" r="8"/><circle cx="180" cy="110" r="8"/><circle cx="180" cy="165" r="8"/>
+<circle cx="180" cy="220" r="8"/><circle cx="180" cy="275" r="8"/><circle cx="180" cy="330" r="8"/><circle cx="180" cy="385" r="8"/>
+</g>
+<g font-size="13" fill="currentColor" text-anchor="end" font-weight="bold">
+<text x="162" y="59">segundo 0</text>
+<text x="162" y="114">primeros minutos</text>
+<text x="162" y="169">30 min a 2 horas</text>
+<text x="162" y="224">horas</text>
+<text x="162" y="279">días a semanas</text>
+<text x="162" y="334">meses a años</text>
+<text x="162" y="389">miles de años</text>
+</g>
+<g font-size="13" fill="currentColor">
+<text x="198" y="51">Un asteroide de unos 10 km entra a</text>
+<text x="198" y="67">unos 20 km/s y abre el cráter.</text>
+<text x="198" y="106">La roca vaporizada sale al espacio;</text>
+<text x="198" y="122">las esférulas vuelven y calientan el cielo.</text>
+<text x="198" y="161">Terremotos gigantescos y olas de</text>
+<text x="198" y="177">cientos de metros por todo el golfo.</text>
+<text x="198" y="216">Incendios en zonas extensas;</text>
+<text x="198" y="232">llueve vidrio caliente.</text>
+<text x="198" y="271">El polvo y el hollín tapan el Sol:</text>
+<text x="198" y="287">la fotosíntesis casi se detiene.</text>
+<text x="198" y="326">Invierno de impacto por aerosoles</text>
+<text x="198" y="342">de azufre; se hunden las cadenas tróficas.</text>
+<text x="198" y="381">Lluvia ácida y, después, calentamiento</text>
+<text x="198" y="397">por el CO₂ liberado.</text>
+</g>
+</svg>
+<figcaption>Lo que ocurrió después del impacto, según los modelos y los depósitos conservados. Lo decisivo no fue el golpe, sino los meses de oscuridad y frío que vinieron detrás.</figcaption>
+</figure>
+
+<h3>Qué pasó exactamente</h3>
+<p>Un objeto de diez o quince kilómetros entrando a unos veinte kilómetros por segundo libera una energía difícil de imaginar: del orden de miles de millones de veces la bomba de Hiroshima. Atravesó la atmósfera en un par de segundos y abrió un hueco temporal de decenas de kilómetros de profundidad, que se rellenó en minutos levantando un anillo de montañas en el centro.</p>
+<p>Pero el daño global no lo hizo el golpe, sino lo que salió despedido. Millones de toneladas de roca fueron lanzadas fuera de la atmósfera y volvieron a entrar por todo el planeta como una lluvia de partículas incandescentes: durante un rato, el cielo entero se puso al rojo y la superficie recibió un pulso de calor. A eso se sumó la mala suerte geológica: el asteroide cayó justo sobre rocas ricas en <b>yeso</b>, es decir, en azufre. Al vaporizarse, ese azufre formó una niebla de aerosoles que se repartió por la estratosfera y reflejó la luz del Sol durante años. El polvo y el hollín de los incendios hicieron el resto.</p>
+<div class="fondo"><b>Para entenderlo mejor: por qué la oscuridad mata.</b> Casi toda la vida depende de la fotosíntesis. Si durante uno o dos años llega muy poca luz a la superficie, las plantas terrestres y el plancton marino dejan de producir; los herbívoros se quedan sin comida y los carnívoros, sin herbívoros. Los que sobreviven son los que no dependen de plantas vivas: los que comen semillas y frutos secos, los que comen insectos, los que hurgan en la hojarasca o en el barro de los ríos, y los muy pequeños, que necesitan poco. Eso describe bastante bien a un ave de pico pequeño, a un mamífero del tamaño de una rata, a una tortuga y a un cocodrilo. Y describe fatal a un animal de veinte toneladas que necesita cientos de kilos de hojas al día.</div>
+
+<h3>Tanis: la última hora del Cretácico</h3>
+<p>En 2019 se publicó un yacimiento de Dakota del Norte, llamado Tanis, que parece registrar las primeras horas después del impacto, a más de tres mil kilómetros del cráter. En él hay peces amontonados y enterrados de golpe por una riada, con <b>esférulas de impacto atascadas en las branquias</b>: las tragaron mientras caían del cielo, así que murieron cuestión de minutos u horas después del golpe. El yacimiento sigue estudiándose y algunos detalles se discuten, pero el conjunto es extraordinario.</p>
+<p>De Tanis salió también una deducción curiosa: analizando los anillos de crecimiento de los huesos de aquellos peces, un equipo propuso en 2022 que el impacto ocurrió en primavera del hemisferio norte. Si es así, pilló a muchos animales del norte en plena reproducción y a los del sur ya preparados para el invierno, lo que podría explicar parte de las diferencias de supervivencia entre hemisferios.</p>
+
+<h3>¿Y los volcanes?</h3>
+<p>Mientras tanto, en la India ocurría otra cosa enorme. Durante unos cientos de miles de años a caballo del límite se derramaron las <b>traps del Decán</b>, una de las mayores erupciones de la historia de la Tierra, con cientos de miles de kilómetros cúbicos de lava y unas emisiones gigantescas de dióxido de carbono y de azufre (el mecanismo de este tipo de erupciones se cuenta en <a href="../los-volcanes/libro.html">Los volcanes</a>). Algunos investigadores sostienen que el clima ya estaba alterado y que los ecosistemas llegaron debilitados a la cita; incluso se ha propuesto que el impacto aceleró las erupciones.</p>
+<p>El consenso actual es que el impacto fue la causa principal y el desencadenante inmediato, porque la extinción es brusca y coincide exactamente con la capa de iridio, mientras que el vulcanismo duró mucho más. Pero muy pocos científicos sostienen hoy que el Decán no tuviera ningún papel. Fue, seguramente, un planeta ya estresado al que le cayó encima lo peor que le puede caer.</p>
+<div class="sabias"><b>¿Sabías que...?</b> Hay una cuenta que pone las cosas en su sitio. La probabilidad de que un cuerpo de ese tamaño choque contra la Tierra es del orden de una vez cada cien millones de años. Si el asteroide hubiera llegado unos minutos antes o después, con la Tierra girando, habría caído en el océano profundo o en una zona sin yeso, y habría liberado mucho menos azufre. Es perfectamente posible que los dinosaurios siguieran aquí por cuestión de minutos.</div>
+<div class="idea"><b>Idea clave:</b> la capa de iridio descubierta por los Alvarez en 1980 y el cráter de Chicxulub, identificado en 1991, explican la extinción de hace 66 millones de años. Lo letal no fue el impacto, sino los años de oscuridad y frío provocados por el polvo y el azufre. Las traps del Decán probablemente empeoraron una situación ya límite.</div>
+
+<h2 id="c14"><small>Capítulo 14</small>Mitos de película, fechas y resumen</h2>
+<p>Los dinosaurios son el único capítulo de la ciencia que casi todo el mundo aprende de niño, y eso tiene un precio: buena parte de lo que creemos saber viene de libros ilustrados antiguos y de películas. Vale la pena hacer limpieza, con cariño, porque muchas de esas imágenes fueron ciencia de verdad en su momento.</p>
+
+<h3>Seis ideas que conviene corregir</h3>
+<p><b>«Arrastraban la cola.»</b> Así se pintaron durante un siglo: bípedos erguidos como canguros, con la cola por el suelo. A partir de los años setenta, con la llamada renovación de los dinosaurios que impulsaron John Ostrom y Robert Bakker, se impuso otra reconstrucción: cuerpo horizontal, cola levantada como contrapeso del cuello y las vértebras de la cola trabadas por tendones. La prueba definitiva la dan las huellas: en miles de rastros fósiles hay pisadas, y no hay surcos de cola.</p>
+<p><b>«El <i>T. rex</i> solo te ve si te mueves.»</b> Es el gag central de la primera película de la serie, y es justo al revés. Los cráneos de <i>Tyrannosaurus</i> tienen los ojos orientados hacia delante, con un amplio campo de visión solapado, lo que da una visión binocular excelente, comparable a la de un ave rapaz. Quedarse quieto delante de un <i>T. rex</i> habría sido una idea malísima.</p>
+<p><b>«El <i>Dilophosaurus</i> escupía veneno y tenía una gorguera.»</b> Ni una cosa ni la otra: son inventos de la novela y la película. El <i>Dilophosaurus</i> real medía unos 7 metros, no era del tamaño de un perro y no hay ni rastro de glándulas de veneno ni de collarines desplegables en su esqueleto. Del <i>Velociraptor</i> ya hablamos: medía como un pavo grande y tenía plumas.</p>
+<p><b>«El mamut, el <i>Dimetrodon</i>, los pterosaurios y los plesiosaurios eran dinosaurios.»</b> Ninguno lo era. El mamut es un elefante que vivió decenas de millones de años después. <i>Dimetrodon</i>, el de la vela en el lomo, vivió <i>antes</i> que los dinosaurios y está más emparentado con nosotros que con ellos. Los pterosaurios eran primos voladores y los plesiosaurios y mosasaurios, reptiles marinos de otras ramas.</p>
+<p><b>«Las cavernas, los humanos y los dinosaurios.»</b> Entre el último dinosaurio no aviano y el primer ser humano pasaron unos 66 millones de años. Si comprimimos toda esa historia en un año, los dinosaurios se extinguen a mediados de febrero y nuestra especie aparece el 31 de diciembre pasadas las once de la noche.</p>
+<p><b>«Se puede sacar ADN de un mosquito en ámbar.»</b> No. El ADN se rompe solo, aunque esté protegido: los estudios sobre huesos de moa de Nueva Zelanda calcularon que la mitad de los enlaces se rompen cada pocos cientos de años y que, incluso en condiciones de congelación perfecta, no quedaría nada legible más allá de un millón o dos de años. El ADN antiguo más viejo que se ha leído tiene alrededor de un millón de años, y procede de mamuts congelados en Siberia. Sesenta y seis millones es un abismo. Lo que sí sobrevive a veces son proteínas muy resistentes, como el colágeno, y ahí la investigación sigue abierta.</p>
+<div class="sabias"><b>¿Sabías que...?</b> El rugido del <i>T. rex</i> del cine es un collage de sonidos de animales actuales, entre ellos una cría de elefante, un caimán y un tigre. Nadie sabe cómo sonaba de verdad, pero hay una pista: ni los cocodrilos ni las aves tienen cuerdas vocales como las nuestras, y muchas aves grandes, como el avestruz o el casuario, producen retumbos graves con el pico cerrado, casi infrasonidos que se sienten en el pecho. Es probable que un tiranosaurio no rugiera: que zumbara, muy grave y muy hondo.</div>
+
+<h3>Una cuestión de perspectiva</h3>
+<p>El último mito es el más injusto: que los dinosaurios fueron un fracaso evolutivo, unos torpes que no supieron adaptarse. Duraron unos 165 millones de años como grupo dominante en tierra firme, colonizaron todos los continentes, incluida la Antártida, inventaron el vuelo batido y siguen entre nosotros con más especies que los mamíferos. Nuestra especie lleva unos 300.000 años. Y no desaparecieron por ser inadecuados: desaparecieron porque les cayó encima un asteroide de diez kilómetros.</p>
+<p>Y hay que reconocer que la ciencia también ha ido cambiando de opinión, lo cual es más una virtud que un defecto. El <i>Iguanodon</i> es el mejor ejemplo: en 1854 se esculpió en el Crystal Palace como un rinoceronte escamoso con el pulgar puesto en la nariz; después del hallazgo de treinta esqueletos en la mina belga de Bernissart, en 1878, se rehízo erguido como un canguro, con la cola apoyada en el suelo; y hoy se reconstruye en horizontal, con la cola levantada y capaz de andar a cuatro patas o sobre dos. Cada versión era la mejor lectura posible de las pruebas disponibles.</p>
+<figure>
+<svg viewBox="0 0 600 240" role="img" aria-label="El mismo dinosaurio, Iguanodon, reconstruido de tres maneras a lo largo del tiempo: en 1854 como un cuadrúpedo parecido a un rinoceronte, en 1880 erguido como un canguro con la cola en el suelo y hoy en posición horizontal con la cola levantada">
+<g fill="#9a7412" fill-opacity=".55" stroke="#9a7412" stroke-width="1.5">
+<ellipse cx="100" cy="120" rx="50" ry="26"/>
+<path d="M56 112 C38 106 24 110 20 122 C18 132 32 138 48 134 L60 128 Z"/>
+<path d="M28 108 L23 96 L35 106 Z"/>
+<path d="M148 116 C166 118 178 126 186 136 L180 143 C171 133 160 127 146 124 Z"/>
+<path d="M66 140 h13 v30 h-13 Z M92 142 h13 v28 h-13 Z M118 142 h13 v28 h-13 Z M138 138 h12 v32 h-12 Z"/>
+</g>
+<g fill="#9a7412" fill-opacity=".55" stroke="#9a7412" stroke-width="1.5">
+<ellipse cx="266" cy="112" rx="27" ry="48" transform="rotate(-14 266 112)"/>
+<ellipse cx="247" cy="56" rx="16" ry="11"/>
+<path d="M248 66 C246 78 250 88 256 96 L268 88 C262 80 260 72 260 64 Z"/>
+<path d="M284 140 C310 152 336 164 356 170 L332 170 C312 162 292 152 278 146 Z"/>
+<path d="M252 150 h16 v20 h-16 Z M272 148 h16 v22 h-16 Z"/>
+<path d="M276 96 C286 104 294 110 300 116 L294 124 C284 118 274 110 268 102 Z"/>
+</g>
+<g fill="#9a7412" fill-opacity=".55" stroke="#9a7412" stroke-width="1.5">
+<ellipse cx="500" cy="112" rx="46" ry="24"/>
+<path d="M460 106 C442 100 428 104 424 116 C422 126 436 132 452 128 L464 122 Z"/>
+<path d="M542 108 C560 102 578 94 592 84 L596 94 C580 106 562 114 546 120 Z"/>
+<path d="M496 132 C494 148 492 158 490 170 L512 170 C512 156 514 144 516 132 Z"/>
+<path d="M468 128 C466 144 464 158 462 170 L474 170 C476 156 478 142 480 128 Z"/>
+</g>
+<line x1="14" y1="172" x2="190" y2="172" stroke="currentColor" stroke-opacity=".35"/>
+<line x1="214" y1="172" x2="390" y2="172" stroke="currentColor" stroke-opacity=".35"/>
+<line x1="414" y1="172" x2="590" y2="172" stroke="currentColor" stroke-opacity=".35"/>
+<g font-size="13" fill="currentColor" text-anchor="middle">
+<text x="100" y="196" font-weight="bold">1854</text>
+<text x="100" y="214">como un rinoceronte,</text>
+<text x="100" y="230">con el pulgar en la nariz</text>
+<text x="300" y="196" font-weight="bold">1880</text>
+<text x="300" y="214">como un canguro,</text>
+<text x="300" y="230">arrastrando la cola</text>
+<text x="500" y="196" font-weight="bold">hoy</text>
+<text x="500" y="214">horizontal, la cola en el aire</text>
+<text x="500" y="230">como contrapeso</text>
+</g>
+</svg>
+<figcaption>El mismo animal, <i>Iguanodon</i>, reconstruido de tres maneras en siglo y medio. Las imágenes de los libros no son la realidad: son la mejor hipótesis de su momento.</figcaption>
+</figure>
+<p>Conviene recordarlo con humildad: nuestras reconstrucciones de hoy también son provisionales. Y queda el mejor consuelo. La próxima vez que un mirlo se pose en una farola, fíjese en cómo apoya el pie: tres dedos hacia delante, la articulación del tobillo alta, el cuerpo horizontal, la cola de contrapeso. Es un terópodo, pequeño y emplumado, haciendo exactamente lo que hacía su familia hace 150 millones de años en las orillas de La Rioja.</p>
+
+<h3>Fechas clave</h3>
+<dl class="fechas">
+  <dt>Hace 252 millones de años</dt><dd>La mayor extinción conocida vacía el planeta y empieza el Triásico.</dd>
+  <dt>Hace unos 231 millones de años</dt><dd>Aparecen los primeros dinosaurios, pequeños y bípedos.</dd>
+  <dt>Hace 201 millones de años</dt><dd>Otra extinción deja el campo libre: empieza el Jurásico y la edad de los gigantes.</dd>
+  <dt>Hace 150 millones de años</dt><dd><i>Stegosaurus</i>, <i>Allosaurus</i>, <i>Diplodocus</i>, <i>Archaeopteryx</i> y <i>Turiasaurus</i> en Teruel.</dd>
+  <dt>Hace 125 millones de años</dt><dd>Los lagos de Las Hoyas y de Liaoning conservan dinosaurios con plumas.</dd>
+  <dt>Hace 66 millones de años</dt><dd>Impacto de Chicxulub: se extinguen los dinosaurios no avianos.</dd>
+  <dt>1677</dt><dd>Robert Plot publica el primer dibujo de un hueso de dinosaurio, sin saber qué era.</dd>
+  <dt>1824</dt><dd>William Buckland describe <i>Megalosaurus</i>, el primer dinosaurio con nombre.</dd>
+  <dt>1825</dt><dd>Gideon Mantell describe <i>Iguanodon</i> a partir de unos dientes.</dd>
+  <dt>1842</dt><dd>Richard Owen inventa la palabra <i>Dinosauria</i>.</dd>
+  <dt>1861</dt><dd>Aparece <i>Archaeopteryx</i> en Solnhofen, dos años después de <i>El origen de las especies</i>.</dd>
+  <dt>1868</dt><dd>Thomas Huxley propone que las aves descienden de los dinosaurios.</dd>
+  <dt>1877–1892</dt><dd>La «guerra de los huesos» entre Cope y Marsh multiplica las especies conocidas.</dd>
+  <dt>1923</dt><dd>La expedición de Roy Chapman Andrews encuentra nidos de huevos en el desierto de Gobi.</dd>
+  <dt>1969</dt><dd>John Ostrom describe <i>Deinonychus</i> y arranca la renovación de los dinosaurios.</dd>
+  <dt>1980</dt><dd>Los Alvarez publican la hipótesis del asteroide a partir del iridio.</dd>
+  <dt>1987</dt><dd>Se describe <i>Aragosaurus</i>, en Galve: el primer dinosaurio nombrado en España.</dd>
+  <dt>1991</dt><dd>Se identifica el cráter de Chicxulub, en Yucatán.</dd>
+  <dt>1996</dt><dd><i>Sinosauropteryx</i>, en China: el primer dinosaurio no aviano con plumas reconocidas.</dd>
+  <dt>2006</dt><dd>Se describe <i>Turiasaurus riodevensis</i> en Riodeva, Teruel.</dd>
+  <dt>2010</dt><dd>Se reconstruyen los primeros colores a partir de melanosomas y se describe <i>Concavenator</i>, en Cuenca.</dd>
+  <dt>2016</dt><dd>Se describe <i>Lohuecotitan</i>, del yacimiento que destaparon las obras del AVE en Cuenca.</dd>
+</dl>
+<p><b>Resumen en seis frases</b></p>
+<ol>
+  <li>Los dinosaurios fueron un grupo de reptiles con las patas verticales bajo el cuerpo, que dominaron la tierra firme durante unos 165 millones de años, repartidos en tres periodos: Triásico, Jurásico y Cretácico.</li>
+  <li>Los conocemos gracias a los fósiles, que se forman solo en circunstancias afortunadas, y sabemos su edad gracias a la superposición de las capas y a los relojes radiactivos de las cenizas volcánicas.</li>
+  <li>Se dividen por la cadera en saurisquios (saurópodos gigantes y terópodos depredadores) y ornitisquios (herbívoros con pico, cuernos, placas y corazas), y muchas de las cifras populares sobre ellos son exageraciones que la ciencia ha ido corrigiendo.</li>
+  <li>Huellas, huevos, nidos, anillos de crecimiento en los huesos y melanosomas nos dicen a qué velocidad andaban, cuánto vivían, cómo criaban y de qué color eran.</li>
+  <li>Las plumas nacieron para abrigar y exhibirse mucho antes de servir para volar: las aves son dinosaurios terópodos vivos, y hay más especies de aves que de mamíferos.</li>
+  <li>Hace 66 millones de años un asteroide de unos diez kilómetros cayó en Yucatán y provocó años de oscuridad y frío que acabaron con el 75 % de las especies; España conserva en Caravaca y en Zumaia algunos de los mejores registros de aquel día.</li>
+</ol>
+<div class="idea"><b>Idea clave:</b> casi todo lo que sabemos de los dinosaurios se ha aprendido leyendo huesos, huellas y rocas, y se ha corregido muchas veces por el camino. Fueron el grupo de vertebrados terrestres con más éxito de la historia, duraron 165 millones de años, no desaparecieron por torpes sino por un accidente cósmico, y una rama suya sigue volando sobre nuestras cabezas.</div>
+<p><i>Para pensar:</i> si un paleontólogo dentro de 66 millones de años excavara nuestras ciudades, ¿qué fósiles nuestros encontraría y qué se imaginaría a partir de ellos? ¿Y qué cosas de nosotros, como el color de nuestra ropa o el sonido de nuestra voz, se habrían perdido para siempre?</p>
+
+</main>
+<script>if ('serviceWorker' in navigator) navigator.serviceWorker.register('../../sw.js').catch(() => {});</script>
+</body>
+</html>
