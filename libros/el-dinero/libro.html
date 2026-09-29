@@ -1,0 +1,924 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>El dinero</title>
+<script type="application/json" id="metadatos">
+{
+  "id": "el-dinero",
+  "titulo": "El dinero",
+  "subtitulo": "De las conchas al euro, la historia de una idea",
+  "tema": "Economía",
+  "etiquetas": ["dinero", "monedas", "billetes", "bancos", "inflación", "real de a ocho", "peseta", "euro", "Banco de España", "patrón oro", "hiperinflación", "criptomonedas", "interés compuesto", "estafas"],
+  "nivel": "Intermedio",
+  "minutos_lectura": 75,
+  "portada": "portada.svg",
+  "resumen": "Un viaje por cinco mil años de dinero, de las tablillas de Mesopotamia y las piedras gigantes de Yap al real de a ocho, la peseta, el euro y Bizum. Explica paso a paso cómo crean dinero los bancos, por qué suben los precios, qué pasó en las grandes hiperinflaciones y por qué el interés compuesto puede jugar a favor o en contra. Con gráficas a escala, historias de falsificadores y estafadores, y muchas curiosidades.",
+  "fecha": "2026-09-28"
+}
+</script>
+<style>
+  :root {
+    --papel: #fbf8f1; --tinta: #2a2622; --suave: #6b6259; --acento: #2e7d4f; --rojo: #b3261e; --oro: #9a7412; --caja: #edf5ef; --caja2: #f6efdc; --linea: #e3dccf;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --papel: #1c1b1a; --tinta: #ece6dc; --suave: #b3a998; --acento: #7fd1a0; --rojo: #ff8a80; --oro: #e2c46a; --caja: #1f2b24; --caja2: #2c2819; --linea: #3a3632; color-scheme: dark; }
+  }
+  :root[data-theme="dark"] { --papel: #1c1b1a; --tinta: #ece6dc; --suave: #b3a998; --acento: #7fd1a0; --rojo: #ff8a80; --oro: #e2c46a; --caja: #1f2b24; --caja2: #2c2819; --linea: #3a3632; color-scheme: dark; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--papel); color: var(--tinta); font: 19px/1.7 Georgia, "Times New Roman", serif; }
+  main { max-width: 680px; margin: 0 auto; padding: 32px 16px 80px; }
+  .portada { display: block; width: min(320px, 80%); margin: 8px auto 32px; border-radius: 6px; box-shadow: 0 10px 30px rgba(0,0,0,.25); }
+  h1 { font-size: 2.1em; line-height: 1.15; margin: 0 0 4px; text-align: center; text-wrap: balance; }
+  .sub { text-align: center; color: var(--suave); font-style: italic; margin: 0 0 40px; }
+  h2 { font-size: 1.4em; margin: 56px 0 8px; padding-top: 16px; border-top: 1px solid var(--linea); text-wrap: balance; }
+  h2 small { display: block; font-size: .6em; color: var(--acento); letter-spacing: .15em; text-transform: uppercase; font-weight: normal; }
+  h3 { font-size: 1.1em; margin: 32px 0 4px; }
+  figure { margin: 28px 0; text-align: center; }
+  figure svg { width: 100%; height: auto; max-width: 600px; }
+  figcaption { font-size: .8em; color: var(--suave); margin-top: 6px; }
+  .idea { background: var(--caja); border-left: 4px solid var(--acento); padding: 14px 18px; border-radius: 4px; margin: 24px 0; }
+  .idea b { color: var(--acento); }
+  .sabias { background: var(--caja2); padding: 12px 18px; border-radius: 6px; margin: 24px 0; font-size: .92em; }
+  .sabias > b:first-child { display: block; color: var(--oro); letter-spacing: .1em; text-transform: uppercase; font-size: .8em; }
+  .fondo { border: 1px solid var(--linea); padding: 12px 18px; border-radius: 6px; margin: 24px 0; font-size: .92em; }
+  .fondo > b:first-child { display: block; color: var(--rojo); letter-spacing: .1em; text-transform: uppercase; font-size: .8em; }
+  blockquote { margin: 20px 0; padding: 0 20px; font-style: italic; border-left: 3px solid var(--linea); color: var(--suave); }
+  ul, ol { padding-left: 1.2em; }
+  .indice { background: var(--caja); padding: 12px 20px; border-radius: 6px; font-size: .9em; }
+  .indice ol { margin: 6px 0; }
+  a { color: var(--acento); }
+  .fechas { font-size: .9em; }
+  .fechas dt { font-weight: bold; color: var(--acento); margin-top: 8px; }
+  .fechas dd { margin: 0 0 0 1em; }
+  .volver { display: inline-block; margin: 0 0 16px; font: 15px/1.4 system-ui, sans-serif; color: var(--acento); text-decoration: none; }
+  .volver:hover { text-decoration: underline; }
+</style>
+<meta name="description" content="Un viaje por cinco mil años de dinero, de las tablillas de Mesopotamia y las piedras gigantes de Yap al real de a ocho, la peseta, el euro y Bizum. Explica paso a paso cómo crean dinero los bancos, por qué suben los precios, qué pasó en las grandes hiperinflaciones y por qué el interés compuesto puede jugar a favor o en contra. Con gráficas a escala, historias de falsificadores y estafadores, y muchas curiosidades.">
+<meta name="theme-color" content="#fbf8f1" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1c1b1a" media="(prefers-color-scheme: dark)">
+<link rel="manifest" href="../../manifest.webmanifest">
+<link rel="icon" href="../../icono.svg" type="image/svg+xml">
+<link rel="icon" href="../../icono-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<meta name="apple-mobile-web-app-title" content="Biblioteca">
+</head>
+<body>
+<main>
+<a class="volver" href="../../index.html">← Biblioteca</a>
+
+<img class="portada" src="portada.svg" alt="Portada: El dinero">
+<h1>El dinero</h1>
+<p class="sub">De las conchas al euro, la historia de una idea</p>
+
+<nav class="indice">
+  <b>En este libro</b>
+  <ol>
+    <li><a href="#c1">¿Para qué sirve el dinero?</a></li>
+    <li><a href="#c2">Conchas, piedras y cigarrillos</a></li>
+    <li><a href="#c3">Las primeras monedas</a></li>
+    <li><a href="#c4">La plata de América y el real de a ocho</a></li>
+    <li><a href="#c5">Del metal al papel</a></li>
+    <li><a href="#c6">Cómo crean dinero los bancos</a></li>
+    <li><a href="#c7">El banco de los bancos</a></li>
+    <li><a href="#c8">La inflación, explicada con la cesta de la compra</a></li>
+    <li><a href="#c9">Cuando el dinero se derrite: las hiperinflaciones</a></li>
+    <li><a href="#c10">El patrón oro y su final</a></li>
+    <li><a href="#c11">De la peseta al euro</a></li>
+    <li><a href="#c12">Tarjetas, Bizum y criptomonedas</a></li>
+    <li><a href="#c13">Intereses, deudas, estafas y resumen</a></li>
+  </ol>
+</nav>
+
+<h2 id="c1"><small>Capítulo 1</small>¿Para qué sirve el dinero?</h2>
+<p>Saca un billete de 20 euros y míralo con calma. Es un rectángulo de algodón de 13,3 por 7,2 centímetros, con unos dibujos de ventanas y puentes que no existen, un número, una firma y unas cuantas marcas brillantes. Fabricarlo cuesta unos céntimos. Si lo quemas, no das calor a nadie; si lo intentas comer, no alimenta. Y, sin embargo, cualquier desconocido del supermercado, de la gasolinera o de un bar de Lisboa o de Helsinki te dará a cambio de ese papel una compra entera, veinte litros de gasolina o varias comidas. ¿Por qué?</p>
+<p>Responder a esa pregunta es el objetivo de este libro. Veremos conchas que valían como monedas, piedras gigantes que nadie movía, cigarrillos que funcionaban como billetes en un campo de prisioneros y monedas de plata española que dieron la vuelta al mundo y acabaron dando nombre al dólar. Veremos cómo nacieron los bancos, cómo crean dinero cuando prestan, por qué los precios suben y qué pasa cuando suben sin freno. Y terminaremos en el presente: la peseta y el euro, las tarjetas, Bizum, las criptomonedas y los intereses que trabajan a favor o en contra de cada uno de nosotros. Pero antes hay que ponerse de acuerdo en algo básico: qué es exactamente el dinero.</p>
+<h3>Una definición sencilla</h3>
+<p>Para los economistas, <b>dinero</b> es cualquier cosa que la gente acepta de forma general como pago. No importa de qué esté hecho. Ha sido cebada, plata, oro, conchas, sal, tabaco, papel y, hoy, sobre todo, apuntes en los ordenadores de los bancos. Lo que convierte algo en dinero no es su materia, sino lo que hace. Y lo que hace el dinero se suele resumir en tres trabajos.</p>
+<ul>
+  <li><b>Medio de cambio.</b> Es lo que entregamos a cambio de las cosas y lo que recibimos cuando vendemos algo o cuando trabajamos. El panadero no quiere mis clases de guitarra, pero acepta mis euros, porque sabe que con ellos podrá pagar la harina, la luz y el alquiler.</li>
+  <li><b>Unidad de cuenta.</b> Es la regla con la que medimos el valor de todo. Gracias a ella sabemos que una bicicleta de 300 euros vale lo mismo que 250 barras de pan de 1,20 euros, sin tener que calcular cuántas barras vale una bici, cuántas bicis vale un coche y cuántos coches vale un piso. Las empresas llevan sus cuentas en euros, los sueldos se fijan en euros y los impuestos se calculan en euros.</li>
+  <li><b>Depósito de valor.</b> Es una forma de guardar poder de compra para más adelante. Si vendo hoy mi cosecha de tomates, no tengo que gastarlo todo hoy: puedo guardar el dinero y comprar algo dentro de un mes. Los tomates se pudrirían; el dinero, si los precios no suben mucho, conserva su valor.</li>
+</ul>
+<figure>
+<svg viewBox="0 0 600 250" role="img" aria-label="Los tres trabajos del dinero: medio de cambio, unidad de cuenta y depósito de valor" font-family="Georgia, serif">
+<rect x="8" y="10" width="186" height="230" rx="10" fill="#2f7d5b" fill-opacity=".12" stroke="#2f7d5b" stroke-width="1.5"/>
+<rect x="207" y="10" width="186" height="230" rx="10" fill="#b8871b" fill-opacity=".12" stroke="#b8871b" stroke-width="1.5"/>
+<rect x="406" y="10" width="186" height="230" rx="10" fill="#3a6fc4" fill-opacity=".12" stroke="#3a6fc4" stroke-width="1.5"/>
+<text x="101" y="38" font-size="16" font-weight="bold" text-anchor="middle" fill="currentColor">Medio de cambio</text>
+<text x="300" y="38" font-size="16" font-weight="bold" text-anchor="middle" fill="currentColor">Unidad de cuenta</text>
+<text x="499" y="38" font-size="16" font-weight="bold" text-anchor="middle" fill="currentColor">Depósito de valor</text>
+<circle cx="55" cy="105" r="24" fill="#b8871b" fill-opacity=".45" stroke="#b8871b" stroke-width="2"/>
+<text x="55" y="112" font-size="20" font-weight="bold" text-anchor="middle" fill="currentColor">€</text>
+<path d="M126,88 q22,-16 44,0 q6,17 -2,32 q-20,10 -40,0 q-8,-15 -2,-32 z" fill="#b8871b" fill-opacity=".35" stroke="currentColor" stroke-width="1.2"/>
+<path d="M136,96 l6,20 M149,92 l4,24 M160,95 l0,20" stroke="currentColor" stroke-width="1" fill="none"/>
+<path d="M84,96 L118,96" stroke="currentColor" stroke-width="2" fill="none"/><path d="M118,96 l-8,-5 v10 z" fill="currentColor"/>
+<path d="M120,118 L86,118" stroke="currentColor" stroke-width="2" fill="none"/><path d="M86,118 l8,-5 v10 z" fill="currentColor"/>
+<text x="101" y="170" font-size="13" text-anchor="middle" fill="currentColor">lo que damos y</text>
+<text x="101" y="187" font-size="13" text-anchor="middle" fill="currentColor">recibimos a cambio</text>
+<text x="101" y="204" font-size="13" text-anchor="middle" fill="currentColor">de las cosas</text>
+<g fill="currentColor" font-size="13">
+<rect x="228" y="62" width="144" height="26" rx="4" fill="#b8871b" fill-opacity=".25"/><text x="238" y="80">Pan</text><text x="362" y="80" text-anchor="end">1,20 €</text>
+<rect x="228" y="94" width="144" height="26" rx="4" fill="#b8871b" fill-opacity=".25"/><text x="238" y="112">Libro</text><text x="362" y="112" text-anchor="end">18 €</text>
+<rect x="228" y="126" width="144" height="26" rx="4" fill="#b8871b" fill-opacity=".25"/><text x="238" y="144">Bicicleta</text><text x="362" y="144" text-anchor="end">300 €</text>
+</g>
+<text x="300" y="187" font-size="13" text-anchor="middle" fill="currentColor">una sola regla para</text>
+<text x="300" y="204" font-size="13" text-anchor="middle" fill="currentColor">medir el valor de todo</text>
+<ellipse cx="470" cy="112" rx="42" ry="30" fill="#3a6fc4" fill-opacity=".35" stroke="#3a6fc4" stroke-width="2"/>
+<rect x="458" y="80" width="24" height="5" rx="2" fill="currentColor"/>
+<path d="M444,138 v10 M496,138 v10" stroke="#3a6fc4" stroke-width="5"/>
+<circle cx="498" cy="104" r="3" fill="currentColor"/>
+<text x="470" y="118" font-size="14" text-anchor="middle" fill="currentColor">hucha</text>
+<text x="545" y="96" font-size="13" text-anchor="middle" fill="currentColor">hoy</text>
+<path d="M545,103 v24" stroke="currentColor" stroke-width="2"/><path d="M545,133 l-5,-8 h10 z" fill="currentColor"/>
+<text x="545" y="150" font-size="13" text-anchor="middle" fill="currentColor">mañana</text>
+<text x="499" y="187" font-size="13" text-anchor="middle" fill="currentColor">guarda poder de</text>
+<text x="499" y="204" font-size="13" text-anchor="middle" fill="currentColor">compra para después</text>
+</svg>
+<figcaption>Los tres trabajos del dinero. Una cosa es buen dinero cuando hace bien los tres a la vez; cuando falla en uno, la gente busca otro.</figcaption>
+</figure>
+<p>A veces se añade un cuarto trabajo, que en realidad es una mezcla de los anteriores: el dinero sirve como <b>patrón de pagos aplazados</b>, es decir, para fijar deudas. Cuando alguien firma una hipoteca de 150.000 euros a 25 años, las dos partes saben exactamente qué se deben, aunque el dinero todavía no haya cambiado de manos.</p>
+<div class="sabias"><b>¿Sabías que...?</b> La palabra <i>dinero</i> viene del <i>denarius</i>, la moneda de plata de los romanos, que a su vez significaba «de diez», porque al principio valía diez ases, las monedas de bronce. En la Castilla medieval también hubo una moneda llamada dinero, y de ahí pasó a nombrar el dinero en general. La palabra <i>moneda</i> tiene un origen aún más curioso, que veremos en el capítulo 3: el apodo de una diosa.</div>
+<h3>El problema del trueque</h3>
+<p>En 1776, el escocés Adam Smith publicó <i>La riqueza de las naciones</i>, el libro que suele considerarse el punto de partida de la economía moderna. En él contaba una historia que se repite desde entonces en casi todos los manuales. Al principio, decía, la gente practicaba el <b>trueque</b>: cambiaba unas cosas por otras directamente, sin dinero. Pero el trueque tiene un problema enorme. Para que funcione, cada uno tiene que querer justo lo que el otro ofrece, y además en ese momento. Los economistas lo llaman el problema de la <b>doble coincidencia de deseos</b>.</p>
+<p>Imagina un pueblo con tres vecinos. La panadera tiene pan y necesita zapatos. El zapatero tiene zapatos y quiere pescado. La pescadora tiene pescado y quiere pan. Cada uno tiene algo que otro desea, pero ninguna pareja puede hacer un trato directo: el zapatero no quiere pan, la pescadora no quiere zapatos y la panadera no necesita pescado. Para que todos consigan lo que quieren hacen falta cambios en cadena, con alguien que acepte algo que no quiere solo para cambiarlo después. Con veinte vecinos y cien productos, el lío se vuelve imposible.</p>
+<figure>
+<svg viewBox="0 0 600 300" role="img" aria-label="El problema de la doble coincidencia: tres vecinos en círculo, cada uno quiere lo que tiene el siguiente, y con dinero todos pueden comprar y vender" font-family="Georgia, serif">
+<g font-size="13" fill="currentColor" text-anchor="middle">
+<circle cx="150" cy="62" r="46" fill="#b8871b" fill-opacity=".2" stroke="#b8871b" stroke-width="2"/>
+<text x="150" y="52" font-weight="bold" font-size="14">Panadera</text><text x="150" y="70">tiene pan</text><text x="150" y="86">quiere zapatos</text>
+<circle cx="60" cy="226" r="46" fill="#3a6fc4" fill-opacity=".2" stroke="#3a6fc4" stroke-width="2"/>
+<text x="60" y="216" font-weight="bold" font-size="14">Zapatero</text><text x="60" y="234">tiene zapatos</text><text x="60" y="250">quiere pescado</text>
+<circle cx="240" cy="226" r="46" fill="#2f7d5b" fill-opacity=".2" stroke="#2f7d5b" stroke-width="2"/>
+<text x="240" y="216" font-weight="bold" font-size="14">Pescadora</text><text x="240" y="234">tiene pescado</text><text x="240" y="250">quiere pan</text>
+</g>
+<path d="M126,102 L86,184" stroke="currentColor" stroke-width="1.5" stroke-dasharray="5 4" fill="none"/><path d="M86,184 l1,-10 l8,4 z" fill="currentColor"/>
+<path d="M104,228 L194,228" stroke="currentColor" stroke-width="1.5" stroke-dasharray="5 4" fill="none"/><path d="M194,228 l-9,-5 v10 z" fill="currentColor"/>
+<path d="M216,186 L176,102" stroke="currentColor" stroke-width="1.5" stroke-dasharray="5 4" fill="none"/><path d="M176,102 l0,10 l8,-4 z" fill="currentColor"/>
+<text x="150" y="292" font-size="13" text-anchor="middle" font-style="italic" fill="currentColor">Sin dinero: ninguna pareja puede hacer un trato</text>
+<line x1="300" y1="20" x2="300" y2="280" stroke="currentColor" stroke-opacity=".3"/>
+<g font-size="13" fill="currentColor" text-anchor="middle">
+<circle cx="450" cy="150" r="32" fill="#b8871b" fill-opacity=".45" stroke="#b8871b" stroke-width="2"/>
+<text x="450" y="157" font-size="20" font-weight="bold">€</text>
+<rect x="400" y="30" width="100" height="34" rx="17" fill="#b8871b" fill-opacity=".2" stroke="#b8871b"/><text x="450" y="52">Panadera</text>
+<rect x="320" y="226" width="100" height="34" rx="17" fill="#3a6fc4" fill-opacity=".2" stroke="#3a6fc4"/><text x="370" y="248">Zapatero</text>
+<rect x="480" y="226" width="100" height="34" rx="17" fill="#2f7d5b" fill-opacity=".2" stroke="#2f7d5b"/><text x="530" y="248">Pescadora</text>
+</g>
+<path d="M450,68 V114 M450,186 L380,222 M450,186 L520,222" stroke="currentColor" stroke-width="2" fill="none"/>
+<text x="450" y="292" font-size="13" text-anchor="middle" font-style="italic" fill="currentColor">Con dinero: todos venden y todos compran</text>
+</svg>
+<figcaption>La doble coincidencia de deseos. Las flechas punteadas indican quién quiere lo que tiene quién. Sin un medio de cambio común nadie puede cerrar un trato directo; con dinero, cada uno vende a quien le compra y compra a quien le vende.</figcaption>
+</figure>
+<p>La solución, seguía Smith, fue que la gente empezó a aceptar una mercancía que todo el mundo quería y que podía guardarse: ganado, sal, metales. Con el tiempo se prefirieron los metales, porque no se estropean y se pueden dividir. Luego se acuñaron monedas, más tarde se inventaron los billetes, y así hasta hoy. Es una historia lógica y fácil de recordar. El problema es que, probablemente, no ocurrió así.</p>
+<h3>El mito del trueque</h3>
+<p>Los antropólogos, que estudian cómo viven y se organizan las sociedades humanas, llevan más de un siglo buscando ese pueblo del trueque. No lo han encontrado. En 1985, la antropóloga británica Caroline Humphrey lo resumió en una frase célebre: nunca se ha descrito un solo ejemplo de economía de trueque, pura y simple, y mucho menos que de ella surgiera el dinero. El antropólogo estadounidense David Graeber popularizó la idea en 2011 con su libro <i>En deuda</i>.</p>
+<p>¿Cómo se las arreglaban entonces? En las comunidades pequeñas, donde todos se conocen, la gente no cambia una gallina por tres cestos en el acto. Hace algo mucho más cómodo: da y apunta, aunque sea de memoria. «Llévate el pan, ya me darás pescado cuando vuelvas del mar.» Es decir, se fía, se presta, se regala y se devuelve. Lo que circula son <b>deudas</b> y favores, y la comunidad sabe quién le debe qué a quién. El trueque puro sí aparece, pero en situaciones especiales: entre desconocidos que no volverán a verse, entre pueblos que desconfían unos de otros, o cuando el dinero que existía se derrumba, como veremos en los campos de prisioneros o en las hiperinflaciones.</p>
+<p>Conviene no exagerar en la otra dirección. Algunos economistas recuerdan que el propio Smith pensaba sobre todo en el comercio entre extraños, y que precisamente ahí el trueque es incómodo y el dinero muy útil. La conclusión más sensata es doble: el dinero no nació solo para resolver el trueque, y el crédito, es decir, las deudas apuntadas, es tan antiguo como el propio dinero, o más.</p>
+<h3>Cebada, plata y tablillas de barro</h3>
+<p>Las primeras pruebas escritas de algo parecido al dinero vienen de Mesopotamia, la tierra entre los ríos Tigris y Éufrates, en el actual Irak. Hace más de cinco mil años, los templos y los palacios de ciudades como Uruk administraban enormes almacenes de grano, rebaños y talleres. Para llevar las cuentas usaban tablillas de barro, y en ellas aparecen dos unidades de valor: una cantidad de <b>cebada</b> y un peso de <b>plata</b>, el siclo, de algo más de 8 gramos. Un siclo de plata equivalía por norma a un gur de cebada, unos 300 litros.</p>
+<p>Lo interesante es que la plata casi nunca cambiaba de manos. Estaba guardada en el templo. Servía sobre todo como <b>unidad de cuenta</b>: los administradores anotaban que un campesino debía tantos siclos, y el campesino pagaba después con cebada, con lana o con trabajo. Las tablillas registran préstamos, plazos y hasta <b>intereses</b>. Las leyes de Hammurabi, grabadas hacia 1753 antes de Cristo en una estela de basalto de más de dos metros que hoy está en el Louvre, fijaban cuánto podía cobrarse por prestar, en torno a una quinta parte al año para la plata y un tercio para la cebada, y castigaban al prestamista que hiciera trampas con las medidas. El dinero nació, por tanto, más parecido a un libro de cuentas que a una moneda.</p>
+<div class="sabias"><b>¿Sabías que...?</b> En Inglaterra, durante siglos, el Tesoro real apuntó las deudas con <b>tarjas</b>: palos de madera en los que se hacían muescas según la cantidad, y que luego se partían a lo largo. El acreedor se quedaba con un trozo y el Tesoro con el otro; como las vetas de la madera eran únicas, las dos mitades solo encajaban entre sí. Se usaron hasta 1826. En octubre de 1834 se decidió quemar las tarjas viejas en las estufas del sótano del Parlamento, en Londres. Se quemaron tantas que el fuego se descontroló y destruyó casi todo el palacio de Westminster. El edificio que hoy vemos, con el Big Ben, se levantó después de aquel incendio.</div>
+<div class="fondo"><b>Para entenderlo mejor: ¿por qué aceptamos un papel?</b>
+Un billete de euro no se puede cambiar por oro en ningún sitio, ni lleva dentro nada valioso. Lo aceptamos por una mezcla de razones que se refuerzan entre sí:
+<ul>
+  <li><b>Confianza en que otros lo aceptarán.</b> Yo acepto euros porque sé que mi casero, la frutera y la compañía de la luz los aceptarán a su vez. Es una cadena: basta que la mayoría confíe para que funcione para todos. Los economistas lo llaman un <b>efecto red</b>, como pasa con un idioma o con una aplicación de mensajes: cuanta más gente lo usa, más útil es.</li>
+  <li><b>La ley.</b> El euro es <b>de curso legal</b>: la ley obliga a aceptarlo para saldar deudas en la zona euro, con algunos límites razonables.</li>
+  <li><b>Los impuestos.</b> El Estado exige que los impuestos se paguen en euros. Eso garantiza que siempre habrá millones de personas y empresas que necesiten euros.</li>
+  <li><b>Una escasez vigilada.</b> Nadie puede fabricar euros a su antojo. Solo el Banco Central Europeo y los bancos centrales nacionales emiten billetes, y su tarea principal es que el euro conserve su valor.</li>
+</ul>
+Si una de esas patas falla, sobre todo la confianza, el dinero puede perder su valor muy deprisa. Lo veremos en el capítulo de las hiperinflaciones.</div>
+<div class="idea"><b>Idea clave:</b> el dinero es cualquier cosa que la gente acepta como pago, y cumple tres trabajos: medio de cambio, unidad de cuenta y depósito de valor. La historia del trueque que se convierte en dinero es más un cuento que un hecho: las primeras huellas del dinero son cuentas de deudas en tablillas de barro, y su valor descansa, sobre todo, en la confianza.</div>
+
+<h2 id="c2"><small>Capítulo 2</small>Conchas, piedras y cigarrillos</h2>
+<p>Si el dinero es cualquier cosa que la gente acepta como pago, la historia debería estar llena de dineros extraños. Y lo está. Ha habido dinero de dientes de perro en Nueva Guinea, de plumas rojas en las islas Santa Cruz, de granos de cacao entre los aztecas, de barras de sal en Etiopía y de tejidos en medio mundo. Este capítulo se detiene en tres casos que enseñan mucho: unas conchas que circularon por medio planeta, unas piedras enormes que casi nunca se movían y unos cigarrillos que funcionaron como moneda en un campo de prisioneros.</p>
+<h3>Las conchas de las Maldivas</h3>
+<p>El <b>cauri</b> es un caracol marino pequeño, de unos dos o tres centímetros, con una concha lisa, brillante y abombada, como una porcelana en miniatura. La especie más usada como dinero, que los biólogos llaman precisamente <i>Monetaria moneta</i>, vive en los arrecifes del océano Índico, y durante siglos su gran fuente fueron las islas Maldivas. Allí se recogían por millones, se secaban al sol para que se pudriera el animal y se cargaban en barcos como lastre.</p>
+<p>Los cauris tenían casi todas las virtudes de un buen dinero. Eran duraderos, porque una concha no se oxida ni se pudre. Eran fáciles de contar y todos se parecían mucho, así que no hacía falta pesarlos. Eran ligeros y pequeños, lo que permitía pagar cosas de poco valor. Y eran muy difíciles de falsificar: nadie sabía fabricar una concha. Además, solo salían de unos pocos lugares lejanos, así que no se podían multiplicar a capricho.</p>
+<p>Se usaron como dinero en la India, en el sudeste de Asia y en gran parte de África, donde siguieron circulando hasta finales del siglo XIX. En China se usaron en tiempos muy antiguos, hace más de tres mil años, y dejaron una huella en la escritura: el carácter chino que significa concha, 貝, forma parte de muchos caracteres relacionados con el dinero, como los de comprar, vender, mercancía o riqueza. La historia de los cauris tiene también una cara terrible: los comerciantes europeos llevaron cargamentos inmensos de conchas de las Maldivas a la costa occidental de África, donde se usaron para pagar, entre otras cosas, a personas esclavizadas.</p>
+<div class="sabias"><b>¿Sabías que...?</b> Los aztecas usaban granos de <b>cacao</b> como moneda menuda, para compras pequeñas en el mercado. Según contaron los cronistas españoles del siglo XVI, había incluso falsificadores: vaciaban los granos y los rellenaban de tierra o de cera para que pesaran lo mismo. Donde hay dinero, siempre aparece alguien que intenta imitarlo.</div>
+<h3>Las piedras gigantes de Yap</h3>
+<p>Yap es un pequeño grupo de islas del océano Pacífico, en Micronesia. Allí se desarrolló uno de los dineros más asombrosos que se conocen: los <b>rai</b>, discos de piedra caliza con un agujero en el centro. Los hay pequeños, de unos pocos centímetros, y los hay descomunales. El mayor que se conserva, en la isla de Rumung, mide 3,6 metros de diámetro, medio metro de grosor y pesa unas cuatro toneladas. Hoy quedan en las islas unos seis mil discos grandes.</p>
+<p>Lo más sorprendente es de dónde salía la piedra. En Yap no hay caliza de ese tipo. Los yapeses la extraían en las islas Palaos, a unos 400 kilómetros al oeste, la tallaban allí y la traían de vuelta en canoas y balsas, atravesando mar abierto. Cada viaje era peligroso, y el valor de una piedra dependía no solo de su tamaño, sino también de su historia: cuánto había costado traerla, quién la trajo y si alguien murió en el viaje.</p>
+<figure>
+<svg viewBox="0 0 600 330" role="img" aria-label="La mayor piedra rai de Yap dibujada a escala junto a una persona: 3,6 metros de diámetro frente a 1,70 metros de altura" font-family="Georgia, serif">
+<line x1="30" y1="290" x2="570" y2="290" stroke="currentColor" stroke-width="1.5"/>
+<circle cx="250" cy="164" r="126" fill="#9a8f7a" fill-opacity=".45" stroke="currentColor" stroke-width="2"/>
+<circle cx="250" cy="164" r="126" fill="none" stroke="#9a8f7a" stroke-width="10" stroke-opacity=".5"/>
+<circle cx="250" cy="164" r="24" fill="var(--papel,#fbf8f1)" stroke="currentColor" stroke-width="2"/>
+<path d="M170,110 q30,-18 60,-8 M300,230 q25,-10 40,-30 M160,210 q20,20 50,26" stroke="currentColor" stroke-opacity=".35" fill="none" stroke-width="1.5"/>
+<g fill="#b8871b" fill-opacity=".55" stroke="currentColor" stroke-width="1.2">
+<circle cx="440" cy="186" r="9"/>
+<path d="M430,197 h20 l6,44 h-8 l-2,48 h-8 l-2,-40 l-2,40 h-8 l-2,-48 h-8 z"/>
+</g>
+<line x1="470" y1="290" x2="470" y2="176" stroke="currentColor" stroke-width="1"/>
+<line x1="464" y1="176" x2="476" y2="176" stroke="currentColor" stroke-width="1"/>
+<text x="480" y="228" font-size="13" fill="currentColor">1,70 m</text>
+<line x1="120" y1="306" x2="376" y2="306" stroke="currentColor" stroke-width="1"/>
+<line x1="124" y1="300" x2="124" y2="312" stroke="currentColor"/><line x1="376" y1="300" x2="376" y2="312" stroke="currentColor"/>
+<text x="250" y="324" font-size="13" text-anchor="middle" fill="currentColor">3,6 m de diámetro, unas 4 toneladas</text>
+<line x1="470" y1="306" x2="541" y2="306" stroke="currentColor" stroke-width="3"/>
+<text x="505" y="324" font-size="13" text-anchor="middle" fill="currentColor">1 metro</text>
+<text x="250" y="24" font-size="15" font-weight="bold" text-anchor="middle" fill="currentColor">Rai de la isla de Rumung</text>
+<text x="250" y="168" font-size="12" text-anchor="middle" fill="currentColor">agujero</text>
+</svg>
+<figcaption>La mayor piedra rai conservada, dibujada a escala junto a una persona de 1,70 metros. Por el agujero central se pasaba un tronco para transportarla. A esta escala, una moneda de 2 euros mediría menos de 2 píxeles.</figcaption>
+</figure>
+<p>Como las piedras grandes pesaban tanto, casi nunca se movían. Cuando cambiaban de dueño, por ejemplo como parte de una dote o para cerrar un acuerdo entre familias, la piedra se quedaba donde estaba, delante de una casa o junto a un camino, y lo que cambiaba era el acuerdo de todos sobre a quién pertenecía. La propiedad vivía en la memoria colectiva, no en la piedra.</p>
+<p>El explorador estadounidense William Henry Furness, que visitó Yap a principios del siglo XX y publicó en 1910 un libro titulado <i>La isla del dinero de piedra</i>, recogió una historia extraordinaria. Según le contaron, una familia muy rica debía su fortuna a una piedra gigantesca que nadie de la generación viva había visto: se había hundido en el mar durante una tormenta, cuando la traían de Palaos. Los que viajaban en la expedición juraron que era una piedra magnífica, y todos estuvieron de acuerdo en que su hundimiento no era culpa de sus dueños. Así que la piedra, en el fondo del mar, siguió valiendo como cualquier otra y se siguió usando para pagar.</p>
+<p>En 1991, el economista Milton Friedman, premio Nobel, dedicó un ensayo a esta historia. Su conclusión era que la piedra hundida no es tan distinta del oro que los bancos centrales guardan en cámaras acorazadas y que casi nunca se mueve: cuando un país vende oro a otro, a menudo los lingotes no salen de la cámara, solo cambia la etiqueta del dueño. En los dos casos, lo que da valor es la creencia compartida. Hoy se diría que los yapeses llevaban un <b>registro de propiedad</b> colectivo, una idea que reaparecerá, con ordenadores, en el capítulo de las criptomonedas.</p>
+<div class="sabias"><b>¿Sabías que...?</b> En 1871 naufragó cerca de Yap un irlandés-estadounidense llamado David O'Keefe. Descubrió lo mucho que los yapeses valoraban las piedras y empezó a llevarlas desde Palaos en su barco, con herramientas de hierro, a cambio de copra (pulpa seca de coco) y cohombros de mar. Hizo fortuna, pero las piedras que llegaban en su barco, más fáciles de conseguir, se valoraban menos que las traídas a la antigua usanza, con esfuerzo y riesgo. Las rai siguen siendo hoy un símbolo de Yap y aparecen hasta en sus matrículas de coche.</div>
+<h3>Cigarrillos en un campo de prisioneros</h3>
+<p>El tercer caso ocurrió en plena Segunda Guerra Mundial. Richard Radford era un joven economista británico que cayó prisionero de los alemanes y pasó por varios campos de oficiales en Italia y en Alemania. Al terminar la guerra, en 1945, publicó en la revista <i>Economica</i> un artículo que se ha convertido en un clásico: «La organización económica de un campo de prisioneros de guerra».</p>
+<p>Los prisioneros recibían raciones del campo y, de vez en cuando, paquetes de la Cruz Roja con comida enlatada, chocolate, azúcar, té, café y tabaco. Como no todos tenían los mismos gustos, empezaron enseguida los cambios: el que no fumaba cambiaba tabaco por chocolate, y los prisioneros sijs, que por motivos religiosos no comen carne de vaca, cambiaban sus latas de carne por mermelada o margarina. Al principio era trueque puro, con todos sus problemas. Pronto apareció, sin que nadie lo decidiera, un medio de cambio común: el <b>cigarrillo</b>.</p>
+<p>El cigarrillo tenía muchas de las virtudes de un buen dinero: todos eran casi iguales, duraban, eran pequeños, fáciles de contar y cualquiera sabía lo que valían. Pronto todo tuvo un precio en cigarrillos. Lavar una prenda costaba dos; se abrieron tableros de anuncios con ofertas y demandas, una tienda del campo donde se compraba y vendía a precios en cigarrillos, e incluso una especie de restaurante. Radford cuenta el caso de un capellán que dio una vuelta por el campo con una lata de queso y cinco cigarrillos, cambiando aquí y allá, y volvió con un paquete completo de la Cruz Roja además de su queso y sus cigarrillos, solo aprovechando las diferencias de precio entre unas barracas y otras.</p>
+<div class="fondo"><b>Para entenderlo mejor: inflación en miniatura</b>
+El dinero-cigarrillo tenía un defecto: se podía fumar. Cuando llegaban muchos paquetes de la Cruz Roja a la vez, había cigarrillos de sobra y los precios de todo, medidos en cigarrillos, subían. Es decir, había <b>inflación</b>. Cuando los paquetes dejaban de llegar, la gente fumaba sus reservas, los cigarrillos escaseaban y los precios bajaban: <b>deflación</b>. El campo reproducía en pequeño lo que pasa en los países cuando la cantidad de dinero crece o se encoge mucho más deprisa que las cosas que se pueden comprar con él.
+<br><br>
+En 1944 los prisioneros probaron incluso un <b>papel moneda</b> propio, respaldado al cien por cien por comida guardada en el almacén de la tienda. Al principio funcionó bien. Pero cuando escaseó la comida, nadie quería cambiar sus latas por papeles que solo servían para comprar caprichos, y la gente dejó de aceptarlo. El billete era «sólido», pero había perdido la confianza, y un dinero sin confianza no es dinero.</div>
+<p>La historia de los cigarrillos no terminó con la guerra. En las cárceles, donde no se puede tener dinero en efectivo, se han usado como moneda sellos de correos, sobres de café o tarjetas telefónicas. Y en Alemania, tras 1945, cuando el marco del régimen nazi había perdido casi todo su valor, los cigarrillos estadounidenses se usaron durante un tiempo como dinero en el mercado negro, hasta la reforma monetaria de 1948.</p>
+<h3>Qué hace bueno a un dinero</h3>
+<p>Comparando conchas, piedras, cigarrillos y metales, se entiende por qué algunos objetos funcionan mejor que otros como dinero. El buen dinero es:</p>
+<ul>
+  <li><b>Duradero:</b> no se pudre ni se rompe con el uso.</li>
+  <li><b>Divisible:</b> permite pagar cantidades grandes y pequeñas.</li>
+  <li><b>Fácil de transportar:</b> mucho valor en poco peso.</li>
+  <li><b>Homogéneo:</b> una unidad es igual que otra, así que no hay que examinar cada pieza.</li>
+  <li><b>Difícil de falsificar</b> y <b>escaso</b>: nadie puede fabricarlo a su antojo.</li>
+  <li><b>Aceptado:</b> la cualidad decisiva, que depende de todas las demás y, sobre todo, de la confianza.</li>
+</ul>
+<p>Las piedras de Yap fallaban en transporte y en divisibilidad, pero eran imposibles de falsificar y todo el mundo las reconocía. Los cigarrillos fallaban en durabilidad. Los metales preciosos, como veremos enseguida, cumplían casi todo, y por eso ganaron la partida durante más de dos mil años.</p>
+<div class="idea"><b>Idea clave:</b> casi cualquier cosa puede ser dinero si la gente la acepta. Las conchas de cauri, las piedras de Yap y los cigarrillos de los prisioneros muestran que el dinero surge por sí solo cuando hace falta, que su valor depende de un acuerdo colectivo y que, cuando su cantidad cambia bruscamente, los precios suben o bajan.</div>
+
+<h2 id="c3"><small>Capítulo 3</small>Las primeras monedas</h2>
+<p>Durante siglos, en Oriente Próximo, los metales preciosos se usaron como dinero sin forma de moneda. Se pagaba con plata al peso: anillos, barritas, trozos de joyas cortadas. En los tesoros enterrados de la época aparecen fragmentos de plata recortados a propósito para ajustar un pago. Funcionaba, pero era incómodo. Cada vez había que sacar la balanza, y además cabía la duda de si aquella plata era pura o estaba mezclada con cobre o plomo. Comprobarlo exigía un experto y tiempo. La <b>moneda</b> resolvió las dos cosas de golpe: un trozo de metal de peso fijo con una marca que garantiza cuánto metal lleva y de qué calidad.</p>
+<h3>Lidia, el reino del oro</h3>
+<p>Las primeras monedas conocidas aparecieron en <b>Lidia</b>, un reino del oeste de la actual Turquía, a finales del siglo VII antes de Cristo, hacia el año 630 según muchos especialistas, aunque la fecha exacta se discute. Por su capital, Sardes, pasaba el río Pactolo, que arrastraba pepitas de <b>electro</b>, una mezcla natural de oro y plata. Con ese metal se hicieron pequeñas piezas en forma de gota o de judía, golpeadas con un punzón que dejaba una marca. Las más famosas llevan una cabeza de león, el símbolo de los reyes lidios.</p>
+<p>La marca era la gran novedad. Significaba que una autoridad, el rey, respondía del peso y de la calidad. Ya no hacía falta pesar ni ensayar cada pieza: bastaba con contarlas. Pero el electro tenía un inconveniente: la proporción de oro y plata variaba de una pepita a otra, así que dos monedas del mismo peso no valían exactamente lo mismo.</p>
+<p>El problema lo resolvió el rey <b>Creso</b>, que reinó entre el 561 y el 546 antes de Cristo. Hacia el 550 mandó separar el oro y la plata y acuñar monedas de cada metal por separado, con un diseño de las cabezas de un león y un toro enfrentados. Fue el primer sistema de monedas de dos metales. Creso se hizo tan famoso por su riqueza que todavía decimos que alguien es «más rico que Creso». El historiador griego Heródoto, que escribió un siglo después, afirmó que los lidios fueron los primeros en acuñar monedas de oro y de plata.</p>
+<p>La idea se extendió enseguida por las ciudades griegas. Casi al mismo tiempo, y de forma independiente, en China se usaban piezas de bronce con forma de pequeñas azadas y cuchillos, y más tarde monedas redondas con un agujero cuadrado para ensartarlas en un cordel. En la India aparecieron monedas de plata marcadas con varios punzones. El invento de la moneda, como el de la escritura, surgió en más de un lugar.</p>
+<div class="sabias"><b>¿Sabías que...?</b> Las monedas de plata de Atenas llevaban una lechuza, el animal de la diosa Atenea, y por eso se llamaban simplemente «lechuzas». Se acuñaban con la plata de las minas de Laurión, cerca de la ciudad, y fueron aceptadas en todo el Mediterráneo. La dracma griega, heredera lejana de aquellas monedas, se usó en Grecia hasta la llegada del euro en 2002. En la península ibérica, la colonia griega de Emporion, la actual Empúries, en Girona, acuñó sus propias monedas desde el siglo V antes de Cristo.</div>
+<h3>Roma y el templo de la diosa que avisaba</h3>
+<p>En la colina del Capitolio, en Roma, había un templo dedicado a la diosa Juno con un sobrenombre curioso: <b>Juno Moneta</b>. Según el orador Cicerón, el apodo venía del verbo latino <i>monere</i>, que significa avisar o advertir, porque la diosa había avisado a los romanos de algún peligro. Otra tradición, contada por el historiador Tito Livio, relaciona el lugar con las ocas sagradas de Juno, que hacia el año 390 antes de Cristo despertaron con sus graznidos a los defensores del Capitolio cuando los galos intentaban asaltarlo de noche.</p>
+<p>El templo se levantó en el año 344 antes de Cristo, y desde el 273 antes de Cristo, aproximadamente, se instaló junto a él el taller donde se acuñaba la plata de Roma. El taller tomó el nombre de la diosa, y <i>moneta</i> pasó a significar tanto el lugar donde se fabricaba el dinero como el propio dinero. De ahí vienen nuestra palabra <i>moneda</i>, el inglés <i>money</i> y también <i>mint</i>, que es como los ingleses llaman a la fábrica de moneda.</p>
+<p>La gran moneda de plata de Roma fue el <b>denario</b>, creado hacia el 211 antes de Cristo, en plena guerra contra Aníbal. Durante siglos fue la moneda de referencia de todo el Mediterráneo, y su nombre sigue vivo en nuestra palabra <i>dinero</i>. En Hispania se acuñaron denarios con letras ibéricas en talleres locales, y las monedas romanas circularon por toda la Península, como se cuenta en <a href="../hispania-romana/libro.html">Hispania romana</a>.</p>
+<figure>
+<svg viewBox="0 0 600 340" role="img" aria-label="Línea del tiempo a escala de la historia del dinero, desde las tablillas de Mesopotamia hacia el 3000 antes de Cristo hasta el bitcoin en 2009, con una ampliación de los últimos seiscientos años" font-family="Georgia, serif">
+<line x1="40" y1="92" x2="560" y2="92" stroke="currentColor" stroke-width="2"/>
+<rect x="495" y="84" width="65" height="16" fill="#b8871b" fill-opacity=".35" stroke="#b8871b"/>
+<g stroke="currentColor" stroke-width="1">
+<line x1="40" y1="84" x2="40" y2="48"/><line x1="169" y1="100" x2="169" y2="116"/><line x1="285" y1="84" x2="285" y2="48"/><line x1="329" y1="100" x2="329" y2="116"/><line x1="456" y1="84" x2="456" y2="48"/>
+</g>
+<g fill="#b3261e"><circle cx="40" cy="92" r="4"/><circle cx="169" cy="92" r="4"/><circle cx="285" cy="92" r="4"/><circle cx="329" cy="92" r="4"/><circle cx="456" cy="92" r="4"/></g>
+<g font-size="13" fill="currentColor">
+<text x="36" y="30">h. 3000 a.C.: cuentas</text><text x="36" y="44">en tablillas de barro</text>
+<text x="169" y="130" text-anchor="middle">1753 a.C.</text><text x="169" y="145" text-anchor="middle">Hammurabi</text>
+<text x="285" y="30" text-anchor="middle">h. 630 a.C.</text><text x="285" y="44" text-anchor="middle">monedas de Lidia</text>
+<text x="329" y="130" text-anchor="middle">h. 211 a.C.</text><text x="329" y="145" text-anchor="middle">denario</text>
+<text x="456" y="30" text-anchor="middle">1024: billetes</text><text x="456" y="44" text-anchor="middle">oficiales en China</text>
+<text x="40" y="112" text-anchor="middle" font-size="12" fill-opacity=".7">3000 a.C.</text>
+<text x="560" y="116" text-anchor="end" font-size="12">1400 a hoy</text>
+</g>
+<path d="M495,100 L40,236 M560,100 L560,236" stroke="#b8871b" stroke-width="1" stroke-dasharray="4 4" fill="none"/>
+<line x1="40" y1="244" x2="560" y2="244" stroke="currentColor" stroke-width="2"/>
+<rect x="40" y="236" width="520" height="16" fill="#b8871b" fill-opacity=".2"/>
+<g stroke="currentColor" stroke-width="1">
+<line x1="41" y1="236" x2="41" y2="214"/><line x1="121" y1="252" x2="121" y2="268"/><line x1="257" y1="236" x2="257" y2="214"/><line x1="284" y1="252" x2="284" y2="268"/><line x1="429" y1="236" x2="429" y2="214"/><line x1="514" y1="252" x2="514" y2="288"/><line x1="540" y1="236" x2="540" y2="194"/><line x1="546" y1="252" x2="546" y2="308"/>
+</g>
+<g fill="#b3261e"><circle cx="41" cy="244" r="3.5"/><circle cx="121" cy="244" r="3.5"/><circle cx="257" cy="244" r="3.5"/><circle cx="284" cy="244" r="3.5"/><circle cx="429" cy="244" r="3.5"/><circle cx="514" cy="244" r="3.5"/><circle cx="540" cy="244" r="3.5"/><circle cx="546" cy="244" r="3.5"/></g>
+<g font-size="13" fill="currentColor">
+<text x="36" y="210">1401 Taula de Canvi</text>
+<text x="121" y="282" text-anchor="middle">1497 real de a ocho</text>
+<text x="257" y="210" text-anchor="middle">1661 billetes en Europa</text>
+<text x="290" y="282" text-anchor="start">1694 Banco de Inglaterra</text>
+<text x="429" y="210" text-anchor="middle">1868 peseta</text>
+<text x="518" y="302" text-anchor="end">1971 fin del patrón oro</text>
+<text x="560" y="190" text-anchor="end">2002 euro</text>
+<text x="560" y="322" text-anchor="end">2009 bitcoin</text>
+</g>
+</svg>
+<figcaption>Arriba, cinco mil años de historia del dinero dibujados a escala: casi todo lo que usamos hoy cabe en la franja dorada del final. Abajo, esa franja ampliada, desde 1400 hasta hoy, también a escala.</figcaption>
+</figure>
+<h3>¿Nos pagaban en sal?</h3>
+<p>Se suele contar que los soldados romanos cobraban en sal, y que de ahí viene la palabra <b>salario</b>. La relación de las palabras es cierta: <i>salarium</i> viene de <i>sal</i>. Lo que no está nada claro es la historia. La única fuente antigua es una frase de Plinio el Viejo, en su <i>Historia natural</i>, escrita en el siglo I, que dice más o menos que la sal está ligada a los cargos públicos y al servicio militar, «de donde viene el nombre de salarios». No dice que se pagara con sal, ni que hubiera una paga especial para comprarla.</p>
+<p>No se ha encontrado ninguna prueba de que los soldados cobraran en sal. La explicación de una «paga para la sal» aparece en diccionarios de latín de los siglos XVIII y XIX, y es una suposición razonable, pero una suposición. Algunos historiadores creen que <i>salarium</i> pudo significar algo como «dinero para el condimento», es decir, un complemento para gastos por encima de la ración de grano. Lo prudente es decir que la sal fue muy valiosa en la Antigüedad, que la palabra salario viene de ella y que el porqué exacto se desconoce.</p>
+<h3>El truco de rebajar la plata</h3>
+<p>Las monedas de metal tenían una debilidad: su valor dependía de cuánto metal precioso llevaban, y quien las fabricaba podía hacer trampa. Los emperadores romanos, siempre necesitados de dinero para pagar a sus ejércitos, fueron rebajando la cantidad de plata del denario y de las monedas que lo sustituyeron, y añadiendo cobre. Con la misma plata hacían más monedas y pagaban más sueldos. Es lo que se llama <b>envilecer</b> la moneda.</p>
+<p>A mediados del siglo III, en plena crisis del Imperio, las monedas de «plata» apenas llevaban ya un baño fino de ese metal sobre un corazón de cobre. La gente no es tonta: cuando hay más monedas y cada una vale menos, los comerciantes piden más monedas por lo mismo. Los precios se dispararon. En el año 301, el emperador Diocleciano publicó un edicto que fijaba precios máximos para más de mil productos y servicios, desde el trigo hasta el sueldo de un barbero, con castigos que llegaban a la pena de muerte. No funcionó: los productos desaparecieron de los mercados y la norma acabó olvidada. Es una lección que se repetirá muchas veces: fijar los precios por ley no arregla el problema de fondo si se sigue creando dinero sin control.</p>
+<div class="fondo"><b>Para entenderlo mejor: valor nominal y valor intrínseco</b>
+Una moneda tiene dos valores. El <b>valor intrínseco</b> es lo que vale el metal que lleva dentro. El <b>valor nominal</b> o facial es el que lleva escrito o el que la autoridad le da. En las monedas de oro y plata antiguas, los dos valores eran parecidos, y por eso la gente desconfiaba cuando se rebajaba el metal. En nuestras monedas de euro, el metal vale mucho menos que lo que pone en la cara, y no pasa nada: las aceptamos por su valor nominal, igual que los billetes. A veces ocurre al revés. Si el metal de una moneda llega a valer más que su valor nominal, la gente la guarda o la funde, y la moneda desaparece de la circulación. Es la llamada <b>ley de Gresham</b>, atribuida al financiero inglés Thomas Gresham, del siglo XVI: el dinero malo expulsa al bueno. Cuando circulan a la vez monedas buenas y malas con el mismo valor oficial, la gente paga con las malas y se queda las buenas.</div>
+<div class="sabias"><b>¿Sabías que...?</b> El canto estriado de muchas monedas, esas rayitas del borde, nació para frenar a los <b>cercenadores</b>, que recortaban un poco de metal del borde de las monedas de oro y plata y las volvían a gastar como si estuvieran enteras. Con el borde marcado, cualquier recorte se notaba. El físico Isaac Newton, que trabajó en la Casa de la Moneda de Londres desde 1696, primero como inspector y después como director, persiguió personalmente a falsificadores y cercenadores; el más famoso de ellos, William Chaloner, acabó en la horca en 1699.</div>
+<div class="idea"><b>Idea clave:</b> las monedas nacieron en Lidia hacia el siglo VII antes de Cristo como trozos de metal con una marca que garantizaba su peso y su calidad. Roma nos dejó las palabras moneda y dinero, y también la primera gran lección monetaria: cuando el que fabrica el dinero lo rebaja para pagar sus gastos, los precios acaban subiendo.</div>
+
+<h2 id="c4"><small>Capítulo 4</small>La plata de América y el real de a ocho</h2>
+<p>Durante casi tres siglos, la moneda más importante del planeta fue española. Se aceptaba en Londres y en Boston, en Estambul, en la India y en Cantón. Los piratas del Caribe soñaban con cofres llenos de ella, los mercaderes chinos la preferían a cualquier otra y los fundadores de Estados Unidos la tomaron como modelo para su dólar. Se llamaba <b>real de a ocho</b>, porque valía ocho reales, y en inglés se la conocía como <i>piece of eight</i> o <i>Spanish dollar</i>.</p>
+<h3>Una moneda de fiar</h3>
+<p>En 1497, los Reyes Católicos ordenaron una gran reforma monetaria en la llamada Pragmática de Medina del Campo. Fijaba el <b>real</b> de plata como moneda básica y preveía piezas de varios reales, hasta la de ocho. El real de a ocho pesaba unos 27,5 gramos y llevaba un 93 % de plata pura, algo más de 25,5 gramos. Pero la moneda solo se convirtió en protagonista cuando empezó a llegar a Castilla un río de plata que nadie había imaginado.</p>
+<p>En 1545 se descubrió en el Alto Perú, en la actual Bolivia, el <b>Cerro Rico de Potosí</b>, una montaña con vetas de plata riquísimas. Al año siguiente se hallaron las minas de Zacatecas, en México. Potosí se convirtió en pocas décadas en una de las ciudades más pobladas del mundo, a más de 4.000 metros de altura. Su riqueza dio origen a la expresión «vale un Potosí». Pero la plata se sacó con un coste humano enorme: miles de indígenas fueron obligados a trabajar en las minas por turnos, en el sistema llamado <b>mita</b>, y muchos murieron por los derrumbes, el agotamiento y el mercurio que se usaba para separar la plata.</p>
+<p>La plata se convertía en monedas en las <b>casas de moneda</b> americanas. La de México, fundada en 1535, fue la primera del continente; después vinieron las de Lima, Potosí y otras ciudades. Las monedas viajaban en las flotas de Indias hasta Sevilla, donde la Casa de Contratación, creada en 1503, controlaba todo el comercio con América. Según los registros oficiales de Sevilla, en el siglo XVI llegaron varios miles de toneladas de plata, y en todo el período colonial fueron muchas más, sin contar el contrabando, que fue enorme.</p>
+<figure>
+<svg viewBox="0 0 600 330" role="img" aria-label="Dibujo esquemático de un real de a ocho columnario con las columnas de Hércules, y dos posibles orígenes del signo del dólar" font-family="Georgia, serif">
+<circle cx="170" cy="160" r="140" fill="#9aa3ad" fill-opacity=".35" stroke="currentColor" stroke-width="2"/>
+<circle cx="170" cy="160" r="126" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="2 3"/>
+<path id="dn-arco" d="M60,160 A110,110 0 0 1 280,160" fill="none"/>
+<text font-size="14" letter-spacing="3" fill="currentColor"><textPath href="#dn-arco" startOffset="50%" text-anchor="middle">VTRAQUE · VNUM</textPath></text>
+<path d="M92,262 q14,-8 28,0 q14,8 28,0 q14,-8 28,0 q14,8 28,0 q14,-8 28,0 q14,8 28,0" fill="none" stroke="#3a6fc4" stroke-width="2"/>
+<path d="M98,276 q14,-8 28,0 q14,8 28,0 q14,-8 28,0 q14,8 28,0 q14,-8 28,0" fill="none" stroke="#3a6fc4" stroke-width="2"/>
+<circle cx="146" cy="185" r="30" fill="#3a6fc4" fill-opacity=".3" stroke="currentColor" stroke-width="1.5"/>
+<circle cx="194" cy="185" r="30" fill="#2f7d5b" fill-opacity=".3" stroke="currentColor" stroke-width="1.5"/>
+<path d="M140,145 l8,-18 l10,12 l12,-16 l12,16 l10,-12 l8,18 z" fill="#b8871b" fill-opacity=".6" stroke="currentColor"/>
+<g fill="#b8871b" fill-opacity=".55" stroke="currentColor" stroke-width="1.2">
+<rect x="82" y="108" width="16" height="140"/><rect x="76" y="100" width="28" height="10"/><rect x="76" y="246" width="28" height="10"/>
+<rect x="242" y="108" width="16" height="140"/><rect x="236" y="100" width="28" height="10"/><rect x="236" y="246" width="28" height="10"/>
+</g>
+<path d="M68,150 C80,132 104,168 116,150 L116,170 C104,188 80,152 68,170 Z" fill="var(--papel,#fbf8f1)" stroke="#b3261e" stroke-width="1.5"/>
+<path d="M224,196 C236,178 260,214 272,196 L272,216 C260,234 236,198 224,216 Z" fill="var(--papel,#fbf8f1)" stroke="#b3261e" stroke-width="1.5"/>
+<text x="92" y="165" font-size="11" text-anchor="middle" fill="currentColor">PLVS</text>
+<text x="248" y="211" font-size="11" text-anchor="middle" fill="currentColor">VLTRA</text>
+<text x="170" y="236" font-size="12" text-anchor="middle" fill="currentColor">8 R</text>
+<text x="450" y="30" font-size="15" font-weight="bold" text-anchor="middle" fill="currentColor">¿De dónde sale el signo $?</text>
+<rect x="340" y="46" width="220" height="118" rx="8" fill="#2f7d5b" fill-opacity=".1" stroke="#2f7d5b"/>
+<text x="450" y="68" font-size="13" text-anchor="middle" fill="currentColor">Teoría más aceptada:</text>
+<text x="450" y="84" font-size="13" text-anchor="middle" fill="currentColor">abreviatura de «pesos»</text>
+<text x="380" y="138" font-size="34" text-anchor="middle" fill="currentColor">Ps</text>
+<path d="M414,124 h26" stroke="currentColor" stroke-width="2"/><path d="M446,124 l-9,-5 v10 z" fill="currentColor"/>
+<text x="478" y="138" font-size="34" text-anchor="middle" fill="currentColor">ₚₛ</text>
+<path d="M500,124 h16" stroke="currentColor" stroke-width="2"/><path d="M522,124 l-9,-5 v10 z" fill="currentColor"/>
+<text x="540" y="140" font-size="36" text-anchor="middle" fill="#2f7d5b">$</text>
+<rect x="340" y="176" width="220" height="118" rx="8" fill="#b3261e" fill-opacity=".08" stroke="#b3261e" stroke-dasharray="5 4"/>
+<text x="450" y="198" font-size="13" text-anchor="middle" fill="currentColor">Teoría popular, sin pruebas:</text>
+<text x="450" y="214" font-size="13" text-anchor="middle" fill="currentColor">las columnas con la cinta</text>
+<g fill="#b8871b" fill-opacity=".55" stroke="currentColor"><rect x="400" y="228" width="10" height="54"/><rect x="426" y="228" width="10" height="54"/></g>
+<path d="M392,240 C404,226 430,262 444,246 L444,258 C430,274 404,238 392,252 Z" fill="none" stroke="#b3261e" stroke-width="1.5"/>
+<path d="M458,256 h26" stroke="currentColor" stroke-width="2"/><path d="M490,256 l-9,-5 v10 z" fill="currentColor"/>
+<text x="520" y="270" font-size="36" text-anchor="middle" fill="#b3261e" fill-opacity=".8">$</text>
+<text x="170" y="322" font-size="13" text-anchor="middle" fill="currentColor">Real de a ocho columnario (1732 en adelante)</text>
+</svg>
+<figcaption>A la izquierda, esquema del reverso del real de a ocho «columnario», acuñado en México desde 1732: dos hemisferios bajo una corona, entre las columnas de Hércules con la divisa PLUS ULTRA, y la leyenda VTRAQUE VNUM, «ambos son uno». A la derecha, las dos explicaciones más citadas del signo del dólar.</figcaption>
+</figure>
+<h3>La primera moneda mundial</h3>
+<p>La plata española no se quedaba en España. La monarquía tenía gastos inmensos, sobre todo guerras en Europa, y pagaba deudas a banqueros genoveses y alemanes. Castilla, además, compraba fuera muchas manufacturas. Así que los reales de a ocho salían hacia Génova, Amberes, Londres o Ámsterdam, y desde allí hacia el Báltico, el Imperio otomano y la India. Se decía, con amargura, que España era «las Indias de los extranjeros».</p>
+<p>La otra gran ruta iba hacia el oeste. Desde 1565 hasta 1815, el <b>galeón de Manila</b> cruzó el Pacífico una o dos veces al año entre Acapulco, en México, y Manila, en Filipinas. Llevaba plata americana y volvía cargado de seda, porcelana y especias de China. China era el gran imán de la plata del mundo: tenía una economía enorme y a finales del siglo XVI empezó a exigir que los impuestos se pagaran en plata. Los mercaderes chinos probaban las monedas y, si eran buenas, les estampaban un pequeño sello con un punzón. Hoy se conservan reales de a ocho llenos de esas marcas, que los coleccionistas llaman <i>chopmarks</i>. Por primera vez en la historia, una misma moneda unía América, Europa y Asia.</p>
+<div class="fondo"><b>Para entenderlo mejor: la ruta de la plata alrededor del mundo</b>
+Siguiendo una moneda acuñada en Potosí hacia 1600, podemos imaginar dos viajes:
+<ul>
+  <li><b>Hacia el este:</b> Potosí, a lomos de llama y mula hasta el puerto de Arica; por mar hasta Panamá; a través del istmo hasta el Caribe; en la flota de Indias, con escala en La Habana, hasta Sevilla. De allí, a Génova o a Amberes para pagar deudas o soldados, y desde Europa, en barcos portugueses, holandeses o ingleses, hasta la India y China.</li>
+  <li><b>Hacia el oeste:</b> desde México hasta Acapulco, en el galeón de Manila a través del Pacífico, y de Manila a los puertos chinos, donde se cambiaba por seda y porcelana.</li>
+</ul>
+Una parte importante de la plata que salía de América acababa en China por uno u otro camino. Los historiadores consideran que ese flujo fue uno de los primeros ejemplos de economía verdaderamente mundial.</div>
+<h3>Del peso duro al dólar</h3>
+<p>En las colonias británicas de Norteamérica circulaba poca moneda inglesa, y el real de a ocho, que llegaba por el comercio con el Caribe, se convirtió en la moneda de uso diario. Cuando Estados Unidos se independizó y creó su propio dinero, la ley del 2 de abril de 1792 definió el dólar con casi la misma plata que la moneda española: 24,06 gramos de plata pura. Los reales de a ocho fueron moneda de curso legal en Estados Unidos hasta 1857.</p>
+<p>Esa herencia dejó huellas curiosas. Como el real de a ocho se dividía en ocho reales, y a veces se partía literalmente en trozos, un cuarto de dólar se llamaba en inglés <i>two bits</i>, «dos trozos». Y la Bolsa de Nueva York cotizó sus acciones en octavos de dólar hasta 2001, cuando pasó a los céntimos.</p>
+<p>¿Y el signo <b>$</b>? Hay varias teorías. La más aceptada es que viene de la abreviatura de «pesos», que los comerciantes escribían «ps», con la p y la s cada vez más juntas, hasta que la s quedó cruzada por el palo de la p. El manuscrito más citado es una cuenta de 1778 del comerciante irlandés Oliver Pollock, que trabajaba en la Nueva Orleans española, y la primera aparición impresa del signo es de 1797. Otra teoría muy popular dice que el $ imita las dos columnas de Hércules con la cinta enroscada del real de a ocho columnario. Es una historia bonita, pero no hay documentos que la apoyen.</p>
+<div class="sabias"><b>¿Sabías que...?</b> Al real de a ocho se le llamaba en España <b>peso</b> o <b>peso duro</b>, y de ahí viene el nombre del <b>duro</b>, que siglos después se aplicó a la moneda de cinco pesetas. Muchas monedas actuales descienden de él: el peso mexicano, el argentino o el filipino, y también el dólar estadounidense, el canadiense y, a través del comercio con Asia, algunas monedas de Extremo Oriente. Según la explicación más extendida, en China las monedas de plata redondas llegadas de fuera se llamaron <i>yuan</i>, «redondo», y de ahí viene el nombre de la moneda china actual.</div>
+<h3>Mucha plata, precios más altos</h3>
+<p>Tanta plata tuvo un efecto que desconcertó a la gente de la época: los precios subieron. A lo largo del siglo XVI, los precios en Castilla y en buena parte de Europa se multiplicaron por tres o por cuatro. Hoy, una subida así, repartida en cien años, nos parecería suave, apenas algo más del uno por ciento al año, pero entonces fue una novedad inquietante, porque en la Edad Media los precios habían sido bastante estables. Los historiadores lo llaman la <b>revolución de los precios</b>.</p>
+<p>Los primeros en explicarlo fueron españoles. En 1556, el navarro Martín de Azpilcueta, profesor en Salamanca, escribió que en las tierras donde hay mucho dinero las cosas valen más, y que por eso en España, adonde llegaba la plata de las Indias, todo era más caro que en Francia. Poco después, en 1568, el francés Jean Bodin dijo algo parecido. Es una de las primeras formulaciones de la <b>teoría cuantitativa del dinero</b>, que veremos con más detalle en el capítulo de la inflación. Azpilcueta y otros profesores de la llamada <b>Escuela de Salamanca</b>, como Tomás de Mercado, que escribió un manual para comerciantes publicado en 1569, están considerados pioneros del pensamiento económico.</p>
+<p>La historia es algo más complicada de lo que parece a primera vista. En 1934, el historiador estadounidense Earl Hamilton reunió miles de datos de precios españoles y los comparó con la llegada de plata a Sevilla, y encontró que subían a la par. Después se ha matizado: la población europea también crecía mucho y pedía más alimentos, y los precios empezaron a subir incluso antes de que llegara el grueso de la plata. Hoy se piensa que la plata americana fue una causa importante, pero no la única.</p>
+<div class="idea"><b>Idea clave:</b> la plata de Potosí y de México, convertida en reales de a ocho, fue la primera moneda de alcance mundial: viajó a Europa, a China y a Norteamérica, donde sirvió de modelo al dólar. Su abundancia ayudó a subir los precios en el siglo XVI, y unos profesores de Salamanca fueron de los primeros en entender por qué.</div>
+
+<h2 id="c5"><small>Capítulo 5</small>Del metal al papel</h2>
+<p>Las monedas de plata y oro tenían un problema práctico: pesaban. Un comerciante que quisiera comprar un cargamento entero tenía que mover cofres, contratar escoltas y arriesgarse a que le robaran por el camino. La solución fue dejar el metal en un sitio seguro y hacer circular, en su lugar, un papel que dijera: «este papel vale tanto metal». Ese paso, que parece pequeño, cambió para siempre la naturaleza del dinero.</p>
+<h3>China, los primeros billetes</h3>
+<p>Los primeros billetes aparecieron en China, en la provincia de Sichuan, hacia el año 1000. Allí la moneda corriente era de hierro, muy pesada y de poco valor: para pagar una pieza de seda podían hacer falta decenas de kilos de monedas. Unos comerciantes empezaron a guardar las monedas de sus clientes y a entregarles a cambio un recibo de papel, llamado <b>jiaozi</b>, que se podía canjear más tarde. Pronto los recibos pasaron de mano en mano como si fueran el dinero mismo. Llegó a haber dieciséis grandes casas comerciales que los emitían.</p>
+<p>Como algunas emitieron más recibos que monedas guardadas y quebraron, el gobierno de la dinastía Song tomó el control. En 1023 creó una oficina oficial, y en 1024 salieron los primeros billetes emitidos por un Estado. Durante los siglos siguientes, los gobiernos chinos descubrieron también el lado oscuro del invento: imprimir billetes era mucho más fácil que extraer plata, y cuando las guerras apretaban, imprimían de más. Varias veces el papel perdió casi todo su valor. Cuando el veneciano Marco Polo visitó la China de los mongoles, a finales del siglo XIII, se quedó asombrado de que el Gran Kan hiciera dinero con corteza de morera y de que todo el mundo lo aceptara.</p>
+<div class="sabias"><b>¿Sabías que...?</b> Suecia tuvo el dinero más pesado de la historia. En el siglo XVII el país era gran productor de cobre, y acuñaba <b>monedas-placa</b>: planchas rectangulares de cobre con un sello en cada esquina, cuyo valor dependía del peso. La mayor, de 10 dáleres, acuñada en 1644, pesaba 19,7 kilos. Nadie quería cargar con aquello, y eso explica que Suecia fuera el primer país europeo con billetes.</div>
+<h3>Barcelona y los bancos de depósito</h3>
+<p>En Europa, el camino hacia el papel pasó antes por los bancos. La palabra viene del <i>banco</i> o mesa en la que los cambistas italianos de la Edad Media cambiaban monedas de distintos países en las plazas y ferias. Un cambista que no podía pagar veía cómo le rompían el banco: de ahí, según la explicación tradicional, viene la palabra <i>bancarrota</i>.</p>
+<p>El 25 de enero de 1401 se fundó en Barcelona la <b>Taula de Canvi</b>, la mesa de cambio de la ciudad, que suele considerarse el primer banco público de Europa. Los barceloneses podían depositar allí su dinero con la garantía del municipio y pagar a otros mediante apuntes en sus cuentas, sin mover las monedas. Hacia 1433 llevaba unas 1.500 cuentas, las de una de cada cuatro familias de la ciudad. Funcionó, con altibajos, hasta 1865. Siguieron otras en Valencia, Génova y Venecia, y en 1609 el Banco de Ámsterdam, que hizo de esa ciudad el centro financiero de Europa en el siglo XVII.</p>
+<h3>Estocolmo, 1661: el primer billete europeo</h3>
+<p>En 1657 abrió en Estocolmo el <b>Stockholms Banco</b>, dirigido por Johan Palmstruch, un comerciante nacido en Riga. Los clientes depositaban sus pesadas placas de cobre y recibían un certificado. En 1661 Palmstruch dio un paso más: empezó a emitir <b>notas de crédito</b> de cantidades redondas, que no llevaban el nombre del dueño y podían pasar libremente de mano en mano. Fueron los primeros billetes de un banco europeo.</p>
+<p>Al principio fue un éxito, tanto que el banco empezó a prestar emitiendo más papeles de los que podía respaldar con cobre. En 1663 la gente empezó a desconfiar, corrió a canjear sus billetes y el cobre no alcanzaba para todos. El banco cerró en 1664 y se liquidó en 1667. Palmstruch fue condenado y encarcelado. Pero el invento sobrevivió: en 1668 el Parlamento sueco creó un nuevo banco, hoy llamado <b>Riksbank</b>, que es el banco central más antiguo que sigue en funcionamiento.</p>
+<figure>
+<svg viewBox="0 0 600 300" role="img" aria-label="Del depósito al billete: el cliente deja metal en el banco, recibe un recibo, el recibo circula como dinero y el banco emite más recibos de los que tiene en metal" font-family="Georgia, serif">
+<g font-size="13" fill="currentColor" text-anchor="middle">
+<text x="100" y="24" font-weight="bold" font-size="14">1. Depósito</text>
+<text x="300" y="24" font-weight="bold" font-size="14">2. El recibo circula</text>
+<text x="500" y="24" font-weight="bold" font-size="14">3. Más recibos que metal</text>
+</g>
+<rect x="40" y="50" width="120" height="90" rx="6" fill="#9a8f7a" fill-opacity=".25" stroke="currentColor" stroke-width="1.5"/>
+<path d="M40,50 L100,34 L160,50" fill="none" stroke="currentColor" stroke-width="1.5"/>
+<text x="100" y="72" font-size="13" text-anchor="middle" fill="currentColor">banco</text>
+<g fill="#b8871b" fill-opacity=".6" stroke="#b8871b"><rect x="60" y="100" width="36" height="12"/><rect x="104" y="100" width="36" height="12"/><rect x="82" y="86" width="36" height="12"/><rect x="60" y="114" width="36" height="12"/><rect x="104" y="114" width="36" height="12"/></g>
+<rect x="55" y="170" width="90" height="54" rx="4" fill="#2f7d5b" fill-opacity=".15" stroke="#2f7d5b" stroke-width="1.5"/>
+<text x="100" y="193" font-size="12" text-anchor="middle" fill="currentColor">vale 100</text>
+<text x="100" y="211" font-size="12" text-anchor="middle" fill="currentColor">en metal</text>
+<path d="M100,146 V164" stroke="currentColor" stroke-width="2"/><path d="M100,168 l-5,-8 h10 z" fill="currentColor"/>
+<text x="100" y="250" font-size="13" text-anchor="middle" fill="currentColor">el metal se queda;</text>
+<text x="100" y="267" font-size="13" text-anchor="middle" fill="currentColor">el cliente se lleva</text>
+<text x="100" y="284" font-size="13" text-anchor="middle" fill="currentColor">un papel</text>
+<g stroke="currentColor" stroke-width="1.5" fill="none">
+<circle cx="250" cy="90" r="22"/><circle cx="350" cy="90" r="22"/><circle cx="300" cy="180" r="22"/>
+</g>
+<g font-size="12" fill="currentColor" text-anchor="middle"><text x="250" y="94">A</text><text x="350" y="94">B</text><text x="300" y="184">C</text></g>
+<path d="M274,90 H322" stroke="#2f7d5b" stroke-width="2"/><path d="M326,90 l-8,-5 v10 z" fill="#2f7d5b"/>
+<path d="M340,110 L312,158" stroke="#2f7d5b" stroke-width="2"/><path d="M310,162 l1,-10 l8,4 z" fill="#2f7d5b"/>
+<text x="300" y="250" font-size="13" text-anchor="middle" fill="currentColor">se paga con el recibo</text>
+<text x="300" y="267" font-size="13" text-anchor="middle" fill="currentColor">sin tocar el metal:</text>
+<text x="300" y="284" font-size="13" text-anchor="middle" fill="currentColor">ya es un billete</text>
+<rect x="440" y="50" width="120" height="90" rx="6" fill="#9a8f7a" fill-opacity=".25" stroke="currentColor" stroke-width="1.5"/>
+<path d="M440,50 L500,34 L560,50" fill="none" stroke="currentColor" stroke-width="1.5"/>
+<g fill="#b8871b" fill-opacity=".6" stroke="#b8871b"><rect x="460" y="100" width="36" height="12"/><rect x="504" y="100" width="36" height="12"/><rect x="482" y="86" width="36" height="12"/><rect x="460" y="114" width="36" height="12"/><rect x="504" y="114" width="36" height="12"/></g>
+<text x="500" y="72" font-size="13" text-anchor="middle" fill="currentColor">metal: 100</text>
+<g stroke-width="1.5">
+<rect x="444" y="160" width="50" height="30" rx="3" fill="#2f7d5b" fill-opacity=".15" stroke="#2f7d5b"/>
+<rect x="506" y="160" width="50" height="30" rx="3" fill="#2f7d5b" fill-opacity=".15" stroke="#2f7d5b"/>
+<rect x="444" y="198" width="50" height="30" rx="3" fill="#b3261e" fill-opacity=".15" stroke="#b3261e"/>
+<rect x="506" y="198" width="50" height="30" rx="3" fill="#b3261e" fill-opacity=".15" stroke="#b3261e"/>
+</g>
+<g font-size="12" fill="currentColor" text-anchor="middle"><text x="469" y="180">50</text><text x="531" y="180">50</text><text x="469" y="218">50</text><text x="531" y="218">50</text></g>
+<text x="500" y="250" font-size="13" text-anchor="middle" fill="currentColor">recibos: 200</text>
+<text x="500" y="267" font-size="13" text-anchor="middle" fill="currentColor">funciona mientras no</text>
+<text x="500" y="284" font-size="13" text-anchor="middle" fill="currentColor">vayan todos a la vez</text>
+</svg>
+<figcaption>Cómo nació el billete. El recibo de un depósito empieza a circular como dinero; después, el banco descubre que puede prestar emitiendo más recibos (en rojo) que el metal que guarda. Es rentable y útil, pero si todos los clientes piden su metal a la vez, no hay para todos.</figcaption>
+</figure>
+<h3>Los orfebres de Londres y el Banco de Inglaterra</h3>
+<p>En el Londres del siglo XVII ocurrió algo parecido. Los comerciantes guardaban su oro en las cámaras acorazadas de los <b>orfebres</b>, los artesanos del oro, que les daban un recibo. Los orfebres notaron dos cosas: que los recibos circulaban como dinero y que casi nunca venían todos los clientes a la vez a recoger su oro. Así que empezaron a prestar parte de ese oro, o a entregar recibos a quienes pedían préstamos. Sin proponérselo, habían inventado la banca moderna.</p>
+<p>En 1694 se fundó el <b>Banco de Inglaterra</b>, para prestar dinero al rey Guillermo III, que estaba en guerra con Francia. A cambio, el banco recibió el derecho a emitir billetes. Con el tiempo, sus billetes se convirtieron en los únicos de curso legal en Inglaterra y el banco en el modelo de los bancos centrales que veremos en el capítulo 7.</p>
+<div class="fondo"><b>Para entenderlo mejor: el pánico bancario</b>
+Un banco guarda solo una parte del dinero que le confían. El resto lo presta. Eso funciona porque, en un día normal, solo unos pocos clientes piden su dinero. Pero si corre el rumor de que el banco tiene problemas, todos quieren sacar sus ahorros antes que los demás, y el banco no puede pagar a todos aunque esté sano, porque su dinero está prestado a largo plazo. Es un <b>pánico bancario</b>, y lo curioso es que el miedo puede hacer realidad lo que teme. Por eso hoy existen los <b>fondos de garantía de depósitos</b>: en la Unión Europea, si un banco quiebra, cada cliente tiene asegurados hasta 100.000 euros por banco.</div>
+<h3>El papel llega a España</h3>
+<p>En España, los primeros papeles con función de dinero fueron los <b>vales reales</b>, emitidos desde 1780 por la Hacienda de Carlos III para pagar los gastos de la guerra contra Inglaterra. Eran, en realidad, títulos de deuda que daban intereses, pero se usaban para hacer pagos grandes. En 1782 se fundó el Banco de San Carlos, antepasado del Banco de España, que emitió sus propias <b>cédulas</b>, los primeros billetes de un banco español. Durante el siglo XIX, varios bancos provinciales, como los de Barcelona, Cádiz, Bilbao o Málaga, emitieron también sus billetes, hasta que en 1874 el Banco de España recibió el monopolio.</p>
+<div class="idea"><b>Idea clave:</b> el billete nació como recibo de un depósito de metal que circulaba en su lugar: primero en China hacia el año 1000, después en Estocolmo en 1661. Los bancos descubrieron que podían prestar más de lo que guardaban, lo que multiplicó el dinero disponible pero trajo un riesgo nuevo: el pánico, cuando todos quieren su dinero a la vez.</div>
+
+<h2 id="c6"><small>Capítulo 6</small>Cómo crean dinero los bancos</h2>
+<p>Si preguntamos por la calle quién fabrica el dinero, casi todo el mundo dirá que el Estado, o el Banco Central Europeo, o la Fábrica de Moneda. Es verdad solo para una parte pequeña. En la zona euro, en febrero de 2026, el dinero en manos del público sumaba unos 17,4 billones de euros (billones españoles, es decir, millones de millones). De eso, los billetes y monedas eran algo menos de 1,6 billones, apenas un 9 %. Todo lo demás son <b>depósitos</b>: apuntes en las cuentas de los bancos. Y la mayor parte de esos apuntes los crean los propios bancos, cada vez que conceden un préstamo.</p>
+<figure>
+<svg viewBox="0 0 600 170" role="img" aria-label="Barra a escala del dinero de la zona euro en febrero de 2026: 17,4 billones de euros, de los que el efectivo es 1,6 billones, un 9 por ciento, y el resto son depósitos" font-family="Georgia, serif">
+<text x="20" y="26" font-size="14" font-weight="bold" fill="currentColor">Dinero de la zona euro, febrero de 2026 (17,4 billones de €)</text>
+<rect x="20" y="44" width="52" height="56" fill="#b8871b" fill-opacity=".7" stroke="#b8871b"/>
+<rect x="72" y="44" width="311" height="56" fill="#3a6fc4" fill-opacity=".45" stroke="#3a6fc4"/>
+<rect x="383" y="44" width="197" height="56" fill="#3a6fc4" fill-opacity=".18" stroke="#3a6fc4"/>
+<g font-size="13" fill="currentColor">
+<path d="M45,104 V120" stroke="currentColor"/>
+<text x="20" y="136">Billetes y monedas</text><text x="20" y="152">1,6 billones (9 %)</text>
+<text x="227" y="77" text-anchor="middle">depósitos a la vista</text><text x="227" y="93" text-anchor="middle">9,6 billones</text>
+<text x="481" y="77" text-anchor="middle">a plazo y otros</text><text x="481" y="93" text-anchor="middle">6,1 billones</text>
+<text x="580" y="136" text-anchor="end">En azul: dinero que solo</text><text x="580" y="152" text-anchor="end">existe apuntado en cuentas</text>
+</g>
+</svg>
+<figcaption>El dinero de la zona euro (el agregado que los economistas llaman M3) dibujado a escala, con datos del Banco Central Europeo de febrero de 2026. El efectivo es la franja dorada de la izquierda; todo lo azul son saldos en cuentas.</figcaption>
+</figure>
+<h3>Lo que cuentan los manuales antiguos</h3>
+<p>Durante décadas, los libros de texto explicaron la creación de dinero con el <b>multiplicador bancario</b>. La historia va así. María deposita 1.000 euros en el banco A. El banco debe guardar una parte como reserva, digamos el 10 %, y presta los otros 900 a Juan. Juan paga con ellos a una carpintera, que los deposita en el banco B. El banco B guarda 90 y presta 810. Y así sucesivamente: 729, 656, 590… Al final, sumando todos los depósitos, los 1.000 euros iniciales se han convertido en 10.000 euros de depósitos, diez veces más.</p>
+<figure>
+<svg viewBox="0 0 600 330" role="img" aria-label="El multiplicador bancario de los manuales, a escala: un depósito de 1000 euros y préstamos sucesivos de 900, 810, 729 euros, que suman 10000 euros de depósitos con una reserva del 10 por ciento" font-family="Georgia, serif">
+<text x="20" y="22" font-size="14" font-weight="bold" fill="currentColor">El multiplicador de los manuales (reserva del 10 %)</text>
+<g font-size="12" fill="currentColor" text-anchor="end">
+<text x="104" y="52">Depósito 1</text><text x="104" y="74">Depósito 2</text><text x="104" y="96">Depósito 3</text><text x="104" y="118">Depósito 4</text><text x="104" y="140">Depósito 5</text><text x="104" y="162">Depósito 6</text><text x="104" y="184">Depósito 7</text><text x="104" y="206">Depósito 8</text>
+</g>
+<g fill="#3a6fc4" fill-opacity=".45" stroke="#3a6fc4">
+<rect x="110" y="40" width="200" height="16"/><rect x="110" y="62" width="180" height="16"/><rect x="110" y="84" width="162" height="16"/><rect x="110" y="106" width="146" height="16"/><rect x="110" y="128" width="131" height="16"/><rect x="110" y="150" width="118" height="16"/><rect x="110" y="172" width="106" height="16"/><rect x="110" y="194" width="96" height="16"/>
+</g>
+<g fill="#b8871b" fill-opacity=".8"><rect x="110" y="40" width="20" height="16"/><rect x="110" y="62" width="18" height="16"/><rect x="110" y="84" width="16" height="16"/><rect x="110" y="106" width="15" height="16"/><rect x="110" y="128" width="13" height="16"/><rect x="110" y="150" width="12" height="16"/><rect x="110" y="172" width="11" height="16"/><rect x="110" y="194" width="10" height="16"/></g>
+<g font-size="12" fill="currentColor"><text x="316" y="52">1.000 €</text><text x="296" y="74">900 €</text><text x="278" y="96">810 €</text><text x="262" y="118">729 €</text><text x="247" y="140">656 €</text><text x="234" y="162">590 €</text><text x="222" y="184">531 €</text><text x="212" y="206">478 €</text></g>
+<text x="110" y="228" font-size="12" fill="currentColor">… y así hasta que los préstamos se hacen minúsculos</text>
+<g font-size="12" fill="currentColor"><rect x="400" y="44" width="14" height="12" fill="#b8871b" fill-opacity=".8"/><text x="420" y="54">reserva que se guarda</text>
+<rect x="400" y="64" width="14" height="12" fill="#3a6fc4" fill-opacity=".45" stroke="#3a6fc4"/><text x="420" y="74">parte que se presta</text></g>
+<rect x="110" y="250" width="200" height="22" fill="#3a6fc4" fill-opacity=".2" stroke="#3a6fc4"/>
+<text x="118" y="266" font-size="12" fill="currentColor">depósito inicial: 1.000 €</text>
+<rect x="110" y="282" width="480" height="22" fill="#3a6fc4" fill-opacity=".2" stroke="#3a6fc4" stroke-dasharray="5 3"/>
+<text x="118" y="298" font-size="12" fill="currentColor">suma de todos los depósitos: 10.000 € (la barra entera mediría 2.000 px)</text>
+<text x="104" y="266" font-size="12" text-anchor="end" fill="currentColor">Inicio</text>
+<text x="104" y="298" font-size="12" text-anchor="end" fill="currentColor">Total</text>
+<text x="110" y="322" font-size="12" fill="currentColor">Barras a escala: 1 px = 5 €. La barra del total está cortada.</text>
+</svg>
+<figcaption>El multiplicador bancario de los manuales. Cada banco guarda un 10 % (dorado) y presta el resto, que acaba depositado en otro banco. La suma tiende a 1.000 ÷ 0,10 = 10.000 euros. Es una simplificación útil, pero los bancos reales no funcionan en este orden.</figcaption>
+</figure>
+<h3>Lo que pasa de verdad</h3>
+<p>En 2014, el Banco de Inglaterra publicó un artículo titulado «La creación de dinero en la economía moderna» que hizo mucho ruido, porque decía con claridad algo que los especialistas sabían: el orden de la historia está al revés. Los bancos no esperan a recibir depósitos para prestarlos. Cuando un banco concede un préstamo, <b>crea un depósito nuevo</b> de la nada, con un simple apunte.</p>
+<p>Veámoslo paso a paso con un ejemplo. Lucía pide al banco un préstamo de 20.000 euros para comprarse un coche.</p>
+<ol>
+  <li>El banco estudia si Lucía podrá devolverlo: su sueldo, sus deudas, su historial.</li>
+  <li>Si lo aprueba, apunta en su contabilidad dos cosas a la vez. En un lado, un <b>activo</b>: Lucía le debe 20.000 euros. En el otro, un <b>pasivo</b>: la cuenta de Lucía tiene 20.000 euros más, que el banco le debe a ella.</li>
+  <li>Esos 20.000 euros no estaban antes en ningún sitio. No se los han quitado a otro cliente. Son dinero nuevo, tan válido como cualquier otro para pagar.</li>
+  <li>Lucía paga el coche con una transferencia. El dinero pasa a la cuenta del concesionario, quizá en otro banco. Sigue existiendo, solo que ahora en otra cuenta.</li>
+  <li>Cada mes, Lucía devuelve una parte del préstamo. Cuando paga, ese dinero <b>desaparece</b>: se borra a la vez su deuda y el saldo con que la paga. Los intereses, en cambio, son el beneficio del banco.</li>
+</ol>
+<p>Es decir: los préstamos crean dinero y las devoluciones lo destruyen. Cuando la gente y las empresas piden muchos préstamos, la cantidad de dinero crece; cuando devuelven más de lo que piden, se encoge. El dinero de hoy es, sobre todo, deuda.</p>
+<div class="fondo"><b>Para entenderlo mejor: entonces, ¿los bancos pueden crear dinero sin límite?</b>
+No. Hay varios frenos:
+<ul>
+  <li><b>Tienen que encontrar a quién prestar</b> que pueda y quiera devolver. Si prestan a quien no paga, pierden.</li>
+  <li><b>Pagan por el dinero.</b> Cuando Lucía transfiere el dinero a otro banco, su banco tiene que entregar a ese otro banco <b>reservas</b>, que son el dinero de los bancos en su cuenta del banco central. Para conseguirlas paga intereses. Y en la zona euro los bancos deben mantener unas reservas mínimas, del 1 % de ciertos depósitos desde 2012.</li>
+  <li><b>Necesitan capital propio.</b> Las normas internacionales exigen que una parte de lo que prestan esté respaldada por dinero de sus dueños, para que puedan absorber pérdidas sin hundirse.</li>
+  <li><b>El precio del dinero.</b> El banco central sube o baja los tipos de interés, y con ellos el coste de los préstamos. Es el freno principal, y lo veremos en el capítulo siguiente.</li>
+</ul></div>
+<div class="sabias"><b>¿Sabías que...?</b> El verbo <i>prestar</i> y la palabra <i>crédito</i> dicen mucho. Crédito viene del latín <i>credere</i>, «creer» o «confiar». Un banco que da un crédito está diciendo, literalmente, «te creo». Y un acreedor es, en su origen, «el que cree».</div>
+<h3>Para qué sirve un banco</h3>
+<p>Además de crear dinero al prestar, un banco hace otras tres cosas importantes. Guarda nuestro dinero con seguridad. Hace funcionar los pagos: transferencias, recibos, tarjetas. Y hace de puente entre quienes tienen ahorros y quienes necesitan financiación, asumiendo el riesgo de que alguien no pague. Gana dinero sobre todo con la diferencia entre lo que cobra por prestar y lo que paga por los depósitos, y con las comisiones. Esa diferencia se llama <b>margen de intereses</b>.</p>
+<p>El gran riesgo de la banca es que presta a largo plazo, por ejemplo hipotecas a 25 o 30 años, con dinero que los clientes pueden retirar en cualquier momento. Si muchos préstamos salen mal a la vez, como ocurrió en España con el crédito a la construcción tras 2008, el banco puede tener pérdidas enormes. Por eso los bancos son de las empresas más vigiladas que existen.</p>
+<div class="idea"><b>Idea clave:</b> la mayor parte del dinero no son billetes, sino apuntes en cuentas bancarias, y esos apuntes nacen cuando un banco concede un préstamo. Prestar crea dinero y devolver lo destruye. Los bancos no pueden hacerlo sin límite: los frenan la necesidad de clientes solventes, las reservas, el capital y los tipos de interés.</div>
+
+<h2 id="c7"><small>Capítulo 7</small>El banco de los bancos</h2>
+<p>Si los bancos crean dinero al prestar, alguien tiene que vigilar que no se pasen ni se queden cortos. Esa es la tarea de los <b>bancos centrales</b>. No tienen cuentas para particulares: no podemos abrir una cuenta en el Banco de España ni pedirle una hipoteca. Sus clientes son los bancos y el Estado. Por eso se les llama «el banco de los bancos».</p>
+<h3>Qué hace un banco central</h3>
+<ul>
+  <li><b>Emite los billetes.</b> Solo el banco central puede ponerlos en circulación. Los bancos comerciales se los compran, pagando con sus reservas, cuando sus clientes piden efectivo en los cajeros.</li>
+  <li><b>Fija el precio del dinero.</b> Decide a qué tipo de interés presta a los bancos y cuánto les paga por el dinero que dejan depositado en él. Esos tipos marcan el precio de todos los demás préstamos de la economía.</li>
+  <li><b>Es el prestamista de último recurso.</b> Si un banco sano sufre un pánico y se queda sin efectivo, el banco central puede prestarle para que pague a sus clientes, y así cortar el contagio.</li>
+  <li><b>Vigila a los bancos</b>, para que no asuman riesgos excesivos, y hace funcionar los sistemas por los que los bancos se pagan entre sí.</li>
+  <li><b>Guarda las reservas del país</b>, incluidas las de oro.</li>
+</ul>
+<p>Su objetivo principal, en casi todos los países ricos, es la <b>estabilidad de precios</b>. El Banco Central Europeo, con sede en Fráncfort, tiene como meta que la inflación de la zona euro ronde el 2 % anual a medio plazo. ¿Por qué no el cero? Porque una inflación ligera deja un margen de seguridad frente a la <b>deflación</b>, la bajada general de precios, que es muy dañina: si todo va a costar menos el mes que viene, la gente aplaza las compras, las empresas venden menos y despiden, y las deudas pesan cada vez más.</p>
+<h3>Subir y bajar los tipos</h3>
+<p>El instrumento principal es el <b>tipo de interés</b>. Funciona como el pedal de una bicicleta con cambio de marchas, que hay que ajustar según la cuesta:</p>
+<ol>
+  <li>Si los precios suben demasiado, el banco central <b>sube los tipos</b>. A los bancos les cuesta más conseguir dinero y cobran más por las hipotecas y los préstamos.</li>
+  <li>Las familias y las empresas piden menos préstamos y ahorran más, porque el ahorro rinde más. Se gasta menos.</li>
+  <li>Con menos compras, las empresas tienen más difícil subir los precios, y la inflación se modera. El efecto tarda entre uno y dos años en notarse del todo.</li>
+  <li>Si la economía se frena demasiado y la inflación cae por debajo del objetivo, se hace lo contrario: se <b>bajan los tipos</b> para animar el crédito y el gasto.</li>
+</ol>
+<figure>
+<svg viewBox="0 0 600 290" role="img" aria-label="Tipo de interés de la facilidad de depósito del Banco Central Europeo entre 2020 y septiembre de 2026: menos 0,5 por ciento hasta julio de 2022, subida hasta el 4 por ciento en septiembre de 2023, bajadas hasta el 2 por ciento en junio de 2025 y nuevas subidas hasta el 2,5 por ciento en 2026" font-family="Georgia, serif">
+<g stroke="currentColor" stroke-opacity=".18">
+<line x1="60" y1="50" x2="570" y2="50"/><line x1="60" y1="90" x2="570" y2="90"/><line x1="60" y1="130" x2="570" y2="130"/><line x1="60" y1="170" x2="570" y2="170"/>
+</g>
+<line x1="60" y1="210" x2="570" y2="210" stroke="currentColor" stroke-width="1.2"/>
+<line x1="60" y1="40" x2="60" y2="236" stroke="currentColor"/>
+<g font-size="12" fill="currentColor" text-anchor="end">
+<text x="54" y="54">4 %</text><text x="54" y="94">3 %</text><text x="54" y="134">2 %</text><text x="54" y="174">1 %</text><text x="54" y="214">0 %</text><text x="54" y="234">−0,5 %</text>
+</g>
+<g font-size="12" fill="currentColor" text-anchor="middle">
+<text x="97" y="256">2020</text><text x="171" y="256">2021</text><text x="246" y="256">2022</text><text x="320" y="256">2023</text><text x="394" y="256">2024</text><text x="469" y="256">2025</text><text x="538" y="256">2026</text>
+</g>
+<g stroke="currentColor" stroke-opacity=".4"><line x1="134" y1="236" x2="134" y2="242"/><line x1="209" y1="236" x2="209" y2="242"/><line x1="283" y1="236" x2="283" y2="242"/><line x1="357" y1="236" x2="357" y2="242"/><line x1="431" y1="236" x2="431" y2="242"/><line x1="506" y1="236" x2="506" y2="242"/></g>
+<path d="M60.0,230.0 H251.1 V210.0 H260.9 V180.0 H270.8 V150.0 H281.0 V130.0 H290.6 V110.0 H299.6 V90.0 H309.5 V80.0 H318.1 V70.0 H326.5 V60.0 H336.4 V50.0 H390.6 V60.0 H410.4 V70.0 H417.5 V80.0 H429.0 V90.0 H438.5 V100.0 H446.3 V110.0 H454.6 V120.0 H464.5 V130.0 H539.1 V120.0 H558.3 V110.0 H562" fill="none" stroke="#b3261e" stroke-width="3"/>
+<text x="60" y="24" font-size="14" font-weight="bold" fill="currentColor">Tipo de depósito del BCE, en % anual</text>
+<g font-size="12" fill="currentColor">
+<text x="80" y="200">tipos negativos</text>
+<text x="226" y="100" text-anchor="end">julio 2022:</text><text x="226" y="115" text-anchor="end">primera subida</text>
+<text x="340" y="40">4 %, sep. 2023</text>
+<text x="470" y="148">2 %, jun. 2025</text>
+<text x="556" y="96" text-anchor="end">2,5 %</text>
+</g>
+<text x="60" y="280" font-size="12" fill="currentColor">Escala vertical: 40 px por punto porcentual. Datos hasta septiembre de 2026.</text>
+</svg>
+<figcaption>El tipo de interés que el Banco Central Europeo paga a los bancos por su dinero depositado, dibujado a escala. Tras años en negativo, la inflación de 2022 obligó a la subida más rápida de su historia. Después llegaron las bajadas y, en 2026, con la inflación otra vez al alza, dos nuevas subidas.</figcaption>
+</figure>
+<p>La gráfica cuenta una historia reciente. Entre 2014 y 2022 el BCE llegó a cobrar a los bancos por guardar su dinero: tipos negativos, algo que antes parecía imposible. En 2022, tras la pandemia y la invasión rusa de Ucrania, la energía y los alimentos se encarecieron y la inflación española llegó al 10,8 % en julio. El BCE subió los tipos diez veces seguidas, desde julio de 2022 hasta septiembre de 2023, cuando el tipo de depósito tocó el 4 %. Al bajar la inflación, empezó a recortarlos en junio de 2024 y los dejó en el 2 % en junio de 2025. En 2026, con la inflación de nuevo por encima del objetivo, volvió a subirlos: al 2,25 % en junio y al 2,5 % en septiembre.</p>
+<h3>El Banco de España</h3>
+<p>El Banco de España tiene una larga historia. Su antepasado es el <b>Banco de San Carlos</b>, fundado en 1782 bajo Carlos III. Tras sus problemas financieros, fue sustituido en 1829 por el Banco de San Fernando, que en 1856 tomó el nombre actual. En 1874, un decreto firmado por el ministro de Hacienda José Echegaray le dio el <b>monopolio de emisión</b> de billetes en toda España. Echegaray era ingeniero, matemático y dramaturgo, y en 1904 ganó el premio Nobel de Literatura: probablemente el único Nobel que ha firmado la creación de un banco central.</p>
+<p>Fue un banco privado, aunque muy ligado al Estado, hasta su nacionalización en 1962. En 1994 una ley le dio <b>autonomía</b>, es decir, independencia del Gobierno en la política monetaria. Desde 1999 forma parte del <b>Eurosistema</b>, junto al BCE y los demás bancos centrales de la zona euro. Ya no decide él solo los tipos de interés: su gobernador vota en el Consejo de Gobierno del BCE, en Fráncfort. Pero sigue haciendo muchas cosas: pone en circulación los billetes en España, supervisa a los bancos, estudia la economía, gestiona las reservas y atiende las reclamaciones de los clientes bancarios.</p>
+<div class="sabias"><b>¿Sabías que...?</b> La sede del Banco de España, en la plaza de Cibeles de Madrid, se construyó entre 1884 y 1891. Bajo ella está la famosa <b>cámara del oro</b>, una cámara acorazada a más de 35 metros de profundidad, protegida por puertas blindadas y, según se cuenta, por un sistema capaz de inundar sus accesos con agua del subsuelo en caso de asalto. Allí se guarda parte de las reservas de oro de España, que rondan las 280 toneladas. La cámara ha inspirado series y películas, como <i>La casa de papel</i>, que la recreó en un plató.</div>
+<div class="fondo"><b>Para entenderlo mejor: ¿por qué bancos centrales independientes?</b>
+Un Gobierno siempre tiene la tentación de gastar más de lo que recauda y pagar la diferencia creando dinero. A corto plazo parece gratis; a medio plazo trae inflación, como con los emperadores romanos que rebajaban la plata. Para evitar esa tentación, desde finales del siglo XX la mayoría de los países dieron a sus bancos centrales independencia: sus dirigentes tienen mandatos largos, no pueden ser destituidos por desacuerdos políticos y tienen prohibido financiar directamente al Estado. La idea es que alguien con la vista puesta en el largo plazo guarde las llaves de la imprenta.</div>
+<div class="idea"><b>Idea clave:</b> los bancos centrales emiten los billetes, fijan el precio del dinero y rescatan a los bancos en apuros. Suben los tipos para frenar la inflación y los bajan para animar la economía. El Banco de España, nacido como Banco de San Carlos en 1782, forma parte desde 1999 del Eurosistema, que dirige el Banco Central Europeo.</div>
+
+<h2 id="c8"><small>Capítulo 8</small>La inflación, explicada con la cesta de la compra</h2>
+<p>Cualquiera que tenga cierta edad lo ha dicho alguna vez: «con lo que antes llenaba el carro, ahora no me llega ni para la mitad». Esa sensación tiene nombre. La <b>inflación</b> es la subida general y sostenida de los precios. General, porque no se trata de que suba el aceite o la luz, sino de que suban casi todas las cosas a la vez. Y sostenida, porque no es un salto de un día, sino un movimiento que dura meses o años. Visto desde el otro lado, la inflación es la pérdida de valor del dinero: cada euro compra un poco menos.</p>
+<h3>Cómo se mide: la cesta del INE</h3>
+<p>En España, la inflación la mide el Instituto Nacional de Estadística (INE) con el <b>Índice de Precios de Consumo</b>, el IPC. La idea es sencilla. Se imagina una gran <b>cesta de la compra</b> con todo lo que gasta una familia media en un año: alimentos, ropa, alquiler, luz, gasolina, transporte, móvil, restaurantes, viajes, medicinas… Cada cosa pesa en la cesta según lo que se gasta en ella; por ejemplo, los alimentos pesan mucho más que los libros. Cada mes, unos encuestadores apuntan precios en tiendas de 177 municipios, y el INE usa además los datos de las cajas registradoras de grandes cadenas. Con todo eso calcula cuánto costaría hoy la misma cesta.</p>
+<p>Si la cesta costaba 100 euros hace un año y hoy cuesta 103, la inflación anual es del 3 %. Cuando se oye en las noticias que «el IPC sube un 3 %», significa eso: la misma compra cuesta un 3 % más que doce meses antes. No significa que los precios bajen cuando la inflación «baja» del 5 % al 2 %: solo que suben más despacio.</p>
+<figure>
+<svg viewBox="0 0 600 320" role="img" aria-label="Lo que costaba en cada año la cesta que en 2002 valía 100 euros: 123 euros en 2010, 136 en 2020, 149 en 2022 y 162 en 2025, en barras a escala" font-family="Georgia, serif">
+<text x="20" y="24" font-size="14" font-weight="bold" fill="currentColor">Una cesta que en 2002 costaba 100 €</text>
+<line x1="40" y1="270" x2="580" y2="270" stroke="currentColor" stroke-width="1.5"/>
+<g stroke="currentColor" stroke-opacity=".18"><line x1="40" y1="150" x2="580" y2="150"/><line x1="40" y1="30" x2="580" y2="30"/></g>
+<g font-size="12" fill="currentColor"><text x="578" y="146" text-anchor="end">100 €</text><text x="578" y="26" text-anchor="end">200 €</text></g>
+<g fill="#b8871b" fill-opacity=".55" stroke="#b8871b">
+<rect x="60" y="150" width="70" height="120"/><rect x="165" y="122.4" width="70" height="147.6"/><rect x="270" y="106.8" width="70" height="163.2"/><rect x="375" y="91.2" width="70" height="178.8"/><rect x="480" y="75.6" width="70" height="194.4"/>
+</g>
+<g font-size="13" fill="currentColor" text-anchor="middle">
+<text x="95" y="142">100 €</text><text x="200" y="114">123 €</text><text x="305" y="99">136 €</text><text x="410" y="83">149 €</text><text x="515" y="68">162 €</text>
+<text x="95" y="288">2002</text><text x="200" y="288">2010</text><text x="305" y="288">2020</text><text x="410" y="288">2022</text><text x="515" y="288">2025</text>
+</g>
+<text x="20" y="312" font-size="12" fill="currentColor">Barras a escala (1,2 px por euro). Cálculo aproximado a partir del IPC general del INE.</text>
+</svg>
+<figcaption>Lo que costaba cada año, más o menos, la misma cesta que en 2002, cuando llegó el euro, valía 100 euros. En 23 años, los precios subieron algo más de un 60 %. Fíjate en el salto entre 2020 y 2022: en solo dos años subió casi tanto como en toda la década anterior.</figcaption>
+</figure>
+<div class="sabias"><b>¿Sabías que...?</b> La cesta del IPC se revisa cada año para seguir lo que de verdad compramos. Con los años han entrado en ella el teléfono móvil, la conexión a internet, las plataformas de series y la comida a domicilio, y han perdido peso cosas que ya casi nadie compra, como los carretes de fotos o las cintas de vídeo.</div>
+<h3>Por qué suben los precios</h3>
+<p>Los economistas distinguen varias causas, que a menudo se mezclan:</p>
+<ul>
+  <li><b>Inflación de demanda.</b> La gente quiere comprar más de lo que las empresas pueden producir. Pasó al salir de la pandemia: con los ahorros acumulados durante los confinamientos, todo el mundo quería viajar, salir y renovar cosas a la vez, y las fábricas no daban abasto.</li>
+  <li><b>Inflación de costes.</b> Se encarece algo que usan casi todas las empresas, como la energía, y lo trasladan a los precios. Es lo que ocurrió en 2022, tras la invasión rusa de Ucrania, con el gas, la electricidad y los carburantes.</li>
+  <li><b>Demasiado dinero.</b> Si la cantidad de dinero crece mucho más deprisa que las cosas que se pueden comprar, los precios acaban subiendo. Es la vieja idea de Azpilcueta y la plata de América que vimos en el capítulo 4.</li>
+  <li><b>Expectativas.</b> Si todo el mundo espera que los precios suban un 5 %, los trabajadores piden subidas de sueldo del 5 % y las empresas suben sus precios un 5 % por si acaso. La inflación se alimenta a sí misma. Por eso los bancos centrales se preocupan tanto de que la gente les crea.</li>
+</ul>
+<div class="fondo"><b>Para entenderlo mejor: la ecuación de los precios</b>
+La teoría cuantitativa del dinero se resume en una igualdad famosa: <b>M × V = P × Q</b>. Parece difícil, pero dice algo casi evidente. A la izquierda está el gasto total: la cantidad de dinero (M) por las veces que cada euro cambia de manos en un año (V, la velocidad). A la derecha está lo que se vende: los precios (P) por la cantidad de cosas vendidas (Q). Las dos partes tienen que ser iguales, porque todo lo que se gasta alguien lo cobra.
+<br><br>
+Ahora imagina una isla que produce 100 cocos al año, con 100 monedas que circulan una vez al año. Cada coco cuesta una moneda. Si de repente aparecen 200 monedas y sigue habiendo 100 cocos, y la gente gasta igual que antes, cada coco acabará costando dos monedas. Si en cambio la isla produce 200 cocos, las 200 monedas no suben los precios. La lección: lo que causa inflación no es crear dinero, sino crearlo mucho más deprisa que las cosas que se producen. En la vida real, V y Q cambian y la relación no es tan exacta, pero a largo plazo, y sobre todo en los casos extremos, se cumple muy bien.</div>
+<h3>Quién gana y quién pierde</h3>
+<p>La inflación no afecta a todos por igual. Pierden los que tienen ahorros en efectivo o en cuentas que no dan intereses: 10.000 euros guardados en un cajón en 2002 compraban en 2025 lo mismo que unos 6.200 euros de 2002. Pierden los que tienen sueldos o alquileres fijos que no se actualizan. Y pierden más las familias con menos ingresos, que gastan casi todo en comida, luz y transporte, justo lo que más subió en 2022.</p>
+<p>En cambio, ganan los que deben dinero a un tipo de interés fijo. Quien firmó una hipoteca fija sigue pagando la misma cuota, pero con euros que valen menos y, normalmente, con un sueldo que ha ido subiendo. Por eso se dice que la inflación es un impuesto silencioso sobre el ahorro y un alivio para los deudores, entre ellos el Estado, que es el mayor deudor de todos.</p>
+<p>Unas cuentas sencillas ayudan a hacerse una idea. Con una inflación del 2 % anual, los precios se duplican en unos 35 años. Con un 3,5 %, en unos 20. Con un 7 %, en unos 10. En España, la media de 2022 fue del 8,4 %. En agosto de 2026, el IPC subía un 4,3 % respecto a un año antes, sobre todo por el transporte y los carburantes, la cifra más alta desde febrero de 2023.</p>
+<div class="idea"><b>Idea clave:</b> la inflación es la subida general de los precios, o lo que es lo mismo, la pérdida de valor del dinero. En España la mide el INE con el IPC, el precio de una gran cesta de la compra. Sus causas son la demanda excesiva, los costes, el exceso de dinero y las expectativas; castiga a los ahorradores y a los ingresos fijos, y alivia a los deudores.</div>
+
+<h2 id="c9"><small>Capítulo 9</small>Cuando el dinero se derrite: las hiperinflaciones</h2>
+<p>Una inflación del 3 % al año molesta. Una del 10 % preocupa. Pero hay episodios en los que los precios suben un 50 % en un solo mes, luego un 100 %, luego un 1.000 %, y el dinero deja de servir para casi nada. Los economistas los llaman <b>hiperinflaciones</b>. Según la definición clásica, propuesta en 1956 por el estadounidense Phillip Cagan, hay hiperinflación cuando los precios suben más de un 50 % al mes. A ese ritmo, lo que hoy cuesta 1 euro costaría unos 130 euros dentro de un año.</p>
+<h3>Alemania, 1923</h3>
+<p>La hiperinflación más famosa es la de la República de Weimar, en Alemania. Su origen está en la Primera Guerra Mundial. Alemania pagó la guerra sobre todo pidiendo prestado y creando dinero, convencida de que la ganaría y haría pagar a los vencidos. La perdió. En 1914, un dólar costaba 4,2 marcos. Al terminar la guerra, el marco ya valía mucho menos, y el tratado de paz obligó además a Alemania a pagar enormes <b>reparaciones</b> a los vencedores, en oro o en monedas extranjeras.</p>
+<p>El Gobierno alemán, débil y agobiado por las deudas, siguió imprimiendo marcos para pagar sus gastos. En enero de 1923, como Alemania se había retrasado en los pagos, tropas francesas y belgas ocuparon el Ruhr, la gran región minera e industrial del país. El Gobierno pidió a los trabajadores una huelga de brazos caídos y siguió pagándoles sus sueldos… con más billetes recién impresos. Fue el golpe final.</p>
+<figure>
+<svg viewBox="0 0 600 330" role="img" aria-label="Precio de un kilo de pan en Berlín entre 1918 y 1923 en escala logarítmica: de medio marco a 201.000 millones de marcos" font-family="Georgia, serif">
+<text x="20" y="22" font-size="14" font-weight="bold" fill="currentColor">Un kilo de pan en Berlín, en marcos (escala logarítmica)</text>
+<line x1="104" y1="252.0" x2="580" y2="252.0" stroke="currentColor" stroke-opacity=".2"/><text x="98" y="256.0" font-size="12" text-anchor="end" fill="currentColor">1</text>
+<line x1="104" y1="198.0" x2="580" y2="198.0" stroke="currentColor" stroke-opacity=".2"/><text x="98" y="202.0" font-size="12" text-anchor="end" fill="currentColor">1.000</text>
+<line x1="104" y1="144.0" x2="580" y2="144.0" stroke="currentColor" stroke-opacity=".2"/><text x="98" y="148.0" font-size="12" text-anchor="end" fill="currentColor">1 millón</text>
+<line x1="104" y1="90.0" x2="580" y2="90.0" stroke="currentColor" stroke-opacity=".2"/><text x="98" y="94.0" font-size="12" text-anchor="end" fill="currentColor">mil millones</text>
+<line x1="104" y1="36.0" x2="580" y2="36.0" stroke="currentColor" stroke-opacity=".2"/><text x="98" y="40.0" font-size="12" text-anchor="end" fill="currentColor">1 billón</text>
+<line x1="104" y1="270.0" x2="580" y2="270.0" stroke="currentColor" stroke-width="1.2"/>
+<line x1="116.8" y1="270.0" x2="116.8" y2="276.0" stroke="currentColor"/><text x="118.8" y="290.0" font-size="12" fill="currentColor">1919</text>
+<line x1="198.1" y1="270.0" x2="198.1" y2="276.0" stroke="currentColor"/><text x="200.1" y="290.0" font-size="12" fill="currentColor">1920</text>
+<line x1="279.5" y1="270.0" x2="279.5" y2="276.0" stroke="currentColor"/><text x="281.5" y="290.0" font-size="12" fill="currentColor">1921</text>
+<line x1="360.8" y1="270.0" x2="360.8" y2="276.0" stroke="currentColor"/><text x="362.8" y="290.0" font-size="12" fill="currentColor">1922</text>
+<line x1="442.2" y1="270.0" x2="442.2" y2="276.0" stroke="currentColor"/><text x="444.2" y="290.0" font-size="12" fill="currentColor">1923</text>
+<polyline points="110.0,257.4 354.1,241.2 435.4,212.2 442.2,208.8 455.8,204.0 476.1,195.0 482.9,188.3 489.7,164.9 496.4,140.8 503.2,85.7 510.0,48.5" fill="none" stroke="#b3261e" stroke-width="2.5"/>
+<circle cx="110.0" cy="257.4" r="3.5" fill="#b3261e"/>
+<circle cx="354.1" cy="241.2" r="3.5" fill="#b3261e"/>
+<circle cx="435.4" cy="212.2" r="3.5" fill="#b3261e"/>
+<circle cx="442.2" cy="208.8" r="3.5" fill="#b3261e"/>
+<circle cx="455.8" cy="204.0" r="3.5" fill="#b3261e"/>
+<circle cx="476.1" cy="195.0" r="3.5" fill="#b3261e"/>
+<circle cx="482.9" cy="188.3" r="3.5" fill="#b3261e"/>
+<circle cx="489.7" cy="164.9" r="3.5" fill="#b3261e"/>
+<circle cx="496.4" cy="140.8" r="3.5" fill="#b3261e"/>
+<circle cx="503.2" cy="85.7" r="3.5" fill="#b3261e"/>
+<circle cx="510.0" cy="48.5" r="3.5" fill="#b3261e"/>
+<text x="116.0" y="249.4" font-size="12" text-anchor="start" fill="currentColor">0,5 marcos (dic. 1918)</text>
+<text x="354.1" y="231.2" font-size="12" text-anchor="middle" fill="currentColor">4 (dic. 1921)</text>
+<text x="429.4" y="206.2" font-size="12" text-anchor="end" fill="currentColor">163 (dic. 1922)</text>
+<text x="490.9" y="198.3" font-size="12" text-anchor="start" fill="currentColor">3.465 (jul.)</text>
+<text x="488.4" y="140.8" font-size="12" text-anchor="end" fill="currentColor">1,5 millones (sep.)</text>
+<text x="495.2" y="89.7" font-size="12" text-anchor="end" fill="currentColor">1.743 millones (oct.)</text>
+<text x="502.0" y="46.5" font-size="12" text-anchor="end" fill="currentColor">201.000 millones (nov.)</text>
+<text x="20" y="320" font-size="12" fill="currentColor">Cada línea horizontal multiplica el precio por mil.</text>
+</svg>
+<figcaption>El precio de un kilo de pan en Berlín, según una tabla muy citada. La escala vertical es logarítmica: cada línea horizontal es mil veces la anterior. Con una escala normal, toda la historia hasta el verano de 1923 sería una raya pegada al suelo.</figcaption>
+</figure>
+<p>Las cifras de aquel año parecen de broma. A mediados de 1922, un dólar costaba unos 320 marcos; en diciembre, 7.400; en noviembre de 1923, 4,2 billones, es decir, 4.200.000.000.000. Más de cien imprentas trabajaban día y noche para el banco central, y aun así no daban abasto: llegó a haber billetes de cien billones de marcos, impresos solo por una cara para ahorrar tiempo. Los sueldos se pagaban dos veces al día, y los trabajadores salían corriendo a gastarlos antes de que los precios volvieran a subir. Se cuentan historias de gente que empapelaba las paredes con billetes porque salía más barato que el papel pintado, de niños que hacían cometas con ellos y de cafés donde el precio subía entre el primer y el segundo cafetito.</p>
+<p>Quienes más perdieron fueron las clases medias: los ahorros de toda una vida, los seguros y las pensiones se convirtieron en nada. Ganaron, en cambio, los que debían dinero y los que tenían bienes reales, como tierras, fábricas o divisas extranjeras. El trauma fue tan profundo que muchos historiadores lo consideran una de las causas del ascenso del nazismo pocos años después, y todavía hoy explica la obsesión alemana por la estabilidad de los precios.</p>
+<div class="fondo"><b>Para entenderlo mejor: la espiral que se alimenta sola</b>
+Una hiperinflación se vuelve imparable por un círculo vicioso:
+<ol>
+  <li>El Estado gasta más de lo que recauda y paga la diferencia imprimiendo dinero.</li>
+  <li>Los precios suben. Los impuestos que se cobran hoy valen menos cuando llegan a las arcas públicas, dentro de unas semanas, así que el agujero del Estado crece.</li>
+  <li>La gente se da cuenta y se deshace del dinero lo antes posible, comprando cualquier cosa que no pierda valor. El dinero circula cada vez más deprisa, y los precios suben aún más.</li>
+  <li>El Estado imprime todavía más para cubrir el agujero mayor. Vuelta al paso 2.</li>
+</ol>
+Romper el círculo exige a la vez tres cosas: dejar de imprimir, cuadrar las cuentas públicas y recuperar la confianza, casi siempre con una moneda nueva.</div>
+<p>Así acabó la de Alemania. El 16 de noviembre de 1923 se creó una moneda nueva, el <b>rentenmark</b>, que cambiaba un billón de marcos viejos por uno nuevo: se quitaron doce ceros de golpe. Se limitó estrictamente su cantidad y, como por arte de magia, los precios se detuvieron. En 1924, un dólar volvía a costar 4,2 marcos nuevos, como en 1914.</p>
+<h3>Récords más recientes</h3>
+<p>Alemania no tiene el récord. El peor caso registrado es el de <b>Hungría</b>, tras la Segunda Guerra Mundial. En julio de 1946, los precios se multiplicaron en un solo mes por unos 400 billones (un 4 seguido de 14 ceros): se duplicaban, de media, cada quince horas. El billete de mayor valor jamás impreso es húngaro: cien trillones de pengő, un 1 seguido de 20 ceros, aunque nunca llegó a circular.</p>
+<p>En <b>Zimbabue</b>, en África, la hiperinflación llegó en la primera década de este siglo, tras años de crisis económica y política y de impresión masiva de dinero. En noviembre de 2008, según los cálculos del economista Steve Hanke, la inflación mensual rondaba el 79.600 millones por ciento. En enero de 2009 se emitió un billete de cien billones de dólares zimbabuenses, que hoy se vende a los turistas como recuerdo. El país quitó ceros a su moneda tres veces, 3 en 2006, 10 en 2008 y 12 en 2009, y en abril de 2009 dejó de usar su propia moneda y pasó a usar dólares estadounidenses y rands sudafricanos.</p>
+<p>En <b>Venezuela</b>, la caída del precio del petróleo, del que depende casi todo el país, junto con años de déficit pagados con dinero nuevo, desató una hiperinflación a partir de 2017. En tres reconversiones, en 2008, 2018 y 2021, se quitaron en total catorce ceros a la moneda: un bolívar de hoy equivale a cien billones de bolívares de 2007. Millones de venezolanos emigraron, muchos de ellos a España, y en el país se generalizó el uso del dólar en la vida diaria.</p>
+<div class="sabias"><b>¿Sabías que...?</b> Durante las hiperinflaciones, la gente suele volver a formas de dinero que vimos en los primeros capítulos: se paga con cigarrillos, con monedas extranjeras, con comida o con trueque directo. En la Alemania de 1923, algunas ciudades y empresas llegaron a imprimir su propio dinero de emergencia, el <i>Notgeld</i>, en papel, en cuero, en seda y hasta en porcelana. Hoy es un objeto de colección.</div>
+<div class="idea"><b>Idea clave:</b> una hiperinflación ocurre cuando un Estado paga sus gastos imprimiendo dinero sin freno y la gente pierde la confianza en él: los precios suben más de un 50 % al mes y el dinero deja de cumplir sus tres trabajos. Alemania en 1923, Hungría en 1946, Zimbabue en 2008 y Venezuela desde 2017 muestran que solo se detiene con disciplina y con una moneda nueva que inspire confianza.</div>
+
+<h2 id="c10"><small>Capítulo 10</small>El patrón oro y su final</h2>
+<p>Durante buena parte de los siglos XIX y XX, los billetes de muchos países eran, en teoría, una promesa: el banco central se comprometía a cambiarlos por una cantidad fija de oro a quien lo pidiera. Ese sistema se llamó <b>patrón oro</b>. Hoy ningún país lo usa, pero sigue teniendo defensores apasionados, y entender por qué se abandonó ayuda a entender el dinero actual.</p>
+<h3>Cómo funcionaba</h3>
+<p>El Reino Unido adoptó el patrón oro de forma plena en 1821, tras las guerras napoleónicas. Hacia 1870, Alemania, recién unificada, cambió la plata por el oro, y en pocos años la siguieron casi todas las grandes economías, incluido Estados Unidos. En el apogeo del sistema, entre 1880 y 1914, una libra esterlina equivalía a unos 7,3 gramos de oro y un dólar a unos 1,5 gramos. Como las dos monedas estaban atadas al oro, estaban atadas entre sí: una libra valía siempre unos 4,87 dólares. El comercio y las inversiones entre países eran muy previsibles.</p>
+<p>La gran virtud del patrón oro era la <b>disciplina</b>. Un banco central no podía imprimir billetes a su antojo, porque si emitía demasiados, la gente iría a cambiarlos por oro y le vaciaría las cámaras. Su gran defecto era la misma disciplina. La cantidad de dinero dependía de algo tan caprichoso como el descubrimiento de minas de oro, y en una crisis el banco central tenía las manos atadas: no podía bajar los tipos ni prestar con generosidad sin poner en peligro sus reservas.</p>
+<div class="sabias"><b>¿Sabías que...?</b> España nunca llegó a adoptar del todo el patrón oro. La peseta nació en 1868 con un sistema de dos metales, oro y plata, pero cuando la plata se abarató en el mundo, las monedas de oro desaparecieron de la circulación por la ley de Gresham que vimos en el capítulo 3, y en 1883 el Banco de España dejó, en la práctica, de cambiar sus billetes por oro, aunque la ley no lo reconociera. La peseta fue, en la práctica, un dinero de papel y de plata. Algunos historiadores creen que esa libertad la ayudó a sortear mejor la crisis de los años treinta.</div>
+<h3>La Gran Depresión</h3>
+<p>La Primera Guerra Mundial rompió el sistema: los países en guerra necesitaban imprimir dinero y suspendieron la conversión en oro. En los años veinte muchos intentaron volver, a menudo con tipos de cambio demasiado altos. Cuando llegó el hundimiento de 1929, el patrón oro se convirtió en una trampa. Para defender sus reservas, los bancos centrales subían los tipos de interés justo cuando la economía necesitaba lo contrario. Los precios caían, las deudas pesaban más, los bancos quebraban.</p>
+<p>El Reino Unido abandonó el patrón oro el 21 de septiembre de 1931, y los estudios del historiador económico Barry Eichengreen, entre otros, han mostrado un patrón muy claro: los países que se soltaron antes del oro se recuperaron antes de la Depresión. Estados Unidos lo modificó en 1933 y Francia aguantó hasta 1936.</p>
+<h3>Bretton Woods: el oro a través del dólar</h3>
+<p>En julio de 1944, cuando la Segunda Guerra Mundial aún no había terminado, representantes de 44 países aliados se reunieron en un hotel de Bretton Woods, en las montañas de New Hampshire, en Estados Unidos, para diseñar el orden económico de la posguerra. Allí nacieron el Fondo Monetario Internacional y el Banco Mundial, y un sistema monetario nuevo que se conoce por el nombre del lugar.</p>
+<figure>
+<svg viewBox="0 0 600 310" role="img" aria-label="Esquema del sistema de Bretton Woods: la libra, el franco, el marco, la lira y la peseta tenían un cambio fijo con el dólar, y el dólar se podía cambiar por oro a 35 dólares la onza hasta el 15 de agosto de 1971" font-family="Georgia, serif">
+<g font-size="13" fill="currentColor" text-anchor="middle">
+<rect x="20" y="30" width="130" height="34" rx="6" fill="#3a6fc4" fill-opacity=".15" stroke="#3a6fc4"/><text x="85" y="52">libra esterlina</text>
+<rect x="20" y="74" width="130" height="34" rx="6" fill="#3a6fc4" fill-opacity=".15" stroke="#3a6fc4"/><text x="85" y="96">franco francés</text>
+<rect x="20" y="118" width="130" height="34" rx="6" fill="#3a6fc4" fill-opacity=".15" stroke="#3a6fc4"/><text x="85" y="140">marco alemán</text>
+<rect x="20" y="162" width="130" height="34" rx="6" fill="#3a6fc4" fill-opacity=".15" stroke="#3a6fc4"/><text x="85" y="184">lira italiana</text>
+<rect x="20" y="206" width="130" height="34" rx="6" fill="#3a6fc4" fill-opacity=".15" stroke="#3a6fc4"/><text x="85" y="228">peseta (1959: 60)</text>
+<rect x="240" y="108" width="120" height="54" rx="8" fill="#2f7d5b" fill-opacity=".2" stroke="#2f7d5b" stroke-width="2"/><text x="300" y="132" font-weight="bold" font-size="15">dólar</text><text x="300" y="150" font-size="12">Estados Unidos</text>
+<path d="M440,112 h110 l-14,-26 h-82 z" fill="#b8871b" fill-opacity=".6" stroke="#b8871b" stroke-width="2"/>
+<path d="M455,152 h110 l-14,-26 h-82 z" fill="#b8871b" fill-opacity=".45" stroke="#b8871b" stroke-width="2"/>
+<text x="500" y="182" font-weight="bold" font-size="15">oro</text>
+<text x="300" y="24" font-size="12">cambio fijo con el dólar</text>
+</g>
+<g stroke="currentColor" stroke-width="1.5" fill="none"><path d="M150,47 L240,124"/><path d="M150,91 L240,130"/><path d="M150,135 L240,135"/><path d="M150,179 L240,140"/><path d="M150,223 L240,146"/></g>
+<path d="M360,135 H430" stroke="#b8871b" stroke-width="3"/><path d="M438,135 l-10,-6 v12 z" fill="#b8871b"/>
+<text x="398" y="118" font-size="12" text-anchor="middle" fill="currentColor">35 $ =</text>
+<text x="398" y="160" font-size="12" text-anchor="middle" fill="currentColor">1 onza</text>
+<text x="398" y="175" font-size="12" text-anchor="middle" fill="currentColor">(31,1 g)</text>
+<g stroke="#b3261e" stroke-width="4"><line x1="384" y1="124" x2="412" y2="148"/><line x1="412" y1="124" x2="384" y2="148"/></g>
+<rect x="190" y="252" width="400" height="48" rx="6" fill="#b3261e" fill-opacity=".08" stroke="#b3261e"/>
+<text x="390" y="272" font-size="13" text-anchor="middle" fill="currentColor">15 de agosto de 1971: Nixon cierra la ventanilla</text>
+<text x="390" y="290" font-size="13" text-anchor="middle" fill="currentColor">del oro y se rompe el último eslabón (aspa roja)</text>
+<text x="20" y="270" font-size="12" fill="currentColor">Solo los bancos</text>
+<text x="20" y="286" font-size="12" fill="currentColor">centrales podían</text>
+<text x="20" y="302" font-size="12" fill="currentColor">pedir oro</text>
+</svg>
+<figcaption>La cadena de Bretton Woods. Cada moneda tenía un cambio fijo, aunque ajustable, con el dólar, y el dólar era la única atada al oro: los bancos centrales extranjeros podían cambiar sus dólares por oro a 35 dólares la onza. Cuando se rompió ese último eslabón, todo el sistema quedó flotando.</figcaption>
+</figure>
+<p>En el sistema de Bretton Woods, cada moneda tenía un cambio fijo con el dólar, y solo el dólar estaba ligado al oro: Estados Unidos se comprometía a cambiar a los bancos centrales extranjeros cada 35 dólares por una onza de oro, algo más de 31 gramos. Era razonable, porque Estados Unidos había salido de la guerra con la economía más fuerte del mundo y con la mayor parte del oro de los bancos centrales en sus cámaras. España entró en el sistema a finales de los años cincuenta: el Plan de Estabilización de 1959 fijó el cambio en 60 pesetas por dólar.</p>
+<h3>El 15 de agosto de 1971</h3>
+<p>El sistema tenía una grieta de fábrica. Para que el mundo tuviera dólares con los que comerciar, Estados Unidos tenía que gastar fuera más de lo que ingresaba. Pero cuantos más dólares había repartidos por el mundo, menos creíble era que hubiera oro para todos. En los años sesenta, con el gasto de la guerra de Vietnam y de los programas sociales, los dólares en manos extranjeras superaron con mucho al oro estadounidense. Varios países, con Francia a la cabeza, empezaron a cambiar sus dólares por oro.</p>
+<p>El domingo 15 de agosto de 1971, tras un fin de semana de reuniones secretas en la residencia de Camp David, el presidente Richard Nixon anunció por televisión que Estados Unidos dejaba de cambiar dólares por oro. Lo presentó como una medida «temporal», junto con una congelación de sueldos y precios durante 90 días y un recargo del 10 % a las importaciones. Nunca se revirtió. Tras un intento de arreglo, en 1973 las grandes monedas pasaron a <b>flotar</b>: su precio lo fija, desde entonces, la oferta y la demanda en los mercados de divisas.</p>
+<div class="fondo"><b>Para entenderlo mejor: el dinero fiduciario</b>
+Desde 1971, ninguna gran moneda está respaldada por oro ni por nada físico. Es <b>dinero fiduciario</b>, de <i>fiducia</i>, «confianza» en latín: vale porque confiamos en que otros lo aceptarán y en que el banco central lo gestionará con prudencia, tal como vimos en el capítulo 1. Los críticos dicen que eso facilita la inflación, y es cierto que los precios han subido más desde 1971 que en los tiempos del oro. Los defensores responden que la flexibilidad permite combatir las crisis, y que la gran mayoría de los economistas prefiere un banco central independiente con un objetivo de inflación a una moneda atada a lo que salga de las minas.</div>
+<div class="sabias"><b>¿Sabías que...?</b> Según el Consejo Mundial del Oro, en toda la historia se han extraído unas 222.600 toneladas de oro, contando hasta mediados de 2026. Todo junto cabría en un cubo de unos 22,6 metros de lado, más o menos la altura de un edificio de siete pisos. En enero de 2026 la onza superó por primera vez los 5.500 dólares. España guarda hoy unas 280 toneladas; en 1936, al comienzo de la Guerra Civil, el Gobierno de la República envió a Moscú la mayor parte de las reservas del Banco de España, unas 510 toneladas, en el episodio conocido como el «oro de Moscú».</div>
+<div class="idea"><b>Idea clave:</b> con el patrón oro, los billetes eran promesas de oro: daba disciplina y cambios fijos, pero ataba las manos en las crisis y agravó la Gran Depresión. Tras 1944, el oro quedó ligado solo al dólar, y el 15 de agosto de 1971 Nixon cortó ese último lazo. Desde entonces todo el dinero es fiduciario: vale por la confianza.</div>
+
+<h2 id="c11"><small>Capítulo 11</small>De la peseta al euro</h2>
+<p>Durante 133 años, los españoles contaron en pesetas. Pagaron con duros, con perras gordas y con «billetes verdes» de mil, hablaron de «estar sin un duro» y de «no valer un real». Luego, en enero de 2002, en unas pocas semanas, cambiaron de dinero sin cambiar de país. Es una historia que casi todos los adultos de hoy vivieron en primera persona.</p>
+<h3>La peseta, 1868-2002</h3>
+<p>La peseta nació con un decreto del 19 de octubre de 1868, pocas semanas después de la revolución que derrocó a Isabel II. Su impulsor fue el ministro de Hacienda Laureano Figuerola, que quería una moneda moderna, decimal, dividida en cien céntimos y compatible con el franco francés, como las de la Unión Monetaria Latina. Una peseta equivalía a cuatro de los antiguos reales. El nombre ya se usaba en la calle: viene del catalán <i>peceta</i>, «piececita», un apodo popular de una moneda pequeña de plata.</p>
+<p>En 1870 salieron las monedas de cobre de 10 y 5 céntimos. Llevaban un león tan mal dibujado que la gente decía que parecía un perro, y las bautizó como <b>perra gorda</b> y <b>perra chica</b>. Los nombres sobrevivieron a las monedas durante un siglo. A la de cinco pesetas se la llamó <b>duro</b>, heredando el nombre del peso duro, el real de a ocho del capítulo 4.</p>
+<p>La peseta acompañó a España en todo: la crisis de 1898, la guerra civil, en la que cada bando tuvo sus propios billetes, la posguerra, el Plan de Estabilización de 1959 y el crecimiento de los años sesenta. Tuvo varias devaluaciones, es decir, rebajas oficiales de su valor frente a otras monedas. En 1989 entró en el Sistema Monetario Europeo, el antecedente del euro.</p>
+<div class="sabias"><b>¿Sabías que...?</b> El Banco de España cambió pesetas por euros hasta el 30 de junio de 2021. Cuando cerró el plazo, quedaban sin canjear unos 1.577 millones de euros en pesetas: unos 794 millones en billetes y 783 en monedas. Probablemente muchas siguen en huchas, cajones y colecciones, o se perdieron para siempre. Desde entonces, las pesetas ya no se pueden cambiar.</div>
+<h3>El euro llega a los bolsillos</h3>
+<p>El euro nació el 1 de enero de 1999 en once países, entre ellos España, pero solo como moneda «de cuenta»: se usaba en las transferencias, en los mercados y en los precios que aparecían en letra pequeña en los tiques. Ese día quedó fijado para siempre el cambio: <b>1 euro = 166,386 pesetas</b>. Los billetes y monedas llegaron el 1 de enero de 2002 a doce países. En España, pesetas y euros convivieron dos meses, y el 28 de febrero de 2002 la peseta dejó de ser de curso legal.</p>
+<figure>
+<svg viewBox="0 0 600 260" role="img" aria-label="Regla doble a escala entre euros y pesetas, con 166,386 pesetas por euro: 1 euro son 166 pesetas, 1000 pesetas son 6,01 euros y 2000 pesetas son 12,02 euros" font-family="Georgia, serif">
+<text x="20" y="24" font-size="14" font-weight="bold" fill="currentColor">1 euro = 166,386 pesetas, a escala</text>
+<line x1="40" y1="100" x2="560" y2="100" stroke="#3a6fc4" stroke-width="3"/>
+<line x1="40" y1="150" x2="560" y2="150" stroke="#b8871b" stroke-width="3"/>
+<g stroke="#3a6fc4" stroke-width="1.5">
+<line x1="40" y1="100" x2="40" y2="88"/><line x1="81.6" y1="100" x2="81.6" y2="92"/><line x1="123.2" y1="100" x2="123.2" y2="92"/><line x1="164.8" y1="100" x2="164.8" y2="92"/><line x1="206.4" y1="100" x2="206.4" y2="92"/><line x1="248" y1="100" x2="248" y2="88"/><line x1="289.6" y1="100" x2="289.6" y2="92"/><line x1="331.2" y1="100" x2="331.2" y2="92"/><line x1="372.8" y1="100" x2="372.8" y2="92"/><line x1="414.4" y1="100" x2="414.4" y2="92"/><line x1="456" y1="100" x2="456" y2="88"/><line x1="497.6" y1="100" x2="497.6" y2="92"/><line x1="539.2" y1="100" x2="539.2" y2="92"/>
+</g>
+<g font-size="12" fill="currentColor" text-anchor="middle"><text x="40" y="82">0 €</text><text x="81.6" y="84">1</text><text x="248" y="82">5 €</text><text x="456" y="82">10 €</text><text x="539.2" y="84">12</text></g>
+<g stroke="#b8871b" stroke-width="1.5">
+<line x1="40" y1="150" x2="40" y2="162"/><line x1="165" y1="150" x2="165" y2="158"/><line x1="290" y1="150" x2="290" y2="162"/><line x1="415" y1="150" x2="415" y2="158"/><line x1="540" y1="150" x2="540" y2="162"/>
+</g>
+<g font-size="12" fill="currentColor" text-anchor="middle"><text x="40" y="176">0 pts</text><text x="165" y="176">500</text><text x="290" y="176">1.000 pts</text><text x="415" y="176">1.500</text><text x="540" y="176">2.000 pts</text></g>
+<g stroke="currentColor" stroke-dasharray="3 3"><line x1="81.6" y1="104" x2="81.6" y2="146"/><line x1="290" y1="104" x2="290" y2="146"/><line x1="540" y1="104" x2="540" y2="146"/></g>
+<g font-size="12" fill="currentColor">
+<text x="86" y="130">1 € = 166 pts</text>
+<text x="294" y="122">6,01 € = 1.000 pts</text>
+<text x="536" y="130" text-anchor="end">12,02 € = 2.000 pts</text>
+</g>
+<g font-size="12" fill="currentColor">
+<rect x="40" y="198" width="14" height="10" fill="#3a6fc4"/><text x="60" y="207">euros (1 € = 41,6 px)</text>
+<rect x="250" y="198" width="14" height="10" fill="#b8871b"/><text x="270" y="207">pesetas (1.000 pts = 250 px)</text>
+<text x="40" y="236">Un truco de la época: dividir las pesetas entre 1.000 y multiplicar por 6.</text>
+<text x="40" y="252">Un duro (5 pts) eran 3 céntimos; una perra gorda, 0,06 céntimos.</text>
+</g>
+</svg>
+<figcaption>La regla del cambio. Arriba, euros; abajo, pesetas, las dos a la misma escala. El billete de mil pesetas, el más usado durante décadas, quedó en poco más de 6 euros.</figcaption>
+</figure>
+<p>El cambio fue una proeza logística. Para el estreno, España se preparó con unos 1.900 millones de billetes y 7.800 millones de monedas, que hubo que repartir con escolta por bancos, cajeros y comercios. A muchos les costó acostumbrarse: durante años se siguió pensando en pesetas, y cada precio se traducía de cabeza. También quedó una sensación muy extendida de que el euro trajo una subida de precios. Las estadísticas dicen que el efecto sobre el IPC general fue pequeño, unas décimas, pero sí hubo redondeos al alza visibles en cosas que se compran a menudo, como el café o el menú del día, y eso marcó la percepción de la gente.</p>
+<p>Hoy el euro es la moneda de 21 países, tras la entrada de Bulgaria el 1 de enero de 2026, y de unos 350 millones de personas. Las monedas tienen una cara común y otra nacional. Las españolas llevan la catedral de Santiago de Compostela en las de 1, 2 y 5 céntimos, a Miguel de Cervantes en las de 10, 20 y 50, y la efigie del rey en las de 1 y 2 euros.</p>
+<h3>Cómo se protege un billete</h3>
+<p>Un billete es un objeto de alta tecnología. Los billetes de euro no son de papel de madera, sino de <b>algodón</b>, lo que les da su tacto crujiente y los hace más resistentes. La serie actual, llamada <b>Europa</b> porque lleva el retrato de la princesa Europa de la mitología griega, se fue estrenando entre 2013 y 2019. El Banco Central Europeo resume su comprobación en tres verbos: <b>toca, mira y gira</b>.</p>
+<figure>
+<svg viewBox="0 0 600 330" role="img" aria-label="Esquema de un billete de euro de la serie Europa con sus medidas de seguridad: relieve, marca de agua con retrato, hilo de seguridad, banda holográfica con ventana y retrato, número verde esmeralda y microtexto" font-family="Georgia, serif">
+<rect x="110" y="70" width="380" height="200" rx="10" fill="#3a6fc4" fill-opacity=".14" stroke="#3a6fc4" stroke-width="2"/>
+<rect x="398" y="70" width="36" height="200" fill="#9aa3ad" fill-opacity=".5" stroke="currentColor" stroke-width="1"/>
+<rect x="403" y="86" width="26" height="36" rx="3" fill="var(--papel,#fbf8f1)" stroke="currentColor" stroke-width="1"/>
+<ellipse cx="416" cy="104" rx="7" ry="10" fill="none" stroke="currentColor"/>
+<line x1="322" y1="70" x2="322" y2="270" stroke="currentColor" stroke-width="2.5" stroke-opacity=".55"/>
+<ellipse cx="362" cy="170" rx="20" ry="28" fill="currentColor" fill-opacity=".08" stroke="currentColor" stroke-dasharray="3 3"/>
+<path d="M150,120 h90 v70 h-90 z M165,120 q30,-40 60,0" fill="none" stroke="currentColor" stroke-opacity=".6" stroke-width="1.5"/>
+<text x="140" y="250" font-size="30" font-weight="bold" fill="#2f7d5b">20</text>
+<g stroke="currentColor" stroke-width="1.5"><line x1="112" y1="100" x2="122" y2="100"/><line x1="112" y1="108" x2="122" y2="108"/><line x1="112" y1="116" x2="122" y2="116"/><line x1="478" y1="100" x2="488" y2="100"/><line x1="478" y1="108" x2="488" y2="108"/><line x1="478" y1="116" x2="488" y2="116"/></g>
+<line x1="200" y1="258" x2="300" y2="258" stroke="currentColor" stroke-width="1" stroke-dasharray="1 2"/>
+<g font-size="13" fill="currentColor">
+<path d="M117,108 L60,52" stroke="currentColor" fill="none"/><text x="20" y="44">Relieve en los bordes (toca)</text>
+<path d="M170,240 L120,300" stroke="currentColor" fill="none"/><text x="20" y="316">Número verde esmeralda (gira)</text>
+<path d="M250,258 L290,300" stroke="currentColor" fill="none"/><text x="250" y="316">Microtexto (lupa)</text>
+<path d="M322,90 L300,40" stroke="currentColor" fill="none"/><text x="170" y="30">Hilo de seguridad (a contraluz)</text>
+<path d="M424,90 L450,52" stroke="currentColor" fill="none"/><text x="420" y="30">Banda holográfica</text><text x="420" y="46">con ventana y retrato</text>
+<path d="M380,190 L500,196" stroke="currentColor" fill="none"/><text x="500" y="208">Marca de</text><text x="500" y="224">agua con</text><text x="500" y="240">retrato</text>
+</g>
+</svg>
+<figcaption>Esquema simplificado de un billete de la serie Europa. Al tocarlo se notan las líneas en relieve de los bordes. Al mirarlo a contraluz aparecen la marca de agua y el hilo oscuro. Al girarlo, el número verde esmeralda cambia de color y la ventana de la banda holográfica muestra el retrato de Europa.</figcaption>
+</figure>
+<p>Las falsificaciones existen, pero son raras. En 2025 se retiraron de la circulación unos 444.000 billetes de euro falsos, unos 14 por cada millón de billetes auténticos. Los más falsificados fueron los de 20 y 50 euros, que juntos sumaron alrededor del 80 %. Si recibes un billete sospechoso, no hay que devolverlo a la circulación: se entrega en un banco o en la policía, y si resulta auténtico, se recupera su valor.</p>
+<h3>La Fábrica Nacional de Moneda y Timbre</h3>
+<p>En España, las monedas y parte de los billetes se fabrican en Madrid. La <b>Fábrica Nacional de Moneda y Timbre</b> (FNMT) nació en 1893 de la unión de la Casa de la Moneda y la Fábrica del Sello, y desde 1961 ocupa un gran edificio en la calle Jorge Juan. Además de monedas, fabrica sellos de correos, el papel de los DNI y pasaportes, y los certificados digitales con los que millones de personas hacen trámites por internet. Los billetes de euro los imprime, desde 2015, una empresa del Banco de España con participación de la FNMT, que produce una parte de los billetes de toda la zona euro. Los billetes impresos en España se reconocen porque su número de serie empieza por la letra V.</p>
+<div class="fondo"><b>Para entenderlo mejor: el Real Ingenio de Segovia</b>
+La tradición de fabricar moneda en España es muy antigua, y tiene una joya: el <b>Real Ingenio de la Moneda de Segovia</b>, construido por orden de Felipe II entre 1583 y 1588 junto al río Eresma, con diseño atribuido a Juan de Herrera, el arquitecto de El Escorial. Fue una de las primeras fábricas industriales de Europa: en lugar de golpear cada moneda a mano con un martillo, usaba máquinas de rodillos traídas del Tirol, movidas por ruedas hidráulicas, que laminaban la plata y estampaban las monedas en tiras. Acuñó moneda hasta 1869 y hoy es un museo que se puede visitar.</div>
+<div class="idea"><b>Idea clave:</b> la peseta vivió de 1868 a 2002, y el euro la sustituyó al cambio fijo de 166,386 pesetas. Hoy es la moneda de 21 países. Sus billetes de algodón se protegen con relieve, marca de agua, hilo, holograma y número que cambia de color: toca, mira y gira.</div>
+
+<h2 id="c12"><small>Capítulo 12</small>Tarjetas, Bizum y criptomonedas</h2>
+<p>Hace cincuenta años, casi todo se pagaba en efectivo y los sueldos se cobraban en un sobre. Hoy se paga acercando el móvil a un datáfono, y un amigo nos devuelve lo de la cena en cinco segundos con Bizum. El dinero ha perdido casi toda su forma física, pero, como veremos, la idea de fondo sigue siendo la de las tablillas de Mesopotamia: apuntes en un registro en el que todos confían.</p>
+<h3>El plástico</h3>
+<p>La primera tarjeta de pago de uso general fue la de <b>Diners Club</b>, lanzada en Nueva York el 8 de febrero de 1950. Según una historia muy repetida, a su fundador, Frank McNamara, se le ocurrió la idea cuando se olvidó la cartera en un restaurante; años después, uno de los primeros directivos de la empresa aseguró que la anécdota era un invento publicitario. Al principio era una tarjeta de cartón que servía en unos pocos restaurantes, y a finales de 1950 tenía unos 20.000 socios. En 1958 el Bank of America lanzó la BankAmericard, que con el tiempo se convertiría en Visa.</p>
+<p>Conviene distinguir dos tipos de tarjeta. Con la <b>tarjeta de débito</b>, el dinero sale directamente de nuestra cuenta: no se puede gastar lo que no se tiene. Con la <b>tarjeta de crédito</b>, el banco nos adelanta el dinero y se lo devolvemos después, a fin de mes o a plazos. El pago a fin de mes suele ser gratis; los plazos, sobre todo en la modalidad llamada <b>revolving</b>, pueden salir carísimos, como veremos en el último capítulo.</p>
+<p>¿Qué pasa en el segundo y medio que dura un pago con tarjeta? El datáfono envía los datos cifrados al banco de la tienda, este los reenvía por la red de la marca de la tarjeta al banco del cliente, que comprueba el saldo, el límite y posibles señales de fraude, y devuelve un «sí» o un «no». El dinero no se mueve en ese momento: solo se apunta. Los bancos liquidan entre ellos, más tarde, la suma de miles de pagos.</p>
+<h3>Bizum, un invento español</h3>
+<p><b>Bizum</b> nació en 2016 de la unión de la mayoría de los bancos españoles, que querían ofrecer pagos instantáneos entre particulares usando solo el número de teléfono. Su éxito ha sido espectacular. En 2025 tenía unos 30,6 millones de usuarios y registró unos 1.237 millones de operaciones por valor de unos 67.700 millones de euros: más de tres millones de operaciones al día de media. Su récord diario llegó el viernes negro, el 28 de noviembre de 2025, con 5,3 millones de operaciones.</p>
+<p>Aun así, el efectivo resiste. Según una encuesta del Banco de España de 2025, el 57 % de los españoles decía usar sobre todo efectivo para sus compras en tiendas físicas, frente a un 27 % que prefería la tarjeta. El efectivo es privado, no necesita batería ni cobertura y ayuda a controlar el gasto. Por eso los bancos centrales defienden que siga existiendo y que se pueda pagar con él.</p>
+<div class="sabias"><b>¿Sabías que...?</b> El 22 de mayo de 2010, el programador estadounidense Laszlo Hanyecz pagó 10.000 bitcoines por dos pizzas. Fue una de las primeras compras de algo físico con esa moneda, y hoy se celebra cada año como el «día de la pizza bitcoin». Con los precios de los años siguientes, aquellas dos pizzas pasaron a valer cientos de millones de dólares.</div>
+<h3>Qué es una criptomoneda</h3>
+<p>En octubre de 2008, en plena crisis financiera, alguien que firmaba como <b>Satoshi Nakamoto</b> publicó en internet un documento de nueve páginas que describía un «sistema de dinero electrónico entre iguales». Lo llamó <b>bitcoin</b>. El 3 de enero de 2009 se creó el primer bloque. Todavía hoy nadie sabe con certeza quién es Nakamoto, ni si era una persona o un grupo.</p>
+<p>La novedad del bitcoin es que no hay banco, ni banco central, ni empresa detrás. El registro de quién tiene cuánto no lo lleva nadie en concreto, sino miles de ordenadores repartidos por el mundo que guardan todos una copia idéntica. Ese registro es la <b>cadena de bloques</b> o <i>blockchain</i>.</p>
+<figure>
+<svg viewBox="0 0 600 270" role="img" aria-label="Esquema de una cadena de bloques: cada bloque contiene pagos y la huella del bloque anterior, de modo que cambiar un bloque antiguo rompe todos los siguientes" font-family="Georgia, serif">
+<g font-size="12" fill="currentColor">
+<rect x="20" y="40" width="160" height="130" rx="8" fill="#b8871b" fill-opacity=".15" stroke="#b8871b" stroke-width="1.5"/>
+<rect x="220" y="40" width="160" height="130" rx="8" fill="#b8871b" fill-opacity=".15" stroke="#b8871b" stroke-width="1.5"/>
+<rect x="420" y="40" width="160" height="130" rx="8" fill="#b8871b" fill-opacity=".15" stroke="#b8871b" stroke-width="1.5"/>
+<text x="100" y="62" text-anchor="middle" font-weight="bold" font-size="13">Bloque 1</text>
+<text x="300" y="62" text-anchor="middle" font-weight="bold" font-size="13">Bloque 2</text>
+<text x="500" y="62" text-anchor="middle" font-weight="bold" font-size="13">Bloque 3</text>
+<text x="32" y="84">A paga 2 a B</text><text x="32" y="100">C paga 1 a D</text>
+<text x="232" y="84">B paga 1 a E</text><text x="232" y="100">D paga 3 a A</text>
+<text x="432" y="84">E paga 1 a C</text><text x="432" y="100">A paga 2 a F</text>
+<rect x="30" y="112" width="140" height="22" rx="4" fill="#3a6fc4" fill-opacity=".18"/><text x="38" y="127">huella: 7F3A…</text>
+<rect x="230" y="112" width="140" height="22" rx="4" fill="#3a6fc4" fill-opacity=".18"/><text x="238" y="127">huella: C91D…</text>
+<rect x="430" y="112" width="140" height="22" rx="4" fill="#3a6fc4" fill-opacity=".18"/><text x="438" y="127">huella: 04BE…</text>
+<text x="232" y="158">anterior: 7F3A…</text>
+<text x="432" y="158">anterior: C91D…</text>
+<text x="32" y="158">anterior: inicio</text>
+</g>
+<path d="M170,123 C196,123 200,153 222,153" stroke="#3a6fc4" stroke-width="2" fill="none"/><path d="M226,153 l-9,-5 v10 z" fill="#3a6fc4"/>
+<path d="M370,123 C396,123 400,153 422,153" stroke="#3a6fc4" stroke-width="2" fill="none"/><path d="M426,153 l-9,-5 v10 z" fill="#3a6fc4"/>
+<g font-size="13" fill="currentColor">
+<text x="20" y="24" font-weight="bold" font-size="14">Una cadena de bloques, simplificada</text>
+<text x="20" y="200">Cada bloque guarda la «huella» del anterior. Si alguien cambia un pago</text>
+<text x="20" y="218">del bloque 1, su huella cambia y ya no coincide con la que guarda el</text>
+<text x="20" y="236">bloque 2, ni la de este con el 3: la trampa salta a la vista y miles</text>
+<text x="20" y="254">de copias en otros ordenadores la rechazan.</text>
+</g>
+</svg>
+<figcaption>La cadena de bloques. Los pagos se agrupan en bloques (en bitcoin, uno cada diez minutos, más o menos), y cada bloque lleva una huella matemática del anterior. Como en la isla de Yap, la propiedad no está en un objeto, sino en un registro que todos comparten y aceptan.</figcaption>
+</figure>
+<div class="fondo"><b>Para entenderlo mejor: huellas y mineros</b>
+Una <b>huella</b>, o <i>hash</i>, es un número que se calcula a partir de un texto con una fórmula matemática. Tiene dos propiedades: el mismo texto da siempre la misma huella, y cambiar una sola letra del texto da una huella completamente distinta. Por eso sirve para detectar cualquier alteración.
+<br><br>
+¿Quién añade los bloques nuevos? En bitcoin, los <b>mineros</b>: ordenadores que compiten por resolver un acertijo matemático que solo se puede resolver probando miles de billones de combinaciones. El primero que lo consigue añade el bloque y recibe bitcoines nuevos como premio. Ese esfuerzo hace carísimo falsificar la cadena, pero también consume enormes cantidades de electricidad, comparable a la de algunos países. El sistema está diseñado para que nunca existan más de 21 millones de bitcoines.</div>
+<h3>Sin euforia y sin miedo</h3>
+<p>¿Es el bitcoin dinero? Según los tres trabajos del capítulo 1, cumple mal. Casi nadie fija sus precios en bitcoines, así que no es unidad de cuenta. Se usa poco para pagar cosas corrientes. Y como depósito de valor es muy inestable: su precio ha caído más de un 70 % varias veces, por ejemplo entre finales de 2021 y finales de 2022, y también ha subido de forma espectacular. Se parece más a un activo especulativo, como el oro o una acción muy arriesgada, que a una moneda. El Salvador lo declaró moneda de curso legal en 2021, pero en 2025 dejó de obligar a aceptarlo.</p>
+<p>Hay miles de criptomonedas más. Algunas, las <b>monedas estables</b>, intentan mantener su valor atado al dólar o al euro con reservas. Muchas otras son proyectos sin valor o directamente estafas. Desde finales de 2024, un reglamento europeo, conocido por sus siglas en inglés MiCA, exige autorización a las empresas que ofrecen criptoactivos en la Unión Europea. Pero los reguladores españoles, el Banco de España y la CNMV, advierten de que son productos complejos, muy volátiles y en los que se puede perder todo el dinero invertido.</p>
+<p>Mientras tanto, el Banco Central Europeo prepara el <b>euro digital</b>: efectivo en forma electrónica, emitido por el propio banco central, que se podría usar desde el móvil en toda la zona euro. No sería una criptomoneda, sino euros de siempre con otro formato. Si se aprueba la ley necesaria, está previsto un periodo de pruebas a partir de la segunda mitad de 2027 y una posible emisión hacia 2029.</p>
+<div class="idea"><b>Idea clave:</b> tarjetas, Bizum y transferencias son formas de mover apuntes entre cuentas bancarias; el efectivo sigue siendo muy usado en España. Las criptomonedas como el bitcoin sustituyen al banco por un registro compartido, la cadena de bloques, pero su precio es tan inestable que hoy funcionan más como apuesta que como dinero.</div>
+
+<h2 id="c13"><small>Capítulo 13</small>Intereses, deudas, estafas y resumen</h2>
+<p>Hemos recorrido cinco mil años de dinero. Queda la parte que nos toca más de cerca: qué pasa con el dinero de cada uno cuando se ahorra, cuando se pide prestado y cuando alguien intenta quitárnoslo. Este capítulo no da consejos de inversión; solo intenta explicar las reglas del juego para que cada cual pueda pensar por sí mismo.</p>
+<h3>El interés, el precio del tiempo</h3>
+<p>El <b>interés</b> es lo que se paga por usar dinero ajeno durante un tiempo. Quien presta renuncia a usar su dinero ahora, corre el riesgo de no recuperarlo y pierde con la inflación; el interés le compensa por las tres cosas. Ya lo vimos en las leyes de Hammurabi, y la Iglesia medieval llegó a condenar el cobro de intereses como usura. Hoy es el motor de todo el sistema: el interés es lo que ganan los ahorradores y lo que pagan quienes piden prestado.</p>
+<p>Hay dos formas de calcularlo. Con el <b>interés simple</b>, solo produce intereses el dinero inicial. Con el <b>interés compuesto</b>, los intereses se suman al capital y producen a su vez nuevos intereses: son intereses de los intereses. La diferencia parece pequeña al principio, pero con el tiempo se vuelve enorme.</p>
+<p>Un ejemplo. Guardamos 1.000 euros al 5 % anual durante 30 años sin tocarlos. Con interés simple, ganamos 50 euros cada año: al final tenemos 1.000 + 30 × 50 = 2.500 euros. Con interés compuesto, el primer año ganamos 50 euros, el segundo 52,50, porque el 5 % se calcula sobre 1.050, el tercero 55,13… Al final tenemos unos <b>4.322 euros</b>, más del triple de lo inicial y casi 1.800 euros más que con el interés simple.</p>
+<figure>
+<svg viewBox="0 0 600 300" role="img" aria-label="Crecimiento de 1000 euros al 5 por ciento durante 30 años, a escala: con interés simple llegan a 2500 euros en línea recta; con interés compuesto, a 4322 euros en una curva que se acelera" font-family="Georgia, serif">
+<text x="20" y="22" font-size="14" font-weight="bold" fill="currentColor">1.000 € al 5 % anual durante 30 años</text>
+<g stroke="currentColor" stroke-opacity=".18"><line x1="70" y1="205.6" x2="575" y2="205.6"/><line x1="70" y1="161.1" x2="575" y2="161.1"/><line x1="70" y1="116.7" x2="575" y2="116.7"/><line x1="70" y1="72.2" x2="575" y2="72.2"/></g>
+<line x1="70" y1="250" x2="575" y2="250" stroke="currentColor" stroke-width="1.2"/>
+<line x1="70" y1="40" x2="70" y2="250" stroke="currentColor"/>
+<g font-size="12" fill="currentColor" text-anchor="end"><text x="64" y="254">0 €</text><text x="64" y="210">1.000</text><text x="64" y="165">2.000</text><text x="64" y="121">3.000</text><text x="64" y="76">4.000</text></g>
+<g font-size="12" fill="currentColor" text-anchor="middle"><text x="70" y="268">0</text><text x="236.7" y="268">10 años</text><text x="403.3" y="268">20 años</text><text x="570" y="268">30</text></g>
+<path d="M70,205.6 L570,138.9" stroke="#3a6fc4" stroke-width="2.5" fill="none" stroke-dasharray="7 4"/>
+<polyline points="70.0,205.6 86.7,203.3 103.3,201.0 120.0,198.5 136.7,196.0 153.3,193.3 170.0,190.4 186.7,187.5 203.3,184.3 220.0,181.1 236.7,177.6 253.3,174.0 270.0,170.2 286.7,166.2 303.3,162.0 320.0,157.6 336.7,153.0 353.3,148.1 370.0,143.0 386.7,137.7 403.3,132.1 420.0,126.2 436.7,120.0 453.3,113.5 470.0,106.7 486.7,99.5 503.3,92.0 520.0,84.1 536.7,75.8 553.3,67.1 570.0,57.9" fill="none" stroke="#2f7d5b" stroke-width="3"/>
+<g fill="#2f7d5b"><circle cx="236.7" cy="177.6" r="4"/><circle cx="403.3" cy="132.1" r="4"/><circle cx="570" cy="57.9" r="4"/></g>
+<g fill="#3a6fc4"><circle cx="570" cy="138.9" r="4"/></g>
+<g font-size="12" fill="currentColor">
+<text x="232" y="166" text-anchor="end">1.629 €</text>
+<text x="398" y="121" text-anchor="end">2.653 €</text>
+<text x="562" y="48" text-anchor="end">compuesto: 4.322 €</text>
+<text x="562" y="168" text-anchor="end">simple: 2.500 €</text>
+</g>
+<text x="20" y="292" font-size="12" fill="currentColor">A escala: 200 px de alto son 4.500 €. En verde, interés compuesto; en azul, simple.</text>
+</svg>
+<figcaption>Interés simple (recta azul) frente a interés compuesto (curva verde), dibujados a escala. Durante los primeros años casi no se distinguen; después, la curva se despega. Es el mismo efecto que hace crecer los ahorros y, al revés, las deudas.</figcaption>
+</figure>
+<div class="fondo"><b>Para entenderlo mejor: la regla del 72</b>
+Hay un truco para calcular de cabeza cuánto tarda algo en duplicarse con interés compuesto: se divide 72 entre el porcentaje anual. Al 5 %, el dinero se duplica en unos 72 ÷ 5 ≈ 14 años. Al 8 %, en unos 9. Al 2 %, en unos 36. La regla sirve igual para la inflación, como vimos en el capítulo 8, y para las deudas: una deuda al 24 % anual que no se paga se duplica en solo tres años. También recuerda algo importante: el ingrediente más poderoso del interés compuesto no es el porcentaje, sino el <b>tiempo</b>.</div>
+<h3>Cuando el interés juega en contra</h3>
+<p>El interés compuesto funciona igual de bien a favor del que presta. Las deudas caras crecen solas. El caso más conocido en España es el de las tarjetas <b>revolving</b>, en las que cada mes se paga una cuota fija y pequeña y el resto de la deuda sigue generando intereses, a menudo por encima del 20 % anual. Imagina una deuda de 3.000 euros al 24 % anual, pagando 60 euros al mes. Casi 54 euros de la primera cuota se van en intereses y solo 6 en reducir la deuda. Se tarda unos once años en saldarla, y en total se pagan unos 7.850 euros.</p>
+<p>En 2020, el Tribunal Supremo declaró <b>usurario</b> un crédito revolving con un interés del 26,82 % anual, aplicando una ley de 1908, la Ley de Represión de la Usura, conocida como Ley Azcárate. Desde entonces, miles de clientes han recuperado dinero en los tribunales. Para comparar préstamos, conviene fijarse en la <b>TAE</b>, la tasa anual equivalente, que incluye intereses y comisiones y permite comparar ofertas distintas con la misma regla.</p>
+<div class="sabias"><b>¿Sabías que...?</b> En 1920, un italiano emigrado a Boston, Charles Ponzi, prometía un 50 % de beneficio en 45 días comprando cupones de respuesta postal en Europa y cambiándolos por sellos en Estados Unidos. En pocos meses atrajo a miles de inversores. Para que el negocio fuera real habrían hecho falta unos 160 millones de cupones, pero solo circulaban unos 27.000. En realidad pagaba a los primeros inversores con el dinero de los siguientes. Desde entonces ese tipo de fraude se llama <b>esquema Ponzi</b>.</div>
+<h3>Cómo reconocer una estafa</h3>
+<p>Los esquemas Ponzi y piramidales se repiten una y otra vez. En España, el caso más grave fue el de <b>Fórum Filatélico y Afinsa</b>, dos empresas que prometían rentabilidades seguras invirtiendo en sellos, y que fueron intervenidas el 9 de mayo de 2006. Afectaron a casi medio millón de personas, con unos 3.700 millones de euros en juego. Hoy las estafas llegan sobre todo por el móvil: mensajes que se hacen pasar por el banco para pedir claves, falsos hijos que escriben desde «un número nuevo» pidiendo dinero urgente, anuncios con caras famosas falsificadas que prometen hacerse rico con criptomonedas.</p>
+<p>Casi todas comparten unas pocas señales:</p>
+<ul>
+  <li><b>Rentabilidad alta y «segura».</b> En finanzas, más rendimiento significa siempre más riesgo. Nadie regala un 20 % sin riesgo cuando los depósitos pagan un 2 %.</li>
+  <li><b>Prisa.</b> «Solo hoy», «últimas plazas», «si no pagas ahora pierdes la cuenta». La prisa sirve para que no pensemos ni preguntemos.</li>
+  <li><b>Secreto.</b> «No se lo digas a tu banco», «no lo comentes con tu familia».</li>
+  <li><b>Claves y códigos.</b> Ningún banco pide por teléfono, mensaje o correo las contraseñas ni los códigos que llegan por SMS.</li>
+  <li><b>Nadie autorizado.</b> Las empresas que ofrecen inversiones en España deben estar registradas en la CNMV o en el Banco de España, y se puede comprobar en sus páginas oficiales.</li>
+</ul>
+<p>Ahorrar un poco de forma regular, entender qué se firma, desconfiar de lo que parece demasiado bueno y evitar las deudas caras no son consejos de inversión, sino las lecciones que se repiten en toda la historia de este libro.</p>
+<h3>Resumen</h3>
+<dl class="fechas">
+  <dt>h. 3000 a.C.</dt><dd>Tablillas de Mesopotamia con cuentas en cebada y plata.</dd>
+  <dt>h. 1753 a.C.</dt><dd>Las leyes de Hammurabi regulan los intereses.</dd>
+  <dt>h. 630 a.C.</dt><dd>Primeras monedas, en Lidia; hacia el 550, Creso separa oro y plata.</dd>
+  <dt>1024</dt><dd>Primeros billetes oficiales, en la China de los Song.</dd>
+  <dt>1401</dt><dd>Se funda la Taula de Canvi de Barcelona.</dd>
+  <dt>1497</dt><dd>Pragmática de Medina del Campo: nace el real de a ocho.</dd>
+  <dt>1545</dt><dd>Descubrimiento del Cerro Rico de Potosí.</dd>
+  <dt>1661</dt><dd>Primeros billetes de un banco europeo, en Estocolmo.</dd>
+  <dt>1782</dt><dd>Banco de San Carlos, antepasado del Banco de España.</dd>
+  <dt>1868</dt><dd>Nace la peseta.</dd>
+  <dt>1923</dt><dd>Hiperinflación en Alemania.</dd>
+  <dt>1944</dt><dd>Conferencia de Bretton Woods.</dd>
+  <dt>1971</dt><dd>15 de agosto: fin de la convertibilidad del dólar en oro.</dd>
+  <dt>2002</dt><dd>Billetes y monedas de euro; la peseta deja de ser de curso legal el 28 de febrero.</dd>
+  <dt>2009</dt><dd>Primer bloque de bitcoin.</dd>
+  <dt>2016</dt><dd>Nace Bizum.</dd>
+</dl>
+<p><b>Resumen en seis frases</b></p>
+<ol>
+  <li>El dinero es cualquier cosa que la gente acepta como pago, y cumple tres trabajos: medio de cambio, unidad de cuenta y depósito de valor.</li>
+  <li>Nació más como registro de deudas que como sustituto del trueque, y ha sido cebada, conchas, piedras, cigarrillos, metal, papel y apuntes electrónicos.</li>
+  <li>El real de a ocho, hecho con plata americana, fue la primera moneda mundial y el modelo del dólar.</li>
+  <li>La mayor parte del dinero actual la crean los bancos al prestar, y los bancos centrales la regulan con los tipos de interés.</li>
+  <li>Cuando el dinero crece mucho más deprisa que lo que se produce, llega la inflación, y si se pierde la confianza, la hiperinflación.</li>
+  <li>Desde 1971 el dinero ya no está atado al oro: vale por la confianza, y el interés compuesto, la inflación y las estafas afectan directamente a cada uno de nosotros.</li>
+</ol>
+<div class="idea"><b>Idea clave:</b> el interés compuesto hace crecer con el tiempo tanto los ahorros como las deudas. Las estafas financieras prometen siempre mucho, rápido y sin riesgo. Y el dinero, de las tablillas de barro al móvil, sigue siendo lo mismo: un registro en el que todos confiamos.</div>
+<p><i>Para pensar:</i> si mañana todo el mundo dejara de creer en el euro, los billetes seguirían siendo los mismos trozos de algodón. ¿Qué es entonces lo que llevamos en la cartera: un objeto, una promesa o un acuerdo entre millones de desconocidos?</p>
+
+</main>
+<script>if ('serviceWorker' in navigator) navigator.serviceWorker.register('../../sw.js').catch(() => {});</script>
+</body>
+</html>
