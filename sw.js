@@ -1,6 +1,6 @@
 // Biblioteca: cada página que abres se guarda en el dispositivo para poder leerla sin conexión.
 // Con conexión siempre se pide la versión nueva a la red, así los libros nuevos aparecen al momento.
-const ALMACEN = 'biblioteca-v1';
+const ALMACEN = 'biblioteca-v2';
 
 const sinConexion = () => new Response(`<!doctype html>
 <html lang="es"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,6 +29,8 @@ self.addEventListener('activate', ev => ev.waitUntil((async () => {
 self.addEventListener('fetch', ev => {
   const pet = ev.request;
   if (pet.method !== 'GET' || new URL(pet.url).origin !== self.location.origin) return;
+  // las descargas (PDF y EPUB) pesan mucho y el navegador ya las guarda donde toca: van directas a la red
+  if (/\.(pdf|epub)$/i.test(new URL(pet.url).pathname)) return;
   ev.respondWith((async () => {
     try {
       const resp = await fetch(pet);

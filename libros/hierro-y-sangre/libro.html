@@ -73,7 +73,22 @@
   .flecha { text-align: center; color: var(--rojo); font-size: .85em; margin: 10px 0; font-style: italic; }
   .volver { display: inline-block; margin: 0 0 16px; font: 15px/1.4 system-ui, sans-serif; color: var(--acento); text-decoration: none; }
   .volver:hover { text-decoration: underline; }
+  .volver { display: inline-block; margin: 0 0 16px; font: 15px/1.4 system-ui, sans-serif; color: var(--acento); text-decoration: none; }
+  .volver:hover { text-decoration: underline; }
+  .descargas { margin: 0 0 24px; font: 15px/1.4 system-ui, sans-serif; color: var(--suave); }
+  .descargas a { display: inline-block; margin: 6px 8px 0 0; padding: 7px 14px; border: 1px solid var(--linea);
+    border-radius: 999px; color: var(--acento); text-decoration: none; background: var(--caja); }
+  .descargas a span { color: var(--suave); font-size: 13px; }
+  .descargas a:hover { border-color: var(--acento); }
 </style>
+<meta name="description" content="En 1850, Italia y Alemania eran un mosaico de estados. Veinte años después eran dos grandes países. Cavour, Garibaldi y Bismarck lo consiguieron con astucia, diplomacia y guerras: los Mil, Sadowa, un telegrama trucado y Sedán. Con mapas de fronteras reales, esquemas y muchas curiosidades.">
+<meta name="theme-color" content="#fbf8f1" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1c1b1a" media="(prefers-color-scheme: dark)">
+<link rel="manifest" href="../../manifest.webmanifest">
+<link rel="icon" href="../../icono.svg" type="image/svg+xml">
+<link rel="icon" href="../../icono-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<meta name="apple-mobile-web-app-title" content="Biblioteca">
 <meta name="description" content="En 1850, Italia y Alemania eran un mosaico de estados. Veinte años después eran dos grandes países. Cavour, Garibaldi y Bismarck lo consiguieron con astucia, diplomacia y guerras: los Mil, Sadowa, un telegrama trucado y Sedán. Con mapas de fronteras reales, esquemas y muchas curiosidades.">
 <meta name="theme-color" content="#fbf8f1" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#1c1b1a" media="(prefers-color-scheme: dark)">
@@ -86,12 +101,14 @@
 <body>
 <main>
 <a class="volver" href="../../index.html">← Biblioteca</a>
+<a class="volver" href="../../index.html">← Biblioteca</a>
 
 <img class="portada" src="portada.svg" alt="Portada: Hierro y sangre">
 <h1>Hierro y sangre</h1>
 <p class="sub">Las unificaciones de Italia y Alemania (1848–1871)</p>
 <p class="serie">Serie «Europa en revolución» · Libro 4 · Viene de <a href="../restauracion-y-revoluciones/libro.html"><i>Restauración y revoluciones</i></a></p>
 
+<p class="descargas">Llévatelo contigo: <a href="hierro-y-sangre.pdf" download>PDF <span>1.6 MB</span></a> <a href="hierro-y-sangre.epub" download>EPUB <span>337 KB</span></a></p>
 <nav class="indice">
   <b>En este libro</b>
   <ol>
@@ -617,7 +634,7 @@ El nacionalismo es la idea de que cada nación, es decir, cada pueblo con una le
 <path d="M80,210 L520,210" stroke="#2f6f4e" stroke-width="2" stroke-dasharray="5 4"/>
 <g transform="translate(540,226)"><rect x="-2" y="-30" width="4" height="30" fill="#5a5f66"/><rect x="2" y="-27" width="7" height="5" fill="#b3261e" stroke="#5a5f66" stroke-width=".5"/><rect x="9" y="-27" width="7" height="5" fill="#f3ede1" stroke="#5a5f66" stroke-width=".5"/><rect x="16" y="-27" width="7" height="5" fill="#b3261e" stroke="#5a5f66" stroke-width=".5"/><rect x="23" y="-27" width="7" height="5" fill="#f3ede1" stroke="#5a5f66" stroke-width=".5"/></g>
 <circle cx="554" cy="240" r="6" fill="#c9a227" stroke="#8a6a12"/>
-<text x="300" y="204" font-size="12" fill="currentColor" text-anchor="middle" fill="#2f6f4e">Unión aduanera alemana (desde 1834)</text>
+<text x="300" y="204" font-size="12" fill="currentColor" text-anchor="middle">Unión aduanera alemana (desde 1834)</text>
 <text x="20" y="270" font-size="12" fill="currentColor" text-anchor="start">Las mercancías circulaban libres entre sus estados. Austria se quedó fuera.</text>
 </svg>
 <figcaption>Antes y después del Zollverein. La unión aduanera acostumbró a los alemanes a comerciar como un solo país, con Prusia al frente.</figcaption>
@@ -666,7 +683,7 @@ A la forma de hacer política de Bismarck se la llama <i>Realpolitik</i>, «pol�
 <text x="100" y="24" font-size="14" fill="currentColor" text-anchor="middle" font-weight="bold">Disparos por minuto</text>
 <text x="300" y="24" font-size="14" fill="currentColor" text-anchor="middle" font-weight="bold">Cómo se recargaba</text>
 <text x="500" y="24" font-size="14" fill="currentColor" text-anchor="middle" font-weight="bold">Trenes hacia el frente</text>
-<text x="20" y="52" font-size="12" fill="currentColor" text-anchor="start" fill="#2a5caa" font-weight="bold">Prusia (fusil de aguja)</text>
+<text x="20" y="52" font-size="12" fill="currentColor" text-anchor="start" font-weight="bold">Prusia (fusil de aguja)</text>
 <path d="M22,60 h10 q6,0 8,4 q-2,4 -8,4 h-10 Z" fill="#2a5caa"/>
 <path d="M50,60 h10 q6,0 8,4 q-2,4 -8,4 h-10 Z" fill="#2a5caa"/>
 <path d="M78,60 h10 q6,0 8,4 q-2,4 -8,4 h-10 Z" fill="#2a5caa"/>
@@ -682,7 +699,7 @@ A la forma de hacer política de Bismarck se la llama <i>Realpolitik</i>, «pol�
 <text x="300" y="100" font-size="12" fill="currentColor" text-anchor="middle">tumbado, a cubierto</text>
 <g transform="translate(298,190)" stroke-linecap="round" fill="none"><path d="M-2,-33 L-2,-12 M-2,-12 L-8,0 M-2,-12 L4,0" stroke="#7a8088" stroke-width="4"/><path d="M-2,-28 L8,-22 L12,-40 M-2,-28 L10,-30" stroke="#7a8088" stroke-width="3"/><path d="M10,-8 L10,-62" stroke="#6b4d2e" stroke-width="3"/><path d="M13,-58 L13,-74" stroke="#9aa0a8" stroke-width="1.6"/><circle cx="-2" cy="-39" r="5.5" fill="#7a8088"/><rect x="-7" y="-52" width="10" height="9" rx="1" fill="#7a8088"/></g>
 <text x="300" y="208" font-size="12" fill="currentColor" text-anchor="middle">de pie, a la vista</text>
-<text x="420" y="52" font-size="12" fill="currentColor" text-anchor="start" fill="#2a5caa" font-weight="bold">Prusia: 5 líneas</text>
+<text x="420" y="52" font-size="12" fill="currentColor" text-anchor="start" font-weight="bold">Prusia: 5 líneas</text>
 <line x1="420" y1="64" x2="580" y2="64" stroke="#2a5caa" stroke-width="2.5"/><line x1="420" y1="61" x2="420" y2="67" stroke="#2a5caa" stroke-width="1.5"/><line x1="429" y1="61" x2="429" y2="67" stroke="#2a5caa" stroke-width="1.5"/><line x1="438" y1="61" x2="438" y2="67" stroke="#2a5caa" stroke-width="1.5"/><line x1="447" y1="61" x2="447" y2="67" stroke="#2a5caa" stroke-width="1.5"/><line x1="456" y1="61" x2="456" y2="67" stroke="#2a5caa" stroke-width="1.5"/><line x1="465" y1="61" x2="465" y2="67" stroke="#2a5caa" stroke-width="1.5"/><line x1="474" y1="61" x2="474" y2="67" stroke="#2a5caa" stroke-width="1.5"/><line x1="483" y1="61" x2="483" y2="67" stroke="#2a5caa" stroke-width="1.5"/><line x1="492" y1="61" x2="492" y2="67" stroke="#2a5caa" stroke-width="1.5"/><line x1="501" y1="61" x2="501" y2="67" stroke="#2a5caa" stroke-width="1.5"/><line x1="510" y1="61" x2="510" y2="67" stroke="#2a5caa" stroke-width="1.5"/><line x1="519" y1="61" x2="519" y2="67" stroke="#2a5caa" stroke-width="1.5"/><line x1="528" y1="61" x2="528" y2="67" stroke="#2a5caa" stroke-width="1.5"/><line x1="537" y1="61" x2="537" y2="67" stroke="#2a5caa" stroke-width="1.5"/><line x1="546" y1="61" x2="546" y2="67" stroke="#2a5caa" stroke-width="1.5"/><line x1="555" y1="61" x2="555" y2="67" stroke="#2a5caa" stroke-width="1.5"/><line x1="564" y1="61" x2="564" y2="67" stroke="#2a5caa" stroke-width="1.5"/><line x1="573" y1="61" x2="573" y2="67" stroke="#2a5caa" stroke-width="1.5"/>
 <line x1="420" y1="74" x2="580" y2="74" stroke="#2a5caa" stroke-width="2.5"/><line x1="420" y1="71" x2="420" y2="77" stroke="#2a5caa" stroke-width="1.5"/><line x1="429" y1="71" x2="429" y2="77" stroke="#2a5caa" stroke-width="1.5"/><line x1="438" y1="71" x2="438" y2="77" stroke="#2a5caa" stroke-width="1.5"/><line x1="447" y1="71" x2="447" y2="77" stroke="#2a5caa" stroke-width="1.5"/><line x1="456" y1="71" x2="456" y2="77" stroke="#2a5caa" stroke-width="1.5"/><line x1="465" y1="71" x2="465" y2="77" stroke="#2a5caa" stroke-width="1.5"/><line x1="474" y1="71" x2="474" y2="77" stroke="#2a5caa" stroke-width="1.5"/><line x1="483" y1="71" x2="483" y2="77" stroke="#2a5caa" stroke-width="1.5"/><line x1="492" y1="71" x2="492" y2="77" stroke="#2a5caa" stroke-width="1.5"/><line x1="501" y1="71" x2="501" y2="77" stroke="#2a5caa" stroke-width="1.5"/><line x1="510" y1="71" x2="510" y2="77" stroke="#2a5caa" stroke-width="1.5"/><line x1="519" y1="71" x2="519" y2="77" stroke="#2a5caa" stroke-width="1.5"/><line x1="528" y1="71" x2="528" y2="77" stroke="#2a5caa" stroke-width="1.5"/><line x1="537" y1="71" x2="537" y2="77" stroke="#2a5caa" stroke-width="1.5"/><line x1="546" y1="71" x2="546" y2="77" stroke="#2a5caa" stroke-width="1.5"/><line x1="555" y1="71" x2="555" y2="77" stroke="#2a5caa" stroke-width="1.5"/><line x1="564" y1="71" x2="564" y2="77" stroke="#2a5caa" stroke-width="1.5"/><line x1="573" y1="71" x2="573" y2="77" stroke="#2a5caa" stroke-width="1.5"/>
 <line x1="420" y1="84" x2="580" y2="84" stroke="#2a5caa" stroke-width="2.5"/><line x1="420" y1="81" x2="420" y2="87" stroke="#2a5caa" stroke-width="1.5"/><line x1="429" y1="81" x2="429" y2="87" stroke="#2a5caa" stroke-width="1.5"/><line x1="438" y1="81" x2="438" y2="87" stroke="#2a5caa" stroke-width="1.5"/><line x1="447" y1="81" x2="447" y2="87" stroke="#2a5caa" stroke-width="1.5"/><line x1="456" y1="81" x2="456" y2="87" stroke="#2a5caa" stroke-width="1.5"/><line x1="465" y1="81" x2="465" y2="87" stroke="#2a5caa" stroke-width="1.5"/><line x1="474" y1="81" x2="474" y2="87" stroke="#2a5caa" stroke-width="1.5"/><line x1="483" y1="81" x2="483" y2="87" stroke="#2a5caa" stroke-width="1.5"/><line x1="492" y1="81" x2="492" y2="87" stroke="#2a5caa" stroke-width="1.5"/><line x1="501" y1="81" x2="501" y2="87" stroke="#2a5caa" stroke-width="1.5"/><line x1="510" y1="81" x2="510" y2="87" stroke="#2a5caa" stroke-width="1.5"/><line x1="519" y1="81" x2="519" y2="87" stroke="#2a5caa" stroke-width="1.5"/><line x1="528" y1="81" x2="528" y2="87" stroke="#2a5caa" stroke-width="1.5"/><line x1="537" y1="81" x2="537" y2="87" stroke="#2a5caa" stroke-width="1.5"/><line x1="546" y1="81" x2="546" y2="87" stroke="#2a5caa" stroke-width="1.5"/><line x1="555" y1="81" x2="555" y2="87" stroke="#2a5caa" stroke-width="1.5"/><line x1="564" y1="81" x2="564" y2="87" stroke="#2a5caa" stroke-width="1.5"/><line x1="573" y1="81" x2="573" y2="87" stroke="#2a5caa" stroke-width="1.5"/>
@@ -751,11 +768,11 @@ Bismarck no inventó nada: el embajador había hecho aquella petición y el rey 
 <g transform="translate(214,58) scale(1)" fill="#7a8088"><ellipse cx="0" cy="0" rx="11" ry="6"/><circle cx="10" cy="-4" r="4.5"/><path d="M13,-4 l5,1.5 -5,1.5 Z" fill="#c9a227"/><path d="M-2,-3 Q-8,-20 -20,-18 Q-12,-8 -6,2 Z" fill="#9aa0a8"/><path d="M-10,0 L-20,4 L-18,-3 Z"/></g>
 <g transform="translate(236,90) scale(0.8)" fill="#7a8088"><ellipse cx="0" cy="0" rx="11" ry="6"/><circle cx="10" cy="-4" r="4.5"/><path d="M13,-4 l5,1.5 -5,1.5 Z" fill="#c9a227"/><path d="M-2,-3 Q-8,-20 -20,-18 Q-12,-8 -6,2 Z" fill="#9aa0a8"/><path d="M-10,0 L-20,4 L-18,-3 Z"/></g>
 <g transform="translate(206,118) scale(0.9)" fill="#7a8088"><ellipse cx="0" cy="0" rx="11" ry="6"/><circle cx="10" cy="-4" r="4.5"/><path d="M13,-4 l5,1.5 -5,1.5 Z" fill="#c9a227"/><path d="M-2,-3 Q-8,-20 -20,-18 Q-12,-8 -6,2 Z" fill="#9aa0a8"/><path d="M-10,0 L-20,4 L-18,-3 Z"/></g>
-<text x="270" y="52" font-size="18" fill="currentColor" text-anchor="start" font-weight="bold" fill="#b3261e">Más de 60 globos</text>
+<text x="270" y="52" font-size="18" fill="currentColor" text-anchor="start" font-weight="bold">Más de 60 globos</text>
 <text x="270" y="72" font-size="12.5" fill="currentColor" text-anchor="start">salieron de la ciudad sitiada; uno llegó hasta Noruega.</text>
-<text x="270" y="110" font-size="18" fill="currentColor" text-anchor="start" font-weight="bold" fill="#b3261e">2,5 millones de cartas</text>
+<text x="270" y="110" font-size="18" fill="currentColor" text-anchor="start" font-weight="bold">2,5 millones de cartas</text>
 <text x="270" y="130" font-size="12.5" fill="currentColor" text-anchor="start">volaron por encima de las líneas alemanas.</text>
-<text x="270" y="168" font-size="18" fill="currentColor" text-anchor="start" font-weight="bold" fill="#b3261e">1 de cada 4 o 5 palomas</text>
+<text x="270" y="168" font-size="18" fill="currentColor" text-anchor="start" font-weight="bold">1 de cada 4 o 5 palomas</text>
 <text x="270" y="188" font-size="12.5" fill="currentColor" text-anchor="start">logró volver a París con mensajes en microfotografías.</text>
 </svg>
 <figcaption>El correo aéreo del asedio de París. Los globos podían salir, pero no volver: para traer noticias a la ciudad sitiada estaban las palomas.</figcaption>
@@ -923,6 +940,7 @@ El Imperio alemán era una federación de 25 estados: cuatro reinos (Prusia, Bav
 <p class="serie" style="margin-top:32px">Libro anterior de la serie: <a href="../restauracion-y-revoluciones/libro.html"><i>Restauración y revoluciones</i></a>. La serie «Europa en revolución» continuará.</p>
 
 </main>
+<script>if ('serviceWorker' in navigator) navigator.serviceWorker.register('../../sw.js').catch(() => {});</script>
 <script>if ('serviceWorker' in navigator) navigator.serviceWorker.register('../../sw.js').catch(() => {});</script>
 </body>
 </html>
