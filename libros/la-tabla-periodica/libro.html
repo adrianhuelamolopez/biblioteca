@@ -2614,6 +2614,108 @@
 <p><i>Para pensar:</i> Mendeléyev se atrevió a dejar huecos en su tabla y a decir que algunos datos estaban mal medidos, y acertó. ¿Cuándo tiene sentido fiarse de una teoría que funciona bien aunque algunos datos parezcan contradecirla, y cuándo hay que dar la razón a los datos y cambiar la teoría?</p>
 
 </main>
+<!-- Marcapáginas: construir_web.py y publicar_libro.py lo añaden al final de cada libro, cambiando la-tabla-periodica por el id del libro.
+     Guarda en el propio dispositivo (localStorage, clave «biblioteca:progreso») por dónde va la lectura y, al volver a abrir
+     el libro sin un #capítulo en la dirección, lo lleva a ese punto. La estantería lee la misma clave para «Seguir leyendo». -->
+<style>
+  .marcapaginas { position: fixed; left: 50%; bottom: 16px; z-index: 10; translate: -50% 0; display: flex; align-items: center;
+    gap: 4px 12px; flex-wrap: wrap; justify-content: center; width: max-content; max-width: calc(100vw - 32px);
+    padding: 10px 16px; border-radius: 14px; border: 1px solid var(--linea); background: var(--caja); color: var(--tinta);
+    font: 15px/1.35 system-ui, -apple-system, "Segoe UI", sans-serif; box-shadow: 0 8px 24px rgba(0, 0, 0, .22);
+    transition: opacity .3s ease, translate .3s ease; }
+  .marcapaginas[hidden] { display: none; }
+  .marcapaginas.fuera { opacity: 0; translate: -50% 12px; pointer-events: none; }
+  .marcapaginas button { font: inherit; color: var(--acento); background: none; border: 0; padding: 4px 2px; cursor: pointer;
+    text-decoration: underline; text-underline-offset: 3px; }
+  .marcapaginas button:focus-visible { outline: 2px solid var(--acento); outline-offset: 2px; border-radius: 3px; }
+  @media (prefers-reduced-motion: reduce) { .marcapaginas { transition: none; } }
+</style>
+<div class="marcapaginas fuera" id="marcapaginas" role="status" hidden></div>
+<script>
+(() => {
+  const ID = 'la-tabla-periodica', CLAVE = 'biblioteca:progreso';
+  const main = document.querySelector('main');
+  if (!main) return;
+  const lee = () => { try { return JSON.parse(localStorage.getItem(CLAVE)) || {}; } catch (e) { return {}; } };
+  const escribe = datos => { try { localStorage.setItem(CLAVE, JSON.stringify(datos)); } catch (e) {} };
+  const bloques = () => [...main.children].filter(el => el.offsetHeight > 0);
+
+  // Dónde está el lector: el bloque que corta la parte alta de la pantalla y cuánto lleva de él.
+  // Se guarda así (y no en píxeles) para que funcione aunque cambie el tamaño de la pantalla o de la letra.
+  function posicion() {
+    const tope = 80, lista = bloques();
+    let i = lista.findIndex(el => el.getBoundingClientRect().bottom > tope);
+    if (i < 0) i = lista.length - 1;
+    const r = lista[i].getBoundingClientRect();
+    const dentro = Math.min(1, Math.max(0, (tope - r.top) / (r.height || 1)));
+    const max = document.documentElement.scrollHeight - innerHeight;
+    const pct = max > 0 ? Math.min(1, scrollY / max) : 1;
+    let cap = null;
+    for (const h of main.querySelectorAll('h2[id]')) {
+      if (h.getBoundingClientRect().top > tope + 4) break;
+      const peq = h.querySelector('small');
+      const titulo = [...h.childNodes].filter(n => n !== peq).map(n => n.textContent).join('').trim();
+      cap = { id: h.id, num: peq ? peq.textContent.trim() : '', titulo };
+    }
+    return { i: [...main.children].indexOf(lista[i]), dentro, pct, cap };
+  }
+
+  function guarda() {
+    const p = posicion(), datos = lee(), antes = datos[ID] || {};
+    const terminado = antes.terminado || p.pct >= 0.98;
+    datos[ID] = { i: p.i, dentro: +p.dentro.toFixed(4), pct: +p.pct.toFixed(4), cap: p.cap, t: Date.now(), terminado,
+                  titulo: document.querySelector('h1')?.textContent.trim() || ID };
+    // releer un libro terminado desde el principio no le quita la marca de «leído», pero sí la posición
+    escribe(datos);
+  }
+
+  function lleva(g) {
+    const el = main.children[g.i];
+    if (!el) return;
+    const y = el.getBoundingClientRect().top + scrollY + g.dentro * el.offsetHeight - 80;
+    scrollTo(0, Math.max(0, y));
+  }
+
+  const aviso = document.getElementById('marcapaginas');
+  function avisa(g) {
+    const donde = g.cap ? (g.cap.num ? g.cap.num + ': ' : '') + g.cap.titulo : Math.round(g.pct * 100) + ' % del libro';
+    aviso.textContent = 'Sigues donde lo dejaste · ' + donde + ' ';
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.textContent = 'Ir al principio';
+    b.addEventListener('click', () => { scrollTo(0, 0); oculta(); });
+    aviso.append(b);
+    aviso.hidden = false;
+    requestAnimationFrame(() => requestAnimationFrame(() => aviso.classList.remove('fuera')));
+    setTimeout(oculta, 8000);
+  }
+  function oculta() { aviso.classList.add('fuera'); setTimeout(() => { aviso.hidden = true; }, 350); }
+
+  const g = lee()[ID];
+  // Se retoma si no se llega con un #capítulo en la dirección y la lectura estaba empezada y sin acabar.
+  const retoma = g && !location.hash && g.pct > 0.01 && g.pct < 0.98 && typeof g.i === 'number';
+  let tocado = false;
+  if (retoma) {
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    lleva(g);
+    // las imágenes que terminan de cargar pueden mover el texto: se recoloca una vez más si el lector no se ha movido
+    addEventListener('load', () => { if (!tocado) lleva(g); }, { once: true });
+    avisa(g);
+  }
+  for (const ev of ['wheel', 'touchstart', 'keydown', 'mousedown'])
+    addEventListener(ev, () => { tocado = true; }, { once: true, passive: true });
+
+  let espera = null;
+  addEventListener('scroll', () => {
+    if (!tocado && retoma) return;  // aún colocando la página: no pisar la marca
+    clearTimeout(espera);
+    espera = setTimeout(guarda, 400);
+  }, { passive: true });
+  addEventListener('pagehide', () => { if (tocado || !retoma) guarda(); });
+  document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden' && (tocado || !retoma)) guarda(); });
+  if (!retoma) setTimeout(guarda, 1500);  // así el libro cuenta como abierto aunque no se mueva
+})();
+</script>
 <script>if ('serviceWorker' in navigator) navigator.serviceWorker.register('../../sw.js').catch(() => {});</script>
 </body>
 </html>
